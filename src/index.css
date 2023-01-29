@@ -51,3 +51,45 @@ code {
 :root {
   --navbar-height: 50px;
 }
+
+/* custom button */
+.default-button {
+  text-decoration: none;
+  padding: 1rem 2rem;
+  background-color: #405cf5;
+  border-radius: 6px;
+  font-size: 1.25rem;
+  box-shadow: rgba(50, 50, 93, 0.1) 0 0 0 1px inset,
+    rgba(50, 50, 93, 0.1) 0 2px 5px 0, rgba(0, 0, 0, 0.07) 0 1px 1px 0;
+
+  color: #fff;
+  cursor: pointer;
+
+  border: none;
+  outline: none;
+
+  display: inline-block;
+  position: relative;
+  text-align: center;
+
+  transition: all 0.2s, box-shadow 0.08s ease-in;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.default-button:disabled {
+  cursor: default;
+}
+
+.default-button:focus {
+  box-shadow: rgba(50, 50, 93, 0.1) 0 0 0 1px inset,
+    rgba(50, 50, 93, 0.2) 0 6px 15px 0, rgba(0, 0, 0, 0.1) 0 2px 2px 0,
+    rgba(50, 151, 211, 0.3) 0 0 0 4px;
+}
+
+/* input required * css */
+.required {
+  color: red;
+  margin-left: 2px;
+}

@@ -55,7 +55,7 @@ function Login() {
           <div className={styles.loginSignUp}>
             <span className={styles.signUpText}>
               Not a member?
-              <Link to="register">SignUp Now</Link>
+              <Link to="/register">SignUp Now</Link>
             </span>
           </div>
         </div>
