@@ -14,7 +14,7 @@ function Login() {
           <span className={styles.title}>Login</span>
           <form action="#">
             <div className={styles.inputField}>
-              <input type="text" placeholder="Enter your email" required />
+              <input type="email" placeholder="Enter your email" required />
               <BiEnvelope className={styles.icon} />
             </div>
             <div className={styles.inputField}>

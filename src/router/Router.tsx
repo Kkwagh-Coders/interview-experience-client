@@ -11,7 +11,6 @@ function Router() {
       <Route path="/login" element={<Login />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
-   
   );
 }
 
