@@ -1,6 +1,6 @@
 .Login {
-  height: 100vh;
-  height: 100dvh;
+  min-height: 100vh;
+  min-height: 100dvh;
 
   display: flex;
   align-items: center;
@@ -46,7 +46,6 @@
 }
 
 .inputField {
-  background-color: red;
   position: relative;
   height: 50px;
   width: 100%;

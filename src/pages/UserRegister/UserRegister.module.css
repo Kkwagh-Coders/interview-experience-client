@@ -1,0 +1,90 @@
+.UserRegister {
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: 2rem;
+
+  background-color: #4070f4;
+}
+
+.container {
+  position: relative;
+  max-width: 700px;
+  width: 100%;
+  background: #fff;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  margin-inline: auto;
+}
+
+.container header {
+  font-size: 1.5rem;
+  color: #333;
+  font-weight: 500;
+  text-align: center;
+}
+
+.column {
+  display: flex;
+  column-gap: 15px;
+}
+
+.inputField {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.inputField label {
+  color: #333;
+}
+.form :where(.inputField input) {
+  position: relative;
+  height: 50px;
+  width: 100%;
+  outline: none;
+  font-size: 1rem;
+  color: #707070;
+  margin-top: 8px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 0 15px;
+}
+
+.inputField input:focus {
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+}
+
+.registerButton {
+  height: 55px;
+  width: 100%;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 400;
+  margin-top: 30px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background-color: #4070f4;
+}
+.registerButton:hover {
+  background-color: #265df2;
+}
+
+@media screen and (max-width: 480px) {
+  .UserRegister {
+    padding: 0;
+  }
+
+  .container {
+    max-width: 100%;
+    border-radius: 0;
+  }
+
+  .container header {
+    font-size: 1.2rem;
+  }
+
+  .column {
+    flex-direction: column;
+  }
+}
