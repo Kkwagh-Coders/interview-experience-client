@@ -65,8 +65,12 @@
   transition: all 0.2s ease;
 }
 
-.inputField > input:is(:focus, :valid) {
+.inputField > input:where(:focus, :valid) {
   border-bottom-color: #4070f4;
+}
+
+.inputFieldError > input {
+  border-bottom-color: red;
 }
 
 .icon {

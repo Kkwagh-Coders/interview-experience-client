@@ -13,7 +13,7 @@ function Login() {
     initialValues: {
       password: '',
       email: '',
-      logCheck: '',
+      remember: [],
     },
 
     validationSchema: Yup.object({
@@ -22,12 +22,13 @@ function Login() {
         .required('Email is Required'),
       password: Yup.string()
         .max(20, 'Password must be 20 characters of less')
-        .required(),
-      logCheck: Yup.array(),
+        .required('Password is Required'),
+      remember: Yup.array(),
     }),
 
     onSubmit: (values) => {
-      console.log(values);
+      const rememberUser = values.remember.length > 0;
+      console.log(rememberUser);
     },
   });
 
@@ -37,7 +38,13 @@ function Login() {
         <div className={`${styles.form} ${styles.login}`}>
           <span className={styles.title}>Login</span>
           <form action="#" onSubmit={formik.handleSubmit}>
-            <div className={styles.inputField}>
+            <div
+              className={`${styles.inputField} ${
+                formik.touched.email && formik.errors.email
+                  ? styles.inputFieldError
+                  : ''
+              }`}
+            >
               <input
                 type="email"
                 placeholder="Enter your email"
@@ -48,7 +55,13 @@ function Login() {
               />
               <BiEnvelope className={styles.icon} />
             </div>
-            <div className={styles.inputField}>
+            <div
+              className={`${styles.inputField} ${
+                formik.touched.password && formik.errors.password
+                  ? styles.inputFieldError
+                  : ''
+              }`}
+            >
               <input
                 type={showPassword ? 'text' : 'password'}
                 className={styles.password}
@@ -73,12 +86,12 @@ function Login() {
             </div>
             <div className={styles.checkboxText}>
               <div className={styles.checkboxContent}>
-                <label htmlFor="logCheck" className={styles.text}>
+                <label htmlFor="remember" className={styles.text}>
                   <input
                     type="checkbox"
-                    id="logCheck"
-                    name="logCheck"
-                    value={formik.values.logCheck}
+                    id="remember"
+                    name="remember"
+                    value="checked"
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                   />
