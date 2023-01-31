@@ -1,10 +1,27 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styles from './NotFound.module.css';
 
 function NotFound() {
   return (
     <div className={styles.NotFound}>
-      <h1>Not Found</h1>
+      <div className={styles.wrapper}>
+        <h1 className={styles.title}>Hmm.</h1>
+        <p>
+          It seems that you re lost in a perpetual black hole. Let us help guide
+          you out and get you back home.
+        </p>
+        <div className={styles.buttons}>
+          <Link to="..">back</Link>
+          <Link to="/">Home</Link>
+          <br />
+          <span>Help me out</span>
+        </div>
+      </div>
+      <div className={styles.space}>
+        <div className={styles.blackhole}> </div>
+        <div className={styles.ship}> </div>
+      </div>
     </div>
   );
 }
