@@ -1,8 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import styles from './NotFound.module.css';
 
 function NotFound() {
+  const navigate = useNavigate();
+
   return (
     <div className={styles.NotFound}>
       <div className={styles.wrapper}>
@@ -12,8 +14,16 @@ function NotFound() {
           you out and get you back home.
         </p>
         <div className={styles.buttons}>
-          <Link to="..">back</Link>
-          <Link to="/">Home</Link>
+          <button
+            type="button"
+            className={styles.linkBtn}
+            onClick={() => navigate(-1)}
+          >
+            back
+          </button>
+          <Link className={styles.linkBtn} to="/">
+            Home
+          </Link>
           <br />
           <span>Help me out</span>
         </div>

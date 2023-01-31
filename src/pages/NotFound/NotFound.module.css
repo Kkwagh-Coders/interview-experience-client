@@ -37,8 +37,8 @@
   letter-spacing: 1.5px;
   text-align: center;
 }
-.NotFound a {
-  display: inline-block;
+
+.linkBtn {
   padding: 0.8em 1em;
   margin-right: 1em;
   margin-bottom: 1em;
@@ -52,14 +52,23 @@
   position: relative;
   overflow: hidden;
   transition: 0.3s;
+
+  background-color: transparent;
 }
-.NotFound a:hover {
+
+a.linkBtn {
+  display: inline-flex;
+}
+
+.linkBtn:hover {
   color: #e3f2fd;
 }
-.NotFound a:hover:before {
+
+.linkBtn:hover:before {
   top: 0;
 }
-.NotFound a:before {
+
+.linkBtn:before {
   content: '';
   background: #138ff2;
   height: 100%;
@@ -79,6 +88,7 @@
   margin: calc(50vh - 37.5px) auto 0 auto;
   position: relative;
   pointer-events: none;
+  transform: translateZ(0);
   -webkit-transform: translateZ(0);
 }
 .blackhole {
