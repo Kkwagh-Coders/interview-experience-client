@@ -3,9 +3,8 @@ import { useFormik } from 'formik';
 import toast from 'react-hot-toast';
 import * as Yup from 'yup';
 
-import registerUser from '../../services/registerUser';
 import { User } from '../../types/user.types';
-
+import { registerUser } from '../../services/user.services';
 import styles from './UserRegister.module.css';
 
 interface IUserRegisterFormValue extends User {
