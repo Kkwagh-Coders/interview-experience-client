@@ -8,9 +8,9 @@ function Router() {
   return (
     <Routes>
       <Route index element={<Home />} />
-      <Route path="/register" element={<UserRegister />} />
       <Route path="/" element={<Home />} />
       <Route path="/login" element={<Login />} />
+      <Route path="/register" element={<UserRegister />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );
