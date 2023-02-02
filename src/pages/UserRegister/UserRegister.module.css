@@ -80,6 +80,10 @@
   background-color: #265df2;
 }
 
+.registerButton:disabled {
+  background-color: gray;
+}
+
 @media screen and (max-width: 480px) {
   .UserRegister {
     padding: 0;

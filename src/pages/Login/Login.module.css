@@ -98,7 +98,7 @@
 .form .checkboxText {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   margin-top: 1rem;
 }
 
@@ -157,6 +157,10 @@
 
 .button input:hover {
   background-color: #265df2;
+}
+
+.button input:disabled {
+  background-color: grey;
 }
 
 .form .loginSignUp {

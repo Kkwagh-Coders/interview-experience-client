@@ -1,12 +1,18 @@
-import { User } from '../types/user.types';
-import fakeRequest from './fakeRequest';
+import axios from 'axios';
+import { UserStateData } from '../types/user.types';
+import { BASE_API_URL } from './serverConfig';
 
-export const registerUser = (user: User) => {
-  const response = { message: 'User Success' };
-  return fakeRequest(user, response, true);
+export const registerUser = (user: UserStateData) => {
+  const url = `${BASE_API_URL}/user/register`;
+  return axios
+    .post<{ message: string }>(url, user, { withCredentials: true })
+    .then((response) => response.data);
 };
 
 export const loginUser = (email: string, password: string) => {
-  const response = { message: 'User LoggedIn' };
-  return fakeRequest({ email, password }, response, true);
+  const url = `${BASE_API_URL}/user/login`;
+  const user = { email, password };
+  return axios
+    .post<{ message: string }>(url, user, { withCredentials: true })
+    .then((response) => response.data);
 };

@@ -1,19 +1,50 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useMutation } from '@tanstack/react-query';
+import { useFormik } from 'formik';
+import { useState } from 'react';
+import { toast } from 'react-hot-toast';
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
 import { BiEnvelope, BiLockAlt } from 'react-icons/bi';
+import { Link, useNavigate } from 'react-router-dom';
 import * as Yup from 'yup';
-import { useFormik } from 'formik';
+import { loginUser } from '../../services/user.services';
 import styles from './Login.module.css';
 
+interface SuccessResponse {
+  message: string;
+}
+
+interface ErrorResponse<T> {
+  response: { data: T };
+}
+
+interface IUserLoginForm {
+  password: string;
+  email: string;
+}
+
 function Login() {
+  const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
+
+  // prettier-ignore
+  const { mutate, isLoading } = useMutation<
+  SuccessResponse,
+  ErrorResponse<{ message: string }>,
+  IUserLoginForm
+  >({
+    mutationFn: (user) => loginUser(user.email, user.password),
+    onError: (error) => {
+      toast.error(error.response.data.message);
+    },
+    onSuccess: () => {
+      navigate('/');
+    },
+  });
 
   const formik = useFormik({
     initialValues: {
       password: '',
       email: '',
-      remember: [],
     },
 
     validationSchema: Yup.object({
@@ -23,13 +54,8 @@ function Login() {
       password: Yup.string()
         .max(20, 'Password must be 20 characters of less')
         .required('Password is Required'),
-      remember: Yup.array(),
     }),
-
-    onSubmit: (values) => {
-      const rememberUser = values.remember.length > 0;
-      console.log(rememberUser);
-    },
+    onSubmit: (values) => mutate(values),
   });
 
   return (
@@ -85,25 +111,12 @@ function Login() {
               )}
             </div>
             <div className={styles.checkboxText}>
-              <div className={styles.checkboxContent}>
-                <label htmlFor="remember" className={styles.text}>
-                  <input
-                    type="checkbox"
-                    id="remember"
-                    name="remember"
-                    value="checked"
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                  />
-                  Remember me
-                </label>
-              </div>
               <Link to="/" className={styles.forgotPassword}>
                 Forgot password?
               </Link>
             </div>
             <div className={`${styles.inputField} ${styles.button}`}>
-              <input type="submit" defaultValue="Login" />
+              <input type="submit" defaultValue="Login" disabled={isLoading} />
             </div>
           </form>
           <div className={styles.loginSignUp}>

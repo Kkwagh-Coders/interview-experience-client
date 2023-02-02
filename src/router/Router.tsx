@@ -1,10 +1,17 @@
 import { Route, Routes } from 'react-router-dom';
+import useUserStatus from '../hooks/useUserStatus';
 import Home from '../pages/Home/Home';
 import Login from '../pages/Login/Login';
 import NotFound from '../pages/NotFound/NotFound';
 import UserRegister from '../pages/UserRegister/UserRegister';
 
 function Router() {
+  const isLoading = useUserStatus();
+
+  if (isLoading) {
+    return <p>Loading...</p>;
+  }
+
   return (
     <Routes>
       <Route index element={<Home />} />

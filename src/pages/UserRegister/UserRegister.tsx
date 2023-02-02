@@ -11,18 +11,31 @@ interface IUserRegisterFormValue extends User {
   confirmPassword: string;
 }
 
+interface SuccessResponse {
+  message: string;
+}
+
+interface ErrorResponse<T> {
+  response: { data: T };
+}
+
 function UserRegister() {
-  const registerMutation = useMutation({
+  // prettier-ignore
+  const { mutate, isLoading } = useMutation<
+  SuccessResponse,
+  ErrorResponse<{ message: string }>,
+  IUserRegisterFormValue
+  >({
     mutationFn: (user: User) => registerUser(user),
-    onError: () => {
-      toast.error('User is already registered');
+    onError: (error) => {
+      toast.error(error.response.data.message);
     },
-    onSuccess: () => {
-      toast.success('User registered');
+    onSuccess: (data) => {
+      toast.success(data.message);
     },
   });
 
-  const initialValues: IUserRegisterFormValue = {
+  const initialValues = {
     username: '',
     email: '',
     password: '',
@@ -63,7 +76,7 @@ function UserRegister() {
       linkedin: Yup.string().url('Invalid linkedin url'),
       leetcode: Yup.string().url('Invalid leetcode url'),
     }),
-    onSubmit: (values) => registerMutation.mutate(values),
+    onSubmit: (values) => mutate(values),
   });
 
   return (
@@ -321,6 +334,7 @@ function UserRegister() {
             type="submit"
             value="Register"
             className={styles.registerButton}
+            disabled={isLoading}
           />
         </form>
       </div>
