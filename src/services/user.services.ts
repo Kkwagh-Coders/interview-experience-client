@@ -16,3 +16,8 @@ export const loginUser = (email: string, password: string) => {
     .post<{ message: string }>(url, user, { withCredentials: true })
     .then((response) => response.data);
 };
+
+export const logoutUser = () => {
+  const url = `${BASE_API_URL}/user/logout`;
+  return axios.post(url, {}, { withCredentials: true });
+};

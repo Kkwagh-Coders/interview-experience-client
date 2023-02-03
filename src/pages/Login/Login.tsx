@@ -1,4 +1,4 @@
-import { useMutation } from '@tanstack/react-query';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useFormik } from 'formik';
 import { useState } from 'react';
 import { toast } from 'react-hot-toast';
@@ -24,6 +24,7 @@ interface IUserLoginForm {
 
 function Login() {
   const navigate = useNavigate();
+  const queryClient = useQueryClient();
   const [showPassword, setShowPassword] = useState(false);
 
   // prettier-ignore
@@ -37,6 +38,7 @@ function Login() {
       toast.error(error.response.data.message);
     },
     onSuccess: () => {
+      queryClient.invalidateQueries(['user-status']);
       navigate('/');
     },
   });

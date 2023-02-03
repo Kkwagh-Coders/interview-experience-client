@@ -1,16 +1,18 @@
 import { Route, Routes } from 'react-router-dom';
 import useUserStatus from '../hooks/useUserStatus';
+import Error from '../pages/Error/Error';
 import Home from '../pages/Home/Home';
+import Loading from '../pages/Loading/Loading';
 import Login from '../pages/Login/Login';
 import NotFound from '../pages/NotFound/NotFound';
 import UserRegister from '../pages/UserRegister/UserRegister';
 
 function Router() {
-  const isLoading = useUserStatus();
+  const { isLoading, isError } = useUserStatus();
 
-  if (isLoading) {
-    return <p>Loading...</p>;
-  }
+  if (isLoading) return <Loading />;
+
+  if (isError) return <Error />;
 
   return (
     <Routes>
