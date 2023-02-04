@@ -35,8 +35,6 @@ export const resetUserPassword = (
   newPassword: string,
   token: string,
 ) => {
-  console.log('hi this is suhaan');
-
   const url = `${BASE_API_URL}/user/reset-password/${token}`;
   const body = { email, newPassword };
   return axios
