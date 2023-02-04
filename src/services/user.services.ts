@@ -19,5 +19,27 @@ export const loginUser = (email: string, password: string) => {
 
 export const logoutUser = () => {
   const url = `${BASE_API_URL}/user/logout`;
-  return axios.post(url, {}, { withCredentials: true });
+  return axios.post<{ message: string }>(url, {}, { withCredentials: true });
+};
+
+export const sendForgotPasswordMail = (email: string) => {
+  const url = `${BASE_API_URL}/user/forgot-password`;
+  const body = { email };
+  return axios
+    .post<{ message: string }>(url, body, { withCredentials: true })
+    .then((response) => response.data);
+};
+
+export const resetUserPassword = (
+  email: string,
+  newPassword: string,
+  token: string,
+) => {
+  console.log('hi this is suhaan');
+
+  const url = `${BASE_API_URL}/user/reset-password/${token}`;
+  const body = { email, newPassword };
+  return axios
+    .post<{ message: string }>(url, body, { withCredentials: true })
+    .then((response) => response.data);
 };

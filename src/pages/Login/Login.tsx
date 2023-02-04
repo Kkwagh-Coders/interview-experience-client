@@ -124,16 +124,16 @@ function Login() {
               >
                 Forgot password?
               </button>
-              {modalOpen && (
-                <ForgetPasswordModal
-                  closeModalCallback={() => setModalOpen(false)}
-                />
-              )}
             </div>
             <div className={`${styles.inputField} ${styles.button}`}>
               <input type="submit" defaultValue="Login" disabled={isLoading} />
             </div>
           </form>
+          {modalOpen && (
+            <ForgetPasswordModal
+              closeModalCallback={() => setModalOpen(false)}
+            />
+          )}
           <div className={styles.loginSignUp}>
             <span className={styles.signUpText}>
               Not a member?
