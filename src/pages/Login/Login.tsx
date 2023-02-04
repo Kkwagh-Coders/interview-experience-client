@@ -1,29 +1,105 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { useFormik } from 'formik';
+import { useState } from 'react';
+import { toast } from 'react-hot-toast';
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
 import { BiEnvelope, BiLockAlt } from 'react-icons/bi';
-import styles from './Login.module.css';
+import { Link, useNavigate } from 'react-router-dom';
+import * as Yup from 'yup';
 import ForgetPasswordModal from '../../components/ForgetPasswordModal/ForgetPasswordModal';
+import { loginUser } from '../../services/user.services';
+import styles from './Login.module.css';
+
+interface SuccessResponse {
+  message: string;
+}
+
+interface ErrorResponse<T> {
+  response: { data: T };
+}
+
+interface IUserLoginForm {
+  password: string;
+  email: string;
+}
 
 function Login() {
+  const queryClient = useQueryClient();
+  const navigate = useNavigate();
+
   const [showPassword, setShowPassword] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
+
+  // prettier-ignore
+  const { mutate, isLoading } = useMutation<
+  SuccessResponse,
+  ErrorResponse<{ message: string }>,
+  IUserLoginForm
+  >({
+    mutationFn: (user) => loginUser(user.email, user.password),
+    onError: (error) => {
+      toast.error(error.response.data.message);
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries(['user-status']);
+      navigate('/');
+    },
+  });
+
+  const formik = useFormik({
+    initialValues: {
+      password: '',
+      email: '',
+    },
+    validationSchema: Yup.object({
+      email: Yup.string()
+        .email('Invalid Email Address')
+        .required('Email is Required'),
+      password: Yup.string()
+        .max(20, 'Password must be 20 characters of less')
+        .required('Password is Required'),
+    }),
+    onSubmit: (values) => mutate(values),
+  });
+
   return (
     <div className={styles.Login}>
       <div className={styles.container}>
         <div className={`${styles.form} ${styles.login}`}>
           <span className={styles.title}>Login</span>
-          <form action="#">
-            <div className={styles.inputField}>
-              <input type="email" placeholder="Enter your email" required />
+          <form onSubmit={formik.handleSubmit}>
+            <div
+              className={`${styles.inputField} ${
+                formik.touched.email && formik.errors.email
+                  ? styles.inputFieldError
+                  : ''
+              }`}
+            >
+              <input
+                type="email"
+                placeholder="Enter your email"
+                name="email"
+                value={formik.values.email}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+              />
               <BiEnvelope className={styles.icon} />
             </div>
-            <div className={styles.inputField}>
+            <div
+              className={`${styles.inputField} ${
+                formik.touched.password && formik.errors.password
+                  ? styles.inputFieldError
+                  : ''
+              }`}
+            >
               <input
                 type={showPassword ? 'text' : 'password'}
                 className={styles.password}
                 placeholder="Enter your password"
-                required
+                name="password"
+                value={formik.values.password}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
               />
               <BiLockAlt className={styles.icon} />
               {showPassword ? (
@@ -55,7 +131,7 @@ function Login() {
               )}
             </div>
             <div className={`${styles.inputField} ${styles.button}`}>
-              <input type="button" defaultValue="Login" />
+              <input type="submit" defaultValue="Login" disabled={isLoading} />
             </div>
           </form>
           <div className={styles.loginSignUp}>
