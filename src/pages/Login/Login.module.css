@@ -131,8 +131,12 @@
 
 .forgotPassword,
 .signUpText > a {
+  padding-left: 5px;
   color: #4070f4;
   text-decoration: none;
+  border: none;
+  outline: none;
+  background-color: transparent;
 }
 .forgotPassword:hover,
 .signUpText > a:hover {

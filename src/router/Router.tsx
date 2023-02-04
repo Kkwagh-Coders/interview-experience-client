@@ -5,6 +5,7 @@ import Home from '../pages/Home/Home';
 import Loading from '../pages/Loading/Loading';
 import Login from '../pages/Login/Login';
 import NotFound from '../pages/NotFound/NotFound';
+import ResetPassword from '../pages/ResetPassword/ResetPassword';
 import UserRegister from '../pages/UserRegister/UserRegister';
 
 function Router() {
@@ -20,6 +21,7 @@ function Router() {
       <Route path="/" element={<Home />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<UserRegister />} />
+      <Route path="/reset-password" element={<ResetPassword />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );
