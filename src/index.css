@@ -93,3 +93,8 @@ code {
   color: red;
   margin-left: 2px;
 }
+
+/* For bold text */
+.bold-text {
+  font-weight: bold;
+}

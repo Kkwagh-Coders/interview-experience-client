@@ -18,8 +18,9 @@ function Error() {
 
         <h1 className={styles.mainTitle}>An error has occurred</h1>
         <p className={styles.mainDescription}>
-          Server is currently under high load - please hit &apos reload &apos on
-          your browser in a minute to try again
+          Server is currently under high load - please hit
+          <span className="bold-text"> Reload </span>
+          on your browser in a minute to try again
         </p>
       </div>
     </div>
