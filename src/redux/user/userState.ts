@@ -1,15 +1,15 @@
 /* eslint-disable no-param-reassign */
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { Admin } from '../../types/admin.types';
-import { User } from '../../types/user.types';
+import { AdminStateData } from '../../types/admin.types';
+import { UserStateData } from '../../types/user.types';
 
 export interface UserState {
   isLoading: boolean;
   isLoggedIn: boolean;
   isAdmin: boolean;
 
-  admin: Admin | null;
-  user: User | null;
+  admin: AdminStateData | null;
+  user: UserStateData | null;
 }
 
 const initialState: UserState = {
@@ -25,14 +25,14 @@ export const UserSlice = createSlice({
   initialState,
 
   reducers: {
-    loginAdmin: (state, action: PayloadAction<{ admin: Admin }>) => {
+    loginAdmin: (state, action: PayloadAction<{ admin: AdminStateData }>) => {
       state.isLoading = false;
       state.isLoggedIn = true;
       state.isAdmin = true;
       state.admin = action.payload.admin;
     },
 
-    loginUser: (state, action: PayloadAction<{ user: User }>) => {
+    loginUser: (state, action: PayloadAction<{ user: UserStateData }>) => {
       state.isLoading = false;
 
       state.isLoggedIn = true;

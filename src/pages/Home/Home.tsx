@@ -1,10 +1,20 @@
 import { Link } from 'react-router-dom';
 import styles from './Home.module.css';
+import { useAppSelector } from '../../redux/store';
+import LogoutButton from '../../components/LogoutButton/LogoutButton';
 
 function Home() {
-  return (
-    <div className={styles.Home}>
-      <h1>Home Page</h1>
+  const userState = useAppSelector((state) => state.userState);
+
+  let authButtons = null;
+  if (userState.isLoggedIn) {
+    authButtons = (
+      <div className={styles.container}>
+        <LogoutButton className="default-button">Logout</LogoutButton>
+      </div>
+    );
+  } else {
+    authButtons = (
       <div className={styles.container}>
         <Link to="/login" className="default-button">
           Login
@@ -13,6 +23,13 @@ function Home() {
           Register
         </Link>
       </div>
+    );
+  }
+
+  return (
+    <div className={styles.Home}>
+      <h1>Home Page</h1>
+      {authButtons}
     </div>
   );
 }

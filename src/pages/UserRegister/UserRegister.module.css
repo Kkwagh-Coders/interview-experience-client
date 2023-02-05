@@ -37,7 +37,8 @@
 .inputField label {
   color: #333;
 }
-.form :where(.inputField input) {
+
+.form :where(.inputField input, .inputField textarea) {
   position: relative;
   height: 50px;
   width: 100%;
@@ -50,8 +51,17 @@
   padding: 0 15px;
 }
 
+.inputField textarea {
+  height: 200px;
+  resize: vertical;
+}
+
 .inputField input:focus {
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+}
+
+.form .inputFieldError input {
+  border-color: red;
 }
 
 .registerButton {
@@ -68,6 +78,10 @@
 }
 .registerButton:hover {
   background-color: #265df2;
+}
+
+.registerButton:disabled {
+  background-color: gray;
 }
 
 @media screen and (max-width: 480px) {

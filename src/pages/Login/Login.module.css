@@ -65,8 +65,12 @@
   transition: all 0.2s ease;
 }
 
-.inputField > input:is(:focus, :valid) {
+.inputField > input:where(:focus, :valid) {
   border-bottom-color: #4070f4;
+}
+
+.inputFieldError > input {
+  border-bottom-color: red;
 }
 
 .icon {
@@ -94,7 +98,7 @@
 .form .checkboxText {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   margin-top: 1rem;
 }
 
@@ -127,8 +131,12 @@
 
 .forgotPassword,
 .signUpText > a {
+  padding-left: 5px;
   color: #4070f4;
   text-decoration: none;
+  border: none;
+  outline: none;
+  background-color: transparent;
 }
 .forgotPassword:hover,
 .signUpText > a:hover {
@@ -153,6 +161,10 @@
 
 .button input:hover {
   background-color: #265df2;
+}
+
+.button input:disabled {
+  background-color: grey;
 }
 
 .form .loginSignUp {
