@@ -1,9 +1,62 @@
 .Error {
+  overflow: hidden;
+}
+.Error {
+  position: relative;
+  background: #d4dfe6;
+  min-height: 100vh;
+  min-height: 100dvh;
   width: 100%;
-  height: 100dvh;
-  height: 100vh;
-
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  color: #274c5e;
+}
+.container {
+  text-align: center;
+  position: relative;
+}
+.mainTitle {
+  display: block;
+  font-size: 2rem;
+  font-weight: lighter;
+  text-align: center;
+}
+.mainDescription {
+  max-width: 50%;
+  font-size: 1.2rem;
+  font-weight: lighter;
+  margin-inline: auto;
+}
+.mainGraphic {
+  position: relative;
+}
+.cog {
+  width: 12rem;
+  height: 12rem;
+  fill: #6aafe6;
+  transition: easeInOutQuint();
+  animation: CogAnimation 5s infinite;
+}
+
+.errorCode {
+  position: absolute;
+  fill: #30a9de;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+@keyframes CogAnimation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .mainDescription {
+    max-width: 90%;
+  }
 }
