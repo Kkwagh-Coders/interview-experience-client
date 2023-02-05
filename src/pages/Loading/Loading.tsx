@@ -1,9 +1,36 @@
 import styles from './Loading.module.css';
 
+// Page from:
 function Loading() {
   return (
     <div className={styles.Loading}>
-      <h1>Loading...</h1>
+      <div className={styles.boxes}>
+        <div className={styles.box}>
+          <div> </div>
+          <div> </div>
+          <div> </div>
+          <div> </div>
+        </div>
+        <div className={styles.box}>
+          <div> </div>
+          <div> </div>
+          <div> </div>
+          <div> </div>
+        </div>
+        <div className={styles.box}>
+          <div> </div>
+          <div> </div>
+          <div> </div>
+          <div> </div>
+        </div>
+        <div className={styles.box}>
+          <div> </div>
+          <div> </div>
+          <div> </div>
+          <div> </div>
+        </div>
+      </div>
+      <h2 className={styles.loadingText}>Getting everything ready...</h2>
     </div>
   );
 }
