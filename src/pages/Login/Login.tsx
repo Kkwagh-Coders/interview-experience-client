@@ -126,7 +126,7 @@ function Login() {
               </button>
             </div>
             <div className={`${styles.inputField} ${styles.button}`}>
-              <input type="submit" defaultValue="Login" disabled={isLoading} />
+              <input type="submit" value="Login" disabled={isLoading} />
             </div>
           </form>
           {modalOpen && (
