@@ -3,7 +3,7 @@
   min-height: 100dvh;
   padding: 2rem;
 
-  background-color: #4070f4;
+  background-color: rgb(var(--accent-color));
 }
 
 .container {
@@ -13,7 +13,7 @@
   background: #fff;
   padding: 25px;
   border-radius: 8px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--box-shadow);
   margin-inline: auto;
 }
 
@@ -74,10 +74,10 @@
   border: none;
   cursor: pointer;
   transition: all 0.2s ease;
-  background-color: #4070f4;
+  background-color: rgb(var(--accent-color));
 }
 .registerButton:hover {
-  background-color: #265df2;
+  background-color: rgb(var(--accent-color-dark));
 }
 
 .registerButton:disabled {

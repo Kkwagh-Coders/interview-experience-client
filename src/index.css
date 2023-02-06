@@ -2,6 +2,19 @@
 
 /* Root styles */
 :root {
+  /* 
+    --accent-color: 64, 112, 244;
+    --accent-color-dark: 38, 93, 242; 
+  */
+
+  --accent-color: 117, 76, 255;
+  --accent-color-dark: 62, 45, 178;
+
+  --white-color: 255, 255, 255;
+  --light-color: 248, 249, 254;
+  --dark-color: 12, 20, 37;
+
+  --box-shadow: 0 12px 24px 2px rgb(129 146 179 / 8%);
   --navbar-height: 50px;
 }
 
@@ -83,11 +96,10 @@ code {
 .default-button {
   text-decoration: none;
   padding: 1rem 2rem;
-  background-color: #405cf5;
+  background-color: rgb(var(--accent-color));
   border-radius: 6px;
   font-size: 1.25rem;
-  box-shadow: rgba(50, 50, 93, 0.1) 0 0 0 1px inset,
-    rgba(50, 50, 93, 0.1) 0 2px 5px 0, rgba(0, 0, 0, 0.07) 0 1px 1px 0;
+  box-shadow: var(--box-shadow);
 
   color: #fff;
   cursor: pointer;
@@ -110,6 +122,7 @@ code {
 }
 
 .default-button:focus {
+  background-color: rgb(var(--accent-color-dark));
   box-shadow: rgba(50, 50, 93, 0.1) 0 0 0 1px inset,
     rgba(50, 50, 93, 0.2) 0 6px 15px 0, rgba(0, 0, 0, 0.1) 0 2px 2px 0,
     rgba(50, 151, 211, 0.3) 0 0 0 4px;
@@ -124,4 +137,24 @@ code {
 /* For bold text */
 .bold-text {
   font-weight: bold;
+}
+
+/* Container Style */
+.container {
+  padding-inline: 2em;
+  margin-inline: auto;
+  max-width: 80rem;
+}
+
+/* For readability we are using visually hidden */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
