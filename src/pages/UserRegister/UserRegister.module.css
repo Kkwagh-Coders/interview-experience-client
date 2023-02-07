@@ -83,7 +83,23 @@
 .registerButton:disabled {
   background-color: gray;
 }
+.loginSignUp {
+  margin-top: 30px;
+  text-align: center;
+}
 
+.signUpText {
+  color: #333;
+  font-size: 14px;
+}
+.signUpText > a {
+  padding-left: 5px;
+  color: rgb(var(--accent-color));
+  text-decoration: none;
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
 @media screen and (max-width: 480px) {
   .UserRegister {
     padding: 0;
