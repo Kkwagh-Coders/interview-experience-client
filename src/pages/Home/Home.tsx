@@ -9,9 +9,15 @@ function Home() {
   let authButtons = null;
   if (userState.isLoggedIn) {
     authButtons = (
-      <div className={styles.container}>
-        <LogoutButton className="default-button">Logout</LogoutButton>
-      </div>
+      <>
+        <h2>
+          Role:
+          {userState.user?.isAdmin ? 'Admin' : 'User'}
+        </h2>
+        <div className={styles.container}>
+          <LogoutButton className="default-button">Logout</LogoutButton>
+        </div>
+      </>
     );
   } else {
     authButtons = (

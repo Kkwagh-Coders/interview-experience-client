@@ -1,6 +1,13 @@
 import axios from 'axios';
-import { UserStateData } from '../types/user.types';
+import { UserReduxState, UserStateData } from '../types/user.types';
 import { BASE_API_URL } from './serverConfig';
+
+export const getUserStatus = () => {
+  const url = `${BASE_API_URL}/user/status`;
+  return axios
+    .get<UserReduxState>(url, { withCredentials: true })
+    .then((response) => response.data);
+};
 
 export const registerUser = (user: UserStateData) => {
   const url = `${BASE_API_URL}/user/register`;

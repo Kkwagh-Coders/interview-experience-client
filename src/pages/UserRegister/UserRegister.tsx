@@ -77,7 +77,7 @@ function UserRegister() {
       linkedin: Yup.string().url('Invalid linkedin url'),
       leetcode: Yup.string().url('Invalid leetcode url'),
     }),
-    onSubmit: (values) => mutate(values),
+    onSubmit: (values) => mutate({ ...values, isAdmin: false }),
   });
 
   return (
