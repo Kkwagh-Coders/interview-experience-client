@@ -1,6 +1,7 @@
 import { useMutation } from '@tanstack/react-query';
 import { useFormik } from 'formik';
 import toast from 'react-hot-toast';
+import { Link } from 'react-router-dom';
 import * as Yup from 'yup';
 
 import { User } from '../../types/user.types';
@@ -337,6 +338,12 @@ function UserRegister() {
             disabled={isLoading}
           />
         </form>
+        <div className={styles.loginSignUp}>
+          <span className={styles.signUpText}>
+            Already have an Account ?
+            <Link to="/login">Log in</Link>
+          </span>
+        </div>
       </div>
     </div>
   );
