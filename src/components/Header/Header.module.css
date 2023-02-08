@@ -1,0 +1,169 @@
+.Header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10000;
+
+  width: 100%;
+  background-color: #fff;
+
+  box-shadow: var(--box-shadow);
+}
+
+.Header a {
+  text-decoration: none;
+}
+
+.heading {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: rgb(var(--dark-color));
+  text-transform: uppercase;
+}
+
+.navWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-block: 1rem;
+}
+
+.mobileNavToggle {
+  display: none;
+}
+
+.navOverlay {
+  display: none;
+}
+
+.backdrop {
+  display: none;
+}
+
+.primaryNavigation {
+  display: flex;
+}
+
+.navList {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.navItem {
+  position: relative;
+  border: none;
+  outline: none;
+  padding: 0;
+  margin: 0;
+  background-color: transparent;
+}
+
+.navItem > a {
+  color: rgb(var(--dark-color));
+}
+
+.navItem::after {
+  content: '';
+
+  width: 0%;
+  height: 2px;
+
+  display: block;
+  margin-inline: auto;
+
+  transition: 0.25s ease;
+  background-color: rgb(var(--accent-color));
+}
+
+.navItem:hover::after,
+.navItem:focus::after {
+  width: 100%;
+}
+
+.buttons {
+  display: flex;
+  gap: 1rem;
+  margin-left: 1rem;
+}
+
+.Header .authButton {
+  padding: 0.25rem 1rem;
+  font-size: 1rem;
+}
+
+.itemDropDown {
+  background-color: red;
+}
+
+@media (max-width: 800px) {
+  .primaryNavigation {
+    width: min(65%, 400px);
+
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: -100%;
+
+    background-color: rgb(var(--bg-white));
+    transition: all 0.5s ease-in-out;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 15vh 2rem;
+  }
+
+  .container.navWrapper {
+    padding-inline: 1rem;
+  }
+
+  .navWrapper {
+    padding-block: 0;
+  }
+
+  .primaryNavigationOpen {
+    left: 0;
+  }
+
+  .navList {
+    margin-bottom: 1.5rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+  }
+
+  .navList > li {
+    list-style: none;
+    margin-bottom: 1rem;
+  }
+
+  .buttons {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    gap: 1rem;
+  }
+
+  .mobileNavToggle {
+    display: block;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    padding: 0.5em;
+    font-size: 1.5rem;
+  }
+
+  .backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+
+    pointer-events: none;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .backdropOpen {
+    background-color: rgba(0, 0, 0, 0.15);
+  }
+}
