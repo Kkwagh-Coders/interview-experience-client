@@ -1,5 +1,6 @@
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { AiOutlineCaretDown } from 'react-icons/ai';
+import useOutsideAlerter from '../../hooks/useOutsideAlerter';
 import styles from './DropDown.module.css';
 
 type Props = {
@@ -11,32 +12,17 @@ type Props = {
 function DropDown({ titleText, children, className }: Props) {
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
 
-  // To Detect if the user has clicked on other than drop down, if yes we close it
-  const wrapperRef = useRef<HTMLDivElement>(null);
-
-  // The useEffect is used to handle the closing of the drop down
-  useEffect(() => {
-    // Attribution: https://stackoverflow.com/questions/32553158/detect-click-outside-react-component
-    const handleClickOutside = (event: MouseEvent) => {
-      if (!event.target) return;
-
-      const target = event.target as HTMLDivElement;
-      if (wrapperRef.current && !wrapperRef.current.contains(target)) {
-        setIsDropDownOpen(false);
-      }
-    };
-
-    // Bind the event listener
-    document.addEventListener('mousedown', handleClickOutside);
-
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, [wrapperRef]);
+  const handleCloseDropDown = () => {
+    setIsDropDownOpen(false);
+  };
 
   const handleToggleDropDown = () => {
     setIsDropDownOpen((state) => !state);
   };
+
+  // To Detect if the user has clicked on other than drop down, if yes we close it
+  const wrapperRef = useRef<HTMLDivElement>(null);
+  useOutsideAlerter(wrapperRef, handleCloseDropDown);
 
   return (
     <div className={styles.dropDown} ref={wrapperRef}>

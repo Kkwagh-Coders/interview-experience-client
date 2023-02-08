@@ -1,10 +1,11 @@
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { MdOutlineClose } from 'react-icons/md';
 import { RxHamburgerMenu } from 'react-icons/rx';
 import { Link } from 'react-router-dom';
 import { useAppSelector } from '../../redux/store';
 import DropDown from '../DropDown/DropDown';
 import LogoutButton from '../LogoutButton/LogoutButton';
+import useOutsideAlerter from '../../hooks/useOutsideAlerter';
 import styles from './Header.module.css';
 
 function Header() {
@@ -12,23 +13,14 @@ function Header() {
   const userName = useAppSelector((state) => state.userState.user?.username);
 
   const [isNavOpen, setIsNavOpen] = useState(false);
+
+  const handleCloseNavbar = () => {
+    setIsNavOpen(false);
+  };
+
+  // Navbar
   const navigationRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      const target = event.target as HTMLDivElement;
-      if (navigationRef.current && !navigationRef.current.contains(target)) {
-        setIsNavOpen(false);
-      }
-    };
-
-    // Bind the event listener
-    document.addEventListener('mousedown', handleClickOutside);
-
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, []);
+  useOutsideAlerter(navigationRef, handleCloseNavbar);
 
   const toggleNav = () => {
     setIsNavOpen((state) => !state);
