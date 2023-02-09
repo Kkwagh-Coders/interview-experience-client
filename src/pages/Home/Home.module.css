@@ -170,6 +170,11 @@
   box-shadow: var(--box-shadow);
 }
 
+.interviewPost:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 10px hsl(0deg 0% 0% / 10%);
+}
+
 .postDomain {
   display: inline-block;
   padding: 0.25rem 0.5rem;
@@ -180,6 +185,12 @@
 
 .postTitle {
   margin-bottom: 0.5rem;
+}
+
+.postTitle:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
 }
 
 .postDescription {
@@ -225,7 +236,7 @@
 }
 
 .profileImage {
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 .member img {
@@ -238,6 +249,12 @@
 
 .member > p {
   color: rgb(var(--text-color-light));
+}
+
+.teamContainer h3:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
 }
 
 @media (min-width: 550px) {
