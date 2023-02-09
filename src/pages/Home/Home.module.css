@@ -90,6 +90,7 @@
 
 /* Facility Section */
 .facilities {
+  scroll-margin-top: 3rem;
   padding-block: 1rem;
 }
 
@@ -151,6 +152,7 @@
 
 /* posts section */
 .posts {
+  scroll-margin-top: 3rem;
   margin-inline: auto;
   padding-block: 2rem;
   background-color: rgb(var(--bg-light));

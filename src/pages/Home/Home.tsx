@@ -1,6 +1,5 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Navigation } from 'swiper';
-import { useAppSelector } from '../../redux/store';
 import insightIcon from '../../assets/svg/images/home/insight.png';
 import personImage from '../../assets/svg/images/home/person.jpg';
 
@@ -13,13 +12,6 @@ import './slider.css';
 import styles from './Home.module.css';
 
 function Home() {
-  const userState = useAppSelector((state) => state.userState);
-
-  let userRole = 'Not Logged In';
-  if (userState.isLoggedIn) {
-    userRole = userState.user?.isAdmin ? 'Admin' : 'User';
-  }
-
   return (
     <div className={styles.Home}>
       <section className={styles.hero}>
@@ -51,7 +43,7 @@ function Home() {
         </div>
       </section>
 
-      <section className={styles.facilities}>
+      <section className={styles.facilities} id="aim">
         <div className="container">
           <h2>
             <span>Be Prepared for your Next interview</span>
@@ -84,7 +76,7 @@ function Home() {
         </div>
       </section>
 
-      <section className={styles.posts}>
+      <section className={styles.posts} id="recentPosts">
         <div className="container">
           <h2>
             <span>Top </span>
@@ -322,13 +314,6 @@ function Home() {
       <section>
         <div className="container">Footer</div>
       </section>
-
-      <h2>
-        Role:
-        {userRole}
-      </h2>
-
-      <section id="aim">this is mey</section>
     </div>
   );
 }
