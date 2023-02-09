@@ -14,6 +14,9 @@
   --light-color: 248, 249, 254;
   --dark-color: 12, 20, 37;
 
+  --bg-white: 255, 255, 255;
+  --bg-light: 247, 247, 247;
+
   --box-shadow: 0 12px 24px 2px rgb(129 146 179 / 8%);
   --navbar-height: 50px;
 }
@@ -47,6 +50,10 @@ select {
 button,
 a {
   cursor: pointer;
+}
+
+li[role='list'] {
+  list-style: none;
 }
 
 /* Set core root defaults */
@@ -117,15 +124,25 @@ code {
   touch-action: manipulation;
 }
 
+.default-outline-button {
+  color: rgb(var(--accent-color));
+  background-color: transparent;
+  border: 1px solid rgb(var(--accent-color));
+}
+
 .default-button:disabled {
   cursor: default;
 }
 
-.default-button:focus {
+.default-button:focus,
+.default-button:hover {
   background-color: rgb(var(--accent-color-dark));
-  box-shadow: rgba(50, 50, 93, 0.1) 0 0 0 1px inset,
-    rgba(50, 50, 93, 0.2) 0 6px 15px 0, rgba(0, 0, 0, 0.1) 0 2px 2px 0,
-    rgba(50, 151, 211, 0.3) 0 0 0 4px;
+}
+
+.default-outline-button:focus,
+.default-outline-button:hover {
+  color: rgb(var(--white-color));
+  background-color: rgb(var(--accent-color));
 }
 
 /* input required * css */

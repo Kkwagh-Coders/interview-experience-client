@@ -1,5 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import useUserStatus from '../hooks/useUserStatus';
+import DefaultLayout from '../pages/DefaultLayout';
 import Error from '../pages/Error/Error';
 import Home from '../pages/Home/Home';
 import Loading from '../pages/Loading/Loading';
@@ -18,11 +19,13 @@ function Router() {
 
   return (
     <Routes>
-      <Route index element={<Home />} />
-      <Route path="/" element={<Home />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/register" element={<UserRegister />} />
-      <Route path="/reset-password/:token" element={<ResetPassword />} />
+      <Route element={<DefaultLayout />}>
+        <Route index element={<Home />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<UserRegister />} />
+        <Route path="/reset-password/:token" element={<ResetPassword />} />
+      </Route>
       <Route path="*" element={<NotFound />} />
       <Route path="/post" element={<PostList />} />
     </Routes>

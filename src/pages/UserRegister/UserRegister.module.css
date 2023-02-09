@@ -7,6 +7,8 @@
 }
 
 .container {
+  margin-top: 4rem;
+
   position: relative;
   max-width: 700px;
   width: 100%;
@@ -106,12 +108,26 @@
   }
 
   .container {
+    margin-top: 3rem;
     max-width: 100%;
     border-radius: 0;
   }
 
   .container header {
+    position: relative;
+    text-align: left;
     font-size: 1.2rem;
+  }
+
+  .container header::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 3rem;
+    background-color: rgb(var(--accent-color));
+    border-radius: 25px;
   }
 
   .column {
