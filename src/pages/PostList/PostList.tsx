@@ -12,7 +12,7 @@ function PostList() {
         <div className={styles.searchBar} />
       </div>
       <div className={styles.browseByCompany}>
-        <h2> Browse Reviews By Company </h2>
+        <h2> Top Reviews </h2>
       </div>
       <div className={styles.byLocation}>
         <div className={styles.block}> Top Post 1 </div>
