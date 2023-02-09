@@ -85,23 +85,26 @@ function Header() {
           <div className={styles.buttons}>
             {!isLoggedIn ? (
               <>
-                <a
-                  href="/login"
+                <Link
+                  to="/login"
                   className={`default-button default-outline-button ${styles.authButton}`}
                 >
                   Login
-                </a>
-                <a
-                  href="/register"
+                </Link>
+                <Link
+                  to="/register"
                   className={`default-button ${styles.authButton}`}
                 >
                   Register
-                </a>
+                </Link>
               </>
             ) : (
-              <a href="/post" className={`default-button ${styles.authButton}`}>
+              <Link
+                to="/post"
+                className={`default-button ${styles.authButton}`}
+              >
                 Create Post
-              </a>
+              </Link>
             )}
           </div>
         </nav>
