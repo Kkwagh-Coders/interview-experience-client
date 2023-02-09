@@ -314,6 +314,12 @@ function Home() {
       <section>
         <div className="container">Footer</div>
       </section>
+
+      <section className={styles.copyRight}>
+        <div className="container">
+          <p>© Copyright 2023 Interview Experience</p>
+        </div>
+      </section>
     </div>
   );
 }

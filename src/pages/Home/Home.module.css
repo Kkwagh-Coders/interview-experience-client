@@ -220,7 +220,7 @@
 /* Team */
 .team {
   padding-block: 1rem;
-  background-image: linear-gradient(270deg, #fff5fb, #f5efff);
+  background-image: linear-gradient(270deg, #dae4ff, #dae4ff);
 }
 
 .team h2 {
@@ -343,4 +343,14 @@
   .attribution > div {
     padding-inline: 2rem;
   }
+}
+
+/* Copy Right */
+.copyRight {
+  border-top: 1px solid hsl(214, 32%, 91%);
+}
+
+.copyRight p {
+  padding-block: 0.5rem;
+  text-align: center;
 }
