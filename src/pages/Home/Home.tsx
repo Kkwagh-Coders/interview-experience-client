@@ -1,4 +1,6 @@
 import { useAppSelector } from '../../redux/store';
+import insightIcon from '../../assets/svg/images/home/insight.png';
+import personImage from '../../assets/svg/images/home/person.jpg';
 import styles from './Home.module.css';
 
 function Home() {
@@ -15,7 +17,7 @@ function Home() {
         <div className="container">
           <h1 className={styles.title}>
             <span>A Friendly Tool to</span>
-            <span>Crack Interview</span>
+            <span className={styles.underlineSpan}>Crack Interview</span>
           </h1>
           <p>
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolores
@@ -39,6 +41,158 @@ function Home() {
           </div>
         </div>
       </section>
+
+      <section className={styles.facilities}>
+        <div className="container">
+          <h2>
+            <span>Be Prepared for your Next interview</span>
+            <span className={styles.underlineSpan}>
+              with Interview Experience
+            </span>
+          </h2>
+          <div className={styles.facilitiesContainer}>
+            <div className={styles.facility}>
+              <img src={insightIcon} alt="" />
+              <h3>Insights</h3>
+              <p>Get insights of interview with the post!!</p>
+            </div>
+            <div className={styles.facility}>
+              <img src={insightIcon} alt="" />
+              <h3>Insights</h3>
+              <p>Get insights of interview with the post!!</p>
+            </div>
+            <div className={styles.facility}>
+              <img src={insightIcon} alt="" />
+              <h3>Insights</h3>
+              <p>Get insights of interview with the post!!</p>
+            </div>
+            <div className={styles.facility}>
+              <img src={insightIcon} alt="" />
+              <h3>Insights</h3>
+              <p>Get insights of interview with the post!!</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className={styles.posts}>
+        <div className="container">
+          <h2>
+            <span>Top </span>
+            <span className={styles.underlineSpan}>Interview Experiences</span>
+          </h2>
+
+          <div className={styles.postsContainer}>
+            <div className={styles.interviewPost}>
+              <span className={styles.postDomain}>Experience</span>
+              <h3 className={styles.postTitle}>My FinIQ Experience</h3>
+              <p className={styles.postDescription}>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugiat
+                pariatur, quibusdam iusto officiis aliquam reprehenderit
+                tenetur...
+              </p>
+              <p className={styles.postAuthor}>Rama works</p>
+              <div className={styles.postMoreDetail}>
+                <span>Feb 9, 2022</span>
+                <span>51 Likes</span>
+              </div>
+            </div>
+            <div className={styles.interviewPost}>
+              <span className={styles.postDomain}>Experience</span>
+              <h3 className={styles.postTitle}>My FinIQ Experience</h3>
+              <p className={styles.postDescription}>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugiat
+                pariatur, quibusdam iusto officiis aliquam reprehenderit
+                tenetur...
+              </p>
+              <p className={styles.postAuthor}>Rama works</p>
+              <div className={styles.postMoreDetail}>
+                <span>Feb 9, 2022</span>
+                <span>51 Likes</span>
+              </div>
+            </div>
+            <div className={styles.interviewPost}>
+              <span className={styles.postDomain}>Experience</span>
+              <h3 className={styles.postTitle}>My FinIQ Experience</h3>
+              <p className={styles.postDescription}>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugiat
+                pariatur, quibusdam iusto officiis aliquam reprehenderit
+                tenetur...
+              </p>
+              <p className={styles.postAuthor}>Rama works</p>
+              <div className={styles.postMoreDetail}>
+                <span>Feb 9, 2022</span>
+                <span>51 Likes</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className={styles.team}>
+        <div className="container">
+          <div className={styles.teamContainer}>
+            <h2>
+              <span className={styles.underlineSpan}>Our Team</span>
+            </h2>
+            <div className={styles.memberContainer}>
+              <div className={styles.member}>
+                <div className={styles.profileImage}>
+                  <img src={personImage} alt="Suhaan Bhandary" />
+                </div>
+                <h3>Suhaan Bhandary</h3>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Alias officiis dolore a officia. Expedita id animi accusantium
+                  earum
+                </p>
+              </div>
+              <div className={styles.member}>
+                <div className={styles.profileImage}>
+                  <img src={personImage} alt="Dhruv Chavda" />
+                </div>
+                <h3>Dhruv Chavda</h3>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Alias officiis dolore a officia. Expedita id animi accusantium
+                  earum
+                </p>
+              </div>
+              <div className={styles.member}>
+                <div className={styles.profileImage}>
+                  <img src={personImage} alt="Aniket" />
+                </div>
+                <h3>Pro Coder Aniket</h3>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Alias officiis dolore a officia. Expedita id animi accusantium
+                  earum
+                </p>
+              </div>
+              <div className={styles.member}>
+                <div className={styles.profileImage}>
+                  <img src={personImage} alt="Vinay Chopda" />
+                </div>
+                <h3>Vinay Chopda</h3>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Alias officiis dolore a officia. Expedita id animi accusantium
+                  earum
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div className="container">Attribution from uses</div>
+      </section>
+
+      <section>
+        <div className="container">Footer</div>
+      </section>
+
       <h2>
         Role:
         {userRole}

@@ -12,6 +12,21 @@
   gap: 20px;
 }
 
+.underlineSpan {
+  margin-inline: auto;
+  position: relative;
+  width: fit-content;
+}
+
+.underlineSpan::before {
+  content: '';
+  position: absolute;
+  bottom: 0.1rem;
+  width: 100%;
+  height: 1rem;
+  background-color: rgb(var(--accent-color), 0.1);
+}
+
 /* Hero Section CSS */
 .hero {
   text-align: center;
@@ -30,15 +45,6 @@
   margin-inline: auto;
   display: block;
   width: fit-content;
-}
-
-.title > span:last-child::before {
-  content: '';
-  position: absolute;
-  bottom: 0.1rem;
-  width: 100%;
-  height: 1rem;
-  background-color: rgb(var(--accent-color), 0.1);
 }
 
 .hero p {
@@ -79,5 +85,188 @@
 
   .aimButton {
     margin-left: 2rem;
+  }
+}
+
+/* Facility Section */
+.facilities {
+  padding-block: 1rem;
+}
+
+.facilities h2 {
+  font-size: 1rem;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.facilities h2 > span {
+  display: block;
+}
+
+.facility {
+  padding: 1rem;
+  border: 1px solid #ebf0f6;
+  margin-bottom: 2rem;
+}
+
+.facility > img {
+  max-width: 4rem;
+  min-width: 4rem;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 600px) {
+  .facilities {
+    padding-top: 4rem;
+    padding-bottom: 6rem;
+  }
+
+  .facilities h2 {
+    font-size: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .facilitiesContainer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .facility {
+    margin-bottom: 0;
+  }
+}
+
+@media (min-width: 900px) {
+  .facilitiesContainer {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+  }
+
+  .facility {
+    margin-bottom: 0;
+  }
+}
+
+/* posts section */
+.posts {
+  margin-inline: auto;
+  padding-block: 2rem;
+  background-color: rgb(var(--bg-light));
+}
+
+.posts h2 {
+  font-size: 1.3rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.interviewPost {
+  background-color: rgb(var(--bg-white));
+  padding: 1rem;
+  border-radius: 5px;
+  margin-bottom: 2rem;
+  box-shadow: var(--box-shadow);
+}
+
+.postDomain {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+  background-color: rgb(var(--accent-color), 0.2);
+}
+
+.postTitle {
+  margin-bottom: 0.5rem;
+}
+
+.postDescription {
+  color: rgb(var(--text-color-light));
+  margin-bottom: 1rem;
+}
+
+.postAuthor {
+  font-weight: 500;
+}
+
+.postMoreDetail > span {
+  color: rgb(var(--text-color-light));
+  margin-right: 1rem;
+  font-weight: 200;
+}
+
+@media (min-width: 600px) {
+  .posts h2 {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+  }
+}
+
+/* Team */
+.team {
+  padding-block: 1rem;
+  background-image: linear-gradient(270deg, #fff5fb, #f5efff);
+}
+
+.team h2 {
+  font-size: 1.7rem;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.member {
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+  box-shadow: var(--box-shadow);
+  background-color: rgb(var(--bg-white));
+}
+
+.profileImage {
+  margin-bottom: 1rem;
+}
+
+.member img {
+  width: 100%;
+  height: 10rem;
+  border-radius: 5px;
+  object-position: top;
+  object-fit: cover;
+}
+
+.member > p {
+  color: rgb(var(--text-color-light));
+}
+
+@media (min-width: 550px) {
+  .team {
+    padding-block: 2rem 5rem;
+  }
+
+  .team h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .memberContainer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .member {
+    margin-bottom: 0;
+  }
+}
+
+@media (min-width: 850px) {
+  .memberContainer {
+    gap: 2rem;
+  }
+
+  .member img {
+    height: 15rem;
   }
 }
