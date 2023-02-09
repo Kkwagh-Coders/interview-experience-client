@@ -1,6 +1,15 @@
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination, Navigation } from 'swiper';
 import { useAppSelector } from '../../redux/store';
 import insightIcon from '../../assets/svg/images/home/insight.png';
 import personImage from '../../assets/svg/images/home/person.jpg';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+
+import './slider.css';
 import styles from './Home.module.css';
 
 function Home() {
@@ -185,8 +194,129 @@ function Home() {
         </div>
       </section>
 
-      <section>
-        <div className="container">Attribution from uses</div>
+      <section className={styles.attribution}>
+        <div className="container">
+          <div>
+            <h2>
+              <span className={styles.underlineSpan}>User Reviews</span>
+            </h2>
+            <div className={`attributionSlides ${styles.attributionSlides}`}>
+              <Swiper
+                slidesPerView={1}
+                spaceBetween={30}
+                pagination={{
+                  clickable: true,
+                }}
+                navigation
+                modules={[Pagination, Navigation]}
+                className="mySwiper"
+              >
+                <SwiperSlide>
+                  <div className={styles.attributionSlide}>
+                    <p className={styles.attributionText}>
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Facilis doloremque quasi, praesentium atque officia
+                      deleniti ut enim possimus magnam labore eos repudiandae,
+                      adipisci animi vitae eveniet cum perspiciatis aliquid.
+                      Voluptate?
+                    </p>
+                    <div className={styles.attributerDetail}>
+                      <p className={styles.attributerName}>Dr. Vilas</p>
+                      <p className={styles.attributerDesignation}>
+                        TPO Incharge
+                      </p>
+                    </div>
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide>
+                  <div className={styles.attributionSlide}>
+                    <p className={styles.attributionText}>
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Facilis doloremque quasi, praesentium atque officia
+                      deleniti ut enim possimus magnam labore eos repudiandae,
+                      adipisci animi vitae eveniet cum perspiciatis aliquid.
+                      Voluptate?
+                    </p>
+                    <div className={styles.attributerDetail}>
+                      <p className={styles.attributerName}>Dr. Vilas</p>
+                      <p className={styles.attributerDesignation}>
+                        TPO Incharge
+                      </p>
+                    </div>
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide>
+                  <div className={styles.attributionSlide}>
+                    <p className={styles.attributionText}>
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Facilis doloremque quasi, praesentium atque officia
+                      deleniti ut enim possimus magnam labore eos repudiandae,
+                      adipisci animi vitae eveniet cum perspiciatis aliquid.
+                      Voluptate?
+                    </p>
+                    <div className={styles.attributerDetail}>
+                      <p className={styles.attributerName}>Dr. Vilas</p>
+                      <p className={styles.attributerDesignation}>
+                        TPO Incharge
+                      </p>
+                    </div>
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide>
+                  <div className={styles.attributionSlide}>
+                    <p className={styles.attributionText}>
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Facilis doloremque quasi, praesentium atque officia
+                      deleniti ut enim possimus magnam labore eos repudiandae,
+                      adipisci animi vitae eveniet cum perspiciatis aliquid.
+                      Voluptate?
+                    </p>
+                    <div className={styles.attributerDetail}>
+                      <p className={styles.attributerName}>Dr. Vilas</p>
+                      <p className={styles.attributerDesignation}>
+                        TPO Incharge
+                      </p>
+                    </div>
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide>
+                  <div className={styles.attributionSlide}>
+                    <p className={styles.attributionText}>
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Facilis doloremque quasi, praesentium atque officia
+                      deleniti ut enim possimus magnam labore eos repudiandae,
+                      adipisci animi vitae eveniet cum perspiciatis aliquid.
+                      Voluptate?
+                    </p>
+                    <div className={styles.attributerDetail}>
+                      <p className={styles.attributerName}>Dr. Vilas</p>
+                      <p className={styles.attributerDesignation}>
+                        TPO Incharge
+                      </p>
+                    </div>
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide>
+                  <div className={styles.attributionSlide}>
+                    <p className={styles.attributionText}>
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Facilis doloremque quasi, praesentium atque officia
+                      deleniti ut enim possimus magnam labore eos repudiandae,
+                      adipisci animi vitae eveniet cum perspiciatis aliquid.
+                      Voluptate?
+                    </p>
+                    <div className={styles.attributerDetail}>
+                      <p className={styles.attributerName}>Dr. Vilas</p>
+                      <p className={styles.attributerDesignation}>
+                        TPO Incharge
+                      </p>
+                    </div>
+                  </div>
+                </SwiperSlide>
+              </Swiper>
+            </div>
+          </div>
+        </div>
       </section>
 
       <section>
