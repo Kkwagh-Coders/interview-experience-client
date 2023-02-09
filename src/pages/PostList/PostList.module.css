@@ -1,0 +1,74 @@
+.navbar {
+  text-align: center;
+  background-color: black;
+  color: white;
+  height: 60px;
+}
+
+.searchBlock {
+  margin-top: 80px;
+  margin-left: 100px;
+}
+
+.searchBar {
+  margin-top: 30px;
+  width: 800px;
+  height: 65px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  border-radius: 50px;
+}
+
+.browseByCompany {
+  margin-top: 140px;
+  margin-left: 100px;
+}
+
+.byLocation {
+  display: flex;
+  padding: 40px;
+  padding-left: 50px;
+  padding-right: 110px;
+  padding-top: 40px;
+  text-align: center;
+}
+
+.block {
+  margin-left: 60px;
+  padding-top: 20px;
+  height: 280px;
+  width: 500px;
+  box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px,
+    rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+}
+
+.heading {
+  margin-top: 70px;
+  padding-left: 100px;
+}
+.postList {
+  display: flex;
+  columns: 2;
+  padding: 100px;
+}
+.postListLeft {
+  width: 70%;
+  padding-bottom: 10px;
+}
+
+.postListRight {
+  width: 400px;
+  height: 700px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  border-radius: 30px;
+}
+
+.postListLeftItem {
+  width: 900px;
+  height: 250px;
+  border-radius: 30px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  margin-top: 50px;
+}
