@@ -25,7 +25,7 @@ function Router() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<UserRegister />} />
         <Route path="/reset-password/:token" element={<ResetPassword />} />
-        <Route path="/post" element={<PostList />} />
+        <Route path="/posts" element={<PostList />} />
       </Route>
       <Route path="*" element={<NotFound />} />
     </Routes>
