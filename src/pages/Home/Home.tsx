@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Navigation } from 'swiper';
 import insightIcon from '../../assets/svg/images/home/insight.png';
@@ -311,8 +312,26 @@ function Home() {
         </div>
       </section>
 
-      <section>
-        <div className="container">Footer</div>
+      <section className={styles.footer}>
+        <div className="container">
+          <div className={styles.footerContainer}>
+            <div className={styles.info}>
+              <h2>Interview Experience</h2>
+              <p>
+                Lorem ipsum dolor sit amet consectetu Magni a eos neque dolor
+                adipisci omni
+              </p>
+            </div>
+
+            <div className={styles.links}>
+              <h2>Links</h2>
+              <Link to="/credits">Credits</Link>
+              <a href="mailto:officialinterviewexperience@gmail.com">
+                Contact Us
+              </a>
+            </div>
+          </div>
+        </div>
       </section>
 
       <section className={styles.copyRight}>
