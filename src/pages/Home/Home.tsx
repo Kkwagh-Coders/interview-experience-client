@@ -222,16 +222,20 @@ function Home() {
                 <SwiperSlide>
                   <div className={styles.attributionSlide}>
                     <p className={styles.attributionText}>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Facilis doloremque quasi, praesentium atque officia
-                      deleniti ut enim possimus magnam labore eos repudiandae,
-                      adipisci animi vitae eveniet cum perspiciatis aliquid.
-                      Voluptate?
+                      I&apos;m a college student and recently joined Interview
+                      Experience. It&apos;s been a game-changer! The platform
+                      offers a wealth of interview experiences from other
+                      students and professionals, giving me valuable insights
+                      and helping me prepare for my own interviews. The
+                      community is also fantastic - I was able to ask questions
+                      and receive helpful feedback. I highly recommend this
+                      website to any college student looking to ace their
+                      interviews!
                     </p>
                     <div className={styles.attributerDetail}>
-                      <p className={styles.attributerName}>Dr. Vilas</p>
+                      <p className={styles.attributerName}>Raju Rastogi</p>
                       <p className={styles.attributerDesignation}>
-                        TPO Incharge
+                        Computer Student
                       </p>
                     </div>
                   </div>
@@ -239,16 +243,20 @@ function Home() {
                 <SwiperSlide>
                   <div className={styles.attributionSlide}>
                     <p className={styles.attributionText}>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Facilis doloremque quasi, praesentium atque officia
-                      deleniti ut enim possimus magnam labore eos repudiandae,
-                      adipisci animi vitae eveniet cum perspiciatis aliquid.
-                      Voluptate?
+                      I&apos;m a college student and recently joined Interview
+                      Experience. It&apos;s been a game-changer! The platform
+                      offers a wealth of interview experiences from other
+                      students and professionals, giving me valuable insights
+                      and helping me prepare for my own interviews. The
+                      community is also fantastic - I was able to ask questions
+                      and receive helpful feedback. I highly recommend this
+                      website to any college student looking to ace their
+                      interviews!
                     </p>
                     <div className={styles.attributerDetail}>
-                      <p className={styles.attributerName}>Dr. Vilas</p>
+                      <p className={styles.attributerName}>Raju Rastogi</p>
                       <p className={styles.attributerDesignation}>
-                        TPO Incharge
+                        Computer Student
                       </p>
                     </div>
                   </div>
@@ -256,16 +264,20 @@ function Home() {
                 <SwiperSlide>
                   <div className={styles.attributionSlide}>
                     <p className={styles.attributionText}>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Facilis doloremque quasi, praesentium atque officia
-                      deleniti ut enim possimus magnam labore eos repudiandae,
-                      adipisci animi vitae eveniet cum perspiciatis aliquid.
-                      Voluptate?
+                      I&apos;m a college student and recently joined Interview
+                      Experience. It&apos;s been a game-changer! The platform
+                      offers a wealth of interview experiences from other
+                      students and professionals, giving me valuable insights
+                      and helping me prepare for my own interviews. The
+                      community is also fantastic - I was able to ask questions
+                      and receive helpful feedback. I highly recommend this
+                      website to any college student looking to ace their
+                      interviews!
                     </p>
                     <div className={styles.attributerDetail}>
-                      <p className={styles.attributerName}>Dr. Vilas</p>
+                      <p className={styles.attributerName}>Raju Rastogi</p>
                       <p className={styles.attributerDesignation}>
-                        TPO Incharge
+                        Computer Student
                       </p>
                     </div>
                   </div>
@@ -273,16 +285,20 @@ function Home() {
                 <SwiperSlide>
                   <div className={styles.attributionSlide}>
                     <p className={styles.attributionText}>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Facilis doloremque quasi, praesentium atque officia
-                      deleniti ut enim possimus magnam labore eos repudiandae,
-                      adipisci animi vitae eveniet cum perspiciatis aliquid.
-                      Voluptate?
+                      I&apos;m a college student and recently joined Interview
+                      Experience. It&apos;s been a game-changer! The platform
+                      offers a wealth of interview experiences from other
+                      students and professionals, giving me valuable insights
+                      and helping me prepare for my own interviews. The
+                      community is also fantastic - I was able to ask questions
+                      and receive helpful feedback. I highly recommend this
+                      website to any college student looking to ace their
+                      interviews!
                     </p>
                     <div className={styles.attributerDetail}>
-                      <p className={styles.attributerName}>Dr. Vilas</p>
+                      <p className={styles.attributerName}>Raju Rastogi</p>
                       <p className={styles.attributerDesignation}>
-                        TPO Incharge
+                        Computer Student
                       </p>
                     </div>
                   </div>
@@ -290,16 +306,20 @@ function Home() {
                 <SwiperSlide>
                   <div className={styles.attributionSlide}>
                     <p className={styles.attributionText}>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Facilis doloremque quasi, praesentium atque officia
-                      deleniti ut enim possimus magnam labore eos repudiandae,
-                      adipisci animi vitae eveniet cum perspiciatis aliquid.
-                      Voluptate?
+                      I&apos;m a college student and recently joined Interview
+                      Experience. It&apos;s been a game-changer! The platform
+                      offers a wealth of interview experiences from other
+                      students and professionals, giving me valuable insights
+                      and helping me prepare for my own interviews. The
+                      community is also fantastic - I was able to ask questions
+                      and receive helpful feedback. I highly recommend this
+                      website to any college student looking to ace their
+                      interviews!
                     </p>
                     <div className={styles.attributerDetail}>
-                      <p className={styles.attributerName}>Dr. Vilas</p>
+                      <p className={styles.attributerName}>Raju Rastogi</p>
                       <p className={styles.attributerDesignation}>
-                        TPO Incharge
+                        Computer Student
                       </p>
                     </div>
                   </div>
@@ -307,16 +327,20 @@ function Home() {
                 <SwiperSlide>
                   <div className={styles.attributionSlide}>
                     <p className={styles.attributionText}>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Facilis doloremque quasi, praesentium atque officia
-                      deleniti ut enim possimus magnam labore eos repudiandae,
-                      adipisci animi vitae eveniet cum perspiciatis aliquid.
-                      Voluptate?
+                      I&apos;m a college student and recently joined Interview
+                      Experience. It&apos;s been a game-changer! The platform
+                      offers a wealth of interview experiences from other
+                      students and professionals, giving me valuable insights
+                      and helping me prepare for my own interviews. The
+                      community is also fantastic - I was able to ask questions
+                      and receive helpful feedback. I highly recommend this
+                      website to any college student looking to ace their
+                      interviews!
                     </p>
                     <div className={styles.attributerDetail}>
-                      <p className={styles.attributerName}>Dr. Vilas</p>
+                      <p className={styles.attributerName}>Raju Rastogi</p>
                       <p className={styles.attributerDesignation}>
-                        TPO Incharge
+                        Computer Student
                       </p>
                     </div>
                   </div>
