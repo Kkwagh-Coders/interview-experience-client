@@ -1,11 +1,69 @@
 .navbar {
-  text-align: center;
   background-color: black;
-  color: white;
   height: 60px;
 }
 
-.searchBlock {
+.head {
+  padding: 3rem 10rem 0 10rem;
+}
+
+.heading {
+  font-size: 2.7rem;
+  color: rgb(var(--text-color-dark));
+  text-align: center;
+  align-items: center;
+}
+
+.topPosts {
+  padding-top: 2rem;
+  display: flex;
+}
+
+.topPost1 {
+  padding: 2rem;
+  width: 33rem;
+  border: 1px solid #ebf0f6;
+}
+.topPost2 {
+  padding: 2rem;
+  width: 33rem;
+  border: 1px solid #ebf0f6;
+  margin-left: 1rem;
+}
+.topPost3 {
+  padding: 2rem;
+  width: 33rem;
+  border: 1px solid #ebf0f6;
+  margin-left: 1rem;
+}
+
+.postFooter {
+  display: flex;
+}
+.postLikes {
+  margin-left: auto;
+  margin-right: 2rem;
+}
+
+.postButtonContainer {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.postButton {
+  padding-left: 5rem;
+  padding-right: 5rem;
+}
+
+.writeContainer {
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.writeExperienceButton {
+  padding: 0.75rem 3.5rem;
+}
+/* .searchBlock {
   margin-top: 80px;
   margin-left: 100px;
 }
@@ -71,4 +129,4 @@
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
     rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
   margin-top: 50px;
-}
+} */
