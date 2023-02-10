@@ -333,8 +333,9 @@ function Home() {
             <div className={styles.info}>
               <h2>Interview Experience</h2>
               <p>
-                Lorem ipsum dolor sit amet consectetu Magni a eos neque dolor
-                adipisci omni
+                Empowering KKWIEER Students for Success: Join Our Community and
+                Share Your Interview Experiences. Learn from Your Peers and Get
+                the Edge You Need to Ace Your Interviews.
               </p>
             </div>
 
