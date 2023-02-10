@@ -1,8 +1,11 @@
 import { Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Navigation } from 'swiper';
-import insightIcon from '../../assets/svg/images/home/insight.png';
-import personImage from '../../assets/svg/images/home/person.jpg';
+import insightIcon from '../../assets/svg/images/home/facilities/insight.png';
+import authenticIcon from '../../assets/svg/images/home/facilities/authentic.png';
+import doubtIcon from '../../assets/svg/images/home/facilities/doubt.png';
+import communityIcon from '../../assets/svg/images/home/facilities/community.png';
+import personImage from '../../assets/svg/images/home/founders/person.jpg';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -22,10 +25,9 @@ function Home() {
             <span className={styles.underlineSpan}>Crack Interview</span>
           </h1>
           <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolores
-            molestiae obcaecati atque distinctio odit a aperiam? Porro eveniet
-            in fugiat? Consectetur similique reiciendis eum qui eligendi quasi
-            blanditiis vitae fugit!
+            Get the Inside Scoop on Company Placements. Be the Pro in the Know
+            with Real Interview Insights. Make Informed Decisions and Take
+            Control of Your Career Journey Today!
           </p>
           <div className={styles.heroActionButtons}>
             <a
@@ -56,22 +58,34 @@ function Home() {
             <div className={styles.facility}>
               <img src={insightIcon} alt="" />
               <h3>Insights</h3>
-              <p>Get insights of interview with the post!!</p>
+              <p>
+                Get Real Insights, Ace Your Interviews. Discover the Power of
+                Sharing Your Experiences with Our Community.
+              </p>
             </div>
             <div className={styles.facility}>
-              <img src={insightIcon} alt="" />
-              <h3>Insights</h3>
-              <p>Get insights of interview with the post!!</p>
+              <img src={doubtIcon} alt="" />
+              <h3>Doubt Solving</h3>
+              <p>
+                Get the Support You Need for Your Career Journey. Ask Your
+                Doubts, Get Feedback from Your Peers.
+              </p>
             </div>
             <div className={styles.facility}>
-              <img src={insightIcon} alt="" />
-              <h3>Insights</h3>
-              <p>Get insights of interview with the post!!</p>
+              <img src={communityIcon} alt="" />
+              <h3>Connect with Alumines</h3>
+              <p>
+                Build Your Network, Grow Your Connections. Get to Know Alumni
+                and Expand Your Horizons.
+              </p>
             </div>
             <div className={styles.facility}>
-              <img src={insightIcon} alt="" />
-              <h3>Insights</h3>
-              <p>Get insights of interview with the post!!</p>
+              <img src={authenticIcon} alt="" />
+              <h3>Authenticity</h3>
+              <p>
+                Discover Authentic Interview Insights on Our Platform and Get a
+                Realistic Look at Campus Placements!
+              </p>
             </div>
           </div>
         </div>
@@ -80,8 +94,9 @@ function Home() {
       <section className={styles.posts} id="recentPosts">
         <div className="container">
           <h2>
-            <span>Top </span>
-            <span className={styles.underlineSpan}>Interview Experiences</span>
+            <span className={styles.underlineSpan}>
+              Top Interview Experiences
+            </span>
           </h2>
 
           <div className={styles.postsContainer}>
