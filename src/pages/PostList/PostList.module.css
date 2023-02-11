@@ -1,15 +1,3 @@
-:root {
-  --rad: 0.2rem;
-  --dur: 0.3s;
-  --color-dark: #2f2f2f;
-  --color-light: #fff;
-  /* --color-brand: #57bd84; */
-  --font-fam: 'Lato', sans-serif;
-  --height: 2.5rem;
-  --btn-width: 3rem;
-  --bez: cubic-bezier(0, 0, 0.43, 1.49);
-}
-
 .navbar {
   background-color: black;
   height: 60px;
@@ -98,10 +86,6 @@
   box-shadow: var(--box-shadow);
 }
 
-.upvote {
-  /* background-color: #f2f2f2; */
-  /* margin-right: 1rem; */
-}
 .interviewPost:hover {
   transform: translateY(-2px);
   box-shadow: 0 10px 10px hsl(0deg 0% 0% / 10%);
@@ -116,8 +100,8 @@
 }
 
 .postTitle {
-  margin-top: 1.1rem;
-  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
+  /* margin-bottom: 0.5rem; */
   font-size: 2rem;
 }
 
@@ -134,8 +118,9 @@
 }
 
 .postAuthor {
+  display: inline-block;
   font-weight: 500;
-  margin-bottom: -0.2rem;
+  margin-bottom: -0.5rem;
 }
 
 .postMoreDetail > span {
@@ -145,8 +130,9 @@
 }
 
 .recentPostFooter {
-  /* margin-top: -2.5rem; */
+  margin-top: 1rem;
   display: flex;
+  gap: 3rem;
 }
 
 .filter {
@@ -176,10 +162,7 @@
   height: auto;
   padding-right: 3rem;
 }
-.voteCount {
-  margin-top: -1rem;
-  margin-left: 1.5rem;
-}
+
 .heart {
   fill: red;
 }
@@ -189,27 +172,8 @@
   padding-top: 0rem;
 }
 
-.upVote {
-  display: block;
-  width: 2rem;
-  height: 1rem;
-}
-
 .voteOption {
   display: flex;
-  gap: 2rem;
-}
-
-.downVote {
-  transform: rotate(180deg);
-  display: block;
-  width: 2rem;
-  height: 1rem;
-}
-
-.bookMark {
-  width: 4rem;
-  height: 4rem;
 }
 
 .filerElementBlock {
@@ -259,7 +223,7 @@
   font-size: 1rem;
   color: #707070;
   border: 1px solid #ddd;
-  border-radius: 60px;
+  border-radius: 6px;
   padding: 0 15px;
   padding-right: 10px;
   width: 30rem;
@@ -268,5 +232,55 @@
 }
 
 .searchBarIcon {
-  font-size: 1.5rem; 
+  font-size: 1.5rem;
+}
+
+.voteOptionDisplay {
+  padding-top: 0.4rem;
+  gap: 0.8rem;
+  display: flex;
+}
+
+.upVote {
+  font-size: 2rem;
+  fill: rgb(66, 80, 108);
+  margin-top: .2rem;
+  /* margin-right: 0.5rem; */
+}
+
+.downVote {
+  font-size: 2rem;
+  fill: rgb(66, 80, 108);
+  margin-top: 0.2rem;
+}
+
+.voteCount {
+  margin-top: 0.1rem;
+  font-size: 1.3rem;
+}
+
+.bookMarkContainer {
+  /* background-color: red; */
+  padding-left: 0.7rem;
+  padding-right: 0.7rem;
+  padding-top: 0.7rem;
+  border-radius: 50%;
+  border: 1px solid #ddd;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  margin-left: 2.5rem;
+}
+.bookMark {
+  font-size: 1.2rem;
+  color: #754cff;
+}
+
+.shareButton {
+  background-color: white;
+  padding: 0.2rem 2rem 0.2rem 2rem;
+  border-radius: 50px;
+  margin-top: 1rem;
+  margin-left: 37rem;
+  border: 1px solid #754cff;
+  color: #754cff;
 }
