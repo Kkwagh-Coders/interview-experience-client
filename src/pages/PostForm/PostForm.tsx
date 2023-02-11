@@ -4,7 +4,7 @@ import styles from './PostForm.module.css';
 
 function PostForm() {
   return (
-    <div className={styles.PostFrom}>
+    <div className={styles.PostForm}>
       <div className={styles.container}>
         <form className={styles.form} action="">
           <header className={styles.title}>Write your post</header>
@@ -22,45 +22,13 @@ function PostForm() {
 
           <div className={styles.column}>
             <div className={styles.inputField}>
-              <label htmlFor="domain">
-                Domain
-                <select name="domain" className={styles.inputField}>
-                  <option value="1">Interview Experience</option>
-                  <option value="2">Dsa Round</option>
-                  <option value="3">Event</option>
-                  <option value="4">Opportunities</option>
-                  <option value="5">General Question</option>
-                  <option value="6">Others</option>
-                </select>
-              </label>
-            </div>
-            <div className={styles.inputField}>
               <label htmlFor="position">
                 Postion Applied for
-                <select name="position" className={styles.inputField}>
-                  <option value="1">Fulltime</option>
-                  <option value="2">Internship</option>
-                  <option value="3">Partime</option>
-                  <option value="4">Freelancing</option>
-                  <option value="5">Social Work</option>
-                  <option value="6">Other</option>
-                </select>
-              </label>
-            </div>
-          </div>
-
-          <div className={styles.column}>
-            <div className={styles.inputField}>
-              <label htmlFor="article">
-                Article Type
-                <select name="article" className={styles.inputField}>
-                  <option value="1">Interview Experience</option>
-                  <option value="2">Discussion</option>
-                  <option value="3">Questions</option>
-                  <option value="4">Promotional</option>
-                  <option value="5">Event</option>
-                  <option value="6">Others</option>
-                </select>
+                <span className="required">*</span>
+                <input
+                  type="text"
+                  placeholder="SDE 1 or Web development Intern"
+                />
               </label>
             </div>
             <div className={styles.inputField}>
@@ -68,6 +36,32 @@ function PostForm() {
                 Company
                 <span className="required">*</span>
                 <input type="text" placeholder="Amazon" />
+              </label>
+            </div>
+          </div>
+
+          <div className={styles.column}>
+            <div className={styles.inputField}>
+              <label htmlFor="domain">
+                Industry
+                <select name="domain" className={styles.inputField}>
+                  <option value="1">IT Industry</option>
+                  <option value="2">Chemical Industry</option>
+                  <option value="3">Automobile Industry</option>
+                  <option value="4">Others</option>
+                </select>
+              </label>
+            </div>
+            <div className={styles.inputField}>
+              <label htmlFor="article">
+                Article Type
+                <select name="article" className={styles.inputField}>
+                  <option value="1">Interview Experience</option>
+                  <option value="2">Discussion</option>
+                  <option value="3">Promotional</option>
+                  <option value="4">Event</option>
+                  <option value="5">Others</option>
+                </select>
               </label>
             </div>
           </div>
@@ -80,6 +74,7 @@ function PostForm() {
             <label htmlFor="tags">
               Tags
               <input
+                className={styles.tags}
                 type="text"
                 name="tags"
                 placeholder="#interview #experience #community"

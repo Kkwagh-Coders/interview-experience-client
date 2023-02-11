@@ -1,15 +1,13 @@
 .PostForm {
   min-height: 100vh;
-  min-height: 100vh;
-  padding: 2rem;
-
-  background-color: rgb(var(--accent-color));
+  min-height: 100dvh;
+  background-color: rgb(248, 249, 254);
+  padding-block: 6rem;
 }
 
 .container {
-  margin-top: 4rem;
   position: relative;
-  max-width: 700px;
+  max-width: 1000px;
   width: 100%;
   background: #fff;
   padding: 25px;
@@ -35,11 +33,17 @@
   margin-top: 20px;
 }
 
-.inputField label select {
+.inputField label select option {
   color: #333;
 }
 
-.form :where(.inputField input, .inputField textarea, .inputField select) {
+.form
+  :where(
+    .inputField input,
+    .inputField textarea,
+    .inputField select,
+    .inputField option
+  ) {
   position: relative;
   height: 50px;
   width: 100%;
@@ -103,7 +107,7 @@
   background-color: transparent;
 }
 @media screen and (max-width: 480px) {
-  .UserRegister {
+  .PostForm {
     padding: 0;
   }
 
@@ -133,4 +137,15 @@
   .column {
     flex-direction: column;
   }
+}
+
+.tags {
+  font-weight: 500;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 1px;
+  text-overflow: '';
 }
