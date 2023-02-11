@@ -1,6 +1,6 @@
 import React from 'react';
+// import { GoSearch } from 'react-icons/go';
 import styles from './PostList.module.css';
-// import upArrow from '../../assets/svg/up-arrow.svg';
 
 function PostList() {
   return (
@@ -87,20 +87,72 @@ function PostList() {
           </h2>
 
           <div className={styles.filter}>
-            <div className={styles.filterSort}>Sort By</div>
-            <div className={styles.filterElement}>Job Role</div>
-            <div className={styles.filterElement}>Company</div>
-            <div className={styles.filterElement}>Job Type</div>
+            <div className={styles.filterElement}>
+              <div className={styles.filterElementBlock}>
+                <div className={styles.filerElementinputField}>
+                  <label htmlFor="domain">
+                    <select name="domain" className={styles.inputField}>
+                      <option value="1">Sort By</option>
+                      <option value="2">Newest</option>
+                      <option value="3">Oldest</option>
+                      <option value="4">Top Voted</option>
+                    </select>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div className={styles.filterElement}>
+              <div className={styles.filterElementBlock}>
+                <div className={styles.filerElementinputField}>
+                  <label htmlFor="domain">
+                    <select name="domain" className={styles.inputField}>
+                      <option value="1">Job Role</option>
+                      <option value="2">Software Developer</option>
+                      <option value="3">FullStack-Developer</option>
+                    </select>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div className={styles.filterElement}>
+              <div className={styles.filterElementBlock}>
+                <div className={styles.filerElementinputField}>
+                  <label htmlFor="domain">
+                    <select name="domain" className={styles.inputField}>
+                      <option value="1">Company</option>
+                      <option value="2">Amazon</option>
+                      <option value="3">Google</option>
+                      <option value="4">Meta</option>
+                    </select>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div className={styles.filterElement}>
+              <div className={styles.filterElementBlock}>
+                <div className={styles.filerElementinputField}>
+                  <label htmlFor="domain">
+                    <select name="domain" className={styles.inputField}>
+                      <option value="1">Rating</option>
+                      <option value="2">1 Star</option>
+                      <option value="3">2 Star</option>
+                      <option value="4">3 Star and above</option>
+                    </select>
+                  </label>
+                </div>
+              </div>
+            </div>
+
             <div className={styles.searchBar}>
-              <form role="search">
-                <input
-                  id="search"
-                  type="search"
-                  placeholder="Search..."
-                  required
-                />
-                <button type="submit">Go</button>
-              </form>
+              <input
+                type="text"
+                className={styles.searchBarInput}
+                placeholder="Search..."
+              />
+              {/* <GoSearch className={styles.searchBarIcon} /> */}
             </div>
           </div>
 
