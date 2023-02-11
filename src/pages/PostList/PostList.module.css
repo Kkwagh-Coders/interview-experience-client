@@ -127,7 +127,7 @@
   text-decoration-thickness: 2px;
 }
 
-.postDescription {
+.postDescription p {
   margin-top: -1rem;
   color: rgb(var(--text-color-light));
   margin-bottom: 1rem;
@@ -145,9 +145,8 @@
 }
 
 .recentPostFooter {
-  margin-top: -2.5rem;
+  /* margin-top: -2.5rem; */
   display: flex;
-  margin-left: 1rem;
 }
 
 .filter {
@@ -236,16 +235,18 @@ input:not(:placeholder-shown) {
 
 .upArrow {
   fill: #754cff;
-  width: 5rem;
-  height: 7rem;
-  margin-top: -2.2rem; 
+  width: 3rem;
+  height: 4rem;
+  margin-top: -0.2rem;
+  margin-left: 1.1rem;
 }
 .downArrow {
   fill: #754cff;
-  width: 5rem;
-  height: 7rem;
-  margin-top: -2.9rem; 
+  width: 3rem;
+  height: 4rem;
+  margin-top: -2.5rem;
   transform: rotate(180deg);
+  margin-left: 1rem;
 }
 .content {
   display: flex;
@@ -255,8 +256,36 @@ input:not(:placeholder-shown) {
 }
 .voteCount {
   margin-top: -1rem;
-  margin-left: 1.3rem;
+  margin-left: 1.5rem;
 }
 .heart {
   fill: red;
+}
+
+.block1 p {
+  margin-top: 0rem;
+  padding-top: 0rem;
+}
+
+.upVote {
+  display: block;
+  width: 2rem;
+  height: 1rem;
+}
+
+.voteOption {
+  display: flex;
+  gap: 2rem;
+}
+
+.downVote {
+  transform: rotate(180deg);
+  display: block;
+  width: 2rem;
+  height: 1rem;
+}
+
+.bookMark {
+  width: 4rem;
+  height: 4rem;
 }

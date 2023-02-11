@@ -179,10 +179,49 @@ function PostList() {
                 pariatur, quibusdam iusto officiis aliquam reprehenderit
                 tenetur...
               </p>
-              <p className={styles.postAuthor}>Rama works</p>
-              <div className={styles.postMoreDetail}>
-                <span>Feb 9, 2022</span>
-                <span>51 Likes</span>
+              <div className={styles.recentPostFooter}>
+                <div className={styles.block1}>
+                  <p className={styles.postAuthor}>Rama works</p>
+                  <div className={styles.postMoreDetail}>
+                    <span>Feb 9, 2022</span>
+                  </div>
+                </div>
+                <div className={styles.voteOption}>
+                  <div>
+                    {' '}
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className={styles.upVote}
+                    >
+                      <path
+                        fill="#000"
+                        d="M5.306 15.694a1.043 1.043 0 0 0 1.476 0L12 10.47l5.218 5.224a1.043 1.043 0 0 0 1.476 0 1.046 1.046 0 0 0 0-1.478l-5.904-5.91a1.04 1.04 0 0 0-.79-.305 1.04 1.04 0 0 0-.79.305l-5.904 5.91a1.046 1.046 0 0 0 0 1.478Z"
+                      />
+                    </svg>
+                    Up Vote
+                  </div>
+
+                  <div>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className={styles.downVote}
+                    >
+                      <path
+                        fill="#000"
+                        d="M5.306 15.694a1.043 1.043 0 0 0 1.476 0L12 10.47l5.218 5.224a1.043 1.043 0 0 0 1.476 0 1.046 1.046 0 0 0 0-1.478l-5.904-5.91a1.04 1.04 0 0 0-.79-.305 1.04 1.04 0 0 0-.79.305l-5.904 5.91a1.046 1.046 0 0 0 0 1.478Z"
+                      />
+                    </svg>
+                    Down Vote
+                  </div>
+                  <div>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className={styles.bookMark}
+                    >
+                      <path d="M34 6H14c-2.21 0-3.98 1.79-3.98 4L10 42l14-6 14 6V10c0-2.21-1.79-4-4-4z" />
+                    </svg>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
