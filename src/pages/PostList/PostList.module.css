@@ -1,69 +1,3 @@
-.navbar {
-  background-color: black;
-  height: 60px;
-}
-
-.head {
-  padding: 3rem 10rem 0 10rem;
-}
-
-.heading {
-  font-size: 2.7rem;
-  color: rgb(var(--text-color-dark));
-  text-align: center;
-}
-
-.topPosts {
-  padding-top: 2rem;
-  display: flex;
-}
-
-.topPost1 {
-  padding: 2rem;
-  width: 33rem;
-  border: 1px solid #ebf0f6;
-  padding-bottom: 4rem;
-}
-.topPost2 {
-  padding: 2rem;
-  width: 33rem;
-  border: 1px solid #ebf0f6;
-  margin-left: 1rem;
-}
-.topPost3 {
-  padding: 2rem;
-  width: 33rem;
-  border: 1px solid #ebf0f6;
-  margin-left: 1rem;
-}
-
-.postFooter {
-  display: flex;
-}
-.postLikes {
-  margin-left: auto;
-  margin-right: 2rem;
-}
-
-.postButtonContainer {
-  margin-top: 1.5rem;
-  text-align: center;
-}
-
-.postButton {
-  padding-left: 5rem;
-  padding-right: 5rem;
-}
-
-.writeContainer {
-  margin-top: 3.5rem;
-  text-align: center;
-}
-
-.writeExperienceButton {
-  padding: 0.75rem 3.5rem;
-}
-
 .posts {
   scroll-margin-top: 3rem;
   margin-inline: auto;
@@ -74,11 +8,10 @@
 
 .posts h2 {
   font-size: 1.3rem;
-  margin-bottom: 2rem;
+  margin-bottom: 0.8rem;
 }
 
 .interviewPost {
-  /* display: flex; */
   background-color: rgb(var(--bg-white));
   padding: 1.5rem;
   border-radius: 5px;
@@ -101,8 +34,7 @@
 
 .postTitle {
   margin-top: 0.5rem;
-  /* margin-bottom: 0.5rem; */
-  font-size: 2rem;
+  font-size: 1.3rem;
 }
 
 .postTitle:hover {
@@ -111,9 +43,10 @@
   text-decoration-thickness: 2px;
 }
 
-.postDescription p {
-  margin-top: -1rem;
-  color: rgb(var(--text-color-light));
+.postDescription {
+  font-size: 0.9rem;
+  padding-top: 0.6rem;
+  color: rgb(66, 80, 108);
   margin-bottom: 1rem;
 }
 
@@ -124,40 +57,13 @@
 }
 
 .postMoreDetail > span {
+  display: block;
   color: rgb(var(--text-color-light));
   margin-right: 1rem;
   font-weight: 200;
 }
 
-.recentPostFooter {
-  margin-top: 1rem;
-  display: flex;
-  gap: 3rem;
-}
-
-.filter {
-  display: flex;
-  margin-bottom: 2rem;
-  gap: 1rem;
-}
-
-.upArrow {
-  fill: #754cff;
-  width: 3rem;
-  height: 4rem;
-  margin-top: -0.2rem;
-  margin-left: 1.1rem;
-}
-.downArrow {
-  fill: #754cff;
-  width: 3rem;
-  height: 4rem;
-  margin-top: -2.5rem;
-  transform: rotate(180deg);
-  margin-left: 1rem;
-}
 .content {
-  display: flex;
   gap: 1rem;
   height: auto;
   padding-right: 3rem;
@@ -167,13 +73,20 @@
   fill: red;
 }
 
-.block1 p {
-  margin-top: 0rem;
-  padding-top: 0rem;
+.voteOption {
+  width: fit-content;
+  border-radius: 10px;
+  display: grid;
+  align-items: center;
+  gap: 0;
 }
 
-.voteOption {
-  display: flex;
+.filtersContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+
+  margin-bottom: 1.5rem;
 }
 
 .filerElementBlock {
@@ -181,54 +94,37 @@
   column-gap: 15px;
 }
 
-.filerElementinputField {
-  width: 100%;
-}
-
 .inputField label select option {
   color: #333;
 }
 
-.filterElement
-  :where(
-    .filerElementinputField input,
-    .filerElementinputField select,
-    .filerElementinputField option
-  ) {
+.filterInput :where(input, select, option) {
+  cursor: pointer;
+  width: 100%;
   position: relative;
-  height: 50px;
   outline: none;
   font-size: 1rem;
   color: #707070;
   border: 1px solid #ddd;
+  background-color: #fff;
   border-radius: 6px;
-  padding: 0 15px;
-  padding-right: 10px;
+  padding: 0.25rem 1rem;
 }
 
 .filerElementinputField input:focus {
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
 }
 
-.searchBar {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .searchBarInput {
-  position: relative;
-  height: 50px;
+  width: 100%;
   outline: none;
   font-size: 1rem;
   color: #707070;
   border: 1px solid #ddd;
   border-radius: 6px;
-  padding: 0 15px;
-  padding-right: 10px;
-  width: 30rem;
-  padding-left: 25px;
-  padding-right: 25px;
+  padding: 0.5rem 1rem;
+  margin-inline: 0rem;
+  margin-bottom: 0.8rem;
 }
 
 .searchBarIcon {
@@ -237,50 +133,77 @@
 
 .voteOptionDisplay {
   padding-top: 0.4rem;
-  gap: 0.8rem;
+}
+
+.userActions {
   display: flex;
+  gap: 1rem;
+  align-items: center;
 }
 
-.upVote {
-  font-size: 2rem;
+.voteArrow {
+  cursor: pointer;
+  font-size: 1.5rem;
   fill: rgb(66, 80, 108);
-  margin-top: .2rem;
-  /* margin-right: 0.5rem; */
-}
-
-.downVote {
-  font-size: 2rem;
-  fill: rgb(66, 80, 108);
-  margin-top: 0.2rem;
 }
 
 .voteCount {
-  margin-top: 0.1rem;
-  font-size: 1.3rem;
+  font-size: 1rem;
 }
 
 .bookMarkContainer {
-  /* background-color: red; */
-  padding-left: 0.7rem;
-  padding-right: 0.7rem;
-  padding-top: 0.7rem;
-  border-radius: 50%;
-  border: 1px solid #ddd;
-  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
-    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
-  margin-left: 2.5rem;
+  width: fit-content;
+  display: inline-block;
+  margin-left: auto;
 }
+
 .bookMark {
-  font-size: 1.2rem;
-  color: #754cff;
+  cursor: pointer;
+  font-size: 1.4rem;
+  fill: rgb(66, 80, 108);
+}
+
+.bookMarkActive {
+  fill: rgb(var(--accent-color));
+}
+
+.buttons {
+  margin-top: 1rem;
+}
+
+.readButton {
+  width: 100%;
+  padding: 0.3rem 2rem;
+  border-radius: 6px;
+  border: 1px solid #754cff;
+  background-color: #754cff;
+  color: white;
 }
 
 .shareButton {
+  width: 100%;
+  margin-top: 0.8rem;
   background-color: white;
-  padding: 0.2rem 2rem 0.2rem 2rem;
-  border-radius: 50px;
-  margin-top: 1rem;
-  margin-left: 37rem;
+  padding: 0.3rem 2rem;
+  border-radius: 6px;
   border: 1px solid #754cff;
   color: #754cff;
+}
+
+@media (min-width: 768px) {
+  .filtersContainer {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    max-width: 50rem;
+    margin-bottom: 2rem;
+  }
+
+  .buttons {
+    margin-top: 0.5rem;
+  }
+
+  .shareButton,
+  .readButton {
+    width: auto;
+    margin-right: 1rem;
+  }
 }
