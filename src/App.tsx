@@ -7,7 +7,12 @@ function App() {
   return (
     <>
       <Router />
-      <Toaster position="top-right" />
+      <Toaster
+        position="top-right"
+        containerStyle={{
+          top: 80,
+        }}
+      />
       <ReactQueryDevtools initialIsOpen={false} position="bottom-right" />
     </>
   );
