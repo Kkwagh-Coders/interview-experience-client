@@ -6,6 +6,7 @@ import Home from '../pages/Home/Home';
 import Loading from '../pages/Loading/Loading';
 import Login from '../pages/Login/Login';
 import NotFound from '../pages/NotFound/NotFound';
+import PostList from '../pages/PostList/PostList';
 import PostForm from '../pages/PostForm/PostForm';
 import ResetPassword from '../pages/ResetPassword/ResetPassword';
 import UserRegister from '../pages/UserRegister/UserRegister';
@@ -26,6 +27,7 @@ function Router() {
         <Route path="/register" element={<UserRegister />} />
         <Route path="/post" element={<PostForm />} />
         <Route path="/reset-password/:token" element={<ResetPassword />} />
+        <Route path="/posts" element={<PostList />} />
       </Route>
       <Route path="*" element={<NotFound />} />
     </Routes>
