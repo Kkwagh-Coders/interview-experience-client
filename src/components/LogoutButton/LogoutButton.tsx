@@ -1,6 +1,8 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { toast } from 'react-hot-toast';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { userAction } from '../../redux/user/userState';
 import { logoutUser } from '../../services/user.services';
 
 type Props = {
@@ -9,6 +11,7 @@ type Props = {
 };
 
 function LogoutButton({ className, children }: Props) {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const queryClient = useQueryClient();
 
@@ -19,6 +22,7 @@ function LogoutButton({ className, children }: Props) {
     },
     onSuccess: () => {
       queryClient.invalidateQueries(['user-status']);
+      dispatch(userAction.logout());
       navigate('/');
     },
   });

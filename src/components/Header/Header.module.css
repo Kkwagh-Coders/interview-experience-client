@@ -88,8 +88,9 @@
 }
 
 .Header .authButton {
-  padding: 0.25rem 1rem;
   font-size: 1rem;
+  font-weight: 500;
+  padding: 0.25rem 1rem;
 }
 
 .itemDropDown {
@@ -149,11 +150,11 @@
   }
 
   .mobileNavToggle {
-    display: block;
+    display: flex;
     cursor: pointer;
     background: transparent;
     border: 0;
-    padding: 0.5em;
+    padding: 1rem 0.5em;
     font-size: 1.5rem;
   }
 

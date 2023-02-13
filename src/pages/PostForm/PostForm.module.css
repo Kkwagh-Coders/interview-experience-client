@@ -1,0 +1,151 @@
+.PostForm {
+  min-height: 100vh;
+  min-height: 100dvh;
+  background-color: rgb(248, 249, 254);
+  padding-block: 6rem;
+}
+
+.container {
+  position: relative;
+  max-width: 1000px;
+  width: 100%;
+  background: #fff;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: var(--box-shadow);
+  margin-inline: auto;
+}
+
+.container header {
+  font-size: 1.5rem;
+  color: #333;
+  font-weight: 500;
+  text-align: center;
+}
+
+.column {
+  display: flex;
+  column-gap: 15px;
+}
+
+.inputField {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.inputField label select option {
+  color: #333;
+}
+
+.form
+  :where(
+    .inputField input,
+    .inputField textarea,
+    .inputField select,
+    .inputField option
+  ) {
+  position: relative;
+  height: 50px;
+  width: 100%;
+  outline: none;
+  font-size: 1rem;
+  color: #707070;
+  margin-top: 8px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 0 15px;
+}
+
+.inputField textarea {
+  height: 200px;
+  resize: vertical;
+}
+
+.inputField input:focus {
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+}
+
+.form .inputFieldError input {
+  border-color: red;
+}
+
+.registerButton {
+  height: 55px;
+  width: 100%;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 400;
+  margin-top: 1rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background-color: rgb(var(--accent-color));
+}
+.registerButton:hover {
+  background-color: rgb(var(--accent-color-dark));
+}
+
+.registerButton:disabled {
+  background-color: gray;
+}
+
+.loginSignUp {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.signUpText {
+  color: #333;
+  font-size: 14px;
+}
+.signUpText > a {
+  padding-left: 5px;
+  color: rgb(var(--accent-color));
+  text-decoration: none;
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+@media screen and (max-width: 480px) {
+  .PostForm {
+    padding: 0;
+  }
+
+  .container {
+    margin-top: 3rem;
+    max-width: 100%;
+    border-radius: 0;
+  }
+
+  .container header {
+    position: relative;
+    text-align: left;
+    font-size: 1.2rem;
+  }
+
+  .container header::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 3rem;
+    background-color: rgb(var(--accent-color));
+    border-radius: 25px;
+  }
+
+  .column {
+    flex-direction: column;
+  }
+}
+
+.tags {
+  font-weight: 500;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 1px;
+  text-overflow: '';
+}
