@@ -15,7 +15,7 @@
 }
 
 .heading {
-  font-size: 1.25rem;
+  font-size: 1.05rem;
   font-weight: 500;
   color: rgb(var(--dark-color));
   text-transform: uppercase;
@@ -97,6 +97,9 @@
 }
 
 @media (max-width: 800px) {
+  .Header {
+    font-size: 1.25rem;
+  }
   .primaryNavigation {
     width: min(65%, 400px);
 
