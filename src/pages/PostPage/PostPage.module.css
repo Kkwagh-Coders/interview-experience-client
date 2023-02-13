@@ -1,0 +1,336 @@
+.PostPage {
+  padding-top: 5rem;
+  padding-bottom: 3rem;
+  background-color: rgb(248, 249, 254);
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  background-color: rgb(248, 249, 254);
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.PostPage nav {
+  background-color: blanchedalmond;
+  color: black;
+}
+
+.userDetails {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  align-items: center;
+  padding-left: 15px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  width: 100%;
+  color: rgb(151, 151, 151);
+  font-size: 0.8rem;
+}
+
+.post,
+.dataCard,
+.related {
+  box-shadow: var(--box-shadow);
+  border-radius: 5px;
+  padding: 1rem 2rem;
+  background-color: #fff;
+}
+
+.related {
+  position: sticky;
+}
+
+.related > p {
+  padding: 0;
+}
+
+.post {
+  width: 60%;
+}
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 5px;
+  padding-top: 5px;
+}
+h2 {
+  margin: 10px;
+}
+
+.data {
+  margin: 10px;
+}
+
+.postDetails {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  align-items: center;
+  padding-left: 15px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 100%;
+  color: rgb(151, 151, 151);
+  font-size: 0.8rem;
+}
+
+.filerElementBlock {
+  display: flex;
+  column-gap: 15px;
+}
+
+.inputField label select option {
+  color: #333;
+}
+
+.filterInput :where(input, select, option) {
+  cursor: pointer;
+  width: 100%;
+  position: relative;
+  text-align: center;
+  outline: none;
+  font-size: 0.9rem;
+  color: #707070;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  border-radius: 6px;
+  padding: 0.25rem 1rem;
+}
+
+.filterInput :where(select) {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 1px;
+  text-overflow: '';
+}
+
+.filerElementinputField input:focus {
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+}
+
+.uName {
+  font-size: medium;
+  font-weight: 500;
+  text-align: center;
+}
+
+.date {
+  color: rgb(151, 151, 151);
+  font-size: 0.8rem;
+}
+
+.nCmtHead {
+  display: flex;
+  justify-content: space-between;
+
+  align-items: center;
+  padding-right: 10px;
+}
+
+.nUName {
+  font-size: small;
+  font-weight: 200;
+  text-align: center;
+  padding: 0px;
+}
+
+.nDate {
+  font-size: small;
+  font-weight: 200;
+  color: rgb(151, 151, 151);
+  padding: 0px;
+}
+
+.commentBox {
+  box-shadow: 0 12px 24px 2px rgb(129 146 179 / 8%);
+  border-radius: 4px;
+}
+
+.commentBox h4 {
+  color: rgb(187, 187, 187);
+  font-weight: 300;
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
+.commentBox .inline,
+.link,
+.atRate {
+  font-size: 0.8rem;
+}
+
+.atRate {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.afterBtns {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  font-size: small;
+  gap: 1rem;
+}
+
+.replyBtn {
+  border: none;
+  background-color: white;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.votes,
+.reply,
+.share,
+.more,
+.comments {
+  display: flex;
+
+  gap: 0.5rem;
+}
+
+.innerCmt {
+  padding-top: 10px;
+}
+.nestedComment {
+  background-color: rgb(248, 249, 254);
+  margin-left: 0.7rem;
+  padding: 0.5rem;
+}
+
+.cmtData {
+  font-size: 120;
+}
+
+.nestedCmtData {
+  padding: 0px;
+  font-size: small;
+}
+
+.nAfterBtns {
+  display: flex;
+  font-size: small;
+  overflow: hidden;
+  gap: 0.9rem;
+}
+
+.nVotes,
+.nReply,
+.nShare,
+.nMore {
+  display: flex;
+  gap: 0.5rem;
+  font-size: small;
+  padding: 0.7rem;
+}
+
+.cLogo:click {
+  display: inline;
+}
+.submitComment {
+  border: none;
+  color: rgb(144, 144, 144);
+  margin-left: auto;
+  font-size: 0.8rem;
+  padding: 5px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  border-radius: 6px;
+  background-color: rgb(248, 249, 254);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.submitComment:hover {
+  color: #fff;
+  background-color: rgb(38, 93, 242);
+}
+.commentList li {
+  list-style: none;
+  padding-left: 10px;
+}
+
+.cmtHead {
+  display: flex;
+  justify-content: space-between;
+
+  align-items: center;
+  padding-right: 10px;
+}
+
+.cmtFoot {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  /* color: rgb(156, 156, 156); */
+}
+
+.wrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.imageCover {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+
+  object-fit: cover;
+  object-position: center left;
+}
+
+.cmtImageCover {
+  width: 40px;
+  border-radius: 50%;
+
+  object-fit: cover;
+  object-position: center left;
+}
+
+.dataCard {
+  padding: 1rem 1.25rem;
+}
+
+.dataListItem {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.related {
+  padding: 1rem 1.25rem;
+}
+
+.right li {
+  list-style: none;
+}
+
+@media (max-width: 1000px) {
+  .right {
+    display: none;
+  }
+
+  .post {
+    width: 100%;
+  }
+
+  .replyBtn {
+    display: none;
+  }
+
+  .nAfterBtns {
+    gap: 0.1rem;
+  }
+}

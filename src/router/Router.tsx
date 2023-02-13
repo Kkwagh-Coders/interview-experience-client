@@ -10,6 +10,7 @@ import PostList from '../pages/PostList/PostList';
 import PostForm from '../pages/PostForm/PostForm';
 import ResetPassword from '../pages/ResetPassword/ResetPassword';
 import UserRegister from '../pages/UserRegister/UserRegister';
+import PostPage from '../pages/PostPage/PostPage';
 
 function Router() {
   const { isLoading, isError } = useUserStatus();
@@ -27,6 +28,7 @@ function Router() {
         <Route path="/register" element={<UserRegister />} />
         <Route path="/post" element={<PostForm />} />
         <Route path="/reset-password/:token" element={<ResetPassword />} />
+        <Route path="/post/:id" element={<PostPage />} />
         <Route path="/posts" element={<PostList />} />
       </Route>
       <Route path="*" element={<NotFound />} />
