@@ -4,14 +4,12 @@ import getTagsFromString from '../utils/getTagsFromString';
 import { BASE_API_URL } from './serverConfig';
 
 export const createPost = (postData: PostFormData, status: string) => {
-  const tags = getTagsFromString(postData.tags);
   const url = `${BASE_API_URL}/posts`;
+  const tags = getTagsFromString(postData.tags);
+  const body = { ...postData, tags, status };
+
   return axios
-    .post<{ message: string }>(
-      url,
-      { ...postData, tags, status },
-      { withCredentials: true },
-    )
+    .post<{ message: string }>(url, body, { withCredentials: true })
     .then((response) => response.data);
 };
 
