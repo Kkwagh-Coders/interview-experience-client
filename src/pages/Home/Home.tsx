@@ -179,7 +179,7 @@ function Home() {
                 <div className={styles.profileImage}>
                   <img src={personImage} alt="Aniket" />
                 </div>
-                <h3>Pro Coder Aniket</h3>
+                <h3>Founder:- Aniket Singh</h3>
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                   Alias officiis dolore a officia. Expedita id animi accusantium

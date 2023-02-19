@@ -1,8 +1,11 @@
 import ReactQuill, { Quill } from 'react-quill';
 import BlotFormatter from 'quill-blot-formatter';
+import ImageCompress from 'quill-image-compress';
 import 'react-quill/dist/quill.snow.css';
 import './quill.css';
+import { useFormikContext } from 'formik';
 
+Quill.register('modules/imageCompress', ImageCompress);
 Quill.register('modules/blotFormatter', BlotFormatter);
 
 const modules = {
@@ -31,9 +34,26 @@ const modules = {
     matchVisual: false,
   },
   blotFormatter: {},
+  imageCompress: {
+    quality: 0.7,
+    maxWidth: 800,
+    maxHeight: 800,
+    imageType: 'image/jpeg',
+    debug: true,
+  },
 };
 
-function Editor() {
+type Props = {
+  name: string;
+};
+
+function Editor({ name }: Props) {
+  const formikProps = useFormikContext();
+
+  const handleOnChange = (content: string) => {
+    formikProps.setFieldValue(name, content);
+  };
+
   return (
     <div id="root">
       <ReactQuill
@@ -41,6 +61,7 @@ function Editor() {
         theme="snow"
         readOnly={false}
         placeholder="So recently I got interviewed at ........."
+        onChange={handleOnChange}
       />
     </div>
   );
