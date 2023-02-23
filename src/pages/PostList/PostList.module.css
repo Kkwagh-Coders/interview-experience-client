@@ -11,58 +11,6 @@
   margin-bottom: 0.8rem;
 }
 
-.interviewPost {
-  background-color: rgb(var(--bg-white));
-  padding: 1.5rem;
-  border-radius: 5px;
-  margin-bottom: 2rem;
-  box-shadow: var(--box-shadow);
-}
-
-.interviewPost:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 10px hsl(0deg 0% 0% / 10%);
-}
-
-.postDomain {
-  display: inline-block;
-  padding: 0.25rem 0.5rem;
-  margin-bottom: 1rem;
-  border-radius: 5px;
-  background-color: rgb(var(--accent-color), 0.2);
-}
-
-.postTitle {
-  margin-top: 0.5rem;
-  font-size: 1.3rem;
-}
-
-.postTitle:hover {
-  cursor: pointer;
-  text-decoration: underline;
-  text-decoration-thickness: 2px;
-}
-
-.postDescription {
-  font-size: 0.9rem;
-  padding-top: 0.6rem;
-  color: rgb(66, 80, 108);
-  margin-bottom: 1rem;
-}
-
-.postAuthor {
-  display: inline-block;
-  font-weight: 500;
-  margin-bottom: -0.5rem;
-}
-
-.postMoreDetail > span {
-  display: block;
-  color: rgb(var(--text-color-light));
-  margin-right: 1rem;
-  font-weight: 200;
-}
-
 .content {
   gap: 1rem;
   height: auto;
@@ -71,14 +19,6 @@
 
 .heart {
   fill: red;
-}
-
-.voteOption {
-  width: fit-content;
-  border-radius: 10px;
-  display: grid;
-  align-items: center;
-  gap: 0;
 }
 
 .filtersContainer {
@@ -135,59 +75,8 @@
   padding-top: 0.4rem;
 }
 
-.userActions {
-  display: flex;
-  gap: 1rem;
-  align-items: center;
-}
-
-.voteArrow {
-  cursor: pointer;
-  font-size: 1.5rem;
-  fill: rgb(66, 80, 108);
-}
-
-.voteCount {
-  font-size: 1rem;
-}
-
-.bookMarkContainer {
-  width: fit-content;
-  display: inline-block;
-  margin-left: auto;
-}
-
-.bookMark {
-  cursor: pointer;
-  font-size: 1.4rem;
-  fill: rgb(66, 80, 108);
-}
-
-.bookMarkActive {
-  fill: rgb(var(--accent-color));
-}
-
 .buttons {
   margin-top: 1rem;
-}
-
-.readButton {
-  width: 100%;
-  padding: 0.3rem 2rem;
-  border-radius: 6px;
-  border: 1px solid #754cff;
-  background-color: #754cff;
-  color: white;
-}
-
-.shareButton {
-  width: 100%;
-  margin-top: 0.8rem;
-  background-color: white;
-  padding: 0.3rem 2rem;
-  border-radius: 6px;
-  border: 1px solid #754cff;
-  color: #754cff;
 }
 
 @media (min-width: 768px) {
@@ -199,11 +88,5 @@
 
   .buttons {
     margin-top: 0.5rem;
-  }
-
-  .shareButton,
-  .readButton {
-    width: auto;
-    margin-right: 1rem;
   }
 }
