@@ -55,7 +55,7 @@ function Editor({ name }: Props) {
   };
 
   return (
-    <div id="root">
+    <div className="quill-editor-container">
       <ReactQuill
         modules={modules}
         theme="snow"
