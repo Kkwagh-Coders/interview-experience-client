@@ -12,11 +12,12 @@ function ProfileTab() {
 
   return (
     <div className={styles.ProfileTab}>
-      <div className={styles.bloctabs}>
+      <div className={styles.blockTabs}>
         <button
+          type="button"
           className={
             toggleState === 1
-              ? `${styles.tabs} ${styles.activetabs}`
+              ? `${styles.tabs} ${styles.activeTab}`
               : `${styles.tabs}`
           }
           onClick={() => toggleTab(1)}
@@ -24,9 +25,10 @@ function ProfileTab() {
           <h3>Posts</h3>
         </button>
         <button
+          type="button"
           className={
             toggleState === 2
-              ? `${styles.tabs} ${styles.activetabs}`
+              ? `${styles.tabs} ${styles.activeTab}`
               : `${styles.tabs}`
           }
           onClick={() => toggleTab(2)}
@@ -35,11 +37,11 @@ function ProfileTab() {
         </button>
       </div>
 
-      <div className={styles.contenttabs}>
+      <div className={styles.contentTabs}>
         <div
           className={
             toggleState === 1
-              ? `${styles.content} ${styles.activecontent}`
+              ? `${styles.content} ${styles.activeContent}`
               : `${styles.content}`
           }
         >
@@ -133,7 +135,7 @@ function ProfileTab() {
         <div
           className={
             toggleState === 2
-              ? `${styles.content} ${styles.activecontent}`
+              ? `${styles.content} ${styles.activeContent}`
               : `${styles.content}`
           }
         >

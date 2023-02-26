@@ -9,9 +9,10 @@
   padding: 0;
 }
 
-.bloctabs {
+.blockTabs {
   display: flex;
 }
+
 .tabs {
   padding: 15px;
   text-align: center;
@@ -24,13 +25,13 @@
   outline: none;
 }
 
-.activetabs {
+.activeTab {
   background: #754cff;
   color: white;
   border-bottom: 1px solid transparent;
 }
 
-.activetabs::before {
+.activeTab::before {
   content: '';
   display: block;
   position: absolute;
@@ -45,7 +46,7 @@
 button {
   border: none;
 }
-.contenttabs {
+.contentTabs {
   flex-grow: 1;
 }
 .content {
@@ -68,7 +69,7 @@ button {
   width: 100%;
   height: 100%;
 }
-.activecontent {
+.activeContent {
   display: block;
 }
 
@@ -183,10 +184,6 @@ button {
   background-color: #fff;
   border-radius: 6px;
   padding: 0.25rem 1rem;
-}
-
-.filerElementinputField input:focus {
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
 }
 
 .searchBarInput {

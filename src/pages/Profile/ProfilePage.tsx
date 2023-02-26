@@ -7,22 +7,25 @@ function ProfilePage() {
   return (
     <div className={styles.ProfilePage}>
       <div className={styles.container}>
-        <div className={styles.profilecontainer}>
+        <div className={styles.profileContainer}>
           <p className={`${styles.info} ${styles.fullname}`}>Suhaan Bhandary</p>
           <p className={`${styles.info} ${styles.role}`}>UX/UI Developer</p>
           <p className={`${styles.info} ${styles.place}`}>
             Computer Science 2024
           </p>
 
-          <div className={styles.postsinfo}>
+          <div className={styles.postsInfo}>
             <p>
-              <span>336</span> Posts
+              <span>336</span>
+              Posts
             </p>
             <p>
-              <span>4300</span> Views
+              <span>4300</span>
+              Views
             </p>
             <p>
-              <span>87</span> Likes
+              <span>87</span>
+              Likes
             </p>
           </div>
 
@@ -35,20 +38,22 @@ function ProfilePage() {
             </p>
           </div>
 
-          <div className={styles.socialcontainer}>
-            <button className={styles.linkedin}>
+          <div className={styles.socialContainer}>
+            <button type="button" className={styles.linkedin}>
               <i className={`${styles.fab} ${styles.falinkedinin}`}>
                 <FaLinkedin />
               </i>
             </button>
-            <button className={styles.github}>
+            <button type="button" className={styles.github}>
               <i className={`${styles.fab} ${styles.fagithub}`}>
                 <DiGithubBadge />
               </i>
             </button>
           </div>
 
-          <button className={styles.action}>Edit Profile</button>
+          <button type="button" className={styles.action}>
+            Edit Profile
+          </button>
         </div>
 
         <ProfileTab />

@@ -7,7 +7,7 @@
   display: flex;
 }
 
-.profilecontainer {
+.profileContainer {
   position: relative;
   background-color: #fff;
   width: 30%;
@@ -46,7 +46,7 @@
   color: #754cff;
 }
 
-.postsinfo {
+.postsInfo {
   width: 100%;
   display: flex;
   justify-content: space-around;
@@ -57,13 +57,13 @@
   text-align: center;
 }
 
-.postsinfo span {
+.postsInfo span {
   display: block;
   font-weight: bold;
   margin-bottom: 4px;
 }
 
-.socialcontainer {
+.socialContainer {
   width: 50%;
   display: flex;
   justify-content: space-between;
@@ -72,11 +72,11 @@
   margin-top: 20px;
 }
 
-.socialcontainer i {
+.socialContainer i {
   color: #fff;
 }
 
-.socialcontainer button {
+.socialContainer button {
   border: none;
   outline: none;
   width: 45px;
@@ -88,17 +88,17 @@
   transition: transform 0.3s;
 }
 
-.socialcontainer button:hover {
+.socialContainer button:hover {
   transform: scale(1.1);
 }
 
 /* Social colors */
 
-.socialcontainer button.linkedin {
+.socialContainer button.linkedin {
   background: linear-gradient(45deg, #0e76a888, #0e76a8);
 }
 
-.socialcontainer button.github {
+.socialContainer button.github {
   background: linear-gradient(45deg, #33333388, #333333);
 }
 
