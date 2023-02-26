@@ -1,49 +1,32 @@
 .ProfilePage {
-  padding-top: 5rem;
+  padding-top: 6rem;
   padding-bottom: 3rem;
 }
 
-.container {
-  display: flex;
-}
-
 .profileContainer {
+  max-width: 30rem;
+  margin-inline: auto;
+
   position: relative;
   background-color: #fff;
-  width: 30%;
-  padding: 100px 50px 40px;
-  border-radius: 12px;
-  box-shadow: 0 0 60px 5px rgba(0, 0, 0, 0.2);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-left: 2rem;
-}
-
-.imgcontainer img {
-  width: 100%;
-  max-width: 100%;
-  transform: scale(1.1);
-}
-
-.info {
-  margin-bottom: 12px;
-}
-
-.info i {
-  margin-right: 8px;
-  font-size: 1.1em;
-}
-
-.place {
-  margin-bottom: 40px;
+  padding: 1rem 2rem;
+  text-align: center;
 }
 
 .fullname {
-  font-size: 1.4em;
+  margin-bottom: 0.25rem;
+  font-size: 1.5rem;
   font-weight: bold;
   letter-spacing: 1px;
   color: #754cff;
+}
+
+.role {
+  margin-bottom: 0.25rem;
+}
+
+.place {
+  margin-bottom: 2rem;
 }
 
 .postsInfo {
@@ -60,72 +43,54 @@
 .postsInfo span {
   display: block;
   font-weight: bold;
-  margin-bottom: 4px;
+  margin-bottom: 0.25rem;
+}
+
+.about {
+  text-align: left;
 }
 
 .socialContainer {
-  width: 50%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 5px;
-  margin-top: 20px;
+  margin-top: 1rem;
+  font-size: 2rem;
 }
 
-.socialContainer i {
-  color: #fff;
+.socialContainer > a {
+  margin-inline: 1rem;
 }
 
-.socialContainer button {
-  border: none;
-  outline: none;
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-  font-size: 1.2em;
-  cursor: pointer;
-  box-shadow: 0px 5px 25px rgba(0, 0, 0, 0.15);
-  transition: transform 0.3s;
+.linkedin {
+  color: #0a66c2;
 }
 
-.socialContainer button:hover {
-  transform: scale(1.1);
+.github {
+  color: #171515;
 }
 
-/* Social colors */
-
-.socialContainer button.linkedin {
-  background: linear-gradient(45deg, #0e76a888, #0e76a8);
+.leetcode {
+  color: orange;
 }
 
-.socialContainer button.github {
-  background: linear-gradient(45deg, #33333388, #333333);
+.ProfilePage .editButton {
+  margin-block: 1rem;
+  padding: 0.5rem 2rem;
+  font-size: 1.2rem;
 }
 
-.action {
-  outline: none;
-  cursor: pointer;
-  color: #fff;
-  background-color: #754cff;
-  border: none;
-  border-radius: 50px;
-  padding: 12px 20px;
-  width: 80%;
-  margin-top: 25px;
-  box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.2);
-  text-transform: uppercase;
-  font-size: 1em;
-  font-weight: bold;
-  letter-spacing: 2px;
-  transition: transform 0.3s, opacity 0.3s;
-}
+@media (min-width: 800px) {
+  .ProfilePage {
+    padding-top: 4rem;
+    padding-bottom: 0;
+  }
 
-.action.message {
-  background-color: red;
-}
+  .ProfilePage > .container {
+    display: grid;
+    grid-template-columns: 30% 70%;
+  }
 
-.action:hover {
-  transform: scale(1.05);
-  opacity: 0.85;
-  background-color: red;
+  .profileContainer {
+    position: sticky;
+    top: 6rem;
+    height: fit-content;
+  }
 }

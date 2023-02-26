@@ -1,11 +1,18 @@
 import { DiGithubBadge } from 'react-icons/di';
 import { FaLinkedin } from 'react-icons/fa';
+import { SiLeetcode } from 'react-icons/si';
 import { useParams } from 'react-router-dom';
 import ProfileTab from '../../components/ProfileTab/ProfileTab';
+import { useAppSelector } from '../../redux/store';
 import styles from './ProfilePage.module.css';
 
 function ProfilePage() {
   const { id } = useParams();
+
+  // !Get user data from id
+  // TODO: For now we are using the status data
+  const user = useAppSelector((state) => state.userState.user);
+  const isEditable = user && id === user?.userId;
 
   // TODO: The below id will be used to fetch the user profile data
   console.log(id);
@@ -35,31 +42,41 @@ function ProfilePage() {
             </p>
           </div>
 
-          <div>
-            <p>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odio
-              illo temporibus totam dolor provident ullam, placeat ratione.
-              Possimus, illo deleniti ipsam dolore voluptatum numquam explicabo
-              non quos sunt dolorum quidem!
-            </p>
-          </div>
+          <p className={styles.about}>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odio illo
+            temporibus totam dolor provident ullam, placeat ratione. Possimus,
+            illo deleniti ipsam dolore voluptatum numquam explicabo non quos
+            sunt dolorum quidem!
+          </p>
 
           <div className={styles.socialContainer}>
-            <button type="button" className={styles.linkedin}>
-              <i className={`${styles.fab} ${styles.falinkedinin}`}>
+            {user?.linkedin ? (
+              <a href={user?.linkedin} className={styles.linkedin}>
                 <FaLinkedin />
-              </i>
-            </button>
-            <button type="button" className={styles.github}>
-              <i className={`${styles.fab} ${styles.fagithub}`}>
+              </a>
+            ) : null}
+
+            {user?.github ? (
+              <a href={user?.github} className={styles.github}>
                 <DiGithubBadge />
-              </i>
-            </button>
+              </a>
+            ) : null}
+
+            {user?.leetcode ? (
+              <a href={user?.leetcode} className={styles.leetcode}>
+                <SiLeetcode />
+              </a>
+            ) : null}
           </div>
 
-          <button type="button" className={styles.action}>
-            Edit Profile
-          </button>
+          {isEditable ? (
+            <button
+              type="button"
+              className={`default-button ${styles.editButton}`}
+            >
+              Edit Profile
+            </button>
+          ) : null}
         </div>
 
         <ProfileTab />
