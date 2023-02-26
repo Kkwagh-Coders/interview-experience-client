@@ -1,9 +1,15 @@
 import { DiGithubBadge } from 'react-icons/di';
 import { FaLinkedin } from 'react-icons/fa';
+import { useParams } from 'react-router-dom';
 import ProfileTab from '../../components/ProfileTab/ProfileTab';
 import styles from './ProfilePage.module.css';
 
 function ProfilePage() {
+  const { id } = useParams();
+
+  // TODO: The below id will be used to fetch the user profile data
+  console.log(id);
+
   return (
     <div className={styles.ProfilePage}>
       <div className={styles.container}>

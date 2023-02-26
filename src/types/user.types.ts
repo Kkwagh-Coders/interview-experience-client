@@ -13,6 +13,7 @@ export type User = {
 };
 
 export type UserStateData = {
+  userId: string;
   username: string;
   about: string;
   email: string;

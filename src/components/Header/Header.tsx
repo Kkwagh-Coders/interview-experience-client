@@ -10,7 +10,7 @@ import styles from './Header.module.css';
 
 function Header() {
   const isLoggedIn = useAppSelector((state) => state.userState.isLoggedIn);
-  const userName = useAppSelector((state) => state.userState.user?.username);
+  const user = useAppSelector((state) => state.userState.user);
 
   const [isNavOpen, setIsNavOpen] = useState(false);
 
@@ -70,12 +70,12 @@ function Header() {
 
             {isLoggedIn ? (
               <DropDown
-                titleText={`Hi ${userName}!!`}
+                titleText={`Hi ${user?.username}!!`}
                 className={styles.navItem}
               >
                 <>
                   <li role="list" className={styles.navItem}>
-                    <Link to="/profile">Profile</Link>
+                    <Link to={`/profile/${user?.userId}`}>Profile</Link>
                   </li>
                   <LogoutButton className={styles.navItem}>Logout</LogoutButton>
                 </>

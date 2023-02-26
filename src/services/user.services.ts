@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { UserReduxState, UserStateData } from '../types/user.types';
+import { User, UserReduxState } from '../types/user.types';
 import { BASE_API_URL } from './serverConfig';
 
 export const getUserStatus = () => {
@@ -9,7 +9,7 @@ export const getUserStatus = () => {
     .then((response) => response.data);
 };
 
-export const registerUser = (user: UserStateData) => {
+export const registerUser = (user: User) => {
   const url = `${BASE_API_URL}/user/register`;
   return axios
     .post<{ message: string }>(url, user, { withCredentials: true })

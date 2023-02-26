@@ -28,7 +28,7 @@ function Router() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<UserRegister />} />
         <Route path="/post" element={<PostForm />} />
-        <Route path="/profile" element={<ProfilePage />} />
+        <Route path="/profile/:id" element={<ProfilePage />} />
         <Route path="/reset-password/:token" element={<ResetPassword />} />
         <Route path="/post/:id" element={<PostPage />} />
         <Route path="/posts" element={<PostList />} />
