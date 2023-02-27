@@ -51,3 +51,14 @@ export type ProfileStats = {
     },
   ];
 };
+
+export type UserUpdate = {
+  username: string;
+  about: string;
+  designation: string;
+  branch: string;
+  passingYear: number;
+  github: string | null;
+  leetcode: string | null;
+  linkedin: string | null;
+};

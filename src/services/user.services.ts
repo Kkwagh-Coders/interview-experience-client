@@ -1,5 +1,10 @@
 import axios from 'axios';
-import { ProfileStats, User, UserReduxState } from '../types/user.types';
+import {
+  ProfileStats,
+  User,
+  UserReduxState,
+  UserUpdate,
+} from '../types/user.types';
 import { BASE_API_URL } from './serverConfig';
 
 export const getUserStatus = () => {
@@ -55,4 +60,11 @@ export const getUserProfileStats = (userId: string | undefined) => {
   return axios
     .get<ResponseType>(url, { withCredentials: true })
     .then((response) => response.data.data[0]);
+};
+
+export const updateUser = (user: UserUpdate) => {
+  const url = `${BASE_API_URL}/user/profile`;
+  return axios
+    .put<{ message: string }>(url, user, { withCredentials: true })
+    .then((response) => response.data);
 };
