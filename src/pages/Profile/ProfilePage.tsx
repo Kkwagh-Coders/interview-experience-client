@@ -1,69 +1,86 @@
+import { useQuery } from '@tanstack/react-query';
 import { DiGithubBadge } from 'react-icons/di';
 import { FaLinkedin } from 'react-icons/fa';
 import { SiLeetcode } from 'react-icons/si';
 import { useParams } from 'react-router-dom';
 import ProfileTab from '../../components/ProfileTab/ProfileTab';
 import { useAppSelector } from '../../redux/store';
+import { getUserProfileStats } from '../../services/user.services';
 import styles from './ProfilePage.module.css';
 
 function ProfilePage() {
   const { id } = useParams();
 
-  // !Get user data from id
-  // TODO: For now we are using the status data
+  // Get the data related to the profile
+  const profileQuery = useQuery(['profile'], () => getUserProfileStats(id));
+
+  // Used to check if the profile belongs to the user
   const user = useAppSelector((state) => state.userState.user);
   const isEditable = user && id === user?.userId;
 
-  // TODO: The below id will be used to fetch the user profile data
-  console.log(id);
+  // TODO: Add good loading and error elements
+  if (profileQuery.isLoading) {
+    return <h1>Loading...</h1>;
+  }
+
+  if (profileQuery.isError) {
+    return <h1>Error</h1>;
+  }
+
+  // Extracting query data
+  const profileData = profileQuery.data;
+  const profilePostStats = profileData.postData[0];
 
   return (
     <div className={styles.ProfilePage}>
       <div className={styles.container}>
         <div className={styles.profileContainer}>
-          <p className={`${styles.info} ${styles.fullname}`}>Suhaan Bhandary</p>
-          <p className={`${styles.info} ${styles.role}`}>UX/UI Developer</p>
+          <p className={`${styles.info} ${styles.fullname}`}>
+            {profileData.username}
+          </p>
+          <p className={`${styles.info} ${styles.role}`}>
+            {profileData.designation}
+          </p>
           <p className={`${styles.info} ${styles.place}`}>
-            Computer Science 2024
+            {profileData.branch}
+            <span> - </span>
+            {profileData.passingYear}
           </p>
 
           <div className={styles.postsInfo}>
             <p>
-              <span>336</span>
+              <span>{profilePostStats.postCount}</span>
               Posts
             </p>
             <p>
-              <span>4300</span>
+              <span>{profilePostStats.viewCount}</span>
               Views
             </p>
             <p>
-              <span>87</span>
+              <span>
+                {profilePostStats.upVoteCount - profilePostStats.downVoteCount}
+              </span>
               Likes
             </p>
           </div>
 
-          <p className={styles.about}>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odio illo
-            temporibus totam dolor provident ullam, placeat ratione. Possimus,
-            illo deleniti ipsam dolore voluptatum numquam explicabo non quos
-            sunt dolorum quidem!
-          </p>
+          <p className={styles.about}>{profileData.about}</p>
 
           <div className={styles.socialContainer}>
-            {user?.linkedin ? (
-              <a href={user?.linkedin} className={styles.linkedin}>
+            {profileData?.linkedin ? (
+              <a href={profileData?.linkedin} className={styles.linkedin}>
                 <FaLinkedin />
               </a>
             ) : null}
 
-            {user?.github ? (
-              <a href={user?.github} className={styles.github}>
+            {profileData?.github ? (
+              <a href={profileData?.github} className={styles.github}>
                 <DiGithubBadge />
               </a>
             ) : null}
 
-            {user?.leetcode ? (
-              <a href={user?.leetcode} className={styles.leetcode}>
+            {profileData?.leetcode ? (
+              <a href={profileData?.leetcode} className={styles.leetcode}>
                 <SiLeetcode />
               </a>
             ) : null}
