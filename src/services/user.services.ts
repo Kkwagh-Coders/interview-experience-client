@@ -1,5 +1,10 @@
 import axios from 'axios';
-import { UserReduxState, UserStateData } from '../types/user.types';
+import {
+  ProfileStats,
+  User,
+  UserReduxState,
+  UserUpdate,
+} from '../types/user.types';
 import { BASE_API_URL } from './serverConfig';
 
 export const getUserStatus = () => {
@@ -9,7 +14,7 @@ export const getUserStatus = () => {
     .then((response) => response.data);
 };
 
-export const registerUser = (user: UserStateData) => {
+export const registerUser = (user: User) => {
   const url = `${BASE_API_URL}/user/register`;
   return axios
     .post<{ message: string }>(url, user, { withCredentials: true })
@@ -46,5 +51,20 @@ export const resetUserPassword = (
   const body = { email, newPassword };
   return axios
     .post<{ message: string }>(url, body, { withCredentials: true })
+    .then((response) => response.data);
+};
+
+export const getUserProfileStats = (userId: string | undefined) => {
+  const url = `${BASE_API_URL}/user/profile/${userId}`;
+  type ResponseType = { message: string; data: [ProfileStats] };
+  return axios
+    .get<ResponseType>(url, { withCredentials: true })
+    .then((response) => response.data.data[0]);
+};
+
+export const updateUser = (user: UserUpdate) => {
+  const url = `${BASE_API_URL}/user/profile`;
+  return axios
+    .put<{ message: string }>(url, user, { withCredentials: true })
     .then((response) => response.data);
 };

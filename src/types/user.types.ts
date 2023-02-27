@@ -13,6 +13,7 @@ export type User = {
 };
 
 export type UserStateData = {
+  userId: string;
   username: string;
   about: string;
   email: string;
@@ -30,3 +31,34 @@ export interface UserReduxState {
   isLoggedIn: boolean;
   user: UserStateData | null;
 }
+
+export type ProfileStats = {
+  username: string;
+  email: string;
+  branch: string;
+  passingYear: string;
+  designation: string;
+  about: string;
+  github: string;
+  leetcode: string;
+  linkedin: string;
+  postData: [
+    {
+      viewCount: number;
+      postCount: number;
+      upVoteCount: number;
+      downVoteCount: number;
+    },
+  ];
+};
+
+export type UserUpdate = {
+  username: string;
+  about: string;
+  designation: string;
+  branch: string;
+  passingYear: number;
+  github: string | null;
+  leetcode: string | null;
+  linkedin: string | null;
+};
