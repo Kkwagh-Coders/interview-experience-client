@@ -2,7 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import { DiGithubBadge } from 'react-icons/di';
 import { FaLinkedin } from 'react-icons/fa';
 import { SiLeetcode } from 'react-icons/si';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import ProfileTab from '../../components/ProfileTab/ProfileTab';
 import { useAppSelector } from '../../redux/store';
 import { getUserProfileStats } from '../../services/user.services';
@@ -109,12 +109,12 @@ function ProfilePage() {
           </div>
 
           {isEditable ? (
-            <button
-              type="button"
+            <Link
+              to="/profile/edit"
               className={`default-button ${styles.editButton}`}
             >
               Edit Profile
-            </button>
+            </Link>
           ) : null}
         </div>
 
