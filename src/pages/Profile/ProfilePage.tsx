@@ -20,11 +20,33 @@ function ProfilePage() {
 
   // TODO: Add good loading and error elements
   if (profileQuery.isLoading) {
-    return <h1>Loading...</h1>;
+    return (
+      <div
+        style={{
+          display: 'flex',
+          height: '100vh',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+      >
+        <h1>Loading...</h1>
+      </div>
+    );
   }
 
   if (profileQuery.isError) {
-    return <h1>Error</h1>;
+    return (
+      <div
+        style={{
+          display: 'flex',
+          height: '100vh',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+      >
+        <h1>Error</h1>
+      </div>
+    );
   }
 
   // Extracting query data
