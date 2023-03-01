@@ -27,7 +27,13 @@ function PostListElement({ post }: Props) {
 
           <div className={styles.postMoreDetail}>
             <p className={styles.postAuthor}>{post.userId.username}</p>
-            <span>Feb 9, 2022</span>
+            <span>
+              {new Date(post.createdAt).toLocaleString('en-GB', {
+                day: 'numeric',
+                month: 'short',
+                year: 'numeric',
+              })}
+            </span>
           </div>
 
           <div className={styles.bookMarkContainer}>
