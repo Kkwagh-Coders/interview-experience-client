@@ -1,32 +1,14 @@
 import { BiDownArrow, BiUpArrow } from 'react-icons/bi';
 import { BsBookmarkDashFill } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
+import { PostCard } from '../../types/post.types';
 import styles from './PostListElement.module.css';
 
 // TODO : vote , date, share, bookmark, upVote downVote
 export type Props = {
-  post: {
-    _id: string;
-    title: string;
-    content: string;
-    userId: {
-      _id: string;
-      username: string;
-    };
-    company: string;
-    role: string;
-    postType: string;
-    domain: string;
-    rating: number;
-    status: string;
-    createdAt: Date;
-    isUpVoted: boolean;
-    isDownVoted: boolean;
-    isBookmarked: boolean;
-    views: number;
-    tags: string[];
-  };
+  post: PostCard;
 };
+
 function PostListElement({ post }: Props) {
   return (
     <div className={styles.postsContainer}>
@@ -39,7 +21,7 @@ function PostListElement({ post }: Props) {
         <div className={styles.userActions}>
           <div className={styles.voteOption}>
             <BiUpArrow className={`${styles.voteArrow} ${styles.upVote}`} />
-            <span className={styles.voteCount}>{}</span>
+            <span className={styles.voteCount}>{post.votes}</span>
             <BiDownArrow className={`${styles.voteArrow} ${styles.downVote}`} />
           </div>
 

@@ -33,6 +33,7 @@ export type PostCard = {
   rating: number;
   status: string;
   createdAt: Date;
+  votes: number;
   isUpVoted: boolean;
   isDownVoted: boolean;
   isBookmarked: boolean;
@@ -42,6 +43,7 @@ export type PostCard = {
 };
 
 export type PostCardList = PostCard[];
+
 export type PostFormData = {
   title: string;
   role: string;
