@@ -30,7 +30,9 @@ export const createPost = (postData: PostFormData, status: string) => {
   const tags = getTagsFromString(postData.tags);
   const body = { ...postData, tags, status };
 
+  type CreatePost = { message: string; postId: string };
+
   return axios
-    .post<{ message: string }>(url, body, { withCredentials: true })
+    .post<CreatePost>(url, body, { withCredentials: true })
     .then((response) => response.data);
 };
