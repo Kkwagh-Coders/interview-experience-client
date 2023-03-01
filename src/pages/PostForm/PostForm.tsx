@@ -1,17 +1,19 @@
 import { useMutation } from '@tanstack/react-query';
 import { Formik } from 'formik';
 import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 import * as Yup from 'yup';
 
 import { PostFormData } from '../../types/post.types';
 
 import Editor from '../../components/Editor/Editor';
 import StarRating from '../../components/StarRating/StarRating';
-import styles from './PostForm.module.css';
 import { createPost } from '../../services/post.services';
+import styles from './PostForm.module.css';
 
 interface SuccessResponse {
   message: string;
+  postId: string;
 }
 
 interface ErrorResponse<T> {
@@ -19,6 +21,8 @@ interface ErrorResponse<T> {
 }
 
 function PostForm() {
+  const navigate = useNavigate();
+
   // prettier-ignore
   const { mutate, isLoading } = useMutation<
   SuccessResponse,
@@ -31,6 +35,7 @@ function PostForm() {
     },
     onSuccess: (data) => {
       toast.success(data.message);
+      navigate(`/post/${data.postId}`);
     },
   });
 
