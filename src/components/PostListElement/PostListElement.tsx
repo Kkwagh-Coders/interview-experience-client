@@ -32,7 +32,9 @@ function PostListElement({ post }: Props) {
     <div className={styles.postsContainer}>
       <div className={styles.interviewPost}>
         <span className={styles.postDomain}>{post.postType}</span>
-        <h3 className={styles.postTitle}>{post.title}</h3>
+        <h3 className={styles.postTitle}>
+          <Link to={`/post/${post._id}`}>{post.title}</Link>
+        </h3>
         <p className={styles.postDescription}>{post.content}</p>
         <div className={styles.userActions}>
           <div className={styles.voteOption}>
