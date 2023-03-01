@@ -68,19 +68,19 @@ function PostPage() {
               <li>
                 <div className={styles.dataListItem}>
                   Comments
-                  <span> 24 </span>
+                  <span>{postQuery.data.commentCount}</span>
                 </div>
               </li>
               <li>
                 <div className={styles.dataListItem}>
-                  Favourited
+                  Bookmarks
                   <span>21</span>
                 </div>
               </li>
               <li>
                 <div className={styles.dataListItem}>
                   Views
-                  <span>24k</span>
+                  <span>{postQuery.data.views}</span>
                 </div>
               </li>
             </ul>
