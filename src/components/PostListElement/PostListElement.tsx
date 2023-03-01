@@ -3,6 +3,7 @@ import { BsBookmarkDashFill } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 import { PostCard } from '../../types/post.types';
 import styles from './PostListElement.module.css';
+import ShareButton from '../ShareButton/ShareButton';
 
 // TODO : vote , date, share, bookmark, upVote downVote
 export type Props = {
@@ -45,9 +46,11 @@ function PostListElement({ post }: Props) {
           <Link to={`/post/${post._id}`} className={styles.readButton}>
             Read
           </Link>
-          <button type="button" className={styles.shareButton}>
-            Share
-          </button>
+          <ShareButton
+            title={post.title}
+            text={post.content}
+            postId={post._id}
+          />
         </div>
       </div>
     </div>

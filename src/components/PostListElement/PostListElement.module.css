@@ -106,23 +106,12 @@
   text-decoration: none;
 }
 
-.shareButton {
-  width: 100%;
-  margin-top: 0.8rem;
-  background-color: white;
-  padding: 0.3rem 2rem;
-  border-radius: 6px;
-  border: 1px solid #754cff;
-  color: #754cff;
-}
-
 @media (min-width: 768px) {
   .filtersContainer {
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     max-width: 50rem;
     margin-bottom: 2rem;
   }
-  .shareButton,
   .readButton {
     width: auto;
     margin-right: 1rem;
