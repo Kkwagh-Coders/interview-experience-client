@@ -1,8 +1,9 @@
 import { useQuery } from '@tanstack/react-query';
 import { useParams } from 'react-router-dom';
-import styles from './PostPage.module.css';
 import Comment from '../../components/Comment/Comment';
+import DisplayQuill from '../../components/DisplayQuill/DisplayQuill';
 import { getPost } from '../../services/post.services';
+import styles from './PostPage.module.css';
 
 function PostPage() {
   const { id } = useParams();
@@ -28,7 +29,7 @@ function PostPage() {
               <div className={styles.date}> </div>
             </div>
 
-            <div className={styles.data}>{postQuery.data.content}</div>
+            <DisplayQuill content={postQuery.data.content} />
 
             <div className={styles.postDetails}>
               <div className={styles.comments}>Comments (10)</div>
