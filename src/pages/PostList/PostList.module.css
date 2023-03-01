@@ -79,6 +79,11 @@
   margin-top: 1rem;
 }
 
+.PostList .nextPageButton {
+  margin-inline: auto;
+  display: block;
+}
+
 @media (min-width: 768px) {
   .filtersContainer {
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;

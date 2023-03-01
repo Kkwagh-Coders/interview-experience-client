@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { Post } from '../types/post.types';
+import { Post, PostCardList } from '../types/post.types';
 import { BASE_API_URL } from './serverConfig';
 
 export const getPost = (id: string | undefined) => {
@@ -9,4 +9,17 @@ export const getPost = (id: string | undefined) => {
     .then((res) => res.data.post);
 };
 
-export default {};
+export type AllPostPaginated = {
+  message: string;
+  data: PostCardList;
+  page: { nextPage: number; previousPage: number };
+};
+
+export const getPostsPaginated = (page: number, limit: number) => {
+  const url = new URL(`${BASE_API_URL}/posts`);
+
+  url.searchParams.set('page', page.toString());
+  url.searchParams.set('limit', limit.toString());
+
+  return axios.get<AllPostPaginated>(url.href).then((res) => res.data);
+};

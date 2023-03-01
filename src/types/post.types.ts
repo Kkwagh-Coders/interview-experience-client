@@ -17,3 +17,28 @@ export type Post = {
   tags: string[];
   voteCount: number;
 };
+
+export type PostCard = {
+  _id: string;
+  title: string;
+  content: string;
+  userId: {
+    _id: string;
+    username: string;
+  };
+  company: string;
+  role: string;
+  postType: string;
+  domain: string;
+  rating: number;
+  status: string;
+  createdAt: Date;
+  isUpVoted: boolean;
+  isDownVoted: boolean;
+  isBookmarked: boolean;
+  views: number;
+
+  tags: string[];
+};
+
+export type PostCardList = PostCard[];
