@@ -1,0 +1,96 @@
+.ProfilePage {
+  padding-top: 6rem;
+  padding-bottom: 3rem;
+}
+
+.profileContainer {
+  max-width: 30rem;
+  margin-inline: auto;
+
+  position: relative;
+  background-color: #fff;
+  padding: 1rem 2rem;
+  text-align: center;
+}
+
+.fullname {
+  margin-bottom: 0.25rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: #754cff;
+}
+
+.role {
+  margin-bottom: 0.25rem;
+}
+
+.place {
+  margin-bottom: 2rem;
+}
+
+.postsInfo {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 1.1em;
+  letter-spacing: 0.5px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.postsInfo span {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+}
+
+.about {
+  text-align: left;
+}
+
+.socialContainer {
+  margin-top: 1rem;
+  font-size: 2rem;
+}
+
+.socialContainer > a {
+  margin-inline: 1rem;
+}
+
+.linkedin {
+  color: #0a66c2;
+}
+
+.github {
+  color: #171515;
+}
+
+.leetcode {
+  color: orange;
+}
+
+.ProfilePage .editButton {
+  margin-block: 1rem;
+  padding: 0.5rem 2rem;
+  font-size: 1.2rem;
+}
+
+@media (min-width: 800px) {
+  .ProfilePage {
+    padding-top: 4rem;
+    padding-bottom: 0;
+  }
+
+  .ProfilePage > .container {
+    display: grid;
+    grid-template-columns: 30% 70%;
+  }
+
+  .profileContainer {
+    position: sticky;
+    top: 6rem;
+    height: fit-content;
+  }
+}
