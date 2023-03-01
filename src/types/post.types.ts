@@ -7,7 +7,7 @@ export type Post = {
   postType: string;
   domain: string;
   rating: number;
-  createdAt: Date;
+  createdAt: string;
   views: number;
   isBookmarked: boolean;
   isDownVoted: boolean;
@@ -32,7 +32,7 @@ export type PostCard = {
   domain: string;
   rating: number;
   status: string;
-  createdAt: Date;
+  createdAt: string;
   votes: number;
   isUpVoted: boolean;
   isDownVoted: boolean;
