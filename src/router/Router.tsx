@@ -13,6 +13,7 @@ import UserRegister from '../pages/UserRegister/UserRegister';
 import PostPage from '../pages/PostPage/PostPage';
 import ProfilePage from '../pages/Profile/ProfilePage';
 import ProfileEdit from '../pages/ProfileEdit/ProfileEdit';
+import ComingSoon from '../pages/ComingSoon/ComingSoon';
 
 function Router() {
   const { isLoading, isError } = useUserStatus();
@@ -29,6 +30,7 @@ function Router() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<UserRegister />} />
         <Route path="/post" element={<PostForm />} />
+        <Route path="/coming" element={<ComingSoon />} />
         <Route path="/profile/:id" element={<ProfilePage />} />
         <Route path="/profile/edit" element={<ProfileEdit />} />
         <Route path="/reset-password/:token" element={<ResetPassword />} />
