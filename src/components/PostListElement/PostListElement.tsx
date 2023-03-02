@@ -52,7 +52,7 @@ function PostListElement({ post }: Props) {
             author={post.userId.username}
             postId={post._id}
           />
-          <DeleteButton postId={post._id} />
+          <DeleteButton postId={post._id} authorId={post.userId._id} />
         </div>
       </div>
     </div>

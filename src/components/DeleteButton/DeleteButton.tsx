@@ -3,9 +3,11 @@ import { toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import { deletePost } from '../../services/post.services';
 import styles from './DeleteButton.module.css';
+import { useAppSelector } from '../../redux/store';
 
 type Props = {
   postId: string;
+  authorId: string;
 };
 
 interface SuccessResponse {
@@ -16,9 +18,11 @@ interface ErrorResponse<T> {
   response: { data: T };
 }
 
-function DeleteButton({ postId }: Props) {
+function DeleteButton({ postId, authorId }: Props) {
   const navigate = useNavigate();
   const queryClient = useQueryClient();
+
+  const user = useAppSelector((state) => state.userState.user);
 
   // prettier-ignore
   const { mutate, isLoading } = useMutation<
@@ -37,6 +41,11 @@ function DeleteButton({ postId }: Props) {
       navigate('/posts');
     },
   });
+
+  // If the use is not a admin and also not the author then don't show delete
+  if (!user?.isAdmin && user?.userId !== authorId) {
+    return null;
+  }
 
   return (
     <button
