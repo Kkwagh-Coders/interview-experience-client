@@ -1,11 +1,9 @@
 .container {
   display: flex;
   align-items: center;
-  padding: 20px 7%;
   min-height: 100vh;
   min-height: 100dvh;
   gap: 15px;
-  padding-bottom: 80px;
 }
 
 .image {
