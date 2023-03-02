@@ -22,13 +22,20 @@ function PostList() {
     queryFn: ({ pageParam = 1 }) => getPostsPaginated(pageParam, 2),
   });
 
-  let buttonText = '';
+  let scrollFooterElement = <p>Nothing More to Load</p>;
   if (isFetchingNextPage) {
-    buttonText = 'Loading...';
+    scrollFooterElement = <p>Loading...</p>;
   } else if (hasNextPage) {
-    buttonText = 'Load More';
-  } else {
-    buttonText = 'Nothing More to Load';
+    scrollFooterElement = (
+      <button
+        type="button"
+        className={`default-button ${styles.nextPageButton}`}
+        onClick={() => fetchNextPage()}
+        disabled={!hasNextPage || isFetchingNextPage}
+      >
+        Load More
+      </button>
+    );
   }
 
   return (
@@ -110,16 +117,7 @@ function PostList() {
               <PostListElement post={post} key={post._id} />
             ))}
 
-          <div>
-            <button
-              type="button"
-              className={`default-button ${styles.nextPageButton}`}
-              onClick={() => fetchNextPage()}
-              disabled={!hasNextPage || isFetchingNextPage}
-            >
-              {buttonText}
-            </button>
-          </div>
+          <div className={styles.scrollFooter}>{scrollFooterElement}</div>
         </div>
       </section>
     </div>
