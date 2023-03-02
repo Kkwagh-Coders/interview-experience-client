@@ -9,13 +9,15 @@ function BookmarkedPost() {
   // eslint-disable-next-line object-curly-newline, operator-linebreak
   const { data, hasNextPage, fetchNextPage, isFetchingNextPage } =
     useInfiniteQuery({
-      queryKey: ['bookmaredPost'],
+      queryKey: ['bookmared-post', id],
       getNextPageParam: (prevData: {
         message: string;
         data: PostCardList;
         page: { nextPage: number; previousPage: number };
       }) => prevData.page.nextPage,
-      queryFn: ({ pageParam = 1 }) => getBookmarkedPostsPaginated(id, pageParam, 2),
+      queryFn: ({ pageParam = 1 }) =>
+        // eslint-disable-next-line implicit-arrow-linebreak
+        getBookmarkedPostsPaginated(id, pageParam, 2),
     });
 
   let buttonText = '';

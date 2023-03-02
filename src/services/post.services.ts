@@ -48,3 +48,16 @@ export const getBookmarkedPostsPaginated = (
 
   return axios.get(url.href).then((res) => res.data);
 };
+
+// TODO: add the return type to the axios
+export const getUserPostPaginated = (
+  userId: string | undefined,
+  page: number,
+  limit: number,
+) => {
+  const url = new URL(`${BASE_API_URL}/posts/user/all/${userId}`);
+  url.searchParams.set('page', page.toString());
+  url.searchParams.set('limit', limit.toString());
+
+  return axios.get(url.href).then((res) => res.data);
+};
