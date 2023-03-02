@@ -36,3 +36,11 @@ export const createPost = (postData: PostFormData, status: string) => {
     .post<CreatePost>(url, body, { withCredentials: true })
     .then((response) => response.data);
 };
+
+export const deletePost = (postId: string) => {
+  const url = `${BASE_API_URL}/posts/${postId}`;
+
+  return axios
+    .delete<{ message: string }>(url, { withCredentials: true })
+    .then((response) => response.data);
+};

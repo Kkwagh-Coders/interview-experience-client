@@ -1,0 +1,21 @@
+.deleteButton {
+  width: 100%;
+  margin-top: 0.8rem;
+  background-color: white;
+  padding: 0.3rem 2rem;
+  border-radius: 6px;
+  border: 1px solid red;
+  color: red;
+}
+
+.deleteButton:disabled {
+  border-color: gray;
+  color: gray;
+}
+
+@media (min-width: 768px) {
+  .deleteButton {
+    width: auto;
+    margin-right: 1rem;
+  }
+}
