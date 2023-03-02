@@ -42,6 +42,7 @@ function PostPage() {
               <DeleteButton
                 postId={id || ''}
                 authorId={postQuery.data.postAuthorId}
+                postTitle={postQuery.data.title}
               />
             </div>
 

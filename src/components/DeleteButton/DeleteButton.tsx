@@ -1,13 +1,15 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { useState } from 'react';
 import { toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
+import { useAppSelector } from '../../redux/store';
 import { deletePost } from '../../services/post.services';
 import styles from './DeleteButton.module.css';
-import { useAppSelector } from '../../redux/store';
 
 type Props = {
   postId: string;
   authorId: string;
+  postTitle: string;
 };
 
 interface SuccessResponse {
@@ -18,11 +20,12 @@ interface ErrorResponse<T> {
   response: { data: T };
 }
 
-function DeleteButton({ postId, authorId }: Props) {
+function DeleteButton({ postId, authorId, postTitle }: Props) {
   const navigate = useNavigate();
   const queryClient = useQueryClient();
 
   const user = useAppSelector((state) => state.userState.user);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   // prettier-ignore
   const { mutate, isLoading } = useMutation<
@@ -48,14 +51,45 @@ function DeleteButton({ postId, authorId }: Props) {
   }
 
   return (
-    <button
-      type="button"
-      className={styles.deleteButton}
-      onClick={() => mutate()}
-      disabled={isLoading}
-    >
-      Delete
-    </button>
+    <>
+      <button
+        type="button"
+        className={styles.deleteButton}
+        onClick={() => setIsModalOpen(true)}
+        disabled={isLoading}
+      >
+        Delete
+      </button>
+
+      {isModalOpen ? (
+        <div className={styles.DeleteModal}>
+          <div className={styles.container}>
+            <h2>Confirm Post Delete</h2>
+            <p>
+              Are you sure you want to delete the post with title &quot;
+              <span className="bold-text">{postTitle}</span>
+              &quot; ?
+            </p>
+            <div>
+              <button
+                type="button"
+                className={styles.modalCloseButton}
+                onClick={() => setIsModalOpen(false)}
+              >
+                Close
+              </button>
+              <button
+                type="button"
+                className={styles.modalDeleteButton}
+                onClick={() => mutate()}
+              >
+                Delete
+              </button>
+            </div>
+          </div>
+        </div>
+      ) : null}
+    </>
   );
 }
 
