@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { PostCard } from '../../types/post.types';
 import styles from './PostListElement.module.css';
 import ShareButton from '../ShareButton/ShareButton';
+import DeleteButton from '../DeleteButton/DeleteButton';
 
 // TODO : vote , date, share, bookmark, upVote downVote
 export type Props = {
@@ -50,6 +51,11 @@ function PostListElement({ post }: Props) {
             title={post.title}
             author={post.userId.username}
             postId={post._id}
+          />
+          <DeleteButton
+            postId={post._id}
+            authorId={post.userId._id}
+            postTitle={post.title}
           />
         </div>
       </div>
