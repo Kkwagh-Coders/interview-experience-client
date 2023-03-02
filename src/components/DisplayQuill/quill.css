@@ -18,4 +18,5 @@
 
 .display-quill-container .ql-editor {
   min-height: auto;
+  padding-inline: 0;
 }

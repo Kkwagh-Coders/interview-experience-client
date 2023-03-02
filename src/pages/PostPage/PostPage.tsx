@@ -4,6 +4,8 @@ import Comment from '../../components/Comment/Comment';
 import DisplayQuill from '../../components/DisplayQuill/DisplayQuill';
 import { getPost } from '../../services/post.services';
 import styles from './PostPage.module.css';
+import ShareButton from '../../components/ShareButton/ShareButton';
+import DeleteButton from '../../components/DeleteButton/DeleteButton';
 
 function PostPage() {
   const { id } = useParams();
@@ -30,6 +32,15 @@ function PostPage() {
             </div>
 
             <DisplayQuill content={postQuery.data.content} />
+
+            <div>
+              <ShareButton
+                postId={id || ''}
+                author={postQuery.data.postAuthor}
+                title={postQuery.data.title}
+              />
+              <DeleteButton postId={id || ''} />
+            </div>
 
             <div className={styles.postDetails}>
               <div className={styles.comments}>Comments (10)</div>
