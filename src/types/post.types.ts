@@ -25,7 +25,7 @@ export type PostCard = {
   userId: {
     _id: string;
     username: string;
-  };
+  } | null;
   company: string;
   role: string;
   postType: string;

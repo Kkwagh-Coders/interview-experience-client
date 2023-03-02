@@ -28,7 +28,16 @@ function PostListElement({ post }: Props) {
           </div>
 
           <div className={styles.postMoreDetail}>
-            <p className={styles.postAuthor}>{post.userId.username}</p>
+            {post.userId ? (
+              <Link
+                to={`/profile/${post.userId._id}`}
+                className={styles.postAuthor}
+              >
+                {post.userId.username}
+              </Link>
+            ) : (
+              <p className={styles.postAuthor}>User Deleted</p>
+            )}
             <span>
               {new Date(post.createdAt).toLocaleString('en-GB', {
                 day: 'numeric',
@@ -49,12 +58,12 @@ function PostListElement({ post }: Props) {
           </Link>
           <ShareButton
             title={post.title}
-            author={post.userId.username}
+            author={post.userId?.username || 'User Deleted'}
             postId={post._id}
           />
           <DeleteButton
             postId={post._id}
-            authorId={post.userId._id}
+            authorId={post.userId?._id || 'User Deleted'}
             postTitle={post.title}
           />
         </div>
