@@ -36,3 +36,15 @@ export const createPost = (postData: PostFormData, status: string) => {
     .post<CreatePost>(url, body, { withCredentials: true })
     .then((response) => response.data);
 };
+
+export const getBookmarkedPostsPaginated = (
+  userId: string | undefined,
+  page: number,
+  limit: number,
+) => {
+  const url = new URL(`${BASE_API_URL}/posts/user/bookmarked/${userId}`);
+  url.searchParams.set('page', page.toString());
+  url.searchParams.set('limit', limit.toString());
+
+  return axios.get(url.href).then((res) => res.data);
+};

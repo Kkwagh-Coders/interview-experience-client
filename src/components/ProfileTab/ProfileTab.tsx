@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import { BiDownArrow, BiUpArrow } from 'react-icons/bi';
 import { BsBookmarkDashFill } from 'react-icons/bs';
+
+import BookmarkedPost from '../BoomarkedPost/BookmarkedPost';
+
 import styles from './ProfileTab.module.css';
 
 function ProfileTab() {
@@ -10,6 +13,27 @@ function ProfileTab() {
     setToggleState(index);
   };
 
+  // const { id } = useParams();
+  // // eslint-disable-next-line object-curly-newline, operator-linebreak
+  // const { data, hasNextPage, fetchNextPage, isFetchingNextPage } =
+  //   useInfiniteQuery({
+  //     queryKey: ['bookmaredPost'],
+  //     getNextPageParam: (prevData: {
+  //       message: string;
+  //       data: PostCardList;
+  //       page: { nextPage: number; previousPage: number };
+  //     }) => prevData.page.nextPage,
+  //     queryFn: ({ pageParam = 1 }) => getBookmarkedPostsPaginated(id, pageParam, 2),
+  //   });
+
+  // let buttonText = '';
+  // if (isFetchingNextPage) {
+  //   buttonText = 'Loading...';
+  // } else if (hasNextPage) {
+  //   buttonText = 'Load more';
+  // } else {
+  //   buttonText = 'Nothing to load';
+  // }
   return (
     <div className={styles.ProfileTab}>
       <div className={styles.blockTabs}>
@@ -45,220 +69,7 @@ function ProfileTab() {
               : `${styles.content}`
           }
         >
-          <div className={styles.postsContainer}>
-            <div className={styles.interviewPost}>
-              <span className={styles.postDomain}>Experience</span>
-              <h3 className={styles.postTitle}>My FinIQ Experience</h3>
-              <p className={styles.postDescription}>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugiat
-                pariatur, quibusdam iusto officiis aliquam reprehenderit tenetur
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugiat
-                pariatur, quibusdam iusto officiis aliquam reprehenderit
-                tenetur...
-              </p>
-              <div className={styles.userActions}>
-                <div className={styles.voteOption}>
-                  <BiUpArrow
-                    className={`${styles.voteArrow} ${styles.upVote}`}
-                  />
-                  <span className={styles.voteCount}>100</span>
-                  <BiDownArrow
-                    className={`${styles.voteArrow} ${styles.downVote}`}
-                  />
-                </div>
-
-                <div className={styles.postMoreDetail}>
-                  <p className={styles.postAuthor}>Rama works</p>
-                  <span>Feb 9, 2022</span>
-                </div>
-
-                <div className={styles.bookMarkContainer}>
-                  <BsBookmarkDashFill className={styles.bookMark} />
-                </div>
-              </div>
-
-              <div className={styles.buttons}>
-                <button type="button" className={styles.readButton}>
-                  Read
-                </button>
-                <button type="button" className={styles.shareButton}>
-                  Share
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <div className={styles.postsContainer}>
-            <div className={styles.interviewPost}>
-              <span className={styles.postDomain}>Experience</span>
-              <h3 className={styles.postTitle}>My FinIQ Experience</h3>
-              <p className={styles.postDescription}>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugiat
-                pariatur, quibusdam iusto officiis aliquam reprehenderit tenetur
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugiat
-                pariatur, quibusdam iusto officiis aliquam reprehenderit
-                tenetur...
-              </p>
-              <div className={styles.userActions}>
-                <div className={styles.voteOption}>
-                  <BiUpArrow
-                    className={`${styles.voteArrow} ${styles.upVote}`}
-                  />
-                  <span className={styles.voteCount}>100</span>
-                  <BiDownArrow
-                    className={`${styles.voteArrow} ${styles.downVote}`}
-                  />
-                </div>
-
-                <div className={styles.postMoreDetail}>
-                  <p className={styles.postAuthor}>Rama works</p>
-                  <span>Feb 9, 2022</span>
-                </div>
-
-                <div className={styles.bookMarkContainer}>
-                  <BsBookmarkDashFill className={styles.bookMark} />
-                </div>
-              </div>
-
-              <div className={styles.buttons}>
-                <button type="button" className={styles.readButton}>
-                  Read
-                </button>
-                <button type="button" className={styles.shareButton}>
-                  Share
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <div className={styles.postsContainer}>
-            <div className={styles.interviewPost}>
-              <span className={styles.postDomain}>Experience</span>
-              <h3 className={styles.postTitle}>My FinIQ Experience</h3>
-              <p className={styles.postDescription}>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugiat
-                pariatur, quibusdam iusto officiis aliquam reprehenderit tenetur
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugiat
-                pariatur, quibusdam iusto officiis aliquam reprehenderit
-                tenetur...
-              </p>
-              <div className={styles.userActions}>
-                <div className={styles.voteOption}>
-                  <BiUpArrow
-                    className={`${styles.voteArrow} ${styles.upVote}`}
-                  />
-                  <span className={styles.voteCount}>100</span>
-                  <BiDownArrow
-                    className={`${styles.voteArrow} ${styles.downVote}`}
-                  />
-                </div>
-
-                <div className={styles.postMoreDetail}>
-                  <p className={styles.postAuthor}>Rama works</p>
-                  <span>Feb 9, 2022</span>
-                </div>
-
-                <div className={styles.bookMarkContainer}>
-                  <BsBookmarkDashFill className={styles.bookMark} />
-                </div>
-              </div>
-
-              <div className={styles.buttons}>
-                <button type="button" className={styles.readButton}>
-                  Read
-                </button>
-                <button type="button" className={styles.shareButton}>
-                  Share
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <div className={styles.postsContainer}>
-            <div className={styles.interviewPost}>
-              <span className={styles.postDomain}>Experience</span>
-              <h3 className={styles.postTitle}>My FinIQ Experience</h3>
-              <p className={styles.postDescription}>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugiat
-                pariatur, quibusdam iusto officiis aliquam reprehenderit tenetur
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugiat
-                pariatur, quibusdam iusto officiis aliquam reprehenderit
-                tenetur...
-              </p>
-              <div className={styles.userActions}>
-                <div className={styles.voteOption}>
-                  <BiUpArrow
-                    className={`${styles.voteArrow} ${styles.upVote}`}
-                  />
-                  <span className={styles.voteCount}>100</span>
-                  <BiDownArrow
-                    className={`${styles.voteArrow} ${styles.downVote}`}
-                  />
-                </div>
-
-                <div className={styles.postMoreDetail}>
-                  <p className={styles.postAuthor}>Rama works</p>
-                  <span>Feb 9, 2022</span>
-                </div>
-
-                <div className={styles.bookMarkContainer}>
-                  <BsBookmarkDashFill className={styles.bookMark} />
-                </div>
-              </div>
-
-              <div className={styles.buttons}>
-                <button type="button" className={styles.readButton}>
-                  Read
-                </button>
-                <button type="button" className={styles.shareButton}>
-                  Share
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <div className={styles.postsContainer}>
-            <div className={styles.interviewPost}>
-              <span className={styles.postDomain}>Experience</span>
-              <h3 className={styles.postTitle}>My FinIQ Experience</h3>
-              <p className={styles.postDescription}>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugiat
-                pariatur, quibusdam iusto officiis aliquam reprehenderit tenetur
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugiat
-                pariatur, quibusdam iusto officiis aliquam reprehenderit
-                tenetur...
-              </p>
-              <div className={styles.userActions}>
-                <div className={styles.voteOption}>
-                  <BiUpArrow
-                    className={`${styles.voteArrow} ${styles.upVote}`}
-                  />
-                  <span className={styles.voteCount}>100</span>
-                  <BiDownArrow
-                    className={`${styles.voteArrow} ${styles.downVote}`}
-                  />
-                </div>
-
-                <div className={styles.postMoreDetail}>
-                  <p className={styles.postAuthor}>Rama works</p>
-                  <span>Feb 9, 2022</span>
-                </div>
-
-                <div className={styles.bookMarkContainer}>
-                  <BsBookmarkDashFill className={styles.bookMark} />
-                </div>
-              </div>
-
-              <div className={styles.buttons}>
-                <button type="button" className={styles.readButton}>
-                  Read
-                </button>
-                <button type="button" className={styles.shareButton}>
-                  Share
-                </button>
-              </div>
-            </div>
-          </div>
+          <BookmarkedPost />
         </div>
 
         <div
