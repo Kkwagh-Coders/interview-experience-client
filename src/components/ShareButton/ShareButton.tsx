@@ -3,11 +3,11 @@ import styles from './ShareButton.module.css';
 
 type Props = {
   title: string;
-  text: string;
+  author: string;
   postId: string;
 };
 
-function ShareButton({ title, text, postId }: Props) {
+function ShareButton({ title, author, postId }: Props) {
   const handlePostShare = () => {
     const url = `${process.env.REACT_APP_BASE_CLIENT_URL}/post/${postId}`;
 
@@ -15,6 +15,7 @@ function ShareButton({ title, text, postId }: Props) {
     // but it may not be for some devices
     // @ts-ignore
     if (navigator.share) {
+      const text = `Checkout the post "${title}" by ${author} on Interview Experience`;
       navigator.share({ title, text, url }).catch(() => {
         toast.error('Something went wrong');
       });

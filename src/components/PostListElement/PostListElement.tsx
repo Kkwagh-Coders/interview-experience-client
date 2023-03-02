@@ -48,7 +48,7 @@ function PostListElement({ post }: Props) {
           </Link>
           <ShareButton
             title={post.title}
-            text={post.content}
+            author={post.userId.username}
             postId={post._id}
           />
         </div>
