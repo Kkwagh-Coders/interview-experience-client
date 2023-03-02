@@ -1,5 +1,9 @@
 function UserPost() {
-  return <div> User Post</div>;
+  return (
+    <div>
+      <h1> User post </h1>
+    </div>
+  );
 }
 
 export default UserPost;
