@@ -30,7 +30,7 @@ function Router() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<UserRegister />} />
         <Route path="/post" element={<PostForm />} />
-        <Route path="/coming" element={<ComingSoon />} />
+        <Route path="/events" element={<ComingSoon />} />
         <Route path="/profile/:id" element={<ProfilePage />} />
         <Route path="/profile/edit" element={<ProfileEdit />} />
         <Route path="/reset-password/:token" element={<ResetPassword />} />

@@ -1,10 +1,11 @@
+import { Link } from 'react-router-dom';
+import ComingSvg from '../../assets/svg/coming.svg';
 import styles from './ComingSoon.module.css';
-import coming from './coming.svg';
 
 function ComingSoon() {
   return (
     <div className={styles.ComingSoon}>
-      <div className={styles.container}>
+      <div className={`container ${styles.container}`}>
         <div className={styles.content}>
           <h3 className={styles.title}>Event Page is Coming Soon!!!</h3>
           <p>
@@ -15,11 +16,13 @@ function ComingSoon() {
             support, and we can&apos;t wait to see you there!
           </p>
 
-          <button className={styles.btn}>Home</button>
+          <Link to="/" className={styles.homeButton}>
+            Home
+          </Link>
         </div>
 
         <div className={styles.image}>
-          <img src={coming} alt="coming" />
+          <img src={ComingSvg} alt="coming" />
         </div>
       </div>
     </div>
