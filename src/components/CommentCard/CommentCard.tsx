@@ -1,10 +1,14 @@
-import React, { useState } from 'react';
-import { AiOutlineArrowDown, AiOutlineArrowUp } from 'react-icons/ai';
+import { useState } from 'react';
 import { FaRegComments } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
+import { Comment } from '../../types/comment.types';
 import NestedComment from '../nestedComment/nestedComment';
-import styles from './Comment.module.css';
+import styles from './CommentCard.module.css';
 
-function Comment() {
+type Props = {
+  comment: Comment;
+};
+function CommentCard({ comment }: Props) {
   const [isCommentExpanded, setIsCommentExpanded] = useState(false);
 
   const toggleComment = () => {
@@ -13,25 +17,24 @@ function Comment() {
   return (
     <div className={styles.cmt}>
       <div className={styles.cmtHead}>
-        <p className={styles.uName}>shuaan1010</p>
-        <p className={styles.date}>jan 03 2023</p>
+        {comment.userId ? (
+          <Link to={`/profile/${comment.userId._id}`} className={styles.uName}>
+            {comment.userId.username}
+          </Link>
+        ) : (
+          <p className={styles.uName}>User Deleted</p>
+        )}
+        <p className={styles.date}>
+          {new Date(comment.createdAt).toLocaleString('en-GB', {
+            day: 'numeric',
+            month: 'short',
+            year: 'numeric',
+          })}
+        </p>
       </div>
-      <div className={styles.cmtData}>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque quos,
-        consequatur suscipit at illum in ea. Tempore animi facilis
-        reprehenderit.
-      </div>
+      <div className={styles.cmtData}>{comment.content}</div>
       <div className={styles.cmtFoot}>
         <div className={styles.afterBtns}>
-          <div className={styles.votes}>
-            <div className={styles.upVote}>
-              <AiOutlineArrowUp />
-            </div>
-            <div className={styles.vote}>10</div>
-            <div className={styles.dwnVote}>
-              <AiOutlineArrowDown />
-            </div>
-          </div>
           <div className={styles.comments}>
             <div className={styles.cLogo}>
               <FaRegComments onClick={toggleComment} />
@@ -62,4 +65,4 @@ function Comment() {
   );
 }
 
-export default Comment;
+export default CommentCard;

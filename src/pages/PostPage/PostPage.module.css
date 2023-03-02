@@ -121,11 +121,6 @@
   gap: 0.5rem;
 }
 
-.commentList li {
-  list-style: none;
-  padding-left: 10px;
-}
-
 .wrapper {
   display: flex;
   justify-content: flex-start;

@@ -1,0 +1,12 @@
+.commentList li {
+  list-style: none;
+  padding-left: 10px;
+}
+
+.scrollFooter {
+  text-align: center;
+}
+
+.scrollFooters > p {
+  font-size: 1.2rem;
+}

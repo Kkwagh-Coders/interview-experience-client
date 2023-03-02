@@ -2,20 +2,20 @@ export type Post = {
   title: string;
   content: string;
   company: string;
-  commentCount: number;
   role: string;
   postType: string;
   domain: string;
   rating: number;
   createdAt: string;
+  voteCount: number;
   views: number;
+  tags: string[];
+  postAuthorId: string;
+  commentCount: number;
   isBookmarked: boolean;
+  postAuthor: string;
   isDownVoted: boolean;
   isUpVoted: boolean;
-  postAuthor: string;
-  postAuthorId: string;
-  tags: string[];
-  voteCount: number;
 };
 
 export type PostCard = {
