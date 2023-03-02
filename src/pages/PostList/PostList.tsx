@@ -13,7 +13,7 @@ function PostList() {
     fetchNextPage,
     isFetchingNextPage,
   } = useInfiniteQuery({
-    queryKey: ['post'],
+    queryKey: ['posts'],
     getNextPageParam: (prevData: {
       message: string;
       data: PostCardList;
