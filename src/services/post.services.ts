@@ -43,7 +43,6 @@ export const getBookmarkedPostsPaginated = (
   return axios.get<PostPaginated>(url.href).then((res) => res.data);
 };
 
-// TODO: add the return type to the axios
 export const getUserPostPaginated = (
   userId: string | undefined,
   page: number,
@@ -54,4 +53,12 @@ export const getUserPostPaginated = (
   url.searchParams.set('limit', limit.toString());
 
   return axios.get<PostPaginated>(url.href).then((res) => res.data);
+};
+
+export const deletePost = (postId: string) => {
+  const url = `${BASE_API_URL}/posts/${postId}`;
+
+  return axios
+    .delete<{ message: string }>(url, { withCredentials: true })
+    .then((response) => response.data);
 };

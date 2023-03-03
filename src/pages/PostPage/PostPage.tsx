@@ -1,9 +1,11 @@
 import { useQuery } from '@tanstack/react-query';
 import { useParams } from 'react-router-dom';
-import Comment from '../../components/Comment/Comment';
 import DisplayQuill from '../../components/DisplayQuill/DisplayQuill';
 import { getPost } from '../../services/post.services';
 import styles from './PostPage.module.css';
+import ShareButton from '../../components/ShareButton/ShareButton';
+import DeleteButton from '../../components/DeleteButton/DeleteButton';
+import PostComments from '../../components/PostComments/PostComments';
 
 function PostPage() {
   const { id } = useParams();
@@ -31,8 +33,23 @@ function PostPage() {
 
             <DisplayQuill content={postQuery.data.content} />
 
+            <div>
+              <ShareButton
+                postId={id || ''}
+                author={postQuery.data.postAuthor}
+                title={postQuery.data.title}
+              />
+              <DeleteButton
+                postId={id || ''}
+                authorId={postQuery.data.postAuthorId}
+                postTitle={postQuery.data.title}
+              />
+            </div>
+
             <div className={styles.postDetails}>
-              <div className={styles.comments}>Comments (10)</div>
+              <div className={styles.comments}>
+                {`Comments ${postQuery.data.commentCount}`}
+              </div>
 
               <div className={styles.filterInput}>
                 <label htmlFor="domain">
@@ -46,19 +63,7 @@ function PostPage() {
               </div>
             </div>
 
-            <div className={styles.commentList}>
-              <ul>
-                <li>
-                  <Comment />
-                </li>
-                <li>
-                  <Comment />
-                </li>
-                <li>
-                  <Comment />
-                </li>
-              </ul>
-            </div>
+            <PostComments postId={id || ''} />
           </div>
         </div>
 

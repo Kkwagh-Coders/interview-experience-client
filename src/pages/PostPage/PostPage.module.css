@@ -2,6 +2,8 @@
   padding-top: 5rem;
   padding-bottom: 3rem;
   background-color: rgb(248, 249, 254);
+  min-height: 100vh;
+  min-height: 100dvh;
 }
 
 .container {
@@ -17,18 +19,11 @@
   gap: 2rem;
 }
 
-.PostPage nav {
-  background-color: blanchedalmond;
-  color: black;
-}
-
 .userDetails {
   display: flex;
   align-items: center;
   gap: 2rem;
   align-items: center;
-  padding-left: 15px;
-  padding-right: 10px;
   padding-bottom: 10px;
   width: 100%;
   color: rgb(151, 151, 151);
@@ -55,16 +50,6 @@
 .post {
   width: 60%;
 }
-.title {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding-left: 5px;
-  padding-top: 5px;
-}
-h2 {
-  margin: 10px;
-}
 
 .data {
   margin: 10px;
@@ -75,11 +60,10 @@ h2 {
   align-items: center;
   gap: 2rem;
   align-items: center;
-  padding-left: 15px;
-  padding-right: 10px;
-  padding-bottom: 10px;
+
   margin-top: 20px;
   margin-bottom: 20px;
+
   width: 100%;
   color: rgb(151, 151, 151);
   font-size: 0.8rem;
@@ -109,14 +93,8 @@ h2 {
 }
 
 .filterInput :where(select) {
-  -webkit-appearance: none;
-  -moz-appearance: none;
   text-indent: 1px;
   text-overflow: '';
-}
-
-.filerElementinputField input:focus {
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
 }
 
 .commentBox h4 {
@@ -141,11 +119,6 @@ h2 {
 .reply {
   display: flex;
   gap: 0.5rem;
-}
-
-.commentList li {
-  list-style: none;
-  padding-left: 10px;
 }
 
 .wrapper {

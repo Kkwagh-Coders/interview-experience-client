@@ -1,4 +1,7 @@
 .posts {
+  min-height: 100vh;
+  min-height: 100dvh;
+
   scroll-margin-top: 3rem;
   margin-inline: auto;
   padding-block: 2rem;
@@ -79,9 +82,18 @@
   margin-top: 1rem;
 }
 
+.scrollFooter {
+  text-align: center;
+}
+
+.scrollFooters > p {
+  font-size: 1.2rem;
+}
+
 .PostList .nextPageButton {
-  margin-inline: auto;
   display: block;
+  margin-inline: auto;
+  padding: 0.5rem 1.5rem;
 }
 
 @media (min-width: 768px) {
