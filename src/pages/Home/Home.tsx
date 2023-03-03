@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Navigation } from 'swiper';
-import insightIcon from '../../assets/svg/images/home/facilities/insight.png';
-import authenticIcon from '../../assets/svg/images/home/facilities/authentic.png';
-import doubtIcon from '../../assets/svg/images/home/facilities/doubt.png';
-import communityIcon from '../../assets/svg/images/home/facilities/community.png';
-import personImage from '../../assets/svg/images/home/founders/person.jpg';
+import insightIcon from '../../assets/images/home/facilities/insight.png';
+import authenticIcon from '../../assets/images/home/facilities/authentic.png';
+import doubtIcon from '../../assets/images/home/facilities/doubt.png';
+import communityIcon from '../../assets/images/home/facilities/community.png';
+import personImage from '../../assets/images/home/founders/person.jpg';
 
 // Import Swiper styles
 import 'swiper/css';

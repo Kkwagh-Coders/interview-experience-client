@@ -64,11 +64,6 @@ html {
   scroll-behavior: smooth;
 }
 
-html,
-body {
-  height: 100%;
-}
-
 /* Basic Styling */
 body {
   width: 100%;

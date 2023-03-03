@@ -1,0 +1,13 @@
+.bookmark {
+  cursor: pointer;
+  font-size: 1.4rem;
+  fill: rgb(66, 80, 108);
+}
+
+.bookmarkActive {
+  fill: rgb(var(--accent-color));
+}
+
+.bookmarkDisabled {
+  pointer-events: none;
+}

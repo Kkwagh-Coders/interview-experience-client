@@ -1,9 +1,10 @@
 import { BiDownArrow, BiUpArrow } from 'react-icons/bi';
-import { BsBookmarkDashFill } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 import { PostCard } from '../../types/post.types';
-import styles from './PostListElement.module.css';
+import DeleteButton from '../DeleteButton/DeleteButton';
+import PostBookmarkButton from '../PostBookmarkButton/PostBookmarkButton';
 import ShareButton from '../ShareButton/ShareButton';
+import styles from './PostListElement.module.css';
 
 // TODO : vote , date, share, bookmark, upVote downVote
 export type Props = {
@@ -27,7 +28,16 @@ function PostListElement({ post }: Props) {
           </div>
 
           <div className={styles.postMoreDetail}>
-            <p className={styles.postAuthor}>{post.userId.username}</p>
+            {post.userId ? (
+              <Link
+                to={`/profile/${post.userId._id}`}
+                className={styles.postAuthor}
+              >
+                {post.userId.username}
+              </Link>
+            ) : (
+              <p className={styles.postAuthor}>User Deleted</p>
+            )}
             <span>
               {new Date(post.createdAt).toLocaleString('en-GB', {
                 day: 'numeric',
@@ -38,7 +48,10 @@ function PostListElement({ post }: Props) {
           </div>
 
           <div className={styles.bookMarkContainer}>
-            <BsBookmarkDashFill className={styles.bookMark} />
+            <PostBookmarkButton
+              postId={post._id}
+              isBookmarked={post.isBookmarked}
+            />
           </div>
         </div>
 
@@ -48,8 +61,13 @@ function PostListElement({ post }: Props) {
           </Link>
           <ShareButton
             title={post.title}
-            text={post.content}
+            author={post.userId?.username || 'User Deleted'}
             postId={post._id}
+          />
+          <DeleteButton
+            postId={post._id}
+            authorId={post.userId?._id || 'User Deleted'}
+            postTitle={post.title}
           />
         </div>
       </div>

@@ -12,7 +12,7 @@ function ProfilePage() {
   const { id } = useParams();
 
   // Get the data related to the profile
-  const profileQuery = useQuery(['profile'], () => getUserProfileStats(id));
+  const profileQuery = useQuery(['profile', id], () => getUserProfileStats(id));
 
   // Used to check if the profile belongs to the user
   const user = useAppSelector((state) => state.userState.user);
