@@ -1,10 +1,10 @@
 import { BiDownArrow, BiUpArrow } from 'react-icons/bi';
-import { BsBookmarkDashFill } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 import { PostCard } from '../../types/post.types';
-import styles from './PostListElement.module.css';
-import ShareButton from '../ShareButton/ShareButton';
 import DeleteButton from '../DeleteButton/DeleteButton';
+import PostBookmarkButton from '../PostBookmarkButton/PostBookmarkButton';
+import ShareButton from '../ShareButton/ShareButton';
+import styles from './PostListElement.module.css';
 
 // TODO : vote , date, share, bookmark, upVote downVote
 export type Props = {
@@ -48,7 +48,10 @@ function PostListElement({ post }: Props) {
           </div>
 
           <div className={styles.bookMarkContainer}>
-            <BsBookmarkDashFill className={styles.bookMark} />
+            <PostBookmarkButton
+              postId={post._id}
+              isBookmarked={post.isBookmarked}
+            />
           </div>
         </div>
 

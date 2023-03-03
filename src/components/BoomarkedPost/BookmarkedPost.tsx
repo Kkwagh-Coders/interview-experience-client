@@ -14,7 +14,7 @@ function BookmarkedPost() {
     fetchNextPage,
     isFetchingNextPage,
   } = useInfiniteQuery({
-    queryKey: ['bookmared-post', id],
+    queryKey: ['bookmarked-post', id],
     getNextPageParam: (prevData: {
       message: string;
       data: PostCardList;

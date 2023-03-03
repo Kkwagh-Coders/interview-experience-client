@@ -16,7 +16,9 @@ export const getPostsPaginated = (page: number, limit: number) => {
   url.searchParams.set('page', page.toString());
   url.searchParams.set('limit', limit.toString());
 
-  return axios.get<PostPaginated>(url.href).then((res) => res.data);
+  return axios
+    .get<PostPaginated>(url.href, { withCredentials: true })
+    .then((res) => res.data);
 };
 
 export const createPost = (postData: PostFormData, status: string) => {
@@ -40,7 +42,9 @@ export const getBookmarkedPostsPaginated = (
   url.searchParams.set('page', page.toString());
   url.searchParams.set('limit', limit.toString());
 
-  return axios.get<PostPaginated>(url.href).then((res) => res.data);
+  return axios
+    .get<PostPaginated>(url.href, { withCredentials: true })
+    .then((res) => res.data);
 };
 
 export const getUserPostPaginated = (
@@ -52,7 +56,9 @@ export const getUserPostPaginated = (
   url.searchParams.set('page', page.toString());
   url.searchParams.set('limit', limit.toString());
 
-  return axios.get<PostPaginated>(url.href).then((res) => res.data);
+  return axios
+    .get<PostPaginated>(url.href, { withCredentials: true })
+    .then((res) => res.data);
 };
 
 export const deletePost = (postId: string) => {
@@ -60,5 +66,21 @@ export const deletePost = (postId: string) => {
 
   return axios
     .delete<{ message: string }>(url, { withCredentials: true })
+    .then((response) => response.data);
+};
+
+export const toggleBookmark = (postId: string, isBookmarked: boolean) => {
+  const url = `${BASE_API_URL}/posts/bookmark/${postId}`;
+
+  // Remove the bookmark if already bookmarked
+  if (isBookmarked) {
+    return axios
+      .delete<{ message: string }>(url, { withCredentials: true })
+      .then((response) => response.data);
+  }
+
+  // If not bookmarked then bookmark the post
+  return axios
+    .post<{ message: string }>(url, {}, { withCredentials: true })
     .then((response) => response.data);
 };
