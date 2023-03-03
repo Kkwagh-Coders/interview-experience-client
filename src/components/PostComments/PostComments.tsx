@@ -48,7 +48,7 @@ function PostComments({ postId }: Props) {
           .flatMap((page) => page.data)
           .map((comment) => (
             <li key={comment._id}>
-              <CommentCard comment={comment} />
+              <CommentCard postId={postId} comment={comment} />
             </li>
           ))}
       </ul>

@@ -20,3 +20,4 @@ export type Comment = {
 };
 
 export type CommentList = Comment[];
+export type ReplyList = Reply[];
