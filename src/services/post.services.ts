@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { Post, PostCardList, PostFormData } from '../types/post.types';
+import { Post, PostFormData, PostPaginated } from '../types/post.types';
 import { BASE_API_URL } from './serverConfig';
 import getTagsFromString from '../utils/getTagsFromString';
 
@@ -15,12 +15,6 @@ export const getPostsPaginated = (page: number, limit: number) => {
 
   url.searchParams.set('page', page.toString());
   url.searchParams.set('limit', limit.toString());
-
-  type PostPaginated = {
-    message: string;
-    data: PostCardList;
-    page: { nextPage: number; previousPage: number };
-  };
 
   return axios.get<PostPaginated>(url.href).then((res) => res.data);
 };
@@ -46,7 +40,7 @@ export const getBookmarkedPostsPaginated = (
   url.searchParams.set('page', page.toString());
   url.searchParams.set('limit', limit.toString());
 
-  return axios.get(url.href).then((res) => res.data);
+  return axios.get<PostPaginated>(url.href).then((res) => res.data);
 };
 
 // TODO: add the return type to the axios
@@ -59,5 +53,5 @@ export const getUserPostPaginated = (
   url.searchParams.set('page', page.toString());
   url.searchParams.set('limit', limit.toString());
 
-  return axios.get(url.href).then((res) => res.data);
+  return axios.get<PostPaginated>(url.href).then((res) => res.data);
 };

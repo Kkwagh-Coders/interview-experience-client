@@ -54,3 +54,9 @@ export type PostFormData = {
   tags: string;
   rating: number;
 };
+
+export type PostPaginated = {
+  message: string;
+  data: PostCardList;
+  page: { nextPage: number; previousPage: number };
+};

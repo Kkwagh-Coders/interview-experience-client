@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { getUserPostPaginated } from '../../services/post.services';
 import { PostCardList } from '../../types/post.types';
 import PostListElement from '../PostListElement/PostListElement';
+import styles from './UserPost.module.css';
 
 function UserPost() {
   const { id } = useParams();
@@ -20,32 +21,36 @@ function UserPost() {
         getUserPostPaginated(id, pageParam, 2),
     });
 
-  let buttonText = '';
+  let scrollFooterElement = <p>Nothing More to Load</p>;
   if (isFetchingNextPage) {
-    buttonText = 'Loading...';
+    scrollFooterElement = <p>Loading...</p>;
   } else if (hasNextPage) {
-    buttonText = 'Load more';
-  } else {
-    buttonText = 'Nothing to load';
+    scrollFooterElement = (
+      <button
+        type="button"
+        className={`default-button ${styles.nextPageButtonBookmark}`}
+        onClick={() => fetchNextPage()}
+        disabled={!hasNextPage || isFetchingNextPage}
+      >
+        Load More
+      </button>
+    );
   }
+
+  const isEmpty = data?.pages[0].data.length === 0;
   return (
     <>
-      {' '}
-      {data?.pages
-        .flatMap((page) => page.data)
-        .map((post) => (
-          <PostListElement post={post} key={post._id} />
-        ))}
-      <div>
-        <button
-          type="button"
-          // className={`default-button ${styles.nextPageButton}`}
-          onClick={() => fetchNextPage()}
-          disabled={!hasNextPage || isFetchingNextPage}
-        >
-          {buttonText}
-        </button>
-      </div>
+      {isEmpty ? <p>No User Post</p> : null}
+      {!isEmpty ? (
+        <>
+          {data?.pages
+            .flatMap((page) => page.data)
+            .map((post) => (
+              <PostListElement post={post} key={post._id} />
+            ))}
+          <div className={styles.scrollFooter}>{scrollFooterElement}</div>
+        </>
+      ) : null}
     </>
   );
 }
