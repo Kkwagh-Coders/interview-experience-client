@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { Post, PostCardList, PostFormData } from '../types/post.types';
+import { Post, PostFormData, PostPaginated } from '../types/post.types';
 import { BASE_API_URL } from './serverConfig';
 import getTagsFromString from '../utils/getTagsFromString';
 
@@ -16,12 +16,6 @@ export const getPostsPaginated = (page: number, limit: number) => {
   url.searchParams.set('page', page.toString());
   url.searchParams.set('limit', limit.toString());
 
-  type PostPaginated = {
-    message: string;
-    data: PostCardList;
-    page: { nextPage: number; previousPage: number };
-  };
-
   return axios.get<PostPaginated>(url.href).then((res) => res.data);
 };
 
@@ -35,6 +29,30 @@ export const createPost = (postData: PostFormData, status: string) => {
   return axios
     .post<CreatePost>(url, body, { withCredentials: true })
     .then((response) => response.data);
+};
+
+export const getBookmarkedPostsPaginated = (
+  userId: string | undefined,
+  page: number,
+  limit: number,
+) => {
+  const url = new URL(`${BASE_API_URL}/posts/user/bookmarked/${userId}`);
+  url.searchParams.set('page', page.toString());
+  url.searchParams.set('limit', limit.toString());
+
+  return axios.get<PostPaginated>(url.href).then((res) => res.data);
+};
+
+export const getUserPostPaginated = (
+  userId: string | undefined,
+  page: number,
+  limit: number,
+) => {
+  const url = new URL(`${BASE_API_URL}/posts/user/all/${userId}`);
+  url.searchParams.set('page', page.toString());
+  url.searchParams.set('limit', limit.toString());
+
+  return axios.get<PostPaginated>(url.href).then((res) => res.data);
 };
 
 export const deletePost = (postId: string) => {
