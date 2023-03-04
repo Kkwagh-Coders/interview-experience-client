@@ -31,18 +31,18 @@ function Home() {
             Control of Your Career Journey Today!
           </p>
           <div className={styles.heroActionButtons}>
-            <a
-              href="#recentPosts"
+            <Link
+              to="/post"
               className={`default-button ${styles.exploreButton}`}
             >
-              Explore
-            </a>
-            <a
-              href="#aim"
+              Create Post
+            </Link>
+            <Link
+              to="/posts"
               className={`default-button default-outline-button ${styles.aimButton}`}
             >
-              Our Aim
-            </a>
+              View Posts
+            </Link>
           </div>
         </div>
       </section>
