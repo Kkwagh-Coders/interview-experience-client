@@ -41,6 +41,10 @@ function TopPosts() {
               {post.votes}
               {' Likes'}
             </span>
+            <span>
+              {post.views}
+              {' Views'}
+            </span>
           </div>
         </div>
       ))}
