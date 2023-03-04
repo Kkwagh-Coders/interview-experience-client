@@ -41,7 +41,7 @@ export const getCommentRepliesPaginated = (
     data: ReplyList;
     page: { nextPage: number };
   };
-  console.log(url.href);
+
   return axios
     .get<PostPaginated>(url.href, { withCredentials: true })
     .then((res) => res.data);
