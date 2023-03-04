@@ -2,13 +2,14 @@ import { useState } from 'react';
 import { FaRegComments } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { Comment } from '../../types/comment.types';
-import NestedComment from '../nestedComment/nestedComment';
 import styles from './CommentCard.module.css';
+import CommentReply from '../CommentReply/CommentReply';
 
 type Props = {
+  postId: string;
   comment: Comment;
 };
-function CommentCard({ comment }: Props) {
+function CommentCard({ postId, comment }: Props) {
   const [isCommentExpanded, setIsCommentExpanded] = useState(false);
 
   const toggleComment = () => {
@@ -49,16 +50,7 @@ function CommentCard({ comment }: Props) {
           </div>
         </div>
         {isCommentExpanded ? (
-          <div className={styles.innerCmt}>
-            <ul>
-              <li>
-                <NestedComment />
-              </li>
-              <li>
-                <NestedComment />
-              </li>
-            </ul>
-          </div>
+          <CommentReply postId={postId} commentId={comment._id} />
         ) : null}
       </div>
     </div>

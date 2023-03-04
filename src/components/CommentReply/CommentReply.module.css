@@ -1,0 +1,21 @@
+.innerCmt {
+  padding-top: 10px;
+}
+.scrollFooter {
+  text-align: center;
+}
+
+.scrollFooters > p {
+  font-size: 1.2rem;
+}
+
+.nextPageButtonBookmark {
+  display: block;
+  padding: 0.5rem 1.5rem;
+}
+
+.noReply {
+  margin-left: 0.7rem;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+}
