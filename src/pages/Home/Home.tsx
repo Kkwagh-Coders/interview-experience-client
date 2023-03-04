@@ -163,9 +163,10 @@ function Home() {
                   </a>
                 </h3>
                 <p>
-                  BE student in IT with internships in Quality Assurance and
-                  Doubt Solving, 4+ years of coding experience, and proficiency
-                  in MERN Stack with Leetcode, Codechef, and Gfg profiles.
+                  Experienced with MERN Stack, showcased coding skills on
+                  Leetcode, Codechef, and Gfg. Past roles include Quality
+                  Assurance and Doubt Solver Internships at InterviewHelp.io and
+                  Codechef respectively
                 </p>
               </div>
               <div className={styles.member}>
