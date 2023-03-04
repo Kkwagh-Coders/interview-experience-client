@@ -15,6 +15,7 @@ import 'swiper/css/navigation';
 
 import './slider.css';
 import styles from './Home.module.css';
+import TopPosts from '../../components/TopPosts/TopPosts';
 
 function Home() {
   return (
@@ -99,51 +100,7 @@ function Home() {
               Top Interview Experiences
             </span>
           </h2>
-
-          <div className={styles.postsContainer}>
-            <div className={styles.interviewPost}>
-              <span className={styles.postDomain}>Experience</span>
-              <h3 className={styles.postTitle}>My FinIQ Experience</h3>
-              <p className={styles.postDescription}>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugiat
-                pariatur, quibusdam iusto officiis aliquam reprehenderit
-                tenetur...
-              </p>
-              <p className={styles.postAuthor}>Rama works</p>
-              <div className={styles.postMoreDetail}>
-                <span>Feb 9, 2022</span>
-                <span>51 Likes</span>
-              </div>
-            </div>
-            <div className={styles.interviewPost}>
-              <span className={styles.postDomain}>Experience</span>
-              <h3 className={styles.postTitle}>My FinIQ Experience</h3>
-              <p className={styles.postDescription}>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugiat
-                pariatur, quibusdam iusto officiis aliquam reprehenderit
-                tenetur...
-              </p>
-              <p className={styles.postAuthor}>Rama works</p>
-              <div className={styles.postMoreDetail}>
-                <span>Feb 9, 2022</span>
-                <span>51 Likes</span>
-              </div>
-            </div>
-            <div className={styles.interviewPost}>
-              <span className={styles.postDomain}>Experience</span>
-              <h3 className={styles.postTitle}>My FinIQ Experience</h3>
-              <p className={styles.postDescription}>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugiat
-                pariatur, quibusdam iusto officiis aliquam reprehenderit
-                tenetur...
-              </p>
-              <p className={styles.postAuthor}>Rama works</p>
-              <div className={styles.postMoreDetail}>
-                <span>Feb 9, 2022</span>
-                <span>51 Likes</span>
-              </div>
-            </div>
-          </div>
+          <TopPosts />
         </div>
       </section>
 
