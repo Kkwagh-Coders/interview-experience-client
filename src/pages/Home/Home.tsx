@@ -5,7 +5,8 @@ import insightIcon from '../../assets/images/home/facilities/insight.png';
 import authenticIcon from '../../assets/images/home/facilities/authentic.png';
 import doubtIcon from '../../assets/images/home/facilities/doubt.png';
 import communityIcon from '../../assets/images/home/facilities/community.png';
-import personImage from '../../assets/images/home/founders/person.jpg';
+import suhaanImage from '../../assets/images/home/founders/suhaan.jpg';
+import aniketImage from '../../assets/images/home/founders/aniket.jpg';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -155,18 +156,18 @@ function Home() {
             <div className={styles.memberContainer}>
               <div className={styles.member}>
                 <div className={styles.profileImage}>
-                  <img src={personImage} alt="Suhaan Bhandary" />
+                  <img src={suhaanImage} alt="Suhaan Bhandary" />
                 </div>
                 <h3>Suhaan Bhandary</h3>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Alias officiis dolore a officia. Expedita id animi accusantium
-                  earum
+                  Skilled Full Stack Developer proficient in React, Node, and
+                  Django with expertise in DSA problem-solving, recognized as
+                  Knight on Leetcode with 700+ Problems and 60+ Contests.
                 </p>
               </div>
               <div className={styles.member}>
                 <div className={styles.profileImage}>
-                  <img src={personImage} alt="Dhruv Chavda" />
+                  <img src={suhaanImage} alt="Dhruv Chavda" />
                 </div>
                 <h3>Dhruv Chavda</h3>
                 <p>
@@ -177,18 +178,18 @@ function Home() {
               </div>
               <div className={styles.member}>
                 <div className={styles.profileImage}>
-                  <img src={personImage} alt="Aniket" />
+                  <img src={aniketImage} alt="Aniket Singh" />
                 </div>
-                <h3>Founder:- Aniket Singh</h3>
+                <h3>Aniket Singh</h3>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Alias officiis dolore a officia. Expedita id animi accusantium
-                  earum
+                  BE student in IT with internships in Quality Assurance and
+                  Doubt Solving, 4+ years of coding experience, and proficiency
+                  in MERN Stack with Leetcode, Codechef, and Gfg profiles.
                 </p>
               </div>
               <div className={styles.member}>
                 <div className={styles.profileImage}>
-                  <img src={personImage} alt="Vinay Chopda" />
+                  <img src={suhaanImage} alt="Vinay Chopda" />
                 </div>
                 <h3>Vinay Chopda</h3>
                 <p>
@@ -233,112 +234,7 @@ function Home() {
                       interviews!
                     </p>
                     <div className={styles.attributerDetail}>
-                      <p className={styles.attributerName}>Raju Rastogi</p>
-                      <p className={styles.attributerDesignation}>
-                        Computer Student
-                      </p>
-                    </div>
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide>
-                  <div className={styles.attributionSlide}>
-                    <p className={styles.attributionText}>
-                      I&apos;m a college student and recently joined Interview
-                      Experience. It&apos;s been a game-changer! The platform
-                      offers a wealth of interview experiences from other
-                      students and professionals, giving me valuable insights
-                      and helping me prepare for my own interviews. The
-                      community is also fantastic - I was able to ask questions
-                      and receive helpful feedback. I highly recommend this
-                      website to any college student looking to ace their
-                      interviews!
-                    </p>
-                    <div className={styles.attributerDetail}>
-                      <p className={styles.attributerName}>Raju Rastogi</p>
-                      <p className={styles.attributerDesignation}>
-                        Computer Student
-                      </p>
-                    </div>
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide>
-                  <div className={styles.attributionSlide}>
-                    <p className={styles.attributionText}>
-                      I&apos;m a college student and recently joined Interview
-                      Experience. It&apos;s been a game-changer! The platform
-                      offers a wealth of interview experiences from other
-                      students and professionals, giving me valuable insights
-                      and helping me prepare for my own interviews. The
-                      community is also fantastic - I was able to ask questions
-                      and receive helpful feedback. I highly recommend this
-                      website to any college student looking to ace their
-                      interviews!
-                    </p>
-                    <div className={styles.attributerDetail}>
-                      <p className={styles.attributerName}>Raju Rastogi</p>
-                      <p className={styles.attributerDesignation}>
-                        Computer Student
-                      </p>
-                    </div>
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide>
-                  <div className={styles.attributionSlide}>
-                    <p className={styles.attributionText}>
-                      I&apos;m a college student and recently joined Interview
-                      Experience. It&apos;s been a game-changer! The platform
-                      offers a wealth of interview experiences from other
-                      students and professionals, giving me valuable insights
-                      and helping me prepare for my own interviews. The
-                      community is also fantastic - I was able to ask questions
-                      and receive helpful feedback. I highly recommend this
-                      website to any college student looking to ace their
-                      interviews!
-                    </p>
-                    <div className={styles.attributerDetail}>
-                      <p className={styles.attributerName}>Raju Rastogi</p>
-                      <p className={styles.attributerDesignation}>
-                        Computer Student
-                      </p>
-                    </div>
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide>
-                  <div className={styles.attributionSlide}>
-                    <p className={styles.attributionText}>
-                      I&apos;m a college student and recently joined Interview
-                      Experience. It&apos;s been a game-changer! The platform
-                      offers a wealth of interview experiences from other
-                      students and professionals, giving me valuable insights
-                      and helping me prepare for my own interviews. The
-                      community is also fantastic - I was able to ask questions
-                      and receive helpful feedback. I highly recommend this
-                      website to any college student looking to ace their
-                      interviews!
-                    </p>
-                    <div className={styles.attributerDetail}>
-                      <p className={styles.attributerName}>Raju Rastogi</p>
-                      <p className={styles.attributerDesignation}>
-                        Computer Student
-                      </p>
-                    </div>
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide>
-                  <div className={styles.attributionSlide}>
-                    <p className={styles.attributionText}>
-                      I&apos;m a college student and recently joined Interview
-                      Experience. It&apos;s been a game-changer! The platform
-                      offers a wealth of interview experiences from other
-                      students and professionals, giving me valuable insights
-                      and helping me prepare for my own interviews. The
-                      community is also fantastic - I was able to ask questions
-                      and receive helpful feedback. I highly recommend this
-                      website to any college student looking to ace their
-                      interviews!
-                    </p>
-                    <div className={styles.attributerDetail}>
-                      <p className={styles.attributerName}>Raju Rastogi</p>
+                      <p className={styles.attributerName}>Beta Tester</p>
                       <p className={styles.attributerDesignation}>
                         Computer Student
                       </p>
@@ -376,7 +272,7 @@ function Home() {
 
       <section className={styles.copyRight}>
         <div className="container">
-          <p>© Copyright 2023 Interview Experience</p>
+          <p>Interview Experience</p>
         </div>
       </section>
     </div>
