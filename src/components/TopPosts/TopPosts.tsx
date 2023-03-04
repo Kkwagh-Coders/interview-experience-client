@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import { Link } from 'react-router-dom';
 import { getMostViewedPosts } from '../../services/post.services';
+import getFormattedDate from '../../utils/getFormattedDate';
 import styles from './TopPosts.module.css';
 
 function TopPosts() {
@@ -35,13 +36,7 @@ function TopPosts() {
             )}
           </p>
           <div className={styles.postMoreDetail}>
-            <span>
-              {new Date(post.createdAt).toLocaleString('en-GB', {
-                day: 'numeric',
-                month: 'short',
-                year: 'numeric',
-              })}
-            </span>
+            <span>{getFormattedDate(post.createdAt)}</span>
             <span>
               {post.votes}
               {' Likes'}
