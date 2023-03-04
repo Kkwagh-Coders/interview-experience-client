@@ -1,0 +1,27 @@
+.UserSearch {
+  min-height: 100vh;
+  min-height: 100dvh;
+
+  scroll-margin-top: 3rem;
+  margin-inline: auto;
+  padding-block: 2rem;
+  background-color: rgb(var(--bg-light));
+  margin-top: 3.5rem;
+}
+
+.UserSearch h2 {
+  font-size: 1.3rem;
+  margin-bottom: 0.8rem;
+}
+
+.searchBarInput {
+  width: 100%;
+  outline: none;
+  font-size: 1rem;
+  color: #707070;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  margin-inline: 0rem;
+  margin-bottom: 0.8rem;
+}

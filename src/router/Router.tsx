@@ -14,6 +14,7 @@ import PostPage from '../pages/PostPage/PostPage';
 import ProfilePage from '../pages/Profile/ProfilePage';
 import ProfileEdit from '../pages/ProfileEdit/ProfileEdit';
 import ComingSoon from '../pages/ComingSoon/ComingSoon';
+import UserSearch from '../pages/UserSearch/UserSearch';
 
 function Router() {
   const { isLoading, isError } = useUserStatus();
@@ -36,6 +37,7 @@ function Router() {
         <Route path="/reset-password/:token" element={<ResetPassword />} />
         <Route path="/post/:id" element={<PostPage />} />
         <Route path="/posts" element={<PostList />} />
+        <Route path="/user/search" element={<UserSearch />} />
       </Route>
       <Route path="*" element={<NotFound />} />
     </Routes>
