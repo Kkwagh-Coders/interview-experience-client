@@ -39,3 +39,21 @@
   margin-inline: auto;
   padding: 0.5rem 1.5rem;
 }
+
+.listContainer {
+  border: 1px solid #ddd;
+  background-color: white;
+  padding: 1rem;
+  margin-bottom: 2rem;
+}
+
+.listContainer .item {
+}
+
+.username {
+  font-size: medium;
+  font-weight: 500;
+  text-align: center;
+  text-decoration: none;
+  color: rgb(var(--dark-color));
+}

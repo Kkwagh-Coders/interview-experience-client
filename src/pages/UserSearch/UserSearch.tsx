@@ -1,10 +1,13 @@
 import { useInfiniteQuery } from '@tanstack/react-query';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { searchUser } from '../../services/user.services';
 import styles from './UserSearch.module.css';
 
 function UserSearch() {
   const [search, setSearch] = useState('');
+  type ResponseType = { _id: string; username: string }[];
+
   const {
     data,
     hasNextPage,
@@ -14,7 +17,7 @@ function UserSearch() {
     queryKey: ['posts', search],
     getNextPageParam: (prevData: {
       message: string;
-      data: { _id: string; username: string };
+      data: ResponseType
       page: { nextPage: number; previousPage: number };
     }) => prevData.page.nextPage,
     queryFn: ({ pageParam = 1 }) => searchUser(search, pageParam, 2),
@@ -44,6 +47,7 @@ function UserSearch() {
     // setData(response);
   }
 
+  const isEmpty = data?.pages[0].data.length === 0;
   return (
     <div className={styles.UserSearch}>
       <div className="container">
@@ -57,14 +61,57 @@ function UserSearch() {
           />
         </div>
 
-        { data?.pages
-          .flatMap((page) => page.data)
-          .map((user) => (<h2 key={user._id}>{user.username}</h2>))}
-
-        <div className={styles.scrollFooter}>{scrollFooterElement}</div>
+        {isEmpty ? (
+          <center>
+            <div className={styles.listContainer}>
+              <p> -- No User found -- </p>
+            </div>
+          </center>
+        ) : null}
+        {!isEmpty ? (
+          <>
+            <div className={styles.listContainer}>
+              <ul>
+                {data?.pages
+                  .flatMap((page) => page.data)
+                  .map((user) => (
+                    <div className={styles.item}>
+                      <h2 key={user._id}>
+                        <Link
+                          to={`/profile/${user._id}`}
+                          className={styles.username}
+                        >
+                          {user.username}
+                        </Link>
+                      </h2>
+                    </div>
+                  ))}
+              </ul>
+            </div>
+            <div className={styles.scrollFooter}>{scrollFooterElement}</div>
+          </>
+        ) : null}
       </div>
     </div>
   );
 }
 
 export default UserSearch;
+
+/*
+
+const {
+    data,
+    hasNextPage,
+    fetchNextPage,
+    isFetchingNextPage,
+  } = useInfiniteQuery({
+    queryKey: ['posts', search],
+    getNextPageParam: (prevData: {
+      message: string;
+      data: ResponseType
+      page: { nextPage: number; previousPage: number };
+    }) => prevData.page.nextPage,
+    queryFn: ({ pageParam = 1 }) => searchUser(search, pageParam, 2),
+  });
+*/
