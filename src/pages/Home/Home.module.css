@@ -237,6 +237,11 @@
   background-color: rgb(var(--bg-white));
 }
 
+.member a {
+  color: rgb(var(--text-color-dark));
+  text-decoration: none;
+}
+
 .profileImage {
   margin-bottom: 1rem;
 }

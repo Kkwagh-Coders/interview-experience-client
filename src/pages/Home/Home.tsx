@@ -158,7 +158,15 @@ function Home() {
                 <div className={styles.profileImage}>
                   <img src={suhaanImage} alt="Suhaan Bhandary" />
                 </div>
-                <h3>Suhaan Bhandary</h3>
+                <h3>
+                  <a
+                    href="https://www.linkedin.com/in/suhaan-bhandary/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Suhaan Bhandary
+                  </a>
+                </h3>
                 <p>
                   Skilled Full Stack Developer proficient in React, Node, and
                   Django with expertise in DSA problem-solving, recognized as
@@ -169,7 +177,15 @@ function Home() {
                 <div className={styles.profileImage}>
                   <img src={suhaanImage} alt="Dhruv Chavda" />
                 </div>
-                <h3>Dhruv Chavda</h3>
+                <h3>
+                  <a
+                    href="https://www.linkedin.com/in/dhruv-chavda-220778238/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Dhruv Chavda
+                  </a>
+                </h3>
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                   Alias officiis dolore a officia. Expedita id animi accusantium
@@ -180,7 +196,15 @@ function Home() {
                 <div className={styles.profileImage}>
                   <img src={aniketImage} alt="Aniket Singh" />
                 </div>
-                <h3>Aniket Singh</h3>
+                <h3>
+                  <a
+                    href="https://www.linkedin.com/in/aniketsingh144/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Aniket Singh
+                  </a>
+                </h3>
                 <p>
                   BE student in IT with internships in Quality Assurance and
                   Doubt Solving, 4+ years of coding experience, and proficiency
@@ -191,7 +215,15 @@ function Home() {
                 <div className={styles.profileImage}>
                   <img src={suhaanImage} alt="Vinay Chopda" />
                 </div>
-                <h3>Vinay Chopda</h3>
+                <h3>
+                  <a
+                    href="https://www.linkedin.com/in/vinay-chopda-31495a22a/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Vinay Chopda
+                  </a>
+                </h3>
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                   Alias officiis dolore a officia. Expedita id animi accusantium
