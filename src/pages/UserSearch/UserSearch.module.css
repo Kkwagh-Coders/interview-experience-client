@@ -25,3 +25,17 @@
   margin-inline: 0rem;
   margin-bottom: 0.8rem;
 }
+
+.scrollFooter {
+  text-align: center;
+}
+
+.scrollFooters > p {
+  font-size: 1.2rem;
+}
+
+.PostList .nextPageButton {
+  display: block;
+  margin-inline: auto;
+  padding: 0.5rem 1.5rem;
+}

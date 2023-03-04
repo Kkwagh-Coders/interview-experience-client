@@ -69,9 +69,11 @@ export const updateUser = (user: UserUpdate) => {
     .then((response) => response.data);
 };
 
-export const searchUser = (user: string) => {
+export const searchUser = (user: string, page: number, limit: number) => {
   const url = new URL(`${BASE_API_URL}/user/search`);
   url.searchParams.set('searchparam', user);
+  url.searchParams.set('page', page.toString());
+  url.searchParams.set('limit', limit.toString());
 
   return axios.get(url.href, { withCredentials: true }).then((res) => res.data);
 };
