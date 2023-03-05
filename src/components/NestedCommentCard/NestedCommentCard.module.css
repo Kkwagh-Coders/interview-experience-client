@@ -1,6 +1,7 @@
 .nestedComment {
   background-color: rgb(248, 249, 254);
   margin-left: 0.7rem;
+  margin-bottom: 1rem;
   padding: 0.5rem;
 }
 
@@ -17,6 +18,8 @@
   font-weight: 200;
   text-align: center;
   padding: 0px;
+  text-decoration: none;
+  color: rgb(var(--dark-color));
 }
 
 .nDate {
@@ -29,25 +32,4 @@
 .nestedCmtData {
   padding: 0px;
   font-size: small;
-}
-
-.nAfterBtns {
-  display: flex;
-  font-size: small;
-  overflow: hidden;
-  gap: 0.9rem;
-}
-
-.nVotes,
-.nReply {
-  display: flex;
-  gap: 0.5rem;
-  font-size: small;
-  padding: 0.7rem;
-}
-
-@media (max-width: 1000px) {
-  .nAfterBtns {
-    gap: 0.1rem;
-  }
 }

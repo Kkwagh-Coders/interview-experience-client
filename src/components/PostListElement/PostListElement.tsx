@@ -1,6 +1,7 @@
 import { BiDownArrow, BiUpArrow } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
 import { PostCard } from '../../types/post.types';
+import getFormattedDate from '../../utils/getFormattedDate';
 import DeleteButton from '../DeleteButton/DeleteButton';
 import PostBookmarkButton from '../PostBookmarkButton/PostBookmarkButton';
 import ShareButton from '../ShareButton/ShareButton';
@@ -38,13 +39,7 @@ function PostListElement({ post }: Props) {
             ) : (
               <p className={styles.postAuthor}>User Deleted</p>
             )}
-            <span>
-              {new Date(post.createdAt).toLocaleString('en-GB', {
-                day: 'numeric',
-                month: 'short',
-                year: 'numeric',
-              })}
-            </span>
+            <span>{getFormattedDate(post.createdAt)}</span>
           </div>
 
           <div className={styles.bookMarkContainer}>

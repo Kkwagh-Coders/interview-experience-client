@@ -59,13 +59,24 @@ function Header() {
         >
           <ul className={styles.navList} id="primary-navigation">
             <li role="list" className={styles.navItem}>
-              <Link to="/">Home</Link>
+              <Link to="/" onClick={handleCloseNavbar}>
+                Home
+              </Link>
             </li>
             <li role="list" className={styles.navItem}>
-              <Link to="/posts">Posts</Link>
+              <Link to="/posts" onClick={handleCloseNavbar}>
+                Posts
+              </Link>
             </li>
             <li role="list" className={styles.navItem}>
-              <Link to="/events">Events</Link>
+              <Link to="/user/search" onClick={handleCloseNavbar}>
+                Users
+              </Link>
+            </li>
+            <li role="list" className={styles.navItem}>
+              <Link to="/events" onClick={handleCloseNavbar}>
+                Events
+              </Link>
             </li>
 
             {isLoggedIn ? (
@@ -75,9 +86,19 @@ function Header() {
               >
                 <>
                   <li role="list" className={styles.navItem}>
-                    <Link to={`/profile/${user?.userId}`}>Profile</Link>
+                    <Link
+                      to={`/profile/${user?.userId}`}
+                      onClick={handleCloseNavbar}
+                    >
+                      Profile
+                    </Link>
                   </li>
-                  <LogoutButton className={styles.navItem}>Logout</LogoutButton>
+                  <LogoutButton
+                    className={styles.navItem}
+                    onClickCallback={handleCloseNavbar}
+                  >
+                    Logout
+                  </LogoutButton>
                 </>
               </DropDown>
             ) : null}
@@ -87,12 +108,14 @@ function Header() {
               <>
                 <Link
                   to="/login"
+                  onClick={handleCloseNavbar}
                   className={`default-button default-outline-button ${styles.authButton}`}
                 >
                   Login
                 </Link>
                 <Link
                   to="/register"
+                  onClick={handleCloseNavbar}
                   className={`default-button ${styles.authButton}`}
                 >
                   Register
@@ -101,6 +124,7 @@ function Header() {
             ) : (
               <Link
                 to="/post"
+                onClick={handleCloseNavbar}
                 className={`default-button ${styles.authButton}`}
               >
                 Create Post

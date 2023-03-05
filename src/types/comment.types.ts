@@ -5,7 +5,7 @@ export type Reply = {
     username: string;
   } | null;
   content: string;
-  createdAt: Date;
+  createdAt: string;
 };
 
 export type Comment = {
@@ -15,8 +15,9 @@ export type Comment = {
     username: string;
   } | null;
   content: string;
-  createdAt: Date;
+  createdAt: string;
   replies: [Reply];
 };
 
 export type CommentList = Comment[];
+export type ReplyList = Reply[];

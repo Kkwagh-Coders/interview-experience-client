@@ -11,6 +11,7 @@ function App() {
         position="top-right"
         containerStyle={{
           top: 80,
+          zIndex: 100000,
         }}
       />
       <ReactQueryDevtools initialIsOpen={false} position="bottom-right" />

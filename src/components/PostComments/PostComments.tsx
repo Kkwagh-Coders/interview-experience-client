@@ -3,6 +3,7 @@ import { getCommentsPaginated } from '../../services/comments.services';
 import styles from './PostComments.module.css';
 import { CommentList } from '../../types/comment.types';
 import CommentCard from '../CommentCard/CommentCard';
+import CommentInput from '../CommentInput/CommentInput';
 
 type Props = {
   postId: string;
@@ -42,18 +43,21 @@ function PostComments({ postId }: Props) {
   }
 
   return (
-    <div className={styles.commentList}>
-      <ul>
-        {data?.pages
-          .flatMap((page) => page.data)
-          .map((comment) => (
-            <li key={comment._id}>
-              <CommentCard comment={comment} />
-            </li>
-          ))}
-      </ul>
-      <div className={styles.scrollFooter}>{scrollFooterElement}</div>
-    </div>
+    <>
+      <CommentInput postId={postId} />
+      <div className={styles.commentList}>
+        <ul>
+          {data?.pages
+            .flatMap((page) => page.data)
+            .map((comment) => (
+              <li key={comment._id}>
+                <CommentCard postId={postId} comment={comment} />
+              </li>
+            ))}
+        </ul>
+        <div className={styles.scrollFooter}>{scrollFooterElement}</div>
+      </div>
+    </>
   );
 }
 

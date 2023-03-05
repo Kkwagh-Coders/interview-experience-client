@@ -10,6 +10,19 @@ export const getPost = (id: string | undefined) => {
     .then((res) => res.data.post);
 };
 
+export const getMostViewedPosts = (limit: number) => {
+  const page = 1;
+  const url = new URL(`${BASE_API_URL}/posts`);
+
+  url.searchParams.set('page', page.toString());
+  url.searchParams.set('limit', limit.toString());
+  url.searchParams.set('sortBy', 'views');
+
+  return axios
+    .get<PostPaginated>(url.href, { withCredentials: true })
+    .then((res) => res.data);
+};
+
 export const getPostsPaginated = (page: number, limit: number) => {
   const url = new URL(`${BASE_API_URL}/posts`);
 
@@ -83,4 +96,17 @@ export const toggleBookmark = (postId: string, isBookmarked: boolean) => {
   return axios
     .post<{ message: string }>(url, {}, { withCredentials: true })
     .then((response) => response.data);
+};
+
+export const getCompanyAndRoleList = () => {
+  const url = new URL(`${BASE_API_URL}/posts/data/company-roles`);
+
+  type ResponseType = {
+    message: string;
+    data: {
+      company: string[];
+      role: string[];
+    };
+  };
+  return axios.get<ResponseType>(url.href).then((res) => res.data);
 };

@@ -1,0 +1,44 @@
+.AuthRouteLayout {
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+  min-height: 100dvh;
+  gap: 15px;
+}
+
+.title {
+  font-size: 2rem;
+  text-transform: uppercase;
+  color: #754cff;
+}
+
+.content p {
+  color: #666;
+  padding: 5px 0;
+  max-width: 70ch;
+}
+
+.loginButton {
+  display: inline-block;
+  padding: 8px 50px;
+  margin: 10px 0;
+  font-size: 17px;
+  background-color: #754cff;
+  color: #fff;
+  transition: 0.2s ease-out;
+  text-decoration: none;
+}
+
+.loginButton:hover {
+  letter-spacing: 2px;
+}
+
+@media (min-width: 800px) {
+  .title {
+    font-size: 3rem;
+  }
+
+  .content {
+    flex: 1 1 400px;
+  }
+}
