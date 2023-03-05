@@ -15,6 +15,7 @@ import ProfilePage from '../pages/Profile/ProfilePage';
 import ProfileEdit from '../pages/ProfileEdit/ProfileEdit';
 import ResetPassword from '../pages/ResetPassword/ResetPassword';
 import UserRegister from '../pages/UserRegister/UserRegister';
+import UserSearch from '../pages/UserSearch/UserSearch';
 
 function Router() {
   const { isLoading, isError } = useUserStatus();
@@ -34,7 +35,7 @@ function Router() {
         <Route path="/profile/:id" element={<ProfilePage />} />
         <Route path="/reset-password/:token" element={<ResetPassword />} />
         <Route path="/posts" element={<PostList />} />
-
+        <Route path="/user/search" element={<UserSearch />} />
         <Route element={<AuthRouteLayout />}>
           <Route path="/post" element={<PostForm />} />
           <Route path="/post/:id" element={<PostPage />} />
