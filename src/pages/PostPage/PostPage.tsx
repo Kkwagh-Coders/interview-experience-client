@@ -12,6 +12,7 @@ function PostPage() {
   const postQuery = useQuery({
     queryKey: ['post', id],
     queryFn: () => getPost(id),
+    staleTime: 30 * 60 * 1000, // Stale time for 30min
   });
 
   // TODO: implement loading
