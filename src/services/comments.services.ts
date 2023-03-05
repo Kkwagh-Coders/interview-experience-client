@@ -23,6 +23,17 @@ export const getCommentsPaginated = (
     .then((res) => res.data);
 };
 
+export const createComment = (postId: string, content: string) => {
+  const url = `${BASE_API_URL}/comments/${postId}`;
+
+  const body = { content };
+  type CreateComment = { message: string; commentId: string };
+
+  return axios
+    .post<CreateComment>(url, body, { withCredentials: true })
+    .then((response) => response.data);
+};
+
 export const getCommentRepliesPaginated = (
   postId: string,
   commentId: string,
