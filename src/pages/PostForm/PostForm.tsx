@@ -1,4 +1,4 @@
-import { useMutation } from '@tanstack/react-query';
+import { useMutation, useQuery } from '@tanstack/react-query';
 import { Formik } from 'formik';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
@@ -8,8 +8,12 @@ import { PostFormData } from '../../types/post.types';
 
 import Editor from '../../components/Editor/Editor';
 import StarRating from '../../components/StarRating/StarRating';
-import { createPost } from '../../services/post.services';
+import {
+  createPost,
+  getCompanyAndRoleList,
+} from '../../services/post.services';
 import styles from './PostForm.module.css';
+import { industries, postTypes } from '../../assets/data/post.data';
 
 interface SuccessResponse {
   message: string;
@@ -22,6 +26,12 @@ interface ErrorResponse<T> {
 
 function PostForm() {
   const navigate = useNavigate();
+
+  // Fetching in Position and Companies
+  const companyAndRoleQuery = useQuery({
+    queryKey: ['company-role-list'],
+    queryFn: () => getCompanyAndRoleList(),
+  });
 
   // prettier-ignore
   const { mutate, isLoading } = useMutation<
@@ -49,6 +59,8 @@ function PostForm() {
     tags: '',
     rating: 0,
   };
+
+  console.log(companyAndRoleQuery.data?.data);
 
   return (
     <div className={styles.PostForm}>
@@ -106,16 +118,22 @@ function PostForm() {
                   }`}
                 >
                   <label htmlFor="role">
-                    Postion Applied for
+                    Position Applied for
                     <span className="required">*</span>
                     <input
                       type="text"
                       name="role"
+                      list="roles"
                       placeholder="SDE 1 or Web development Intern"
                       value={formik.values.role}
                       onChange={formik.handleChange}
                       onBlur={formik.handleBlur}
                     />
+                    <datalist id="roles">
+                      {companyAndRoleQuery.data?.data.role.map((name) => (
+                        <option>{name}</option>
+                      ))}
+                    </datalist>
                   </label>
                 </div>
                 <div
@@ -125,17 +143,23 @@ function PostForm() {
                       : ''
                   }`}
                 >
-                  <label htmlFor="companyname">
+                  <label htmlFor="company">
                     Company
                     <span className="required">*</span>
                     <input
                       type="text"
-                      placeholder="Amazon"
+                      placeholder="Company"
                       name="company"
+                      list="companies"
                       value={formik.values.company}
                       onChange={formik.handleChange}
                       onBlur={formik.handleBlur}
                     />
+                    <datalist id="companies">
+                      {companyAndRoleQuery.data?.data.company.map((name) => (
+                        <option>{name}</option>
+                      ))}
+                    </datalist>
                   </label>
                 </div>
               </div>
@@ -150,6 +174,7 @@ function PostForm() {
                 >
                   <label htmlFor="domain">
                     Industry
+                    <span className="required">*</span>
                     <select
                       name="domain"
                       className={styles.inputField}
@@ -157,10 +182,12 @@ function PostForm() {
                       onChange={formik.handleChange}
                       onBlur={formik.handleBlur}
                     >
-                      <option value="1">IT Industry</option>
-                      <option value="2">Chemical Industry</option>
-                      <option value="3">Automobile Industry</option>
-                      <option value="4">Others</option>
+                      <option value="">Industry</option>
+                      {industries.map((industry) => (
+                        <option value={industry} key={industry}>
+                          {industry}
+                        </option>
+                      ))}
                     </select>
                   </label>
                 </div>
@@ -173,6 +200,7 @@ function PostForm() {
                 >
                   <label htmlFor="article">
                     Post Type
+                    <span className="required">*</span>
                     <select
                       name="postType"
                       className={styles.inputField}
@@ -180,11 +208,12 @@ function PostForm() {
                       onChange={formik.handleChange}
                       onBlur={formik.handleBlur}
                     >
-                      <option value="1">Interview Experience</option>
-                      <option value="2">Discussion</option>
-                      <option value="3">Promotional</option>
-                      <option value="4">Event</option>
-                      <option value="5">Others</option>
+                      <option value="">Post Type</option>
+                      {postTypes.map((type) => (
+                        <option value={type} key={type}>
+                          {type}
+                        </option>
+                      ))}
                     </select>
                   </label>
                 </div>
