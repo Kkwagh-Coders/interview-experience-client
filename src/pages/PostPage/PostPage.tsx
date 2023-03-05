@@ -6,12 +6,14 @@ import styles from './PostPage.module.css';
 import ShareButton from '../../components/ShareButton/ShareButton';
 import DeleteButton from '../../components/DeleteButton/DeleteButton';
 import PostComments from '../../components/PostComments/PostComments';
+import PostBookmarkButton from '../../components/PostBookmarkButton/PostBookmarkButton';
 
 function PostPage() {
   const { id } = useParams();
   const postQuery = useQuery({
     queryKey: ['post', id],
     queryFn: () => getPost(id),
+    staleTime: 30 * 60 * 1000, // Stale time for 30min
   });
 
   // TODO: implement loading
@@ -23,6 +25,10 @@ function PostPage() {
         <div className={styles.post}>
           <div className={styles.title}>
             <h2>{postQuery.data.title}</h2>
+            <PostBookmarkButton
+              postId={id || ''}
+              isBookmarked={postQuery.data.isBookmarked}
+            />
           </div>
           <div className={styles.postContent}>
             <div className={styles.userDetails}>
@@ -79,7 +85,7 @@ function PostPage() {
               <li>
                 <div className={styles.dataListItem}>
                   Bookmarks
-                  <span>21</span>
+                  <span>{postQuery.data.bookmarkCount}</span>
                 </div>
               </li>
               <li>
@@ -92,12 +98,9 @@ function PostPage() {
           </div>
 
           <div className={styles.related}>
-            <p>Related</p>
+            <p>Related Posts</p>
             <ul>
-              <li>a</li>
-              <li>b</li>
-              <li>c</li>
-              <li>d</li>
+              <li>Feature in Progress...</li>
             </ul>
           </div>
         </div>

@@ -17,6 +17,7 @@ function UserSearch() {
   // prettier-ignore
   const {
     data,
+    isLoading,
     hasNextPage,
     fetchNextPage,
     isFetchingNextPage,
@@ -31,7 +32,7 @@ function UserSearch() {
   });
 
   let scrollFooterElement = <p>Nothing More to Load</p>;
-  if (isFetchingNextPage) {
+  if (isFetchingNextPage || isLoading) {
     scrollFooterElement = <p>Loading...</p>;
   } else if (hasNextPage) {
     scrollFooterElement = (
@@ -71,7 +72,7 @@ function UserSearch() {
             <p> -- No User found -- </p>
           </div>
         ) : null}
-        {!isEmpty ? (
+        {!isEmpty && !isLoading ? (
           <>
             <table className={styles.userTable}>
               <thead>
@@ -86,8 +87,8 @@ function UserSearch() {
                 {data?.pages
                   .flatMap((page) => page.data)
                   .map((user) => (
-                    <tr className={styles.item}>
-                      <td key={user._id}>
+                    <tr className={styles.item} key={user._id}>
+                      <td>
                         <Link
                           to={`/profile/${user._id}`}
                           className={styles.username}

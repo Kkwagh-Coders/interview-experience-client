@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import BookmarkedPost from '../BoomarkedPost/BookmarkedPost';
+import BookmarkedPost from '../BookmarkedPost/BookmarkedPost';
 import UserPost from '../UserPost/UserPost';
 
 import styles from './ProfileTab.module.css';

@@ -41,7 +41,7 @@ function CommentInput({ postId }: Props) {
   });
 
   return (
-    <form className={styles.form}>
+    <form className={styles.commentContainer}>
       <textarea
         placeholder="Add a comment..."
         value={content}

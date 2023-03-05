@@ -97,3 +97,16 @@ export const toggleBookmark = (postId: string, isBookmarked: boolean) => {
     .post<{ message: string }>(url, {}, { withCredentials: true })
     .then((response) => response.data);
 };
+
+export const getCompanyAndRoleList = () => {
+  const url = new URL(`${BASE_API_URL}/posts/data/company-roles`);
+
+  type ResponseType = {
+    message: string;
+    data: {
+      company: string[];
+      role: string[];
+    };
+  };
+  return axios.get<ResponseType>(url.href).then((res) => res.data);
+};
