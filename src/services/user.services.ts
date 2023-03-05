@@ -80,8 +80,9 @@ export const searchUser = (user: string, page: number, limit: number) => {
     data: {
       _id: string;
       username: string;
-      branch: string;
+      designation: string;
       passingYear: string;
+      branch: string;
     }[];
     page: { previousPage: number; nextPage: number };
   };

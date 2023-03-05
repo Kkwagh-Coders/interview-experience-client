@@ -9,6 +9,7 @@ function UserSearch() {
   type ResponseType = {
     _id: string;
     username: string;
+    designation: string;
     branch: string;
     passingYear: string;
   }[];
@@ -76,6 +77,7 @@ function UserSearch() {
               <thead>
                 <tr>
                   <th> Username</th>
+                  <th> Designation</th>
                   <th> Branch</th>
                   <th> Passing Year </th>
                 </tr>
@@ -94,6 +96,7 @@ function UserSearch() {
                         </Link>
                       </td>
 
+                      <td>{user.designation}</td>
                       <td>{user.branch}</td>
                       <td>{user.passingYear}</td>
                     </tr>
