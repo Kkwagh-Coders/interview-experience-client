@@ -6,6 +6,7 @@ import styles from './PostPage.module.css';
 import ShareButton from '../../components/ShareButton/ShareButton';
 import DeleteButton from '../../components/DeleteButton/DeleteButton';
 import PostComments from '../../components/PostComments/PostComments';
+import PostBookmarkButton from '../../components/PostBookmarkButton/PostBookmarkButton';
 
 function PostPage() {
   const { id } = useParams();
@@ -24,6 +25,10 @@ function PostPage() {
         <div className={styles.post}>
           <div className={styles.title}>
             <h2>{postQuery.data.title}</h2>
+            <PostBookmarkButton
+              postId={id || ''}
+              isBookmarked={postQuery.data.isBookmarked}
+            />
           </div>
           <div className={styles.postContent}>
             <div className={styles.userDetails}>
