@@ -84,8 +84,8 @@ function UserSearch() {
                 {data?.pages
                   .flatMap((page) => page.data)
                   .map((user) => (
-                    <tr className={styles.item}>
-                      <td key={user._id}>
+                    <tr className={styles.item} key={user._id}>
+                      <td>
                         <Link
                           to={`/profile/${user._id}`}
                           className={styles.username}
