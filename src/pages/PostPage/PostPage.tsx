@@ -79,7 +79,7 @@ function PostPage() {
               <li>
                 <div className={styles.dataListItem}>
                   Bookmarks
-                  <span>21</span>
+                  <span>{postQuery.data.bookmarkCount}</span>
                 </div>
               </li>
               <li>
