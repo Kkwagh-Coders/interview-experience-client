@@ -65,6 +65,9 @@ function Header() {
               <Link to="/posts">Posts</Link>
             </li>
             <li role="list" className={styles.navItem}>
+              <Link to="/user/search">Users</Link>
+            </li>
+            <li role="list" className={styles.navItem}>
               <Link to="/events">Events</Link>
             </li>
 
