@@ -129,7 +129,7 @@ function PostForm() {
                     />
                     <datalist id="roles">
                       {companyAndRoleQuery.data?.data.role.map((name) => (
-                        <option>{name}</option>
+                        <option key={name}>{name}</option>
                       ))}
                     </datalist>
                   </label>
@@ -155,7 +155,7 @@ function PostForm() {
                     />
                     <datalist id="companies">
                       {companyAndRoleQuery.data?.data.company.map((name) => (
-                        <option>{name}</option>
+                        <option key={name}>{name}</option>
                       ))}
                     </datalist>
                   </label>
