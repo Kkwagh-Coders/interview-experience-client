@@ -164,52 +164,6 @@
   margin-bottom: 2rem;
 }
 
-.interviewPost {
-  background-color: rgb(var(--bg-white));
-  padding: 1rem;
-  border-radius: 5px;
-  margin-bottom: 2rem;
-  box-shadow: var(--box-shadow);
-}
-
-.interviewPost:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 10px hsl(0deg 0% 0% / 10%);
-}
-
-.postDomain {
-  display: inline-block;
-  padding: 0.25rem 0.5rem;
-  margin-bottom: 1rem;
-  border-radius: 5px;
-  background-color: rgb(var(--accent-color), 0.2);
-}
-
-.postTitle {
-  margin-bottom: 0.5rem;
-}
-
-.postTitle:hover {
-  cursor: pointer;
-  text-decoration: underline;
-  text-decoration-thickness: 2px;
-}
-
-.postDescription {
-  color: rgb(var(--text-color-light));
-  margin-bottom: 1rem;
-}
-
-.postAuthor {
-  font-weight: 500;
-}
-
-.postMoreDetail > span {
-  color: rgb(var(--text-color-light));
-  margin-right: 1rem;
-  font-weight: 200;
-}
-
 @media (min-width: 600px) {
   .posts h2 {
     font-size: 1.5rem;
@@ -237,13 +191,18 @@
   background-color: rgb(var(--bg-white));
 }
 
+.member a {
+  color: rgb(var(--text-color-dark));
+  text-decoration: none;
+}
+
 .profileImage {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .member img {
   width: 100%;
-  height: 10rem;
+  height: 15rem;
   border-radius: 5px;
   object-position: top;
   object-fit: cover;
@@ -287,6 +246,12 @@
 
   .member img {
     height: 15rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .memberContainer {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 

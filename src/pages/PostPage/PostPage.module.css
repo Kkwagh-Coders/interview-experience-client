@@ -97,19 +97,6 @@
   text-overflow: '';
 }
 
-.commentBox h4 {
-  color: rgb(187, 187, 187);
-  font-weight: 300;
-  padding-top: 10px;
-  padding-left: 10px;
-}
-
-.commentBox .inline,
-.link,
-.atRate {
-  font-size: 0.8rem;
-}
-
 .atRate {
   display: flex;
   align-items: center;

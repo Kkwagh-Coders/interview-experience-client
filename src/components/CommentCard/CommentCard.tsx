@@ -2,8 +2,9 @@ import { useState } from 'react';
 import { FaRegComments } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { Comment } from '../../types/comment.types';
-import styles from './CommentCard.module.css';
+import getFormattedDate from '../../utils/getFormattedDate';
 import CommentReply from '../CommentReply/CommentReply';
+import styles from './CommentCard.module.css';
 
 type Props = {
   postId: string;
@@ -25,13 +26,7 @@ function CommentCard({ postId, comment }: Props) {
         ) : (
           <p className={styles.uName}>User Deleted</p>
         )}
-        <p className={styles.date}>
-          {new Date(comment.createdAt).toLocaleString('en-GB', {
-            day: 'numeric',
-            month: 'short',
-            year: 'numeric',
-          })}
-        </p>
+        <p className={styles.date}>{getFormattedDate(comment.createdAt)}</p>
       </div>
       <div className={styles.cmtData}>{comment.content}</div>
       <div className={styles.cmtFoot}>

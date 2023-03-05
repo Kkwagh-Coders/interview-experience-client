@@ -5,7 +5,8 @@ import insightIcon from '../../assets/images/home/facilities/insight.png';
 import authenticIcon from '../../assets/images/home/facilities/authentic.png';
 import doubtIcon from '../../assets/images/home/facilities/doubt.png';
 import communityIcon from '../../assets/images/home/facilities/community.png';
-import personImage from '../../assets/images/home/founders/person.jpg';
+import suhaanImage from '../../assets/images/home/founders/suhaan.jpg';
+import aniketImage from '../../assets/images/home/founders/aniket.jpg';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -14,6 +15,7 @@ import 'swiper/css/navigation';
 
 import './slider.css';
 import styles from './Home.module.css';
+import TopPosts from '../../components/TopPosts/TopPosts';
 
 function Home() {
   return (
@@ -30,18 +32,18 @@ function Home() {
             Control of Your Career Journey Today!
           </p>
           <div className={styles.heroActionButtons}>
-            <a
-              href="#recentPosts"
+            <Link
+              to="/post"
               className={`default-button ${styles.exploreButton}`}
             >
-              Explore
-            </a>
-            <a
-              href="#aim"
+              Create Post
+            </Link>
+            <Link
+              to="/posts"
               className={`default-button default-outline-button ${styles.aimButton}`}
             >
-              Our Aim
-            </a>
+              View Posts
+            </Link>
           </div>
         </div>
       </section>
@@ -98,51 +100,7 @@ function Home() {
               Top Interview Experiences
             </span>
           </h2>
-
-          <div className={styles.postsContainer}>
-            <div className={styles.interviewPost}>
-              <span className={styles.postDomain}>Experience</span>
-              <h3 className={styles.postTitle}>My FinIQ Experience</h3>
-              <p className={styles.postDescription}>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugiat
-                pariatur, quibusdam iusto officiis aliquam reprehenderit
-                tenetur...
-              </p>
-              <p className={styles.postAuthor}>Rama works</p>
-              <div className={styles.postMoreDetail}>
-                <span>Feb 9, 2022</span>
-                <span>51 Likes</span>
-              </div>
-            </div>
-            <div className={styles.interviewPost}>
-              <span className={styles.postDomain}>Experience</span>
-              <h3 className={styles.postTitle}>My FinIQ Experience</h3>
-              <p className={styles.postDescription}>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugiat
-                pariatur, quibusdam iusto officiis aliquam reprehenderit
-                tenetur...
-              </p>
-              <p className={styles.postAuthor}>Rama works</p>
-              <div className={styles.postMoreDetail}>
-                <span>Feb 9, 2022</span>
-                <span>51 Likes</span>
-              </div>
-            </div>
-            <div className={styles.interviewPost}>
-              <span className={styles.postDomain}>Experience</span>
-              <h3 className={styles.postTitle}>My FinIQ Experience</h3>
-              <p className={styles.postDescription}>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugiat
-                pariatur, quibusdam iusto officiis aliquam reprehenderit
-                tenetur...
-              </p>
-              <p className={styles.postAuthor}>Rama works</p>
-              <div className={styles.postMoreDetail}>
-                <span>Feb 9, 2022</span>
-                <span>51 Likes</span>
-              </div>
-            </div>
-          </div>
+          <TopPosts />
         </div>
       </section>
 
@@ -155,9 +113,36 @@ function Home() {
             <div className={styles.memberContainer}>
               <div className={styles.member}>
                 <div className={styles.profileImage}>
-                  <img src={personImage} alt="Suhaan Bhandary" />
+                  <img src={suhaanImage} alt="Suhaan Bhandary" />
                 </div>
-                <h3>Suhaan Bhandary</h3>
+                <h3>
+                  <a
+                    href="https://www.linkedin.com/in/suhaan-bhandary/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Suhaan Bhandary
+                  </a>
+                </h3>
+                <p>
+                  Skilled Full Stack Developer proficient in React, Node, and
+                  Django with expertise in DSA problem-solving, recognized as
+                  Knight on Leetcode with 700+ Problems and 60+ Contests.
+                </p>
+              </div>
+              <div className={styles.member}>
+                <div className={styles.profileImage}>
+                  <img src={suhaanImage} alt="Dhruv Chavda" />
+                </div>
+                <h3>
+                  <a
+                    href="https://www.linkedin.com/in/dhruv-chavda-220778238/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Dhruv Chavda
+                  </a>
+                </h3>
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                   Alias officiis dolore a officia. Expedita id animi accusantium
@@ -166,31 +151,37 @@ function Home() {
               </div>
               <div className={styles.member}>
                 <div className={styles.profileImage}>
-                  <img src={personImage} alt="Dhruv Chavda" />
+                  <img src={aniketImage} alt="Aniket Singh" />
                 </div>
-                <h3>Dhruv Chavda</h3>
+                <h3>
+                  <a
+                    href="https://www.linkedin.com/in/aniketsingh144/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Aniket Singh
+                  </a>
+                </h3>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Alias officiis dolore a officia. Expedita id animi accusantium
-                  earum
+                  Experienced with MERN Stack, showcased coding skills on
+                  Leetcode, Codechef, and Gfg. Past roles include Quality
+                  Assurance and Doubt Solver Internships at InterviewHelp.io and
+                  Codechef respectively
                 </p>
               </div>
               <div className={styles.member}>
                 <div className={styles.profileImage}>
-                  <img src={personImage} alt="Aniket" />
+                  <img src={suhaanImage} alt="Vinay Chopda" />
                 </div>
-                <h3>Founder:- Aniket Singh</h3>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Alias officiis dolore a officia. Expedita id animi accusantium
-                  earum
-                </p>
-              </div>
-              <div className={styles.member}>
-                <div className={styles.profileImage}>
-                  <img src={personImage} alt="Vinay Chopda" />
-                </div>
-                <h3>Vinay Chopda</h3>
+                <h3>
+                  <a
+                    href="https://www.linkedin.com/in/vinay-chopda-31495a22a/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Vinay Chopda
+                  </a>
+                </h3>
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                   Alias officiis dolore a officia. Expedita id animi accusantium
@@ -233,112 +224,7 @@ function Home() {
                       interviews!
                     </p>
                     <div className={styles.attributerDetail}>
-                      <p className={styles.attributerName}>Raju Rastogi</p>
-                      <p className={styles.attributerDesignation}>
-                        Computer Student
-                      </p>
-                    </div>
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide>
-                  <div className={styles.attributionSlide}>
-                    <p className={styles.attributionText}>
-                      I&apos;m a college student and recently joined Interview
-                      Experience. It&apos;s been a game-changer! The platform
-                      offers a wealth of interview experiences from other
-                      students and professionals, giving me valuable insights
-                      and helping me prepare for my own interviews. The
-                      community is also fantastic - I was able to ask questions
-                      and receive helpful feedback. I highly recommend this
-                      website to any college student looking to ace their
-                      interviews!
-                    </p>
-                    <div className={styles.attributerDetail}>
-                      <p className={styles.attributerName}>Raju Rastogi</p>
-                      <p className={styles.attributerDesignation}>
-                        Computer Student
-                      </p>
-                    </div>
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide>
-                  <div className={styles.attributionSlide}>
-                    <p className={styles.attributionText}>
-                      I&apos;m a college student and recently joined Interview
-                      Experience. It&apos;s been a game-changer! The platform
-                      offers a wealth of interview experiences from other
-                      students and professionals, giving me valuable insights
-                      and helping me prepare for my own interviews. The
-                      community is also fantastic - I was able to ask questions
-                      and receive helpful feedback. I highly recommend this
-                      website to any college student looking to ace their
-                      interviews!
-                    </p>
-                    <div className={styles.attributerDetail}>
-                      <p className={styles.attributerName}>Raju Rastogi</p>
-                      <p className={styles.attributerDesignation}>
-                        Computer Student
-                      </p>
-                    </div>
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide>
-                  <div className={styles.attributionSlide}>
-                    <p className={styles.attributionText}>
-                      I&apos;m a college student and recently joined Interview
-                      Experience. It&apos;s been a game-changer! The platform
-                      offers a wealth of interview experiences from other
-                      students and professionals, giving me valuable insights
-                      and helping me prepare for my own interviews. The
-                      community is also fantastic - I was able to ask questions
-                      and receive helpful feedback. I highly recommend this
-                      website to any college student looking to ace their
-                      interviews!
-                    </p>
-                    <div className={styles.attributerDetail}>
-                      <p className={styles.attributerName}>Raju Rastogi</p>
-                      <p className={styles.attributerDesignation}>
-                        Computer Student
-                      </p>
-                    </div>
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide>
-                  <div className={styles.attributionSlide}>
-                    <p className={styles.attributionText}>
-                      I&apos;m a college student and recently joined Interview
-                      Experience. It&apos;s been a game-changer! The platform
-                      offers a wealth of interview experiences from other
-                      students and professionals, giving me valuable insights
-                      and helping me prepare for my own interviews. The
-                      community is also fantastic - I was able to ask questions
-                      and receive helpful feedback. I highly recommend this
-                      website to any college student looking to ace their
-                      interviews!
-                    </p>
-                    <div className={styles.attributerDetail}>
-                      <p className={styles.attributerName}>Raju Rastogi</p>
-                      <p className={styles.attributerDesignation}>
-                        Computer Student
-                      </p>
-                    </div>
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide>
-                  <div className={styles.attributionSlide}>
-                    <p className={styles.attributionText}>
-                      I&apos;m a college student and recently joined Interview
-                      Experience. It&apos;s been a game-changer! The platform
-                      offers a wealth of interview experiences from other
-                      students and professionals, giving me valuable insights
-                      and helping me prepare for my own interviews. The
-                      community is also fantastic - I was able to ask questions
-                      and receive helpful feedback. I highly recommend this
-                      website to any college student looking to ace their
-                      interviews!
-                    </p>
-                    <div className={styles.attributerDetail}>
-                      <p className={styles.attributerName}>Raju Rastogi</p>
+                      <p className={styles.attributerName}>Beta Tester</p>
                       <p className={styles.attributerDesignation}>
                         Computer Student
                       </p>
@@ -376,7 +262,7 @@ function Home() {
 
       <section className={styles.copyRight}>
         <div className="container">
-          <p>© Copyright 2023 Interview Experience</p>
+          <p>Interview Experience</p>
         </div>
       </section>
     </div>
