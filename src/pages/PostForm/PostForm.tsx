@@ -257,12 +257,6 @@ function PostForm() {
                 <input
                   className={styles.registerButton}
                   type="submit"
-                  value="Draft"
-                  disabled={isLoading}
-                />
-                <input
-                  className={styles.registerButton}
-                  type="submit"
                   value="Post"
                   disabled={isLoading}
                 />
