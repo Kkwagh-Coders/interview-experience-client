@@ -60,8 +60,6 @@ function PostForm() {
     rating: 0,
   };
 
-  console.log(companyAndRoleQuery.data?.data);
-
   return (
     <div className={styles.PostForm}>
       <div className={styles.container}>
