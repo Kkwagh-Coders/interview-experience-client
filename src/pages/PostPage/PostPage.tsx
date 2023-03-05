@@ -98,12 +98,9 @@ function PostPage() {
           </div>
 
           <div className={styles.related}>
-            <p>Related</p>
+            <p>Related Posts</p>
             <ul>
-              <li>a</li>
-              <li>b</li>
-              <li>c</li>
-              <li>d</li>
+              <li>Feature in Progress...</li>
             </ul>
           </div>
         </div>
