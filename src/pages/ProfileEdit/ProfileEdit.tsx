@@ -1,5 +1,6 @@
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useMutation } from '@tanstack/react-query';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useFormik } from 'formik';
 import toast from 'react-hot-toast';
 import * as Yup from 'yup';
@@ -23,6 +24,12 @@ function ProfileEdit() {
 
   // Get the details of the current user
   const userData = useAppSelector((state) => state.userState.user);
+
+  // Invalidating the status and refetching the user data
+  const queryClient = useQueryClient();
+  useEffect(() => {
+    queryClient.invalidateQueries(['user-status']);
+  }, [queryClient]);
 
   // prettier-ignore
   const { mutate, isLoading } = useMutation<
@@ -53,6 +60,7 @@ function ProfileEdit() {
 
   const formik = useFormik({
     initialValues,
+    enableReinitialize: true,
     validationSchema: Yup.object({
       username: Yup.string()
         .max(20, 'User Name must be 20 characters of less')
