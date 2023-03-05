@@ -6,8 +6,14 @@ import styles from './UserSearch.module.css';
 
 function UserSearch() {
   const [search, setSearch] = useState('');
-  type ResponseType = { _id: string; username: string }[];
+  type ResponseType = {
+    _id: string;
+    username: string;
+    branch: string;
+    passingYear: string;
+  }[];
 
+  // prettier-ignore
   const {
     data,
     hasNextPage,
@@ -17,10 +23,10 @@ function UserSearch() {
     queryKey: ['posts', search],
     getNextPageParam: (prevData: {
       message: string;
-      data: ResponseType
+      data: ResponseType;
       page: { nextPage: number; previousPage: number };
     }) => prevData.page.nextPage,
-    queryFn: ({ pageParam = 1 }) => searchUser(search, pageParam, 2),
+    queryFn: ({ pageParam = 1 }) => searchUser(search, pageParam, 10),
   });
 
   let scrollFooterElement = <p>Nothing More to Load</p>;
@@ -38,13 +44,11 @@ function UserSearch() {
       </button>
     );
   }
-  // console.log()
+
   async function handleSearchInputChange(
     e: React.ChangeEvent<HTMLInputElement>,
   ) {
     setSearch(e.target.value);
-    // const response = await searchUser(search);
-    // setData(response);
   }
 
   const isEmpty = data?.pages[0].data.length === 0;
@@ -62,32 +66,40 @@ function UserSearch() {
         </div>
 
         {isEmpty ? (
-          <center>
-            <div className={styles.listContainer}>
-              <p> -- No User found -- </p>
-            </div>
-          </center>
+          <div className={styles.listContainer}>
+            <p> -- No User found -- </p>
+          </div>
         ) : null}
         {!isEmpty ? (
           <>
-            <div className={styles.listContainer}>
-              <ul>
+            <table className={styles.userTable}>
+              <thead>
+                <tr>
+                  <th> Username</th>
+                  <th> Branch</th>
+                  <th> Passing Year </th>
+                </tr>
+              </thead>
+              <tbody>
                 {data?.pages
                   .flatMap((page) => page.data)
                   .map((user) => (
-                    <div className={styles.item}>
-                      <h2 key={user._id}>
+                    <tr className={styles.item}>
+                      <td key={user._id}>
                         <Link
                           to={`/profile/${user._id}`}
                           className={styles.username}
                         >
                           {user.username}
                         </Link>
-                      </h2>
-                    </div>
+                      </td>
+
+                      <td>{user.branch}</td>
+                      <td>{user.passingYear}</td>
+                    </tr>
                   ))}
-              </ul>
-            </div>
+              </tbody>
+            </table>
             <div className={styles.scrollFooter}>{scrollFooterElement}</div>
           </>
         ) : null}
@@ -97,21 +109,3 @@ function UserSearch() {
 }
 
 export default UserSearch;
-
-/*
-
-const {
-    data,
-    hasNextPage,
-    fetchNextPage,
-    isFetchingNextPage,
-  } = useInfiniteQuery({
-    queryKey: ['posts', search],
-    getNextPageParam: (prevData: {
-      message: string;
-      data: ResponseType
-      page: { nextPage: number; previousPage: number };
-    }) => prevData.page.nextPage,
-    queryFn: ({ pageParam = 1 }) => searchUser(search, pageParam, 2),
-  });
-*/

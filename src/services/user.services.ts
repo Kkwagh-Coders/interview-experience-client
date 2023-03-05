@@ -75,5 +75,17 @@ export const searchUser = (user: string, page: number, limit: number) => {
   url.searchParams.set('page', page.toString());
   url.searchParams.set('limit', limit.toString());
 
-  return axios.get(url.href, { withCredentials: true }).then((res) => res.data);
+  type ResponseType = {
+    message: string;
+    data: {
+      _id: string;
+      username: string;
+      branch: string;
+      passingYear: string;
+    }[];
+    page: { previousPage: number; nextPage: number };
+  };
+  return axios
+    .get<ResponseType>(url.href, { withCredentials: true })
+    .then((res) => res.data);
 };
