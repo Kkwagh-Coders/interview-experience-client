@@ -8,6 +8,7 @@ import { updateUser } from '../../services/user.services';
 import { UserUpdate } from '../../types/user.types';
 import styles from './ProfileEdit.module.css';
 import { useAppSelector } from '../../redux/store';
+import { branches } from '../../assets/data/user.data';
 
 interface SuccessResponse {
   message: string;
@@ -130,14 +131,19 @@ function ProfileEdit() {
                 ? formik.errors.branch
                 : 'Branch'}
               <span className="required">*</span>
-              <input
-                type="text"
+
+              <select
                 name="branch"
-                placeholder="Computer Science"
+                className={styles.inputField}
                 value={formik.values.branch}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
-              />
+              >
+                <option value="">Branch</option>
+                {branches.map((branch) => (
+                  <option value={branch}>{branch}</option>
+                ))}
+              </select>
             </label>
           </div>
 

@@ -7,6 +7,7 @@ import * as Yup from 'yup';
 import { User } from '../../types/user.types';
 import { registerUser } from '../../services/user.services';
 import styles from './UserRegister.module.css';
+import { branches } from '../../assets/data/user.data';
 
 interface IUserRegisterFormValue extends User {
   confirmPassword: string;
@@ -194,7 +195,7 @@ function UserRegister() {
               <input
                 type="text"
                 name="designation"
-                placeholder="SDE 1"
+                placeholder="SDE 1 or Student"
                 value={formik.values.designation}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
@@ -214,14 +215,19 @@ function UserRegister() {
                 ? formik.errors.branch
                 : 'Branch'}
               <span className="required">*</span>
-              <input
-                type="text"
+
+              <select
                 name="branch"
-                placeholder="Computer Science"
+                className={styles.inputField}
                 value={formik.values.branch}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
-              />
+              >
+                <option value="">Branch</option>
+                {branches.map((branch) => (
+                  <option value={branch}>{branch}</option>
+                ))}
+              </select>
             </label>
           </div>
 
@@ -340,7 +346,7 @@ function UserRegister() {
         </form>
         <div className={styles.loginSignUp}>
           <span className={styles.signUpText}>
-            Already have an Account ?
+            <span>Already have an Account ?</span>
             <Link to="/login">Log in</Link>
           </span>
         </div>
