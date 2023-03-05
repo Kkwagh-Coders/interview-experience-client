@@ -8,9 +8,10 @@ import { logoutUser } from '../../services/user.services';
 type Props = {
   className: string;
   children: JSX.Element | string;
+  onClickCallback: () => void;
 };
 
-function LogoutButton({ className, children }: Props) {
+function LogoutButton({ className, children, onClickCallback }: Props) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const queryClient = useQueryClient();
@@ -23,6 +24,7 @@ function LogoutButton({ className, children }: Props) {
     onSuccess: () => {
       queryClient.invalidateQueries(['user-status']);
       dispatch(userAction.logout());
+      onClickCallback();
       navigate('/');
     },
   });
