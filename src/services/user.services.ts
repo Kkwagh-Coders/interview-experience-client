@@ -50,7 +50,7 @@ export const resetUserPassword = (
   const url = `${BASE_API_URL}/user/reset-password/${token}`;
   const body = { email, newPassword };
   return axios
-    .post<{ message: string }>(url, body, { withCredentials: true })
+    .post<{ message: string }>(url, body)
     .then((response) => response.data);
 };
 
