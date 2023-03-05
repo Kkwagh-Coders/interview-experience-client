@@ -141,7 +141,9 @@ function ProfileEdit() {
               >
                 <option value="">Branch</option>
                 {branches.map((branch) => (
-                  <option value={branch}>{branch}</option>
+                  <option value={branch} key={branch}>
+                    {branch}
+                  </option>
                 ))}
               </select>
             </label>
