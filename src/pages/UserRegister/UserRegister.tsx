@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useMutation } from '@tanstack/react-query';
 import { useFormik } from 'formik';
 import toast from 'react-hot-toast';
@@ -8,6 +9,7 @@ import { User } from '../../types/user.types';
 import { registerUser } from '../../services/user.services';
 import styles from './UserRegister.module.css';
 import { branches } from '../../assets/data/user.data';
+import RegisterSuccessModal from '../../components/RegisterSuccessModal/RegisterSuccessModal';
 
 interface IUserRegisterFormValue extends User {
   confirmPassword: string;
@@ -22,6 +24,8 @@ interface ErrorResponse<T> {
 }
 
 function UserRegister() {
+  const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
+
   // prettier-ignore
   const { mutate, isLoading } = useMutation<
   SuccessResponse,
@@ -34,6 +38,7 @@ function UserRegister() {
     },
     onSuccess: (data) => {
       toast.success(data.message);
+      setIsSuccessModalOpen(true);
     },
   });
 
@@ -352,6 +357,8 @@ function UserRegister() {
             <Link to="/login">Log in</Link>
           </span>
         </div>
+
+        {isSuccessModalOpen ? <RegisterSuccessModal /> : null}
       </div>
     </div>
   );
