@@ -54,6 +54,7 @@ function CommentReply({ postId, commentId }: Props) {
                 <NestedCommentCard commentReply={commentReply} />
               ))}
           </ul>
+
           <div className={styles.scrollFooter}>{scrollFooterElement}</div>
         </>
       ) : null}

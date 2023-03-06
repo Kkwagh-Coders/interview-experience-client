@@ -1,10 +1,12 @@
 import { Link } from 'react-router-dom';
+
 import styles from './NestedCommentCard.module.css';
 import { Reply } from '../../types/comment.types';
 
 type Props = {
   commentReply: Reply;
 };
+
 function NestedCommentCard({ commentReply }: Props) {
   return (
     <div className={styles.nestedComment}>
@@ -27,6 +29,7 @@ function NestedCommentCard({ commentReply }: Props) {
           })}
         </p>
       </div>
+
       <p className={styles.nestedCmtData}>{commentReply.content}</p>
     </div>
   );

@@ -19,3 +19,14 @@
   margin-bottom: 1rem;
   padding: 0.5rem;
 }
+
+.cLogo:click {
+  display: inline;
+}
+
+.replyBtn {
+  border: none;
+  background-color: white;
+  cursor: pointer;
+  margin: 5px;
+}

@@ -34,6 +34,21 @@ export const createComment = (postId: string, content: string) => {
     .then((response) => response.data);
 };
 
+export const createReplyComment = (
+  postId: string,
+  commentId: string,
+  content: string,
+) => {
+  const url = `${BASE_API_URL}/comments/replies/${postId}/${commentId}`;
+
+  const body = { content };
+  type CreateComment = { message: string; commentId: string };
+
+  return axios
+    .post<CreateComment>(url, body, { withCredentials: true })
+    .then((response) => response.data);
+};
+
 export const getCommentRepliesPaginated = (
   postId: string,
   commentId: string,
