@@ -40,6 +40,10 @@ export const getPostsPaginated = (
   url.searchParams.set('page', page.toString());
   url.searchParams.set('limit', limit.toString());
 
+  if (filter.search.length !== 0) {
+    url.searchParams.set('search', filter.search);
+  }
+
   if (filter.sortBy.length !== 0) {
     url.searchParams.set('sortBy', filter.sortBy);
   }
