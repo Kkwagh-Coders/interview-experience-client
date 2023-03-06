@@ -21,7 +21,7 @@ function BookmarkedPost() {
       data: PostCardList;
       page: { nextPage: number; previousPage: number };
     }) => prevData.page.nextPage,
-    queryFn: ({ pageParam = 1 }) => getBookmarkedPostsPaginated(id, pageParam, 2),
+    queryFn: ({ pageParam = 1 }) => getBookmarkedPostsPaginated(id, pageParam, 10),
   });
 
   let scrollFooterElement = <p>Nothing More to Load</p>;
@@ -31,7 +31,7 @@ function BookmarkedPost() {
     scrollFooterElement = (
       <button
         type="button"
-        className={`default-button ${styles.nextPageButtonBookmark}`}
+        className={`default-button ${styles.nextPageButton}`}
         onClick={() => fetchNextPage()}
         disabled={!hasNextPage || isFetchingNextPage}
       >
@@ -42,7 +42,7 @@ function BookmarkedPost() {
 
   const isEmpty = data?.pages[0].data.length === 0;
   return (
-    <>
+    <div className={styles.BookmarkedPost}>
       {isEmpty ? <p>No Bookmarked Post</p> : null}
       {!isEmpty ? (
         <>
@@ -54,7 +54,7 @@ function BookmarkedPost() {
           <div className={styles.scrollFooter}>{scrollFooterElement}</div>
         </>
       ) : null}
-    </>
+    </div>
   );
 }
 

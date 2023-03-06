@@ -32,7 +32,7 @@ function UserPost() {
     scrollFooterElement = (
       <button
         type="button"
-        className={`default-button ${styles.nextPageButtonBookmark}`}
+        className={`default-button ${styles.nextPageButton}`}
         onClick={() => fetchNextPage()}
         disabled={!hasNextPage || isFetchingNextPage}
       >
@@ -43,7 +43,7 @@ function UserPost() {
 
   const isEmpty = data?.pages[0].data.length === 0;
   return (
-    <>
+    <div className={styles.UserPost}>
       {isEmpty ? <p>No User Post</p> : null}
       {!isEmpty ? (
         <>
@@ -55,7 +55,7 @@ function UserPost() {
           <div className={styles.scrollFooter}>{scrollFooterElement}</div>
         </>
       ) : null}
-    </>
+    </div>
   );
 }
 
