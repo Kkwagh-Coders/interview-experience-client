@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+
 import styles from './NestedCommentCard.module.css';
 import { Reply } from '../../types/comment.types';
 import getFormattedDate from '../../utils/getFormattedDate';
@@ -6,6 +7,7 @@ import getFormattedDate from '../../utils/getFormattedDate';
 type Props = {
   commentReply: Reply;
 };
+
 function NestedCommentCard({ commentReply }: Props) {
   return (
     <div className={styles.nestedComment}>
@@ -24,6 +26,7 @@ function NestedCommentCard({ commentReply }: Props) {
           {getFormattedDate(commentReply.createdAt)}
         </p>
       </div>
+
       <p className={styles.nestedCmtData}>{commentReply.content}</p>
     </div>
   );
