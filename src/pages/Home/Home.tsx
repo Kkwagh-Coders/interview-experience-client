@@ -6,7 +6,9 @@ import authenticIcon from '../../assets/images/home/facilities/authentic.png';
 import doubtIcon from '../../assets/images/home/facilities/doubt.png';
 import communityIcon from '../../assets/images/home/facilities/community.png';
 import suhaanImage from '../../assets/images/home/founders/suhaan.jpg';
+import dhruvImage from '../../assets/images/home/founders/dhruv.jpg';
 import aniketImage from '../../assets/images/home/founders/aniket.jpg';
+import vinayImage from '../../assets/images/home/founders/vinay.jpg';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -75,7 +77,7 @@ function Home() {
             </div>
             <div className={styles.facility}>
               <img src={communityIcon} alt="" />
-              <h3>Connect with Alumines</h3>
+              <h3>Connect with Alumni</h3>
               <p>
                 Build Your Network, Grow Your Connections. Get to Know Alumni
                 and Expand Your Horizons.
@@ -132,7 +134,7 @@ function Home() {
               </div>
               <div className={styles.member}>
                 <div className={styles.profileImage}>
-                  <img src={suhaanImage} alt="Dhruv Chavda" />
+                  <img src={dhruvImage} alt="Dhruv Chavda" />
                 </div>
                 <h3>
                   <a
@@ -144,9 +146,9 @@ function Home() {
                   </a>
                 </h3>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Alias officiis dolore a officia. Expedita id animi accusantium
-                  earum
+                  All time learner and a skilled web developer having good hands
+                  on React and Node also having keen interest in problem solving
+                  with dsa
                 </p>
               </div>
               <div className={styles.member}>
@@ -171,7 +173,7 @@ function Home() {
               </div>
               <div className={styles.member}>
                 <div className={styles.profileImage}>
-                  <img src={suhaanImage} alt="Vinay Chopda" />
+                  <img src={vinayImage} alt="Vinay Chopda" />
                 </div>
                 <h3>
                   <a
@@ -183,9 +185,9 @@ function Home() {
                   </a>
                 </h3>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Alias officiis dolore a officia. Expedita id animi accusantium
-                  earum
+                  MERN developer also well versed with ionic and react-native
+                  framework. Intern at SrchOut Software. 3⭐ on CodeChef, 200+
+                  Problems on Leetcode and always up for Problem Solving in DSA
                 </p>
               </div>
             </div>
