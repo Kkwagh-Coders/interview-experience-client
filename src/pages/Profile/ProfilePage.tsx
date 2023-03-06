@@ -90,19 +90,34 @@ function ProfilePage() {
 
           <div className={styles.socialContainer}>
             {profileData?.linkedin ? (
-              <a href={profileData?.linkedin} className={styles.linkedin}>
+              <a
+                href={profileData?.linkedin}
+                className={styles.linkedin}
+                target="_blank"
+                rel="noreferrer"
+              >
                 <FaLinkedin />
               </a>
             ) : null}
 
             {profileData?.github ? (
-              <a href={profileData?.github} className={styles.github}>
+              <a
+                href={profileData?.github}
+                className={styles.github}
+                target="_blank"
+                rel="noreferrer"
+              >
                 <DiGithubBadge />
               </a>
             ) : null}
 
             {profileData?.leetcode ? (
-              <a href={profileData?.leetcode} className={styles.leetcode}>
+              <a
+                href={profileData?.leetcode}
+                className={styles.leetcode}
+                target="_blank"
+                rel="noreferrer"
+              >
                 <SiLeetcode />
               </a>
             ) : null}

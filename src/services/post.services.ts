@@ -10,11 +10,59 @@ export const getPost = (id: string | undefined) => {
     .then((res) => res.data.post);
 };
 
-export const getPostsPaginated = (page: number, limit: number) => {
+export const getMostViewedPosts = (limit: number) => {
+  const page = 1;
   const url = new URL(`${BASE_API_URL}/posts`);
 
   url.searchParams.set('page', page.toString());
   url.searchParams.set('limit', limit.toString());
+  url.searchParams.set('sortBy', 'views');
+
+  return axios
+    .get<PostPaginated>(url.href, { withCredentials: true })
+    .then((res) => res.data);
+};
+
+export const getPostsPaginated = (
+  page: number,
+  limit: number,
+  filter: {
+    search: string;
+    sortBy: string;
+    articleType: string;
+    jobRole: string;
+    company: string;
+    rating: string;
+  },
+) => {
+  const url = new URL(`${BASE_API_URL}/posts`);
+
+  url.searchParams.set('page', page.toString());
+  url.searchParams.set('limit', limit.toString());
+
+  if (filter.search.length !== 0) {
+    url.searchParams.set('search', filter.search);
+  }
+
+  if (filter.sortBy.length !== 0) {
+    url.searchParams.set('sortBy', filter.sortBy);
+  }
+
+  if (filter.articleType.length !== 0) {
+    url.searchParams.set('articleType', filter.articleType);
+  }
+
+  if (filter.jobRole.length !== 0) {
+    url.searchParams.set('jobRole', filter.jobRole);
+  }
+
+  if (filter.company.length !== 0) {
+    url.searchParams.set('company', filter.company);
+  }
+
+  if (filter.rating.length !== 0) {
+    url.searchParams.set('rating', filter.rating);
+  }
 
   return axios
     .get<PostPaginated>(url.href, { withCredentials: true })
@@ -83,4 +131,17 @@ export const toggleBookmark = (postId: string, isBookmarked: boolean) => {
   return axios
     .post<{ message: string }>(url, {}, { withCredentials: true })
     .then((response) => response.data);
+};
+
+export const getCompanyAndRoleList = () => {
+  const url = new URL(`${BASE_API_URL}/posts/data/company-roles`);
+
+  type ResponseType = {
+    message: string;
+    data: {
+      company: string[];
+      role: string[];
+    };
+  };
+  return axios.get<ResponseType>(url.href).then((res) => res.data);
 };

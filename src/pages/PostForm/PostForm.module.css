@@ -52,6 +52,7 @@
   color: #707070;
   margin-top: 8px;
   border: 1px solid #ddd;
+  background-color: white;
   border-radius: 6px;
   padding: 0 15px;
 }
@@ -65,7 +66,9 @@
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
 }
 
-.form .inputFieldError input {
+.form .inputFieldError input,
+.form .inputFieldError select,
+.form .inputFieldError textarea {
   border-color: red;
 }
 

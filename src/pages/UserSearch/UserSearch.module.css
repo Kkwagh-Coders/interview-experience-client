@@ -1,0 +1,99 @@
+.UserSearch {
+  min-height: 100vh;
+  min-height: 100dvh;
+
+  scroll-margin-top: 3rem;
+  margin-inline: auto;
+  padding-block: 2rem;
+  background-color: rgb(var(--bg-light));
+  margin-top: 3.5rem;
+}
+
+.UserSearch h2 {
+  font-size: 1.3rem;
+  margin-bottom: 0.8rem;
+}
+
+.searchBarInput {
+  width: 100%;
+  outline: none;
+  font-size: 1rem;
+  color: #707070;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  margin-inline: 0rem;
+  margin-bottom: 0.8rem;
+}
+
+.scrollFooter {
+  text-align: center;
+}
+
+.scrollFooters > p {
+  font-size: 1.2rem;
+}
+
+.UserSearch .nextPageButton {
+  cursor: pointer;
+  font-size: 1.1rem;
+  fill: rgb(66, 80, 108);
+  font-weight: 500;
+  text-align: center;
+  align-self: flex-end;
+  padding: 0.25rem 1.2rem;
+}
+
+.listContainer {
+  margin-bottom: 2rem;
+  padding-top: 1.5rem;
+  text-align: center;
+}
+
+.username {
+  font-size: medium;
+  font-weight: 500;
+  text-align: center;
+  text-decoration: none;
+  color: rgb(var(--dark-color));
+}
+
+.username:hover {
+  text-decoration: underline;
+}
+
+.userTable {
+  width: 100%;
+  text-align: center;
+  margin-top: 1.5rem;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  border-collapse: collapse;
+  margin-block: 1.5rem;
+}
+
+.userTable td,
+.userTable th {
+  padding: 0.8rem 1.5rem;
+  text-align: left;
+}
+
+.userTable tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.userTable tbody {
+  background-color: white;
+}
+
+.userTable thead {
+  background-color: rgb(var(--accent-color));
+  color: white;
+}
+
+@media (max-width: 800px) {
+  .userTable td:not(:first-child),
+  .userTable th:not(:first-child) {
+    display: none;
+  }
+}

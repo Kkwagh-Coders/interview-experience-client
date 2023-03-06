@@ -8,6 +8,7 @@ export type Post = {
   rating: number;
   createdAt: string;
   voteCount: number;
+  bookmarkCount: number;
   views: number;
   tags: string[];
   postAuthorId: string;

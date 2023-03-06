@@ -50,7 +50,7 @@ export const resetUserPassword = (
   const url = `${BASE_API_URL}/user/reset-password/${token}`;
   const body = { email, newPassword };
   return axios
-    .post<{ message: string }>(url, body, { withCredentials: true })
+    .post<{ message: string }>(url, body)
     .then((response) => response.data);
 };
 
@@ -67,4 +67,26 @@ export const updateUser = (user: UserUpdate) => {
   return axios
     .put<{ message: string }>(url, user, { withCredentials: true })
     .then((response) => response.data);
+};
+
+export const searchUser = (user: string, page: number, limit: number) => {
+  const url = new URL(`${BASE_API_URL}/user/search`);
+  url.searchParams.set('searchparam', user);
+  url.searchParams.set('page', page.toString());
+  url.searchParams.set('limit', limit.toString());
+
+  type ResponseType = {
+    message: string;
+    data: {
+      _id: string;
+      username: string;
+      designation: string;
+      passingYear: string;
+      branch: string;
+    }[];
+    page: { previousPage: number; nextPage: number };
+  };
+  return axios
+    .get<ResponseType>(url.href, { withCredentials: true })
+    .then((res) => res.data);
 };

@@ -1,5 +1,6 @@
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useMutation } from '@tanstack/react-query';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useFormik } from 'formik';
 import toast from 'react-hot-toast';
 import * as Yup from 'yup';
@@ -8,6 +9,7 @@ import { updateUser } from '../../services/user.services';
 import { UserUpdate } from '../../types/user.types';
 import styles from './ProfileEdit.module.css';
 import { useAppSelector } from '../../redux/store';
+import { branches } from '../../assets/data/user.data';
 
 interface SuccessResponse {
   message: string;
@@ -22,6 +24,12 @@ function ProfileEdit() {
 
   // Get the details of the current user
   const userData = useAppSelector((state) => state.userState.user);
+
+  // Invalidating the status and refetching the user data
+  const queryClient = useQueryClient();
+  useEffect(() => {
+    queryClient.invalidateQueries(['user-status']);
+  }, [queryClient]);
 
   // prettier-ignore
   const { mutate, isLoading } = useMutation<
@@ -52,6 +60,7 @@ function ProfileEdit() {
 
   const formik = useFormik({
     initialValues,
+    enableReinitialize: true,
     validationSchema: Yup.object({
       username: Yup.string()
         .max(20, 'User Name must be 20 characters of less')
@@ -130,14 +139,21 @@ function ProfileEdit() {
                 ? formik.errors.branch
                 : 'Branch'}
               <span className="required">*</span>
-              <input
-                type="text"
+
+              <select
                 name="branch"
-                placeholder="Computer Science"
+                className={styles.inputField}
                 value={formik.values.branch}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
-              />
+              >
+                <option value="">Branch</option>
+                {branches.map((branch) => (
+                  <option value={branch} key={branch}>
+                    {branch}
+                  </option>
+                ))}
+              </select>
             </label>
           </div>
 

@@ -1,29 +1,50 @@
-import { useInfiniteQuery } from '@tanstack/react-query';
+import { useState } from 'react';
+import { useInfiniteQuery, useQuery } from '@tanstack/react-query';
 import PostListElement from '../../components/PostListElement/PostListElement';
 
 import styles from './PostList.module.css';
-import { getPostsPaginated } from '../../services/post.services';
+import {
+  getCompanyAndRoleList,
+  getPostsPaginated,
+} from '../../services/post.services';
 import { PostCardList } from '../../types/post.types';
+import { postTypes } from '../../assets/data/post.data';
 
 function PostList() {
+  const [filter, setFilter] = useState({
+    search: '',
+    sortBy: '',
+    articleType: '',
+    jobRole: '',
+    company: '',
+    rating: '',
+  });
+
+  // Fetching in Position and Companies
+  const companyAndRoleQuery = useQuery({
+    queryKey: ['company-role-list'],
+    queryFn: () => getCompanyAndRoleList(),
+  });
+
   // prettier-ignore
   const {
     data,
+    isLoading,
     hasNextPage,
     fetchNextPage,
     isFetchingNextPage,
   } = useInfiniteQuery({
-    queryKey: ['posts'],
+    queryKey: ['posts', filter],
     getNextPageParam: (prevData: {
       message: string;
       data: PostCardList;
       page: { nextPage: number; previousPage: number };
     }) => prevData.page.nextPage,
-    queryFn: ({ pageParam = 1 }) => getPostsPaginated(pageParam, 2),
+    queryFn: ({ pageParam = 1 }) => getPostsPaginated(pageParam, 10, filter),
   });
 
   let scrollFooterElement = <p>Nothing More to Load</p>;
-  if (isFetchingNextPage) {
+  if (isFetchingNextPage || isLoading) {
     scrollFooterElement = <p>Loading...</p>;
   } else if (hasNextPage) {
     scrollFooterElement = (
@@ -50,61 +71,109 @@ function PostList() {
             <div className={styles.searchBar}>
               <input
                 type="text"
-                className={styles.searchBarInput}
                 placeholder="Search..."
+                onChange={(e) => {
+                  setFilter({ ...filter, search: e.target.value });
+                }}
+                className={styles.searchBarInput}
               />
             </div>
 
             <div className={styles.filtersContainer}>
               <div className={styles.filterInput}>
                 <label htmlFor="domain">
-                  <select name="domain" className={styles.inputField}>
-                    <option value="1">Sort By</option>
-                    <option value="2">Newest</option>
-                    <option value="3">Oldest</option>
-                    <option value="4">Top Voted</option>
+                  <select
+                    name="domain"
+                    className={styles.inputField}
+                    value={filter.sortBy}
+                    onChange={(e) => {
+                      setFilter({ ...filter, sortBy: e.target.value });
+                    }}
+                  >
+                    <option value="">Sort By</option>
+                    <option value="new">Newest</option>
+                    <option value="old">Oldest</option>
+                    <option value="views">Most Viewed</option>
                   </select>
                 </label>
               </div>
 
               <div className={styles.filterInput}>
                 <label htmlFor="type">
-                  <select name="type" className={styles.inputField}>
-                    <option value="1">Article Type</option>
-                    <option value="2">Experience</option>
-                    <option value="3">Discussion</option>
+                  <select
+                    name="type"
+                    className={styles.inputField}
+                    value={filter.articleType}
+                    onChange={(e) => {
+                      setFilter({ ...filter, articleType: e.target.value });
+                    }}
+                  >
+                    <option value="">Post Type</option>
+                    {postTypes.map((type) => (
+                      <option value={type} key={type}>
+                        {type}
+                      </option>
+                    ))}
                   </select>
                 </label>
               </div>
 
               <div className={styles.filterInput}>
-                <label htmlFor="domain">
-                  <select name="domain" className={styles.inputField}>
-                    <option value="1">Job Role</option>
-                    <option value="2">Software Developer</option>
-                    <option value="3">FullStack-Developer</option>
+                <label htmlFor="role">
+                  <select
+                    name="role"
+                    className={styles.inputField}
+                    value={filter.jobRole}
+                    onChange={(e) => {
+                      setFilter({ ...filter, jobRole: e.target.value });
+                    }}
+                  >
+                    <option value="">Job Role</option>
+                    {companyAndRoleQuery.data?.data.role.map((role) => (
+                      <option value={role} key={role}>
+                        {role}
+                      </option>
+                    ))}
                   </select>
                 </label>
               </div>
 
               <div className={styles.filterInput}>
-                <label htmlFor="domain">
-                  <select name="domain" className={styles.inputField}>
-                    <option value="1">Company</option>
-                    <option value="2">Amazon</option>
-                    <option value="3">Google</option>
-                    <option value="4">Meta</option>
+                <label htmlFor="company">
+                  <select
+                    name="company"
+                    className={styles.inputField}
+                    value={filter.company}
+                    onChange={(e) => {
+                      setFilter({ ...filter, company: e.target.value });
+                    }}
+                  >
+                    <option value="">Company</option>
+                    {companyAndRoleQuery.data?.data.company.map((company) => (
+                      <option value={company} key={company}>
+                        {company}
+                      </option>
+                    ))}
                   </select>
                 </label>
               </div>
 
               <div className={styles.filterInput}>
-                <label htmlFor="domain">
-                  <select name="domain" className={styles.inputField}>
-                    <option value="1">Rating</option>
-                    <option value="2">1 Star</option>
-                    <option value="3">2 Star</option>
-                    <option value="4">3 Star and above</option>
+                <label htmlFor="rating">
+                  <select
+                    name="rating"
+                    className={styles.inputField}
+                    value={filter.rating}
+                    onChange={(e) => {
+                      setFilter({ ...filter, rating: e.target.value });
+                    }}
+                  >
+                    <option value="">Rating</option>
+                    <option value="1">1 Star</option>
+                    <option value="2">2 Star</option>
+                    <option value="3">3 Star</option>
+                    <option value="4">4 Star</option>
+                    <option value="5">5 Star</option>
                   </select>
                 </label>
               </div>

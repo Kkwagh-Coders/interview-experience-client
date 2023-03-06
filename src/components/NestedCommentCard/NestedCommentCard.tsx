@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 
 import styles from './NestedCommentCard.module.css';
 import { Reply } from '../../types/comment.types';
+import getFormattedDate from '../../utils/getFormattedDate';
 
 type Props = {
   commentReply: Reply;
@@ -22,11 +23,7 @@ function NestedCommentCard({ commentReply }: Props) {
           <p className={styles.uName}>User Deleted</p>
         )}
         <p className={styles.nDate}>
-          {new Date(commentReply.createdAt).toLocaleString('en-GB', {
-            day: 'numeric',
-            month: 'short',
-            year: 'numeric',
-          })}
+          {getFormattedDate(commentReply.createdAt)}
         </p>
       </div>
 

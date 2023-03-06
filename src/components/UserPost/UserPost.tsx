@@ -7,28 +7,32 @@ import styles from './UserPost.module.css';
 
 function UserPost() {
   const { id } = useParams();
-  // eslint-disable-next-line operator-linebreak, object-curly-newline
-  const { data, hasNextPage, fetchNextPage, isFetchingNextPage } =
-    useInfiniteQuery({
-      queryKey: ['user-post', id],
-      getNextPageParam: (prevData: {
-        message: string;
-        data: PostCardList;
-        page: { nextPage: number; previousPage: number };
-      }) => prevData.page.nextPage,
-      queryFn: ({ pageParam = 1 }) =>
-        // eslint-disable-next-line implicit-arrow-linebreak
-        getUserPostPaginated(id, pageParam, 2),
-    });
+
+  // prettier-ignore
+  const {
+    data,
+    isLoading,
+    hasNextPage,
+    fetchNextPage,
+    isFetchingNextPage,
+  } = useInfiniteQuery({
+    queryKey: ['user-post', id],
+    getNextPageParam: (prevData: {
+      message: string;
+      data: PostCardList;
+      page: { nextPage: number; previousPage: number };
+    }) => prevData.page.nextPage,
+    queryFn: ({ pageParam = 1 }) => getUserPostPaginated(id, pageParam, 2),
+  });
 
   let scrollFooterElement = <p>Nothing More to Load</p>;
-  if (isFetchingNextPage) {
+  if (isFetchingNextPage || isLoading) {
     scrollFooterElement = <p>Loading...</p>;
   } else if (hasNextPage) {
     scrollFooterElement = (
       <button
         type="button"
-        className={`default-button ${styles.nextPageButtonBookmark}`}
+        className={`default-button ${styles.nextPageButton}`}
         onClick={() => fetchNextPage()}
         disabled={!hasNextPage || isFetchingNextPage}
       >
@@ -39,7 +43,7 @@ function UserPost() {
 
   const isEmpty = data?.pages[0].data.length === 0;
   return (
-    <>
+    <div className={styles.UserPost}>
       {isEmpty ? <p>No User Post</p> : null}
       {!isEmpty ? (
         <>
@@ -51,7 +55,7 @@ function UserPost() {
           <div className={styles.scrollFooter}>{scrollFooterElement}</div>
         </>
       ) : null}
-    </>
+    </div>
   );
 }
 

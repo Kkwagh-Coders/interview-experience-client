@@ -51,6 +51,12 @@
   width: 60%;
 }
 
+.title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
 .data {
   margin: 10px;
 }
