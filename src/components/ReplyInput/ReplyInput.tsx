@@ -43,12 +43,12 @@ function ReplyInput({ postId, commentId }: Props) {
   });
 
   return (
-    <form className={styles.form}>
+    <form className={styles.replyContainer}>
       <textarea
         placeholder="Add a reply..."
         value={content}
         onChange={(e) => setContent(e.target.value)}
-        className={styles.commentBox}
+        className={styles.replyBox}
       />
 
       <button
@@ -56,7 +56,7 @@ function ReplyInput({ postId, commentId }: Props) {
         disabled={isLoading}
         onClick={() => mutate({ postId, commentId, content })}
         className={`default-button
-        ${styles.commentButton}
+        ${styles.replyButton}
       `}
       >
         Reply
