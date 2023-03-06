@@ -23,11 +23,42 @@ export const getMostViewedPosts = (limit: number) => {
     .then((res) => res.data);
 };
 
-export const getPostsPaginated = (page: number, limit: number) => {
+export const getPostsPaginated = (
+  page: number,
+  limit: number,
+  filter: {
+    search: string;
+    sortBy: string;
+    articleType: string;
+    jobRole: string;
+    company: string;
+    rating: string;
+  },
+) => {
   const url = new URL(`${BASE_API_URL}/posts`);
 
   url.searchParams.set('page', page.toString());
   url.searchParams.set('limit', limit.toString());
+
+  if (filter.sortBy.length !== 0) {
+    url.searchParams.set('sortBy', filter.sortBy);
+  }
+
+  if (filter.articleType.length !== 0) {
+    url.searchParams.set('articleType', filter.articleType);
+  }
+
+  if (filter.jobRole.length !== 0) {
+    url.searchParams.set('jobRole', filter.jobRole);
+  }
+
+  if (filter.company.length !== 0) {
+    url.searchParams.set('company', filter.company);
+  }
+
+  if (filter.rating.length !== 0) {
+    url.searchParams.set('rating', filter.rating);
+  }
 
   return axios
     .get<PostPaginated>(url.href, { withCredentials: true })
