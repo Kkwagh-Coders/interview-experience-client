@@ -9,6 +9,7 @@ function PostList() {
   // prettier-ignore
   const {
     data,
+    isLoading,
     hasNextPage,
     fetchNextPage,
     isFetchingNextPage,
@@ -19,11 +20,11 @@ function PostList() {
       data: PostCardList;
       page: { nextPage: number; previousPage: number };
     }) => prevData.page.nextPage,
-    queryFn: ({ pageParam = 1 }) => getPostsPaginated(pageParam, 2),
+    queryFn: ({ pageParam = 1 }) => getPostsPaginated(pageParam, 10),
   });
 
   let scrollFooterElement = <p>Nothing More to Load</p>;
-  if (isFetchingNextPage) {
+  if (isFetchingNextPage || isLoading) {
     scrollFooterElement = <p>Loading...</p>;
   } else if (hasNextPage) {
     scrollFooterElement = (

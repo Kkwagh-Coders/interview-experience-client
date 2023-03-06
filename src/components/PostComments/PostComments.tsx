@@ -13,6 +13,7 @@ function PostComments({ postId }: Props) {
   // prettier-ignore
   const {
     data,
+    isLoading,
     hasNextPage,
     fetchNextPage,
     isFetchingNextPage,
@@ -23,11 +24,11 @@ function PostComments({ postId }: Props) {
       data: CommentList;
       page: { nextPage: number };
     }) => prevData.page.nextPage,
-    queryFn: ({ pageParam = 1 }) => getCommentsPaginated(postId, pageParam, 2),
+    queryFn: ({ pageParam = 1 }) => getCommentsPaginated(postId, pageParam, 10),
   });
 
   let scrollFooterElement = <p>Nothing More to Load</p>;
-  if (isFetchingNextPage) {
+  if (isFetchingNextPage || isLoading) {
     scrollFooterElement = <p>Loading...</p>;
   } else if (hasNextPage) {
     scrollFooterElement = (

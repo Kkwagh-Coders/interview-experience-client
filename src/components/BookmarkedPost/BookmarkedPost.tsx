@@ -10,6 +10,7 @@ function BookmarkedPost() {
   // prettier-ignore
   const {
     data,
+    isLoading,
     hasNextPage,
     fetchNextPage,
     isFetchingNextPage,
@@ -24,7 +25,7 @@ function BookmarkedPost() {
   });
 
   let scrollFooterElement = <p>Nothing More to Load</p>;
-  if (isFetchingNextPage) {
+  if (isFetchingNextPage || isLoading) {
     scrollFooterElement = <p>Loading...</p>;
   } else if (hasNextPage) {
     scrollFooterElement = (

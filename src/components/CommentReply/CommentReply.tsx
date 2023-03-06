@@ -12,6 +12,7 @@ function CommentReply({ postId, commentId }: Props) {
   // prettier-ignore
   const {
     data,
+    isLoading,
     hasNextPage,
     fetchNextPage,
     isFetchingNextPage,
@@ -26,7 +27,7 @@ function CommentReply({ postId, commentId }: Props) {
   });
 
   let scrollFooterElement = <p>Nothing More to Load</p>;
-  if (isFetchingNextPage) {
+  if (isFetchingNextPage || isLoading) {
     scrollFooterElement = <p>Loading...</p>;
   } else if (hasNextPage) {
     scrollFooterElement = (
