@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
 import ComingSvg from '../../assets/svg/coming.svg';
-import styles from './ComingSoon.module.css';
+import styles from './Events.module.css';
 
-function ComingSoon() {
+function Events() {
   return (
-    <div className={styles.ComingSoon}>
+    <div className={styles.Events}>
       <div className={`container ${styles.container}`}>
         <div className={styles.content}>
           <h3 className={styles.title}>Event Page is Coming Soon!!!</h3>
@@ -29,4 +29,4 @@ function ComingSoon() {
   );
 }
 
-export default ComingSoon;
+export default Events;
