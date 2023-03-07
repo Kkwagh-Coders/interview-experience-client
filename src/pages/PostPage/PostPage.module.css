@@ -163,6 +163,9 @@
   border-radius: 6px;
   border: 1px solid #754cff;
   color: #754cff;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
 }
 
 @media (max-width: 1000px) {

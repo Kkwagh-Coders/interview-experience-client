@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import DisplayQuill from '../../components/DisplayQuill/DisplayQuill';
 import { getPost } from '../../services/post.services';
 import styles from './PostPage.module.css';
@@ -53,17 +53,18 @@ function PostPage() {
                 author={postQuery.data.postAuthor}
                 title={postQuery.data.title}
               />
+
+              {isEditable ? (
+                <Link to={`/post/edit/${id}`} className={styles.editPostButton}>
+                  Edit Post
+                </Link>
+              ) : null}
+
               <DeleteButton
                 postId={id || ''}
                 authorId={postQuery.data.postAuthorId}
                 postTitle={postQuery.data.title}
               />
-
-              {isEditable ? (
-                <button type="button" className={styles.editPostButton}>
-                  Edit
-                </button>
-              ) : null}
             </div>
 
             <div className={styles.postDetails}>
