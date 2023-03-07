@@ -48,7 +48,16 @@ type Props = {
 };
 
 function Editor({ name }: Props) {
-  const formikProps = useFormikContext();
+  const formikProps = useFormikContext<{
+    title: string;
+    role: string;
+    company: string;
+    domain: string;
+    postType: string;
+    content: string;
+    tags: string;
+    rating: number;
+  }>();
 
   const handleOnChange = (content: string) => {
     formikProps.setFieldValue(name, content);
@@ -62,6 +71,7 @@ function Editor({ name }: Props) {
         readOnly={false}
         placeholder="So recently I got interviewed at ........."
         onChange={handleOnChange}
+        value={formikProps.values.content}
       />
     </div>
   );

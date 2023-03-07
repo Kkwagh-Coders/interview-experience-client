@@ -145,3 +145,24 @@ export const getCompanyAndRoleList = () => {
   };
   return axios.get<ResponseType>(url.href).then((res) => res.data);
 };
+
+export const editPost = (
+  editedPostData: PostFormData,
+  postId: string | undefined,
+  status: string,
+) => {
+  const url = `${BASE_API_URL}/posts/edit`;
+  const tags = getTagsFromString(editedPostData.tags);
+  const body = {
+    ...editedPostData,
+    tags,
+    status,
+    postId,
+  };
+
+  type EditPostResponse = { message: string };
+
+  return axios
+    .put<EditPostResponse>(url, body, { withCredentials: true })
+    .then((response) => response.data);
+};

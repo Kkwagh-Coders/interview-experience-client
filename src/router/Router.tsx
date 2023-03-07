@@ -8,6 +8,7 @@ import Home from '../pages/Home/Home';
 import Loading from '../pages/Loading/Loading';
 import Login from '../pages/Login/Login';
 import NotFound from '../pages/NotFound/NotFound';
+import PostEdit from '../pages/PostEdit/PostEdit';
 import PostForm from '../pages/PostForm/PostForm';
 import PostList from '../pages/PostList/PostList';
 import PostPage from '../pages/PostPage/PostPage';
@@ -40,6 +41,7 @@ function Router() {
           <Route path="/post" element={<PostForm />} />
           <Route path="/post/:id" element={<PostPage />} />
           <Route path="/profile/edit" element={<ProfileEdit />} />
+          <Route path="/post/edit/:id" element={<PostEdit />} />
         </Route>
       </Route>
       <Route path="*" element={<NotFound />} />

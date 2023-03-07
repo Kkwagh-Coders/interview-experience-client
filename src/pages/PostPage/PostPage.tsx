@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import DisplayQuill from '../../components/DisplayQuill/DisplayQuill';
 import { getPost } from '../../services/post.services';
 import styles from './PostPage.module.css';
@@ -7,6 +7,7 @@ import ShareButton from '../../components/ShareButton/ShareButton';
 import DeleteButton from '../../components/DeleteButton/DeleteButton';
 import PostComments from '../../components/PostComments/PostComments';
 import PostBookmarkButton from '../../components/PostBookmarkButton/PostBookmarkButton';
+import { useAppSelector } from '../../redux/store';
 
 function PostPage() {
   const { id } = useParams();
@@ -16,9 +17,16 @@ function PostPage() {
     staleTime: 30 * 60 * 1000, // Stale time for 30min
   });
 
+  // useAppSelector is called here because it must be called before any return
+  const userId = useAppSelector((state) => state.userState.user?.userId);
+
   // TODO: implement loading
   if (postQuery.status === 'loading') return <h3>Loading</h3>;
   if (postQuery.status === 'error') return <h3>error</h3>;
+
+  const authorId = postQuery.data.postAuthorId;
+
+  const isEditable = userId === authorId;
   return (
     <div className={styles.PostPage}>
       <div className={`container ${styles.container}`}>
@@ -45,6 +53,13 @@ function PostPage() {
                 author={postQuery.data.postAuthor}
                 title={postQuery.data.title}
               />
+
+              {isEditable ? (
+                <Link to={`/post/edit/${id}`} className={styles.editPostButton}>
+                  Edit Post
+                </Link>
+              ) : null}
+
               <DeleteButton
                 postId={id || ''}
                 authorId={postQuery.data.postAuthorId}
