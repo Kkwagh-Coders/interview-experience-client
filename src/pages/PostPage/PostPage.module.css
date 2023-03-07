@@ -155,6 +155,16 @@
   list-style: none;
 }
 
+.editPostButton {
+  width: 100%;
+  margin-top: 0.8rem;
+  background-color: white;
+  padding: 0.3rem 2rem;
+  border-radius: 6px;
+  border: 1px solid #754cff;
+  color: #754cff;
+}
+
 @media (max-width: 1000px) {
   .right {
     display: none;
@@ -162,5 +172,12 @@
 
   .post {
     width: 100%;
+  }
+}
+
+@media (min-width: 768px) {
+  .editPostButton {
+    width: auto;
+    margin-right: 1rem;
   }
 }

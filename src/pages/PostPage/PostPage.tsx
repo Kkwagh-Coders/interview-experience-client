@@ -7,6 +7,7 @@ import ShareButton from '../../components/ShareButton/ShareButton';
 import DeleteButton from '../../components/DeleteButton/DeleteButton';
 import PostComments from '../../components/PostComments/PostComments';
 import PostBookmarkButton from '../../components/PostBookmarkButton/PostBookmarkButton';
+import { useAppSelector } from '../../redux/store';
 
 function PostPage() {
   const { id } = useParams();
@@ -16,9 +17,16 @@ function PostPage() {
     staleTime: 30 * 60 * 1000, // Stale time for 30min
   });
 
+  // useAppSelector is called here because it must be called before any return
+  const userId = useAppSelector((state) => state.userState.user?.userId);
+
   // TODO: implement loading
   if (postQuery.status === 'loading') return <h3>Loading</h3>;
   if (postQuery.status === 'error') return <h3>error</h3>;
+
+  const authorId = postQuery.data.postAuthorId;
+
+  const isEditable = userId === authorId;
   return (
     <div className={styles.PostPage}>
       <div className={`container ${styles.container}`}>
@@ -50,6 +58,12 @@ function PostPage() {
                 authorId={postQuery.data.postAuthorId}
                 postTitle={postQuery.data.title}
               />
+
+              {isEditable ? (
+                <button type="button" className={styles.editPostButton}>
+                  Edit
+                </button>
+              ) : null}
             </div>
 
             <div className={styles.postDetails}>
