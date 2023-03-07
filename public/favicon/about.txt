@@ -1,0 +1,6 @@
+This favicon was generated using the following font:
+
+- Font Title: Orelega One
+- Font Author: Copyright 2021 The Orelega One Project Authors (https://github.com/JapanYoshi/Orelega)
+- Font Source: http://fonts.gstatic.com/s/orelegaone/v10/3qTpojOggD2XtAdFb-QXZGt61EcYaQ7F.ttf
+- Font License: SIL Open Font License, 1.1 (http://scripts.sil.org/OFL))
