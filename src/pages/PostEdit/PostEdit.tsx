@@ -9,7 +9,7 @@ import { PostFormData } from '../../types/post.types';
 import Editor from '../../components/Editor/Editor';
 import StarRating from '../../components/StarRating/StarRating';
 import {
-  createPost,
+  editPost,
   getCompanyAndRoleList,
   getPost,
 } from '../../services/post.services';
@@ -19,7 +19,6 @@ import getStringFromTags from '../../utils/getStringFromTags';
 
 interface SuccessResponse {
   message: string;
-  postId: string;
 }
 
 interface ErrorResponse<T> {
@@ -55,13 +54,14 @@ function PostEdit() {
   ErrorResponse<{ message: string }>,
   PostFormData
   >({
-    mutationFn: (postData: PostFormData) => createPost(postData, 'published'),
+    mutationFn: (postData: PostFormData) => editPost(postData, id, 'published'),
     onError: (error) => {
       toast.error(error.response.data.message);
     },
     onSuccess: (data) => {
+      queryClient.invalidateQueries(['post', id]);
       toast.success(data.message);
-      navigate(`/post/${data.postId}`);
+      navigate(`/post/${id}`);
     },
   });
 
