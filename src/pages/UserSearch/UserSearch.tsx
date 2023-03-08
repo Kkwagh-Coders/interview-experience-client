@@ -1,6 +1,8 @@
 import { useInfiniteQuery } from '@tanstack/react-query';
 import { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
+import userListImage from '../../assets/images/pages/user-list.png';
 import { searchUser } from '../../services/user.services';
 import styles from './UserSearch.module.css';
 
@@ -68,60 +70,88 @@ function UserSearch() {
 
   const isEmpty = data?.pages[0].data.length === 0;
   return (
-    <div className={styles.UserSearch}>
-      <div className="container">
-        <h2> User Search </h2>
-        <div className={styles.searchBar}>
-          <input
-            type="text"
-            className={styles.searchBarInput}
-            placeholder="Search..."
-            onChange={handleSearchInputChange}
-          />
-        </div>
+    <>
+      <Helmet>
+        <title>User List | Interview Experience</title>
+        <meta
+          name="description"
+          content="Search seniors and alumni and connect with them on Interview Experience KKWIEER"
+        />
+        <meta name="twitter:card" content={userListImage} />
+        <meta name="twitter:title" content="User List | Interview Experience" />
+        <meta
+          name="twitter:description"
+          content="Search seniors and alumni and connect with them on Interview Experience KKWIEER"
+        />
+        <meta name="twitter:image" content={userListImage} />
 
-        {isEmpty ? (
-          <div className={styles.listContainer}>
-            <p> -- No User found -- </p>
+        <meta property="og:title" content="User List | Interview Experience" />
+        <meta
+          property="og:description"
+          content="Search seniors and alumni and connect with them on Interview Experience KKWIEER"
+        />
+        <meta property="og:image" content={userListImage} />
+        <meta
+          property="og:url"
+          content="https://official-interview-experience.netlify.app/user/search"
+        />
+        <meta property="og:type" content="website" />
+      </Helmet>
+      <div className={styles.UserSearch}>
+        <div className="container">
+          <h2> User Search </h2>
+          <div className={styles.searchBar}>
+            <input
+              type="text"
+              className={styles.searchBarInput}
+              placeholder="Search..."
+              onChange={handleSearchInputChange}
+            />
           </div>
-        ) : null}
-        {!isEmpty && !isLoading ? (
-          <>
-            <table className={styles.userTable}>
-              <thead>
-                <tr>
-                  <th> Username</th>
-                  <th> Designation</th>
-                  <th> Branch</th>
-                  <th> Passing Year </th>
-                </tr>
-              </thead>
-              <tbody>
-                {data?.pages
-                  .flatMap((page) => page.data)
-                  .map((user) => (
-                    <tr className={styles.item} key={user._id}>
-                      <td>
-                        <Link
-                          to={`/profile/${user._id}`}
-                          className={styles.username}
-                        >
-                          {user.username}
-                        </Link>
-                      </td>
 
-                      <td>{user.designation}</td>
-                      <td>{user.branch}</td>
-                      <td>{user.passingYear}</td>
-                    </tr>
-                  ))}
-              </tbody>
-            </table>
-            <div className={styles.scrollFooter}>{scrollFooterElement}</div>
-          </>
-        ) : null}
+          {isEmpty ? (
+            <div className={styles.listContainer}>
+              <p> -- No User found -- </p>
+            </div>
+          ) : null}
+          {!isEmpty && !isLoading ? (
+            <>
+              <table className={styles.userTable}>
+                <thead>
+                  <tr>
+                    <th> Username</th>
+                    <th> Designation</th>
+                    <th> Branch</th>
+                    <th> Passing Year </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {data?.pages
+                    .flatMap((page) => page.data)
+                    .map((user) => (
+                      <tr className={styles.item} key={user._id}>
+                        <td>
+                          <Link
+                            to={`/profile/${user._id}`}
+                            className={styles.username}
+                          >
+                            {user.username}
+                          </Link>
+                        </td>
+
+                        <td>{user.designation}</td>
+                        <td>{user.branch}</td>
+                        <td>{user.passingYear}</td>
+                      </tr>
+                    ))}
+                </tbody>
+              </table>
+              <div className={styles.scrollFooter}>{scrollFooterElement}</div>
+            </>
+          ) : null}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 
