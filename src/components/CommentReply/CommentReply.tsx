@@ -52,7 +52,11 @@ function CommentReply({ postId, commentId }: Props) {
             {data?.pages
               .flatMap((page) => page.data)
               .map((commentReply) => (
-                <NestedCommentCard commentReply={commentReply} />
+                <NestedCommentCard
+                  postId={postId}
+                  commentId={commentId}
+                  commentReply={commentReply}
+                />
               ))}
           </ul>
 
