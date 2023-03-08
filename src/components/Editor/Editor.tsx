@@ -1,9 +1,10 @@
-import ReactQuill, { Quill } from 'react-quill';
+import { useFormikContext } from 'formik';
 import BlotFormatter from 'quill-blot-formatter';
 import ImageCompress from 'quill-image-compress';
+import ReactQuill, { Quill } from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
+import editorPlaceholder from '../../assets/data/editorPlaceholder.data';
 import './quill.css';
-import { useFormikContext } from 'formik';
 
 Quill.register('modules/imageCompress', ImageCompress);
 Quill.register('modules/blotFormatter', BlotFormatter);
@@ -69,7 +70,7 @@ function Editor({ name }: Props) {
         modules={modules}
         theme="snow"
         readOnly={false}
-        placeholder="So recently I got interviewed at ........."
+        placeholder={editorPlaceholder}
         onChange={handleOnChange}
         value={formikProps.values.content}
       />

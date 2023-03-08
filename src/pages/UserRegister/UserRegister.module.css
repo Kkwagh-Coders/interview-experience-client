@@ -40,18 +40,39 @@
   color: #333;
 }
 
-.form :where(.inputField input, .inputField textarea, .inputField select) {
+.form
+  :where(
+    .inputField input,
+    .inputField textarea,
+    .inputField select,
+    .inputField option
+  ) {
   position: relative;
   height: 50px;
   width: 100%;
-  outline: none;
+  outline-color: transparent;
   font-size: 1rem;
   color: #707070;
-  background-color: white;
   margin-top: 8px;
   border: 1px solid #ddd;
+  background-color: white;
   border-radius: 6px;
   padding: 0 15px;
+}
+
+.form .inputFieldError :where(input, select, textarea) {
+  border-color: red;
+}
+
+.form
+  :where(
+    .inputField input:focus,
+    .inputField textarea:focus,
+    .inputField select:focus,
+    .inputField option:focus
+  ) {
+  outline: 1px solid black;
+  border-color: transparent;
 }
 
 .inputField textarea {
@@ -61,12 +82,6 @@
 
 .inputField input:focus {
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
-}
-
-.form .inputFieldError input,
-.form .inputFieldError select,
-.form .inputFieldError textarea {
-  border-color: red;
 }
 
 .registerButton {
