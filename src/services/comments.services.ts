@@ -72,3 +72,23 @@ export const getCommentRepliesPaginated = (
     .get<PostPaginated>(url.href, { withCredentials: true })
     .then((res) => res.data);
 };
+
+export const deleteComment = (postId: string, commentId: string) => {
+  const url = `${BASE_API_URL}/comments/${postId}/${commentId}`;
+
+  return axios
+    .delete<{ message: string }>(url, { withCredentials: true })
+    .then((response) => response.data);
+};
+
+export const deleteCommentReply = (
+  postId: string,
+  commentId: string,
+  relpyId: string,
+) => {
+  const url = `${BASE_API_URL}/comments/replies/${postId}/${commentId}/${relpyId}`;
+
+  return axios
+    .delete<{ message: string }>(url, { withCredentials: true })
+    .then((response) => response.data);
+};
