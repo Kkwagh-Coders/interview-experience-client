@@ -91,7 +91,7 @@ function Login() {
         <meta property="og:image" content={loginPageImage} />
         <meta
           property="og:url"
-          content="https://official-interview-experience.netlify.app/login"
+          content={`${process.env.REACT_APP_BASE_CLIENT_URL}/login`}
         />
         <meta property="og:type" content="website" />
       </Helmet>

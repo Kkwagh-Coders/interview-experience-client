@@ -90,7 +90,7 @@ function PostForm() {
         <meta property="og:image" content={postFormImage} />
         <meta
           property="og:url"
-          content="https://official-interview-experience.netlify.app/post"
+          content={`${process.env.REACT_APP_BASE_CLIENT_URL}/post`}
         />
         <meta property="og:type" content="website" />
       </Helmet>

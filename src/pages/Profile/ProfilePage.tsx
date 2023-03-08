@@ -88,7 +88,7 @@ function ProfilePage() {
         <meta property="og:image" content={profilePageImage} />
         <meta
           property="og:url"
-          content={`https://official-interview-experience.netlify.app/profile/${id}`}
+          content={`${process.env.REACT_APP_BASE_CLIENT_URL}/profile/${id}`}
         />
         <meta property="og:type" content="website" />
       </Helmet>

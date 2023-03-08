@@ -29,7 +29,7 @@ function Events() {
         <meta property="og:image" content={eventsPageImage} />
         <meta
           property="og:url"
-          content="https://official-interview-experience.netlify.app/events"
+          content={`${process.env.REACT_APP_BASE_CLIENT_URL}/events`}
         />
         <meta property="og:type" content="website" />
       </Helmet>

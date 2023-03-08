@@ -97,7 +97,7 @@ function PostList() {
         <meta property="og:image" content={postListPageImage} />
         <meta
           property="og:url"
-          content="https://official-interview-experience.netlify.app/posts"
+          content={`${process.env.REACT_APP_BASE_CLIENT_URL}/posts`}
         />
         <meta property="og:type" content="website" />
       </Helmet>

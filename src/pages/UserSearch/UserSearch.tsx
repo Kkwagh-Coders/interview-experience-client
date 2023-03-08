@@ -93,7 +93,7 @@ function UserSearch() {
         <meta property="og:image" content={userListImage} />
         <meta
           property="og:url"
-          content="https://official-interview-experience.netlify.app/user/search"
+          content={`${process.env.REACT_APP_BASE_CLIENT_URL}/user/search`}
         />
         <meta property="og:type" content="website" />
       </Helmet>

@@ -118,7 +118,7 @@ function UserRegister() {
         <meta property="og:image" content={registrationPageImage} />
         <meta
           property="og:url"
-          content="https://official-interview-experience.netlify.app/register"
+          content={`${process.env.REACT_APP_BASE_CLIENT_URL}/register`}
         />
         <meta property="og:type" content="website" />
       </Helmet>

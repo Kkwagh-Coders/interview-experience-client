@@ -59,7 +59,7 @@ function PostPage() {
         <meta property="og:image" content={postImage} />
         <meta
           property="og:url"
-          content={`https://official-interview-experience.netlify.app/post/${id}`}
+          content={`${process.env.REACT_APP_BASE_CLIENT_URL}/post/${id}`}
         />
         <meta property="og:type" content="article" />
       </Helmet>
