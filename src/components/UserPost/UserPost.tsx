@@ -30,7 +30,7 @@ function UserPost() {
   let scrollFooterElement = <p>Nothing More to Load</p>;
   if (isFetchingNextPage || isLoading) {
     const skeletonPost = [];
-    for (let i = 0; i < 10; i += 1) {
+    for (let i = 0; i < 5; i += 1) {
       skeletonPost.push(i);
     }
     scrollFooterElement = (

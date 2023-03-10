@@ -5,6 +5,7 @@ import { getBookmarkedPostsPaginated } from '../../services/post.services';
 import { PostCardList } from '../../types/post.types';
 import PostListElement from '../PostListElement/PostListElement';
 import styles from './BookmarkedPost.module.css';
+import PostSkeleton from '../PostSkeleton/PostSkeleton';
 
 function BookmarkedPost() {
   const { id } = useParams();
@@ -27,7 +28,18 @@ function BookmarkedPost() {
 
   let scrollFooterElement = <p>Nothing More to Load</p>;
   if (isFetchingNextPage || isLoading) {
-    scrollFooterElement = <p>Loading...</p>;
+    const skeletonPost = [];
+    for (let i = 0; i < 5; i += 1) {
+      skeletonPost.push(i);
+    }
+
+    scrollFooterElement = (
+      <div>
+        {skeletonPost.map((i) => (
+          <PostSkeleton key={i} />
+        ))}
+      </div>
+    );
   }
 
   useEffect(() => {
