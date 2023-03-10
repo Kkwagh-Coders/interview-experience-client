@@ -10,6 +10,7 @@ import {
 import { PostCardList } from '../../types/post.types';
 import postListPageImage from '../../assets/images/pages/post-list.png';
 import styles from './PostList.module.css';
+import PostSkeleton from '../../components/PostSkeleton/PostSkeleton';
 
 function PostList() {
   const [filter, setFilter] = useState({
@@ -46,7 +47,17 @@ function PostList() {
 
   let scrollFooterElement = <p>Nothing More to Load</p>;
   if (isFetchingNextPage || isLoading) {
-    scrollFooterElement = <p>Loading...</p>;
+    const skeletonPost = [];
+    for (let i = 0; i < 10; i += 1) {
+      skeletonPost.push(i);
+    }
+    scrollFooterElement = (
+      <div>
+        {skeletonPost.map((i) => (
+          <PostSkeleton key={i} />
+        ))}
+      </div>
+    );
   }
 
   useEffect(() => {
@@ -222,12 +233,13 @@ function PostList() {
               </div>
             </div>
 
-            {data?.pages
-              .flatMap((page) => page.data)
-              .map((post) => (
-                <PostListElement post={post} key={post._id} />
-              ))}
-
+            <div className={styles.postList}>
+              {data?.pages
+                .flatMap((page) => page.data)
+                .map((post) => (
+                  <PostListElement post={post} key={post._id} />
+                ))}
+            </div>
             <div className={styles.scrollFooter}>{scrollFooterElement}</div>
           </div>
         </section>
