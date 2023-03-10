@@ -5,6 +5,7 @@ import { getUserPostPaginated } from '../../services/post.services';
 import { PostCardList } from '../../types/post.types';
 import PostListElement from '../PostListElement/PostListElement';
 import styles from './UserPost.module.css';
+import PostSkeleton from '../PostSkeleton/PostSkeleton';
 
 function UserPost() {
   const { id } = useParams();
@@ -28,7 +29,17 @@ function UserPost() {
 
   let scrollFooterElement = <p>Nothing More to Load</p>;
   if (isFetchingNextPage || isLoading) {
-    scrollFooterElement = <p>Loading...</p>;
+    const skeletonPost = [];
+    for (let i = 0; i < 10; i += 1) {
+      skeletonPost.push(i);
+    }
+    scrollFooterElement = (
+      <div>
+        {skeletonPost.map((i) => (
+          <PostSkeleton key={i} />
+        ))}
+      </div>
+    );
   }
 
   useEffect(() => {

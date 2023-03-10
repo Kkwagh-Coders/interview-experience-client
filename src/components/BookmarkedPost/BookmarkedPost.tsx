@@ -22,7 +22,7 @@ function BookmarkedPost() {
       data: PostCardList;
       page: { nextPage: number; previousPage: number };
     }) => prevData.page.nextPage,
-    queryFn: ({ pageParam = 1 }) => getBookmarkedPostsPaginated(id, pageParam, 10),
+    queryFn: ({ pageParam = 1 }) => getBookmarkedPostsPaginated(id, pageParam, 5),
   });
 
   let scrollFooterElement = <p>Nothing More to Load</p>;

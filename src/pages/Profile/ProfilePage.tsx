@@ -31,7 +31,7 @@ function ProfilePage() {
           alignItems: 'center',
         }}
       >
-        <h1>Loading...</h1>
+        {' '}
       </div>
     );
   }
