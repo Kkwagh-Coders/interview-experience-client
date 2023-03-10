@@ -24,7 +24,7 @@ function UserPost() {
       data: PostCardList;
       page: { nextPage: number; previousPage: number };
     }) => prevData.page.nextPage,
-    queryFn: ({ pageParam = 1 }) => getUserPostPaginated(id, pageParam, 5),
+    queryFn: ({ pageParam = 1 }) => getUserPostPaginated(id, pageParam, 10),
   });
 
   let scrollFooterElement = <p>Nothing More to Load</p>;

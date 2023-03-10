@@ -1,6 +1,6 @@
+import { useEffect } from 'react';
 import { useInfiniteQuery } from '@tanstack/react-query';
 import { useParams } from 'react-router-dom';
-import { useEffect } from 'react';
 import { getBookmarkedPostsPaginated } from '../../services/post.services';
 import { PostCardList } from '../../types/post.types';
 import PostListElement from '../PostListElement/PostListElement';
@@ -29,6 +29,7 @@ function BookmarkedPost() {
   if (isFetchingNextPage || isLoading) {
     scrollFooterElement = <p>Loading...</p>;
   }
+
   useEffect(() => {
     let fetching = false;
     const onScroll = async (event: Event) => {
@@ -52,6 +53,7 @@ function BookmarkedPost() {
 
     return () => document.removeEventListener('scroll', onScroll);
   }, [fetchNextPage, hasNextPage]);
+
   const isEmpty = data?.pages[0].data.length === 0;
   return (
     <div className={styles.BookmarkedPost}>
