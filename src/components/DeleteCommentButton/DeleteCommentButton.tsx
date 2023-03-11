@@ -38,7 +38,7 @@ function DeleteCommentButton({ postId, commentId, authorId }: Props) {
       toast.error(error.response.data.message);
     },
     onSuccess: () => {
-      queryClient.invalidateQueries(['comments', postId]);
+      queryClient.refetchQueries(['comments', postId]);
       toast.success('Comment Deleted Successfully');
 
       // If the user is on post page he will be redirected to the post list page

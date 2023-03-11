@@ -43,7 +43,7 @@ function Login() {
       toast.error(error.response.data.message);
     },
     onSuccess: () => {
-      queryClient.invalidateQueries(['user-status']);
+      queryClient.refetchQueries(['user-status']);
       navigate('/');
     },
   });

@@ -37,7 +37,7 @@ function DeleteButton({ postId, authorId, postTitle }: Props) {
       toast.error(error.response.data.message);
     },
     onSuccess: () => {
-      queryClient.invalidateQueries(['posts']);
+      queryClient.refetchQueries(['posts']);
       toast.success('Post Deleted Successfully');
 
       // If the user is on post page he will be redirected to the post list page
