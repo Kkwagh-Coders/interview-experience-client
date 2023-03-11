@@ -1,15 +1,17 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useState } from 'react';
+import { MdDeleteOutline } from 'react-icons/md';
 import { toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import { useAppSelector } from '../../redux/store';
-import { deletePost } from '../../services/post.services';
-import styles from './DeleteButton.module.css';
+import styles from './DeleteCommentReplyButton.module.css';
+import { deleteCommentReply } from '../../services/comments.services';
 
 type Props = {
   postId: string;
+  commentId: string;
+  replyId: string;
   authorId: string;
-  postTitle: string;
 };
 
 interface SuccessResponse {
@@ -20,7 +22,12 @@ interface ErrorResponse<T> {
   response: { data: T };
 }
 
-function DeleteButton({ postId, authorId, postTitle }: Props) {
+function DeleteCommentReplyButton({
+  postId,
+  commentId,
+  replyId,
+  authorId,
+}: Props) {
   const navigate = useNavigate();
   const queryClient = useQueryClient();
 
@@ -32,16 +39,16 @@ function DeleteButton({ postId, authorId, postTitle }: Props) {
   SuccessResponse,
   ErrorResponse<{ message: string }>
   >({
-    mutationFn: () => deletePost(postId),
+    mutationFn: () => deleteCommentReply(postId, commentId, replyId),
     onError: (error) => {
       toast.error(error.response.data.message);
     },
     onSuccess: () => {
-      queryClient.refetchQueries(['posts']);
-      toast.success('Post Deleted Successfully');
+      queryClient.refetchQueries(['comments', postId, commentId]);
+      toast.success('Comment Deleted Successfully');
 
       // If the user is on post page he will be redirected to the post list page
-      navigate('/posts');
+      navigate(`/post/${postId}`);
     },
   });
 
@@ -58,18 +65,14 @@ function DeleteButton({ postId, authorId, postTitle }: Props) {
         onClick={() => setIsModalOpen(true)}
         disabled={isLoading}
       >
-        Delete
+        <MdDeleteOutline />
       </button>
 
       {isModalOpen ? (
         <div className={styles.DeleteModal}>
           <div className={styles.container}>
-            <h2>Confirm Post Delete</h2>
-            <p>
-              Are you sure you want to delete the post with title &quot;
-              <span className="bold-text">{postTitle}</span>
-              &quot; ?
-            </p>
+            <h2>Confirm Comment Delete</h2>
+            <p>Are you sure you want to delete this comment</p>
             <div>
               <button
                 type="button"
@@ -93,4 +96,4 @@ function DeleteButton({ postId, authorId, postTitle }: Props) {
   );
 }
 
-export default DeleteButton;
+export default DeleteCommentReplyButton;

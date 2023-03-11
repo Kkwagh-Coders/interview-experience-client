@@ -9,7 +9,13 @@ A React Project for sharing Interview Experience with the whole college
 - React
 - Redux
 - React Router Dom
-- Jest
+- Formik and Yup
+- React Query
+- Axios
+- React Hot Toast
+- Quill Editor
+- React Icons
+- Helmet
 - Eslint
 - Prettier
 - AirBnb Lint Configs

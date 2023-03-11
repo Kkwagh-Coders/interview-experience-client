@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import useUserStatus from '../hooks/useUserStatus';
 import AuthRouteLayout from '../pages/AuthRouteLayout/AuthRouteLayout';
-import ComingSoon from '../pages/ComingSoon/ComingSoon';
+import Events from '../pages/Events/Events';
 import DefaultLayout from '../pages/DefaultLayout';
 import Error from '../pages/Error/Error';
 import Home from '../pages/Home/Home';
@@ -32,7 +32,7 @@ function Router() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<UserRegister />} />
-        <Route path="/events" element={<ComingSoon />} />
+        <Route path="/events" element={<Events />} />
         <Route path="/profile/:id" element={<ProfilePage />} />
         <Route path="/reset-password/:token" element={<ResetPassword />} />
         <Route path="/posts" element={<PostList />} />

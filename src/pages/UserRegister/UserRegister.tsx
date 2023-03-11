@@ -1,15 +1,17 @@
 import { useState } from 'react';
 import { useMutation } from '@tanstack/react-query';
 import { useFormik } from 'formik';
+import { Helmet } from 'react-helmet';
 import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import * as Yup from 'yup';
 
 import { User } from '../../types/user.types';
 import { registerUser } from '../../services/user.services';
-import styles from './UserRegister.module.css';
+import registrationPageImage from '../../assets/images/pages/registration.png';
 import { branches } from '../../assets/data/user.data';
 import RegisterSuccessModal from '../../components/RegisterSuccessModal/RegisterSuccessModal';
+import styles from './UserRegister.module.css';
 
 interface IUserRegisterFormValue extends User {
   confirmPassword: string;
@@ -87,74 +89,61 @@ function UserRegister() {
   });
 
   return (
-    <div className={styles.UserRegister}>
-      <div className={styles.container}>
-        <header className={styles.title}>Registration Form</header>
-        <form onSubmit={formik.handleSubmit} className={styles.form}>
-          <div
-            className={`${styles.inputField} ${
-              formik.touched.username && formik.errors.username
-                ? styles.inputFieldError
-                : ''
-            }`}
-          >
-            <label htmlFor="username">
-              {formik.touched.username && formik.errors.username
-                ? formik.errors.username
-                : 'Username'}
-              <span className="required">*</span>
-              <input
-                type="text"
-                name="username"
-                placeholder="username"
-                value={formik.values.username}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-              />
-            </label>
-          </div>
+    <>
+      <Helmet>
+        <title>User registration | Interview Experience</title>
+        <meta
+          name="description"
+          content="User Registration Page for Interview Experience Website"
+        />
+        <meta name="twitter:card" content={registrationPageImage} />
+        <meta
+          name="twitter:title"
+          content="User registration | Interview Experience"
+        />
+        <meta
+          name="twitter:description"
+          content="User registration Page for Interview Experience Website"
+        />
+        <meta name="twitter:image" content={registrationPageImage} />
 
-          <div
-            className={`${styles.inputField} ${
-              formik.touched.email && formik.errors.email
-                ? styles.inputFieldError
-                : ''
-            }`}
-          >
-            <label htmlFor="email">
-              {formik.touched.email && formik.errors.email
-                ? formik.errors.email
-                : 'Email'}
-              <span className="required">*</span>
-              <input
-                type="email"
-                name="email"
-                placeholder="abc@test.com"
-                value={formik.values.email}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-              />
-            </label>
-          </div>
+        <meta
+          property="og:title"
+          content="User registration | Interview Experience"
+        />
+        <meta
+          property="og:description"
+          content="User registration Page for Interview Experience Website"
+        />
+        <meta property="og:image" content={registrationPageImage} />
+        <meta
+          property="og:url"
+          content={`${process.env.REACT_APP_BASE_CLIENT_URL}/register`}
+        />
+        <meta property="og:type" content="website" />
+      </Helmet>
 
-          <div className={styles.column}>
+      <div className={styles.UserRegister}>
+        <div className={styles.container}>
+          <header className={styles.title}>Registration Form</header>
+          <form onSubmit={formik.handleSubmit} className={styles.form}>
             <div
               className={`${styles.inputField} ${
-                formik.touched.password && formik.errors.password
+                formik.touched.username && formik.errors.username
                   ? styles.inputFieldError
                   : ''
               }`}
             >
-              <label htmlFor="password">
-                {formik.touched.password && formik.errors.password
-                  ? formik.errors.password
-                  : 'Password'}
+              <label htmlFor="username">
+                {formik.touched.username && formik.errors.username
+                  ? formik.errors.username
+                  : 'Username'}
                 <span className="required">*</span>
                 <input
-                  type="password"
-                  name="password"
-                  placeholder="*****"
-                  value={formik.values.password}
+                  type="text"
+                  name="username"
+                  placeholder="username"
+                  value={formik.values.username}
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                 />
@@ -163,204 +152,258 @@ function UserRegister() {
 
             <div
               className={`${styles.inputField} ${
-                formik.touched.confirmPassword && formik.errors.confirmPassword
+                formik.touched.email && formik.errors.email
                   ? styles.inputFieldError
                   : ''
               }`}
             >
-              <label htmlFor="password">
-                {formik.touched.confirmPassword && formik.errors.confirmPassword
-                  ? formik.errors.confirmPassword
-                  : 'Confirm Password'}
+              <label htmlFor="email">
+                {formik.touched.email && formik.errors.email
+                  ? formik.errors.email
+                  : 'Email'}
                 <span className="required">*</span>
                 <input
-                  type="password"
-                  name="confirmPassword"
-                  placeholder="*****"
-                  value={formik.values.confirmPassword}
+                  type="email"
+                  name="email"
+                  placeholder="abc@test.com"
+                  value={formik.values.email}
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                 />
               </label>
             </div>
-          </div>
 
-          <div
-            className={`${styles.inputField} ${
-              formik.touched.designation && formik.errors.designation
-                ? styles.inputFieldError
-                : ''
-            }`}
-          >
-            <label htmlFor="designation">
-              {formik.touched.designation && formik.errors.designation
-                ? formik.errors.designation
-                : 'Designation'}
-              <span className="required">*</span>
-              <input
-                type="text"
-                name="designation"
-                placeholder="SDE 1 or Student"
-                value={formik.values.designation}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-              />
-            </label>
-          </div>
-
-          <div
-            className={`${styles.inputField} ${
-              formik.touched.branch && formik.errors.branch
-                ? styles.inputFieldError
-                : ''
-            }`}
-          >
-            <label htmlFor="branch">
-              {formik.touched.branch && formik.errors.branch
-                ? formik.errors.branch
-                : 'Branch'}
-              <span className="required">*</span>
-
-              <select
-                name="branch"
-                className={styles.inputField}
-                value={formik.values.branch}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
+            <div className={styles.column}>
+              <div
+                className={`${styles.inputField} ${
+                  formik.touched.password && formik.errors.password
+                    ? styles.inputFieldError
+                    : ''
+                }`}
               >
-                <option value="">Branch</option>
-                {branches.map((branch) => (
-                  <option value={branch} key={branch}>
-                    {branch}
-                  </option>
-                ))}
-              </select>
-            </label>
+                <label htmlFor="password">
+                  {formik.touched.password && formik.errors.password
+                    ? formik.errors.password
+                    : 'Password'}
+                  <span className="required">*</span>
+                  <input
+                    type="password"
+                    name="password"
+                    placeholder="*****"
+                    value={formik.values.password}
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                  />
+                </label>
+              </div>
+
+              <div
+                className={`${styles.inputField} ${
+                  // prettier-ignore
+                  formik.touched.confirmPassword
+                  && formik.errors.confirmPassword
+                    ? styles.inputFieldError
+                    : ''
+                }`}
+              >
+                <label htmlFor="password">
+                  {
+                    // prettier-ignore
+                    formik.touched.confirmPassword
+                    && formik.errors.confirmPassword
+                      ? formik.errors.confirmPassword
+                      : 'Confirm Password'
+                  }
+                  <span className="required">*</span>
+                  <input
+                    type="password"
+                    name="confirmPassword"
+                    placeholder="*****"
+                    value={formik.values.confirmPassword}
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                  />
+                </label>
+              </div>
+            </div>
+
+            <div
+              className={`${styles.inputField} ${
+                formik.touched.designation && formik.errors.designation
+                  ? styles.inputFieldError
+                  : ''
+              }`}
+            >
+              <label htmlFor="designation">
+                {formik.touched.designation && formik.errors.designation
+                  ? formik.errors.designation
+                  : 'Designation'}
+                <span className="required">*</span>
+                <input
+                  type="text"
+                  name="designation"
+                  placeholder="SDE 1 or Student"
+                  value={formik.values.designation}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                />
+              </label>
+            </div>
+
+            <div
+              className={`${styles.inputField} ${
+                formik.touched.branch && formik.errors.branch
+                  ? styles.inputFieldError
+                  : ''
+              }`}
+            >
+              <label htmlFor="branch">
+                {formik.touched.branch && formik.errors.branch
+                  ? formik.errors.branch
+                  : 'Branch'}
+                <span className="required">*</span>
+
+                <select
+                  name="branch"
+                  className={styles.inputField}
+                  value={formik.values.branch}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                >
+                  <option value="">Branch</option>
+                  {branches.map((branch) => (
+                    <option value={branch} key={branch}>
+                      {branch}
+                    </option>
+                  ))}
+                </select>
+              </label>
+            </div>
+
+            <div
+              className={`${styles.inputField} ${
+                formik.touched.passingYear && formik.errors.passingYear
+                  ? styles.inputFieldError
+                  : ''
+              }`}
+            >
+              <label htmlFor="passingYear">
+                {formik.touched.passingYear && formik.errors.passingYear
+                  ? formik.errors.passingYear
+                  : 'Passing Year'}
+                <span className="required">*</span>
+                <input
+                  type="number"
+                  name="passingYear"
+                  placeholder="2024"
+                  value={formik.values.passingYear}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                />
+              </label>
+            </div>
+
+            <div
+              className={`${styles.inputField} ${
+                formik.touched.about && formik.errors.about
+                  ? styles.inputFieldError
+                  : ''
+              }`}
+            >
+              <label htmlFor="about">
+                {formik.touched.about && formik.errors.about
+                  ? formik.errors.about
+                  : 'About'}
+                <span className="required">*</span>
+                <textarea
+                  name="about"
+                  id="about"
+                  placeholder="Introduce yourself..."
+                  value={formik.values.about}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                />
+              </label>
+            </div>
+
+            <div
+              className={`${styles.inputField} ${
+                formik.touched.github && formik.errors.github
+                  ? styles.inputFieldError
+                  : ''
+              }`}
+            >
+              <label htmlFor="github">
+                Github
+                <input
+                  type="url"
+                  name="github"
+                  placeholder="https://github.com/user"
+                  value={formik.values.github ? formik.values.github : ''}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                />
+              </label>
+            </div>
+
+            <div
+              className={`${styles.inputField} ${
+                formik.touched.linkedin && formik.errors.linkedin
+                  ? styles.inputFieldError
+                  : ''
+              }`}
+            >
+              <label htmlFor="linkedin">
+                LinkedIn
+                <input
+                  type="url"
+                  name="linkedin"
+                  placeholder="https://linkedin.com/user"
+                  value={formik.values.linkedin ? formik.values.linkedin : ''}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                />
+              </label>
+            </div>
+
+            <div
+              className={`${styles.inputField} ${
+                formik.touched.leetcode && formik.errors.leetcode
+                  ? styles.inputFieldError
+                  : ''
+              }`}
+            >
+              <label htmlFor="leetcode">
+                Leetcode
+                <input
+                  type="url"
+                  name="leetcode"
+                  placeholder="https://leetcode.com/user"
+                  value={formik.values.leetcode ? formik.values.leetcode : ''}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                />
+              </label>
+            </div>
+
+            <input
+              type="submit"
+              value="Register"
+              className={styles.registerButton}
+              disabled={isLoading}
+            />
+          </form>
+          <div className={styles.loginSignUp}>
+            <span className={styles.signUpText}>
+              <span>Already have an Account ?</span>
+              <Link to="/login">Log in</Link>
+            </span>
           </div>
 
-          <div
-            className={`${styles.inputField} ${
-              formik.touched.passingYear && formik.errors.passingYear
-                ? styles.inputFieldError
-                : ''
-            }`}
-          >
-            <label htmlFor="passingYear">
-              {formik.touched.passingYear && formik.errors.passingYear
-                ? formik.errors.passingYear
-                : 'Passing Year'}
-              <span className="required">*</span>
-              <input
-                type="number"
-                name="passingYear"
-                placeholder="2024"
-                value={formik.values.passingYear}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-              />
-            </label>
-          </div>
-
-          <div
-            className={`${styles.inputField} ${
-              formik.touched.about && formik.errors.about
-                ? styles.inputFieldError
-                : ''
-            }`}
-          >
-            <label htmlFor="about">
-              {formik.touched.about && formik.errors.about
-                ? formik.errors.about
-                : 'About'}
-              <span className="required">*</span>
-              <textarea
-                name="about"
-                id="about"
-                placeholder="Introduce yourself..."
-                value={formik.values.about}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-              />
-            </label>
-          </div>
-
-          <div
-            className={`${styles.inputField} ${
-              formik.touched.github && formik.errors.github
-                ? styles.inputFieldError
-                : ''
-            }`}
-          >
-            <label htmlFor="github">
-              Github
-              <input
-                type="url"
-                name="github"
-                placeholder="https://github.com/user"
-                value={formik.values.github ? formik.values.github : ''}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-              />
-            </label>
-          </div>
-
-          <div
-            className={`${styles.inputField} ${
-              formik.touched.linkedin && formik.errors.linkedin
-                ? styles.inputFieldError
-                : ''
-            }`}
-          >
-            <label htmlFor="linkedin">
-              LinkedIn
-              <input
-                type="url"
-                name="linkedin"
-                placeholder="https://linkedin.com/user"
-                value={formik.values.linkedin ? formik.values.linkedin : ''}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-              />
-            </label>
-          </div>
-
-          <div
-            className={`${styles.inputField} ${
-              formik.touched.leetcode && formik.errors.leetcode
-                ? styles.inputFieldError
-                : ''
-            }`}
-          >
-            <label htmlFor="leetcode">
-              Leetcode
-              <input
-                type="url"
-                name="leetcode"
-                placeholder="https://leetcode.com/user"
-                value={formik.values.leetcode ? formik.values.leetcode : ''}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-              />
-            </label>
-          </div>
-
-          <input
-            type="submit"
-            value="Register"
-            className={styles.registerButton}
-            disabled={isLoading}
-          />
-        </form>
-        <div className={styles.loginSignUp}>
-          <span className={styles.signUpText}>
-            <span>Already have an Account ?</span>
-            <Link to="/login">Log in</Link>
-          </span>
+          {isSuccessModalOpen ? <RegisterSuccessModal /> : null}
         </div>
-
-        {isSuccessModalOpen ? <RegisterSuccessModal /> : null}
       </div>
-    </div>
+    </>
   );
 }
 

@@ -28,7 +28,7 @@ function ProfileEdit() {
   // Invalidating the status and refetching the user data
   const queryClient = useQueryClient();
   useEffect(() => {
-    queryClient.invalidateQueries(['user-status']);
+    queryClient.refetchQueries(['user-status']);
   }, [queryClient]);
 
   // prettier-ignore

@@ -38,7 +38,7 @@ function PostEdit() {
   // Invalidating the status and refetching the post data
   const queryClient = useQueryClient();
   useEffect(() => {
-    queryClient.invalidateQueries(['post', id]);
+    queryClient.refetchQueries(['post', id]);
   }, [queryClient, id]);
   //
 
@@ -59,7 +59,7 @@ function PostEdit() {
       toast.error(error.response.data.message);
     },
     onSuccess: (data) => {
-      queryClient.invalidateQueries(['post', id]);
+      queryClient.refetchQueries(['post', id]);
       toast.success(data.message);
       navigate(`/post/${id}`);
     },

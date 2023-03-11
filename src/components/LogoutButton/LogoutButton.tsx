@@ -22,7 +22,7 @@ function LogoutButton({ className, children, onClickCallback }: Props) {
       toast.error('Internal Server Error');
     },
     onSuccess: () => {
-      queryClient.invalidateQueries(['user-status']);
+      queryClient.refetchQueries(['user-status']);
       dispatch(userAction.logout());
       onClickCallback();
       navigate('/');

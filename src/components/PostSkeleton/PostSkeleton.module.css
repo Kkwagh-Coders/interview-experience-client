@@ -1,0 +1,73 @@
+.postSkeleton {
+  animation: skeleton-loading 1s linear infinite alternate;
+  height: 20px;
+  width: 100%;
+}
+
+.postContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.postDomain {
+  width: 9%;
+  height: 1.6rem;
+  border-radius: 0.2rem;
+}
+
+.interviewPost {
+  background-color: rgb(var(--bg-white));
+  padding: 1.5rem;
+  border-radius: 5px;
+  margin-bottom: 2rem;
+  box-shadow: var(--box-shadow);
+}
+
+.postTitle {
+  width: 23%;
+  height: 1.4rem;
+  margin: 1rem 0;
+  border-radius: 0.2rem;
+}
+
+.postDescription {
+  margin-top: 0.4rem;
+  height: 1rem;
+  border-radius: 0.2rem;
+}
+
+.userActions {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  margin-top: 1.2rem;
+  border-radius: 0.2rem;
+}
+
+.buttons {
+  width: 12%;
+  height: 1.3rem;
+
+  border-radius: 0.2rem;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-color: hsl(197, 5%, 74%);
+  }
+
+  100% {
+    background-color: hsl(210, 12%, 97%);
+  }
+}
+
+@media (max-width: 768px) {
+  .buttons {
+    width: 100%;
+  }
+
+  .userActions {
+    flex-direction: column;
+  }
+}

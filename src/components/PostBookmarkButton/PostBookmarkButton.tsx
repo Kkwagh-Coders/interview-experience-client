@@ -4,6 +4,7 @@ import { toast } from 'react-hot-toast';
 import { BsBookmarkDashFill } from 'react-icons/bs';
 import { toggleBookmark } from '../../services/post.services';
 import styles from './PostBookmarkButton.module.css';
+import { Post } from '../../types/post.types';
 
 type Props = {
   postId: string;
@@ -39,9 +40,17 @@ function PostBookmarkButton({ postId, isBookmarked }: Props) {
     },
     onSuccess: () => {
       setIsBookmarkedPost((state) => !state);
-      queryClient.invalidateQueries(['post']);
-      queryClient.invalidateQueries(['user-post']);
-      queryClient.invalidateQueries(['bookmarked-post']);
+
+      // Manually changing the Post
+      const postData = queryClient.getQueryData<Post>(['post', postId]);
+      if (postData) {
+        postData.isBookmarked = !postData.isBookmarked;
+        queryClient.setQueryData(['post', postId], postData);
+      }
+
+      queryClient.refetchQueries(['posts']);
+      queryClient.refetchQueries(['user-post']);
+      queryClient.refetchQueries(['bookmarked-post']);
     },
   });
 
