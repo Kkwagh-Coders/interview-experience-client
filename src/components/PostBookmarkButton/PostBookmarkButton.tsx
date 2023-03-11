@@ -39,17 +39,18 @@ function PostBookmarkButton({ postId, isBookmarked }: Props) {
       toast.error(error.response.data.message);
     },
     onSuccess: () => {
-      const previousIsBookmarkedState = isBookmarked;
       setIsBookmarkedPost((state) => !state);
 
       // Manually changing the Post
       const postData = queryClient.getQueryData<Post>(['post', postId]);
       if (postData) {
-        postData.isBookmarked = !previousIsBookmarkedState;
+        postData.isBookmarked = !postData.isBookmarked;
+        queryClient.setQueryData(['post', postId], postData);
       }
 
-      queryClient.invalidateQueries(['user-post']);
-      queryClient.invalidateQueries(['bookmarked-post']);
+      queryClient.refetchQueries(['posts']);
+      queryClient.refetchQueries(['user-post']);
+      queryClient.refetchQueries(['bookmarked-post']);
     },
   });
 
