@@ -16,7 +16,7 @@ export type Comment = {
   } | null;
   content: string;
   createdAt: string;
-  replies: [Reply];
+  replies: Reply[];
 };
 
 export type CommentList = Comment[];

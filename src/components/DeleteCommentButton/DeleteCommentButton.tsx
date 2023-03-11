@@ -2,7 +2,6 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useState } from 'react';
 import { MdDeleteOutline } from 'react-icons/md';
 import { toast } from 'react-hot-toast';
-import { useNavigate } from 'react-router-dom';
 import { useAppSelector } from '../../redux/store';
 import styles from './DeleteCommentButton.module.css';
 import { deleteComment } from '../../services/comments.services';
@@ -22,7 +21,6 @@ interface ErrorResponse<T> {
 }
 
 function DeleteCommentButton({ postId, commentId, authorId }: Props) {
-  const navigate = useNavigate();
   const queryClient = useQueryClient();
 
   const user = useAppSelector((state) => state.userState.user);
@@ -40,9 +38,6 @@ function DeleteCommentButton({ postId, commentId, authorId }: Props) {
     onSuccess: () => {
       queryClient.refetchQueries(['comments', postId]);
       toast.success('Comment Deleted Successfully');
-
-      // If the user is on post page he will be redirected to the post list page
-      navigate(`/post/${postId}`);
     },
   });
 

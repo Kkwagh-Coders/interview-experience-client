@@ -17,7 +17,7 @@ function CommentReply({ postId, commentId }: Props) {
     fetchNextPage,
     isFetchingNextPage,
   } = useInfiniteQuery({
-    queryKey: ['comments', postId, commentId],
+    queryKey: ['replies', postId, commentId],
     getNextPageParam: (prevData: {
       message: string;
       data: ReplyList;

@@ -112,17 +112,6 @@ function PostPage() {
                 <div className={styles.comments}>
                   {`Comments ${postQuery.data.commentCount}`}
                 </div>
-
-                <div className={styles.filterInput}>
-                  <label htmlFor="domain">
-                    <select name="domain" className={styles.inputField}>
-                      <option value="1">Sort By</option>
-                      <option value="2">Newest</option>
-                      <option value="3">Oldest</option>
-                      <option value="4">Top Voted</option>
-                    </select>
-                  </label>
-                </div>
               </div>
 
               <PostComments postId={id || ''} />

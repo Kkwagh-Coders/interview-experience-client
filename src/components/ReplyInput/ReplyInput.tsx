@@ -1,4 +1,4 @@
-import { useMutation } from '@tanstack/react-query';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useState } from 'react';
 import { toast } from 'react-hot-toast';
 import { createReplyComment } from '../../services/comments.services';
@@ -25,6 +25,7 @@ interface ICommentInput {
 
 function ReplyInput({ postId, commentId }: Props) {
   const [content, setContent] = useState('');
+  const queryClient = useQueryClient();
 
   // prettier-ignore
   const { mutate, isLoading } = useMutation<
@@ -39,6 +40,7 @@ function ReplyInput({ postId, commentId }: Props) {
     onSuccess: () => {
       setContent('');
       toast.success('Comment Created');
+      queryClient.refetchQueries(['replies', postId, commentId]);
     },
   });
 
