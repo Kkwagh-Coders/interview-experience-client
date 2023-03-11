@@ -162,6 +162,7 @@ function PostList() {
                       }}
                     >
                       <option value="">Post Type</option>
+                      <option value="">All</option>
                       {postTypes.map((type) => (
                         <option value={type} key={type}>
                           {type}
@@ -182,6 +183,7 @@ function PostList() {
                       }}
                     >
                       <option value="">Job Role</option>
+                      <option value="">All</option>
                       {companyAndRoleQuery.data?.data.role.map((role) => (
                         <option value={role} key={role}>
                           {role}
@@ -202,6 +204,7 @@ function PostList() {
                       }}
                     >
                       <option value="">Company</option>
+                      <option value="">All</option>
                       {companyAndRoleQuery.data?.data.company.map((company) => (
                         <option value={company} key={company}>
                           {company}
@@ -222,6 +225,7 @@ function PostList() {
                       }}
                     >
                       <option value="">Rating</option>
+                      <option value="">Any</option>
                       <option value="1">1 Star</option>
                       <option value="2">2 Star</option>
                       <option value="3">3 Star</option>
