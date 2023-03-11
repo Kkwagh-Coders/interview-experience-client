@@ -43,7 +43,7 @@ function DeleteCommentReplyButton({
     },
     onSuccess: () => {
       queryClient.refetchQueries(['replies', postId, commentId]);
-      toast.success('Comment Deleted Successfully');
+      toast.success('Reply Deleted Successfully');
     },
   });
 
