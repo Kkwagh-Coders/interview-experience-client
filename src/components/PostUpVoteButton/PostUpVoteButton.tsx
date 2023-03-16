@@ -1,5 +1,4 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { useState } from 'react';
 import { toast } from 'react-hot-toast';
 import { BiUpArrow } from 'react-icons/bi';
 import { upVotePost } from '../../services/post.services';
@@ -24,7 +23,6 @@ interface IPostUpVote {
 }
 
 function PostUpVoteButton({ postId, isVoted }: Props) {
-  const [isUpVoted, setIsUpVoted] = useState(isVoted);
   const queryClient = useQueryClient();
 
   // prettier-ignore
@@ -38,16 +36,13 @@ function PostUpVoteButton({ postId, isVoted }: Props) {
       toast.error(error.response.data.message);
     },
     onSuccess: () => {
-      const oldState = isUpVoted;
-      setIsUpVoted((state) => !state);
-
       // Manually changing the Post
       const postData = queryClient.getQueryData<Post>(['post', postId]);
       if (postData) {
         postData.isDownVoted = false;
-        postData.isUpVoted = !isUpVoted;
+        postData.isUpVoted = !isVoted;
 
-        if (oldState) postData.voteCount -= 1;
+        if (isVoted) postData.voteCount -= 1;
         else postData.voteCount += 1;
 
         queryClient.setQueryData(['post', postId], postData);
