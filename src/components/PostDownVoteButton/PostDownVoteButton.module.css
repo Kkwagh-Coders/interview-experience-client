@@ -4,6 +4,6 @@
   fill: rgb(66, 80, 108);
 }
 
-.upVoteActive {
+.downVoteActive {
   fill: rgb(var(--accent-color));
 }

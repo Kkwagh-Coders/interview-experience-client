@@ -1,9 +1,9 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { toast } from 'react-hot-toast';
-import { BiUpArrow } from 'react-icons/bi';
-import { upVotePost } from '../../services/post.services';
-import styles from './PostUpVoteButton.module.css';
+import { BiDownArrow } from 'react-icons/bi';
+import { downVotePost } from '../../services/post.services';
 import { Post } from '../../types/post.types';
+import styles from './PostDownVoteButton.module.css';
 
 type Props = {
   postId: string;
@@ -18,20 +18,20 @@ interface ErrorResponse<T> {
   response: { data: T };
 }
 
-interface IPostUpVote {
+interface IPostDownVote {
   postId: string;
 }
 
-function PostUpVoteButton({ postId, isVoted }: Props) {
+function PostDownVoteButton({ postId, isVoted }: Props) {
   const queryClient = useQueryClient();
 
   // prettier-ignore
   const { mutate, isLoading } = useMutation<
   SuccessResponse,
   ErrorResponse<{ message: string }>,
-  IPostUpVote
+  IPostDownVote
   >({
-    mutationFn: (data: IPostUpVote) => upVotePost(data.postId),
+    mutationFn: (data: IPostDownVote) => downVotePost(data.postId),
     onError: (error: ErrorResponse<{ message: string }>) => {
       toast.error(error.response.data.message);
     },
@@ -40,11 +40,13 @@ function PostUpVoteButton({ postId, isVoted }: Props) {
       const postData = queryClient.getQueryData<Post>(['post', postId]);
       if (postData) {
         postData.isDownVoted = false;
-        postData.isUpVoted = !isVoted;
-        postData.isDownVoted = isVoted;
 
-        if (isVoted) postData.voteCount -= 1;
-        else postData.voteCount += 1;
+        // isVoted is old values
+        postData.isDownVoted = !isVoted;
+        postData.isUpVoted = isVoted;
+
+        if (isVoted) postData.voteCount += 1;
+        else postData.voteCount -= 1;
 
         queryClient.setQueryData(['post', postId], postData);
       }
@@ -55,19 +57,19 @@ function PostUpVoteButton({ postId, isVoted }: Props) {
     },
   });
 
-  const handleUpVote = () => {
+  const handleDownVote = () => {
     if (!postId || isLoading) return;
     mutate({ postId });
   };
 
   return (
-    <BiUpArrow
-      className={`${styles.voteArrow} ${styles.upVote} ${
-        isVoted ? styles.upVoteActive : ''
+    <BiDownArrow
+      className={`${styles.voteArrow} ${styles.downVote} ${
+        isVoted ? styles.downVoteActive : ''
       }`}
-      onClick={handleUpVote}
+      onClick={handleDownVote}
     />
   );
 }
 
-export default PostUpVoteButton;
+export default PostDownVoteButton;

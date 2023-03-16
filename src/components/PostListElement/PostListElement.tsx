@@ -1,12 +1,12 @@
-import { BiDownArrow } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
 import { PostCard } from '../../types/post.types';
 import getFormattedDate from '../../utils/getFormattedDate';
 import DeleteButton from '../DeleteButton/DeleteButton';
 import PostBookmarkButton from '../PostBookmarkButton/PostBookmarkButton';
+import PostUpVoteButton from '../PostUpVoteButton/PostUpVoteButton';
 import ShareButton from '../ShareButton/ShareButton';
 import styles from './PostListElement.module.css';
-import PostUpVoteButton from '../PostUpVoteButton/PostUpVoteButton';
+import PostDownVoteButton from '../PostDownVoteButton/PostDownVoteButton';
 
 // TODO : vote , date, share, bookmark, upVote downVote
 export type Props = {
@@ -26,7 +26,7 @@ function PostListElement({ post }: Props) {
           <div className={styles.voteOption}>
             <PostUpVoteButton postId={post._id} isVoted={post.isUpVoted} />
             <span className={styles.voteCount}>{post.votes}</span>
-            <BiDownArrow className={`${styles.voteArrow} ${styles.downVote}`} />
+            <PostDownVoteButton postId={post._id} isVoted={post.isDownVoted} />
           </div>
 
           <div className={styles.postMoreDetail}>
