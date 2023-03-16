@@ -77,7 +77,8 @@
 }
 
 .navItem:hover::after,
-.navItem:focus::after {
+.navItem:focus::after,
+.navItemActive::after {
   width: 100%;
 }
 

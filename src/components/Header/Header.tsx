@@ -7,6 +7,7 @@ import DropDown from '../DropDown/DropDown';
 import LogoutButton from '../LogoutButton/LogoutButton';
 import useOutsideAlerter from '../../hooks/useOutsideAlerter';
 import styles from './Header.module.css';
+import CustomNavLink from '../CustomNavLink/CustomNavLink';
 
 function Header() {
   const isLoggedIn = useAppSelector((state) => state.userState.isLoggedIn);
@@ -58,26 +59,38 @@ function Header() {
           }`}
         >
           <ul className={styles.navList} id="primary-navigation">
-            <li role="list" className={styles.navItem}>
-              <Link to="/" onClick={handleCloseNavbar}>
-                Home
-              </Link>
-            </li>
-            <li role="list" className={styles.navItem}>
-              <Link to="/posts" onClick={handleCloseNavbar}>
-                Posts
-              </Link>
-            </li>
-            <li role="list" className={styles.navItem}>
-              <Link to="/user/search" onClick={handleCloseNavbar}>
-                Users
-              </Link>
-            </li>
-            <li role="list" className={styles.navItem}>
-              <Link to="/events" onClick={handleCloseNavbar}>
-                Events
-              </Link>
-            </li>
+            <CustomNavLink
+              path="/"
+              onClickCallback={handleCloseNavbar}
+              className={styles.navItem}
+              activeClassName={styles.navItemActive}
+            >
+              Home
+            </CustomNavLink>
+            <CustomNavLink
+              path="/posts"
+              onClickCallback={handleCloseNavbar}
+              className={styles.navItem}
+              activeClassName={styles.navItemActive}
+            >
+              Posts
+            </CustomNavLink>
+            <CustomNavLink
+              path="/user/search"
+              onClickCallback={handleCloseNavbar}
+              className={styles.navItem}
+              activeClassName={styles.navItemActive}
+            >
+              Users
+            </CustomNavLink>
+            <CustomNavLink
+              path="/events"
+              onClickCallback={handleCloseNavbar}
+              className={styles.navItem}
+              activeClassName={styles.navItemActive}
+            >
+              Events
+            </CustomNavLink>
 
             {isLoggedIn ? (
               <DropDown
@@ -85,14 +98,14 @@ function Header() {
                 className={styles.navItem}
               >
                 <>
-                  <li role="list" className={styles.navItem}>
-                    <Link
-                      to={`/profile/${user?.userId}`}
-                      onClick={handleCloseNavbar}
-                    >
-                      Profile
-                    </Link>
-                  </li>
+                  <CustomNavLink
+                    path={`/profile/${user?.userId}`}
+                    onClickCallback={handleCloseNavbar}
+                    className={styles.navItem}
+                    activeClassName={styles.navItemActive}
+                  >
+                    Profile
+                  </CustomNavLink>
                   <LogoutButton
                     className={styles.navItem}
                     onClickCallback={handleCloseNavbar}
