@@ -166,3 +166,19 @@ export const editPost = (
     .put<EditPostResponse>(url, body, { withCredentials: true })
     .then((response) => response.data);
 };
+
+export const upVotePost = (postId: string) => {
+  const url = `${BASE_API_URL}/posts/upvote/${postId}`;
+
+  return axios
+    .post<{ message: string }>(url, {}, { withCredentials: true })
+    .then((response) => response.data);
+};
+
+export const downVotePost = (postId: string) => {
+  const url = `${BASE_API_URL}/posts/downvote/${postId}`;
+
+  return axios
+    .post<{ message: string }>(url, {}, { withCredentials: true })
+    .then((response) => response.data);
+};

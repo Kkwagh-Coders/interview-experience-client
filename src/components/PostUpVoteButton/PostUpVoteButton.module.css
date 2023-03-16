@@ -1,0 +1,9 @@
+.voteArrow {
+  cursor: pointer;
+  font-size: 1.5rem;
+  fill: rgb(66, 80, 108);
+}
+
+.upVoteActive {
+  fill: rgb(var(--accent-color));
+}
