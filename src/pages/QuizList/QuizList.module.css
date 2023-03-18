@@ -1,0 +1,40 @@
+.QuizList {
+  min-height: 100vh;
+  min-height: 100dvh;
+
+  scroll-margin-top: 3rem;
+  margin-inline: auto;
+  padding-block: 2rem;
+  background-color: rgb(var(--bg-light));
+  margin-top: 3.5rem;
+}
+
+.quizDetail {
+  background-color: rgb(var(--bg-white));
+  border-radius: 5px;
+  padding: 1rem;
+  margin-block: 2rem;
+}
+
+.quizTopics {
+  display: grid;
+  gap: 1rem;
+}
+
+.quizTopic {
+  padding: 1rem;
+  border-radius: 5px;
+  background-color: rgb(var(--bg-white));
+}
+
+.quizTopic > * {
+  margin-bottom: 0.25rem;
+}
+
+.quizTopic > h2 {
+  font-size: 1.1rem;
+}
+
+.quizTopic > p {
+  color: rgb(var(--text-color-light));
+}

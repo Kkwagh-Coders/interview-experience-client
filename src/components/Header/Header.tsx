@@ -76,6 +76,14 @@ function Header() {
               Posts
             </CustomNavLink>
             <CustomNavLink
+              path="/quizzes"
+              onClickCallback={handleCloseNavbar}
+              className={styles.navItem}
+              activeClassName={styles.navItemActive}
+            >
+              Quizzes
+            </CustomNavLink>
+            <CustomNavLink
               path="/user/search"
               onClickCallback={handleCloseNavbar}
               className={styles.navItem}
