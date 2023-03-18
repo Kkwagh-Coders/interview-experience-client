@@ -19,6 +19,7 @@
 .quizTopics {
   display: grid;
   gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(350px, auto));
 }
 
 .quizTopic {
@@ -32,7 +33,7 @@
 }
 
 .quizTopic > h2 {
-  font-size: 1.1rem;
+  font-size: 1.25rem;
 }
 
 .quizTopic > p {
