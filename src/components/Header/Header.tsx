@@ -84,14 +84,6 @@ function Header() {
               Quizzes
             </CustomNavLink>
             <CustomNavLink
-              path="/user/search"
-              onClickCallback={handleCloseNavbar}
-              className={styles.navItem}
-              activeClassName={styles.navItemActive}
-            >
-              Users
-            </CustomNavLink>
-            <CustomNavLink
               path="/events"
               onClickCallback={handleCloseNavbar}
               className={styles.navItem}
@@ -113,6 +105,14 @@ function Header() {
                     activeClassName={styles.navItemActive}
                   >
                     Profile
+                  </CustomNavLink>
+                  <CustomNavLink
+                    path="/user/search"
+                    onClickCallback={handleCloseNavbar}
+                    className={styles.navItem}
+                    activeClassName={styles.navItemActive}
+                  >
+                    Users
                   </CustomNavLink>
                   <LogoutButton
                     className={styles.navItem}
