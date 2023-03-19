@@ -64,6 +64,7 @@
 
 .solutionDescription {
   color: rgb(var(--text-color-light));
+  white-space: pre-line;
 }
 
 .quizGame .nextButton {
