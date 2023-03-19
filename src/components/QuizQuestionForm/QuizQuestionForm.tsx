@@ -23,8 +23,8 @@ function QuizQuestionForm() {
   QuizFormData
   >({
     mutationFn: (data: QuizFormData) => createQuizQuestion(data),
-    onError: (error) => {
-      toast.error(error.response.data.message);
+    onError: () => {
+      toast.error('Internal Server Error');
     },
     onSuccess: (data) => {
       toast.success(data.message);

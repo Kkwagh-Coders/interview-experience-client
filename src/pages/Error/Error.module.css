@@ -2,11 +2,9 @@
   overflow: hidden;
 }
 .Error {
-  position: relative;
+  position: fixed;
+  inset: 0;
   background: #d4dfe6;
-  min-height: 100vh;
-  min-height: 100dvh;
-  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;

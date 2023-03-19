@@ -9,6 +9,17 @@ export type QuizFormData = {
   difficulty: number;
 };
 
+export type QuizGetData = {
+  question: string;
+  answer: string;
+  detailedSolution: string;
+  wrongOption1: string;
+  wrongOption2: string;
+  wrongOption3: string;
+  topic: string;
+  difficulty: number;
+};
+
 export type QuizData = {
   question: string;
   answer: string;
