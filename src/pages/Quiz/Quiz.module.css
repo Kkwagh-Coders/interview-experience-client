@@ -2,9 +2,18 @@
   min-height: 100vh;
   min-height: 100dvh;
 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   scroll-margin-top: 3rem;
   margin-inline: auto;
   padding-block: 2rem;
   background-color: rgb(var(--bg-light));
-  margin-top: 3.5rem;
+  padding-top: 3.5rem;
+}
+
+.title {
+  text-transform: capitalize;
+  text-align: center;
 }
