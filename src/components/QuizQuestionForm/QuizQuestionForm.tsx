@@ -279,9 +279,10 @@ function QuizQuestionForm() {
             <div className={styles.column}>
               <input
                 className={styles.registerButton}
-                type="submit"
+                type="button"
                 value="Create Question"
                 disabled={isLoading}
+                onClick={formik.submitForm}
               />
             </div>
           </form>
