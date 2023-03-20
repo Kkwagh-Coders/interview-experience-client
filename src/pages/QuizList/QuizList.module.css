@@ -21,7 +21,7 @@
   background-color: rgb(var(--bg-white));
   border-radius: 5px;
   padding: 1rem;
-  margin-block: 2rem;
+  margin-bottom: 2rem;
 }
 
 .quizDetail li {

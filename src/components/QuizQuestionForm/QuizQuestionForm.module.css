@@ -2,6 +2,8 @@
   background-color: rgb(var(--bg-white));
   padding: 1rem 2rem;
   border-radius: 5px;
+
+  margin-bottom: 2rem;
 }
 
 .title {
