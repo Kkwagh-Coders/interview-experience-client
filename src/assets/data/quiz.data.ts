@@ -2,22 +2,26 @@ export const quizTopics = [
   {
     topic: 'aptitude',
     title: 'Aptitude',
-    description: 'Give Aptitude!!',
+    description: 'Practice aptitude and yourself for Interviews',
+    image: 'aptitude.png',
   },
   {
     topic: 'cns',
     title: 'Computer Networks and Security',
-    description: 'Give CNS!!',
+    description: 'Practice CNS and yourself for Interviews',
+    image: 'cns.png',
   },
   {
     topic: 'dbms',
     title: 'Database Management System',
-    description: 'Give DBMS!!',
+    description: 'Practice DBMS and yourself for Interviews',
+    image: 'dbms.png',
   },
   {
     topic: 'os',
     title: 'Operating System',
-    description: 'Give OS!!',
+    description: 'Practice OS and yourself for Interviews',
+    image: 'os.png',
   },
 ];
 

@@ -43,16 +43,37 @@ function QuizList() {
           {isAdmin ? <QuizQuestionForm /> : null}
 
           <div className={styles.quizDetail}>
-            Solve the quiz and maintain daily streak, we have to decide more
-            things to write here!!
+            <ul>
+              <li>
+                Practicing 5 problems each day will increase your confidence in
+                interview questions
+              </li>
+              <li>Get ready for interviews by solving daily problems!!</li>
+              <li>
+                The streak count will increase if you take the test at least
+                once Daily
+              </li>
+            </ul>
           </div>
 
           <div className={styles.quizTopics}>
-            {quizTopics.map(({ topic, title, description }) => (
-              <div className={styles.quizTopic} key={topic}>
-                <h2>{title}</h2>
-                <p>{description}</p>
-                <Link to={`/quiz/${topic}`}>Start</Link>
+            {quizTopics.map((quiz) => (
+              <div className={styles.quizTopic} key={quiz.topic}>
+                <img
+                  // eslint-disable-next-line import/no-dynamic-require, global-require
+                  src={require(`../../assets/images/quizzes/${quiz.image}`)}
+                  alt={quiz.description}
+                  className={styles.quizImage}
+                />
+
+                <h2>{quiz.title}</h2>
+                <p>{quiz.description}</p>
+                <Link
+                  to={`/quiz/${quiz.topic}`}
+                  className={`default-button ${styles.startButton}`}
+                >
+                  Start
+                </Link>
               </div>
             ))}
           </div>

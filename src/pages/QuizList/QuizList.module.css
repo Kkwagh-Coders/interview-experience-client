@@ -9,11 +9,25 @@
   margin-top: 3.5rem;
 }
 
+.quizImage {
+  width: 100%;
+  aspect-ratio: 2/1;
+  object-fit: contain;
+
+  margin-bottom: 1rem;
+}
+
 .quizDetail {
   background-color: rgb(var(--bg-white));
   border-radius: 5px;
   padding: 1rem;
   margin-block: 2rem;
+}
+
+.quizDetail li {
+  font-size: 1rem;
+  color: rgb(var(--text-color-light));
+  list-style: inside;
 }
 
 .quizTopics {
@@ -28,14 +42,16 @@
   background-color: rgb(var(--bg-white));
 }
 
-.quizTopic > * {
-  margin-bottom: 0.25rem;
-}
-
 .quizTopic > h2 {
   font-size: 1.25rem;
 }
 
 .quizTopic > p {
   color: rgb(var(--text-color-light));
+  margin-bottom: 0.5rem;
+}
+
+.QuizList .startButton {
+  padding: 0.5rem 2rem;
+  font-size: 1rem;
 }
