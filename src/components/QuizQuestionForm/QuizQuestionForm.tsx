@@ -89,7 +89,22 @@ function QuizQuestionForm() {
               .min(1, 'Difficulty should be in range 1 to 10')
               .required('Difficulty is required'),
           })}
-          onSubmit={(values) => mutate(values)}
+          onSubmit={(values) => {
+            // Check for duplicate options, if present return error
+            const options = new Set([
+              values.answer,
+              values.wrongOption1,
+              values.wrongOption2,
+              values.wrongOption3,
+            ]);
+
+            if (options.size !== 4) {
+              toast.error('Duplicate Options Present');
+              return;
+            }
+
+            mutate(values);
+          }}
         >
           {(formik) => (
             <form onSubmit={formik.handleSubmit} className={styles.form}>
