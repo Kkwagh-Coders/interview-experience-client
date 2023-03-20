@@ -51,13 +51,13 @@ function QuizQuestionForm() {
             .max(50, 'Topic must be less than 50 characters')
             .required('Topic is required'),
           question: Yup.string()
-            .max(200, 'Question must be less than 200 characters')
+            .max(500, 'Question must be less than 500 characters')
             .required('Question is required'),
           answer: Yup.string()
             .max(50, 'Answer must be less than 50 characters')
             .required('Answer is required'),
           detailedSolution: Yup.string()
-            .max(200, 'Detailed Solution must be less than 200 characters')
+            .max(500, 'Detailed Solution must be less than 500 characters')
             .required('Detailed Solution is required'),
           wrongOption1: Yup.string()
             .max(50, 'wrongOption1 must be less than 50 characters')
@@ -121,8 +121,7 @@ function QuizQuestionForm() {
                   ? formik.errors.question
                   : 'Question'}
                 <span className="required">*</span>
-                <input
-                  type="text"
+                <textarea
                   name="question"
                   placeholder="Question"
                   value={formik.values.question}

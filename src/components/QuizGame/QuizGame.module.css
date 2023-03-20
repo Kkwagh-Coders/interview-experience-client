@@ -23,7 +23,8 @@
 }
 
 .question {
-  text-align: center;
+  white-space: pre-line;
+  /* text-align: center; */
   font-weight: 500;
 }
 
