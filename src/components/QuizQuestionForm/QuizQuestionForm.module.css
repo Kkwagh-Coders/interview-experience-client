@@ -85,22 +85,20 @@
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
 }
 
-.registerButton {
-  height: 55px;
-  width: 100%;
-  color: #fff;
+.QuizQuestionForm .registerButton,
+.QuizQuestionForm .resetButton,
+.QuizQuestionForm .toggleFormButton {
+  padding: 0.5rem 1rem;
   font-size: 1rem;
-  font-weight: 400;
-  margin-top: 30px;
-  border: none;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  background-color: rgb(var(--accent-color));
-}
-.registerButton:hover {
-  background-color: rgb(var(--accent-color-dark));
+  margin-right: 1rem;
+  margin-block: 1rem;
 }
 
-.registerButton:disabled {
-  background-color: gray;
+.QuizQuestionForm .resetButton {
+  background-color: red;
+}
+
+.QuizQuestionForm .resetButton:hover,
+.QuizQuestionForm .resetButton:focus {
+  background-color: rgb(241, 49, 49);
 }
