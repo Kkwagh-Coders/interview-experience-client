@@ -1,10 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 import { UserSlice } from './user/userState';
+import { QuizSlice } from './quiz/quizState';
 
 export const store = configureStore({
   reducer: {
     userState: UserSlice.reducer,
+    quizState: QuizSlice.reducer,
   },
 });
 

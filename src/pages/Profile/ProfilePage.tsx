@@ -9,12 +9,14 @@ import { useAppSelector } from '../../redux/store';
 import { getUserProfileStats } from '../../services/user.services';
 import profilePageImage from '../../assets/images/pages/profile-page.png';
 import styles from './ProfilePage.module.css';
+import { getStreak } from '../../services/quiz.services';
 
 function ProfilePage() {
   const { id } = useParams();
 
   // Get the data related to the profile
   const profileQuery = useQuery(['profile', id], () => getUserProfileStats(id));
+  const streakQuery = useQuery(['streak', id], () => getStreak(id));
 
   // Used to check if the profile belongs to the user
   const user = useAppSelector((state) => state.userState.user);
@@ -122,6 +124,12 @@ function ProfilePage() {
                 Likes
               </p>
             </div>
+
+            {!streakQuery.isLoading ? (
+              <p className={styles.streak}>
+                {`${streakQuery.data?.streakCount} 🔥`}
+              </p>
+            ) : null}
 
             <p className={styles.about}>{profileData.about}</p>
 
