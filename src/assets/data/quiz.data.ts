@@ -7,13 +7,13 @@ export const quizTopics = [
   },
   {
     topic: 'cns',
-    title: 'Computer Networks and Security',
+    title: 'Computer Networks',
     description: 'Practice CNS and yourself for Interviews',
     image: 'cns.png',
   },
   {
     topic: 'dbms',
-    title: 'Database Management System',
+    title: 'Database',
     description: 'Practice DBMS and yourself for Interviews',
     image: 'dbms.png',
   },

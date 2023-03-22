@@ -30,16 +30,18 @@
   list-style: inside;
 }
 
-.quizTopics {
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: repeat(auto-fill, minmax(350px, auto));
-}
-
 .quizTopic {
   padding: 1rem;
   border-radius: 5px;
   background-color: rgb(var(--bg-white));
+
+  display: flex;
+  flex-direction: column;
+}
+
+.quizTopic a {
+  align-self: baseline;
+  justify-self: center;
 }
 
 .quizTopic > h2 {
@@ -54,4 +56,13 @@
 .QuizList .startButton {
   padding: 0.5rem 2rem;
   font-size: 1rem;
+}
+
+@media (min-width: 500px) {
+  .quizTopics {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(250px, auto));
+    grid-auto-rows: 1fr;
+  }
 }
