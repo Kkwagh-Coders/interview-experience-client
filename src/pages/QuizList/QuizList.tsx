@@ -45,13 +45,13 @@ function QuizList() {
           <div className={styles.quizDetail}>
             <ul>
               <li>
-                Practicing 5 problems each day will increase your confidence in
-                interview questions
+                Practicing 5 problems each day will increase your consistency
+                and confidence
               </li>
               <li>Get ready for interviews by solving daily problems!!</li>
               <li>
-                The streak count will increase if you take the test at least
-                once Daily
+                Increase Streak by taking a Quiz and solving 3 or more MCQ
+                questions
               </li>
             </ul>
           </div>

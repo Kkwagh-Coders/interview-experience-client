@@ -81,9 +81,9 @@ export const QuizSlice = createSlice({
         state.gameState = 'endScreen';
       }
     },
-    resetState: (state) => {
+    resetState: (state, action: PayloadAction<{ topic: string | null }>) => {
       state.gameState = 'menu';
-      state.topic = null;
+      state.topic = action.payload.topic || null;
       state.isLoading = true;
       state.isError = false;
       state.quizQuestions = null;

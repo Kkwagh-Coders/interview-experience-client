@@ -19,7 +19,7 @@ function Quiz() {
     console.log('Quiz Screen Loaded');
 
     return () => {
-      dispatch(quizActions.resetState());
+      dispatch(quizActions.resetState({ topic: null }));
     };
   }, [dispatch]);
 
