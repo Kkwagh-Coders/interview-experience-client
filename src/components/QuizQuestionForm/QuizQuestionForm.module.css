@@ -87,13 +87,19 @@
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
 }
 
+.column {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-block: 1rem;
+}
+
 .QuizQuestionForm .registerButton,
 .QuizQuestionForm .resetButton,
 .QuizQuestionForm .toggleFormButton {
   padding: 0.5rem 1rem;
   font-size: 1rem;
-  margin-right: 1rem;
-  margin-block: 1rem;
+  min-width: min(170px, 100%);
 }
 
 .QuizQuestionForm .resetButton {
