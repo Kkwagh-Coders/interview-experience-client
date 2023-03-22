@@ -1,4 +1,5 @@
-import { Route, Routes } from 'react-router-dom';
+import { useEffect } from 'react';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import useUserStatus from '../hooks/useUserStatus';
 import AuthRouteLayout from '../pages/AuthRouteLayout/AuthRouteLayout';
 import DefaultLayout from '../pages/DefaultLayout';
@@ -21,10 +22,15 @@ import UserRegister from '../pages/UserRegister/UserRegister';
 import UserSearch from '../pages/UserSearch/UserSearch';
 
 function Router() {
+  const { pathname } = useLocation();
   const { isLoading, isError } = useUserStatus();
 
-  if (isLoading) return <Loading />;
+  // Function to scroll to top when url changes
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
+  if (isLoading) return <Loading />;
   if (isError) return <Error />;
 
   return (
