@@ -55,7 +55,11 @@ export const getStreak = (userId: string | undefined) => {
     },
   };
 
-  return axios
-    .get<{ message: string; streakCount: number }>(url, options)
-    .then((response) => response.data);
+  type StreakData = {
+    message: string;
+    streakCount: number;
+    dailyQuizDone: boolean;
+  };
+
+  return axios.get<StreakData>(url, options).then((response) => response.data);
 };

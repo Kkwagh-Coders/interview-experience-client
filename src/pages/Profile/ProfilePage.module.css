@@ -47,8 +47,27 @@
 }
 
 .streak {
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.25rem;
+  vertical-align: center;
   margin-bottom: 1rem;
+
+  font-size: 1.2rem;
+  color: gray;
+}
+
+.fire {
+  fill: gray;
+}
+
+.streakActive {
+  color: orange;
+}
+
+.streakActive .fire {
+  fill: orange;
 }
 
 .about {

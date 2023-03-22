@@ -1,15 +1,16 @@
 import { useQuery } from '@tanstack/react-query';
 import { Helmet } from 'react-helmet';
+import { AiFillFire } from 'react-icons/ai';
 import { DiGithubBadge } from 'react-icons/di';
 import { FaLinkedin } from 'react-icons/fa';
 import { SiLeetcode } from 'react-icons/si';
 import { Link, useParams } from 'react-router-dom';
+import profilePageImage from '../../assets/images/pages/profile-page.png';
 import ProfileTab from '../../components/ProfileTab/ProfileTab';
 import { useAppSelector } from '../../redux/store';
-import { getUserProfileStats } from '../../services/user.services';
-import profilePageImage from '../../assets/images/pages/profile-page.png';
-import styles from './ProfilePage.module.css';
 import { getStreak } from '../../services/quiz.services';
+import { getUserProfileStats } from '../../services/user.services';
+import styles from './ProfilePage.module.css';
 
 function ProfilePage() {
   const { id } = useParams();
@@ -126,8 +127,13 @@ function ProfilePage() {
             </div>
 
             {!streakQuery.isLoading ? (
-              <p className={styles.streak}>
-                {`${streakQuery.data?.streakCount} 🔥`}
+              <p
+                className={`${styles.streak} ${
+                  streakQuery.data?.dailyQuizDone ? styles.streakActive : ''
+                }`}
+              >
+                {streakQuery.data?.streakCount}
+                <AiFillFire className={styles.fire} />
               </p>
             ) : null}
 
