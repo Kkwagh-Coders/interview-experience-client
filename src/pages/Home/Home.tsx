@@ -28,20 +28,20 @@ function Home() {
         <title>Interview Experience | KKWIEER</title>
         <meta
           name="description"
-          content="Get the Inside Scoop on K. K. Wagh Institute Of Engineering Education And Research[KKWIEER] Company Placements. Be the Pro in the Know with Real Interview Insights. Make Informed Decisions and Take Control of Your Career Journey Today!"
+          content="Get the Inside Scoop on K. K. Wagh Institute Of Engineering Education And Research[KKWIEER][kkwagh] Company Placements. Be the Pro in the Know with Real Interview Insights. Make Informed Decisions and Take Control of Your Career Journey Today!"
         />
         <meta name="twitter:card" content={homePageImage} />
         <meta name="twitter:title" content="Interview Experience | KKWIEER" />
         <meta
           name="twitter:description"
-          content="Get the Inside Scoop on K. K. Wagh Institute Of Engineering Education And Research[KKWIEER] Company Placements. Be the Pro in the Know with Real Interview Insights. Make Informed Decisions and Take Control of Your Career Journey Today!"
+          content="Get the Inside Scoop on K. K. Wagh Institute Of Engineering Education And Research[KKWIEER][kkwagh] Company Placements. Be the Pro in the Know with Real Interview Insights. Make Informed Decisions and Take Control of Your Career Journey Today!"
         />
         <meta name="twitter:image" content={homePageImage} />
 
         <meta property="og:title" content="Interview Experience | KKWIEER" />
         <meta
           property="og:description"
-          content="Get the Inside Scoop on K. K. Wagh Institute Of Engineering Education And Research[KKWIEER] Company Placements. Be the Pro in the Know with Real Interview Insights. Make Informed Decisions and Take Control of Your Career Journey Today!"
+          content="Get the Inside Scoop on K. K. Wagh Institute Of Engineering Education And Research[KKWIEER][kkwagh] Company Placements. Be the Pro in the Know with Real Interview Insights. Make Informed Decisions and Take Control of Your Career Journey Today!"
         />
         <meta property="og:image" content={homePageImage} />
         <meta
