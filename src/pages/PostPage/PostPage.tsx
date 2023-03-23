@@ -10,6 +10,7 @@ import ShareButton from '../../components/ShareButton/ShareButton';
 import { useAppSelector } from '../../redux/store';
 import { getPost } from '../../services/post.services';
 import styles from './PostPage.module.css';
+import generateTextFromHTML from '../../utils/generateTextFromHTML';
 
 function PostPage() {
   const { id } = useParams();
@@ -35,7 +36,11 @@ function PostPage() {
         <title>{`${postQuery.data.title} | Interview Experience`}</title>
         <meta
           name="description"
-          content={`${postQuery.data.postType} titled "${postQuery.data.title}" specially for KKWIEER on Interview Experience`}
+          content={`${postQuery.data.postType} titled "${
+            postQuery.data.title
+          }" specially for KKWIEER on Interview Experience. ${generateTextFromHTML(
+            postQuery.data.content,
+          )}`}
         />
         <meta name="twitter:card" content={postImage} />
         <meta
@@ -44,7 +49,11 @@ function PostPage() {
         />
         <meta
           name="twitter:description"
-          content={`${postQuery.data.postType} titled "${postQuery.data.title}" specially for KKWIEER on Interview Experience`}
+          content={`${postQuery.data.postType} titled "${
+            postQuery.data.title
+          }" specially for KKWIEER on Interview Experience. ${generateTextFromHTML(
+            postQuery.data.content,
+          )}`}
         />
         <meta name="twitter:image" content={postImage} />
 
@@ -54,7 +63,11 @@ function PostPage() {
         />
         <meta
           property="og:description"
-          content={`${postQuery.data.postType} titled "${postQuery.data.title}" specially for KKWIEER on Interview Experience`}
+          content={`${postQuery.data.postType} titled "${
+            postQuery.data.title
+          }" specially for KKWIEER on Interview Experience. ${generateTextFromHTML(
+            postQuery.data.content,
+          )}`}
         />
         <meta property="og:image" content={postImage} />
         <meta
