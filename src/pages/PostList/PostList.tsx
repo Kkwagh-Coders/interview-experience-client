@@ -1,26 +1,30 @@
 import { useInfiniteQuery, useQuery } from '@tanstack/react-query';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { Helmet } from 'react-helmet';
+import { useSearchParams } from 'react-router-dom';
 import { postTypes } from '../../assets/data/post.data';
+import postListPageImage from '../../assets/images/pages/post-list.png';
 import PostListElement from '../../components/PostListElement/PostListElement';
+import PostSkeleton from '../../components/PostSkeleton/PostSkeleton';
 import {
   getCompanyAndRoleList,
   getPostsPaginated,
 } from '../../services/post.services';
 import { PostCardList } from '../../types/post.types';
-import postListPageImage from '../../assets/images/pages/post-list.png';
 import styles from './PostList.module.css';
-import PostSkeleton from '../../components/PostSkeleton/PostSkeleton';
 
 function PostList() {
-  const [filter, setFilter] = useState({
-    search: '',
-    sortBy: '',
-    articleType: '',
-    jobRole: '',
-    company: '',
-    rating: '',
-  });
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  // value to pass in the react query function
+  const filter = {
+    search: searchParams.get('search') || '',
+    sortBy: searchParams.get('sortBy') || '',
+    articleType: searchParams.get('articleType') || '',
+    jobRole: searchParams.get('jobRole') || '',
+    company: searchParams.get('company') || '',
+    rating: searchParams.get('rating') || '',
+  };
 
   // Fetching in Position and Companies
   const companyAndRoleQuery = useQuery({
@@ -126,7 +130,15 @@ function PostList() {
                   type="text"
                   placeholder="Search..."
                   onChange={(e) => {
-                    setFilter({ ...filter, search: e.target.value });
+                    setSearchParams({
+                      // Here we are filtering all the values which are empty
+                      ...Object.fromEntries(
+                        Object.entries(filter).filter(
+                          ([key, value]) => key && value && value.length > 0,
+                        ),
+                      ),
+                      search: e.target.value,
+                    });
                   }}
                   className={styles.searchBarInput}
                 />
@@ -140,7 +152,16 @@ function PostList() {
                       className={styles.inputField}
                       value={filter.sortBy}
                       onChange={(e) => {
-                        setFilter({ ...filter, sortBy: e.target.value });
+                        setSearchParams({
+                          // Here we are filtering all the values which are empty
+                          ...Object.fromEntries(
+                            Object.entries(filter).filter(
+                              // prettier-ignore
+                              ([key, value]) => key && value && value.length > 0,
+                            ),
+                          ),
+                          sortBy: e.target.value,
+                        });
                       }}
                     >
                       <option value="">Sort By</option>
@@ -158,7 +179,16 @@ function PostList() {
                       className={styles.inputField}
                       value={filter.articleType}
                       onChange={(e) => {
-                        setFilter({ ...filter, articleType: e.target.value });
+                        setSearchParams({
+                          // Here we are filtering all the values which are empty
+                          ...Object.fromEntries(
+                            Object.entries(filter).filter(
+                              // prettier-ignore
+                              ([key, value]) => key && value && value.length > 0,
+                            ),
+                          ),
+                          articleType: e.target.value,
+                        });
                       }}
                     >
                       <option value="">Post Type</option>
@@ -179,7 +209,16 @@ function PostList() {
                       className={styles.inputField}
                       value={filter.jobRole}
                       onChange={(e) => {
-                        setFilter({ ...filter, jobRole: e.target.value });
+                        setSearchParams({
+                          // Here we are filtering all the values which are empty
+                          ...Object.fromEntries(
+                            Object.entries(filter).filter(
+                              // prettier-ignore
+                              ([key, value]) => key && value && value.length > 0,
+                            ),
+                          ),
+                          jobRole: e.target.value,
+                        });
                       }}
                     >
                       <option value="">Job Role</option>
@@ -200,7 +239,16 @@ function PostList() {
                       className={styles.inputField}
                       value={filter.company}
                       onChange={(e) => {
-                        setFilter({ ...filter, company: e.target.value });
+                        setSearchParams({
+                          // Here we are filtering all the values which are empty
+                          ...Object.fromEntries(
+                            Object.entries(filter).filter(
+                              // prettier-ignore
+                              ([key, value]) => key && value && value.length > 0,
+                            ),
+                          ),
+                          company: e.target.value,
+                        });
                       }}
                     >
                       <option value="">Company</option>
@@ -221,7 +269,16 @@ function PostList() {
                       className={styles.inputField}
                       value={filter.rating}
                       onChange={(e) => {
-                        setFilter({ ...filter, rating: e.target.value });
+                        setSearchParams({
+                          // Here we are filtering all the values which are empty
+                          ...Object.fromEntries(
+                            Object.entries(filter).filter(
+                              // prettier-ignore
+                              ([key, value]) => key && value && value.length > 0,
+                            ),
+                          ),
+                          rating: e.target.value,
+                        });
                       }}
                     >
                       <option value="">Rating</option>
