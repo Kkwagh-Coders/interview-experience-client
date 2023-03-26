@@ -1,25 +1,29 @@
-import { useEffect } from 'react';
+import { Suspense, lazy, useEffect } from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import useUserStatus from '../hooks/useUserStatus';
-import AuthRouteLayout from '../pages/AuthRouteLayout/AuthRouteLayout';
-import DefaultLayout from '../pages/DefaultLayout';
-import Error from '../pages/Error/Error';
-import Events from '../pages/Events/Events';
-import Home from '../pages/Home/Home';
 import Loading from '../pages/Loading/Loading';
-import Login from '../pages/Login/Login';
+import DefaultLayout from '../pages/DefaultLayout';
+import AuthRouteLayout from '../pages/AuthRouteLayout/AuthRouteLayout';
 import NotFound from '../pages/NotFound/NotFound';
-import PostEdit from '../pages/PostEdit/PostEdit';
-import PostForm from '../pages/PostForm/PostForm';
-import PostList from '../pages/PostList/PostList';
-import PostPage from '../pages/PostPage/PostPage';
-import ProfilePage from '../pages/Profile/ProfilePage';
-import ProfileEdit from '../pages/ProfileEdit/ProfileEdit';
-import Quiz from '../pages/Quiz/Quiz';
-import QuizList from '../pages/QuizList/QuizList';
-import ResetPassword from '../pages/ResetPassword/ResetPassword';
-import UserRegister from '../pages/UserRegister/UserRegister';
-import UserSearch from '../pages/UserSearch/UserSearch';
+import Error from '../pages/Error/Error';
+
+// Lazily importing pages
+const Home = lazy(() => import('../pages/Home/Home'));
+const Events = lazy(() => import('../pages/Events/Events'));
+const PostEdit = lazy(() => import('../pages/PostEdit/PostEdit'));
+const PostForm = lazy(() => import('../pages/PostForm/PostForm'));
+const PostList = lazy(() => import('../pages/PostList/PostList'));
+const PostPage = lazy(() => import('../pages/PostPage/PostPage'));
+const ProfileEdit = lazy(() => import('../pages/ProfileEdit/ProfileEdit'));
+const ProfilePage = lazy(() => import('../pages/Profile/ProfilePage'));
+const Quiz = lazy(() => import('../pages/Quiz/Quiz'));
+const QuizList = lazy(() => import('../pages/QuizList/QuizList'));
+const UserRegister = lazy(() => import('../pages/UserRegister/UserRegister'));
+const UserSearch = lazy(() => import('../pages/UserSearch/UserSearch'));
+const Login = lazy(() => import('../pages/Login/Login'));
+const ResetPassword = lazy(
+  () => import('../pages/ResetPassword/ResetPassword'),
+);
 
 function Router() {
   const { pathname } = useLocation();
@@ -34,28 +38,30 @@ function Router() {
   if (isError) return <Error />;
 
   return (
-    <Routes>
-      <Route element={<DefaultLayout />}>
-        <Route index element={<Home />} />
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<UserRegister />} />
-        <Route path="/events" element={<Events />} />
-        <Route path="/profile/:id" element={<ProfilePage />} />
-        <Route path="/reset-password/:token" element={<ResetPassword />} />
-        <Route path="/posts" element={<PostList />} />
-        <Route path="/user/search" element={<UserSearch />} />
-        <Route path="/quizzes" element={<QuizList />} />
-        <Route element={<AuthRouteLayout />}>
-          <Route path="/post" element={<PostForm />} />
-          <Route path="/post/:id" element={<PostPage />} />
-          <Route path="/profile/edit" element={<ProfileEdit />} />
-          <Route path="/post/edit/:id" element={<PostEdit />} />
-          <Route path="/quiz/:topic" element={<Quiz />} />
+    <Suspense fallback={<Loading />}>
+      <Routes>
+        <Route element={<DefaultLayout />}>
+          <Route index element={<Home />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<UserRegister />} />
+          <Route path="/events" element={<Events />} />
+          <Route path="/profile/:id" element={<ProfilePage />} />
+          <Route path="/reset-password/:token" element={<ResetPassword />} />
+          <Route path="/posts" element={<PostList />} />
+          <Route path="/user/search" element={<UserSearch />} />
+          <Route path="/quizzes" element={<QuizList />} />
+          <Route element={<AuthRouteLayout />}>
+            <Route path="/post" element={<PostForm />} />
+            <Route path="/post/:id" element={<PostPage />} />
+            <Route path="/profile/edit" element={<ProfileEdit />} />
+            <Route path="/post/edit/:id" element={<PostEdit />} />
+            <Route path="/quiz/:topic" element={<Quiz />} />
+          </Route>
         </Route>
-      </Route>
-      <Route path="*" element={<NotFound />} />
-    </Routes>
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </Suspense>
   );
 }
 
