@@ -60,8 +60,7 @@ function QuizList() {
             {quizTopics.map((quiz) => (
               <div className={styles.quizTopic} key={quiz.topic}>
                 <img
-                  // eslint-disable-next-line import/no-dynamic-require, global-require
-                  src={require(`../../assets/images/quizzes/${quiz.image}`)}
+                  src={quiz.image}
                   alt={quiz.description}
                   className={styles.quizImage}
                 />
