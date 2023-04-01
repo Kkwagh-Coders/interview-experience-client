@@ -1,7 +1,6 @@
 .deleteButton {
   color: red;
   background-color: white;
-  margin-inline: auto;
 }
 
 .deleteButton:disabled {
