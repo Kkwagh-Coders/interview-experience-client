@@ -9,7 +9,7 @@
 }
 
 .loadingText {
-  transform: translateY(15vh);
+  transform: translateY(13vh);
 }
 
 .boxes {
@@ -22,9 +22,9 @@
   transform-origin: 50% 50%;
   margin-top: 32px;
   -webkit-transform: rotateX(60deg) rotateZ(45deg) rotateY(0deg) translateZ(0px)
-    translateY(-20vh) translateX(30px);
+  translateY(-40vh) translateX(-35px);
   transform: rotateX(60deg) rotateZ(45deg) rotateY(0deg) translateZ(0px)
-    translateY(-20vh) translateX(30px);
+  translateY(-40vh) translateX(-35px);
 }
 .boxes .box {
   width: 32px;
