@@ -7,9 +7,13 @@ import communityIcon from '../../assets/images/home/facilities/community.png';
 import doubtIcon from '../../assets/images/home/facilities/doubt.png';
 import insightIcon from '../../assets/images/home/facilities/insight.png';
 import aniketImage from '../../assets/images/home/founders/aniket.jpg';
+import aniketSmallImage from '../../assets/images/home/founders/aniket-small.jpg';
 import dhruvImage from '../../assets/images/home/founders/dhruv.jpg';
+import dhruvSmallImage from '../../assets/images/home/founders/dhruv-small.jpg';
 import suhaanImage from '../../assets/images/home/founders/suhaan.jpg';
+import suhaanSmallImage from '../../assets/images/home/founders/suhaan-small.jpg';
 import vinayImage from '../../assets/images/home/founders/vinay.jpg';
+import vinaySmallImage from '../../assets/images/home/founders/vinay-small.jpg';
 import homePageImage from '../../assets/images/pages/home-page.png';
 
 // Import Swiper styles
@@ -20,6 +24,7 @@ import 'swiper/css/pagination';
 import TopPosts from '../../components/TopPosts/TopPosts';
 import styles from './Home.module.css';
 import './slider.css';
+import Image from '../../components/Image/Image';
 
 function Home() {
   return (
@@ -145,9 +150,13 @@ function Home() {
               </h2>
               <div className={styles.memberContainer}>
                 <div className={styles.member}>
-                  <div className={styles.profileImage}>
-                    <img src={suhaanImage} alt="Suhaan Bhandary" />
-                  </div>
+                  <Image
+                    imageSrc={suhaanImage}
+                    smallImageSrc={suhaanSmallImage}
+                    imageAlt="Suhaan Bhandary"
+                    containerClassName={styles.profileImage}
+                    imageClassName=""
+                  />
                   <h3>
                     <a
                       href="https://www.linkedin.com/in/suhaan-bhandary/"
@@ -164,9 +173,13 @@ function Home() {
                   </p>
                 </div>
                 <div className={styles.member}>
-                  <div className={styles.profileImage}>
-                    <img src={dhruvImage} alt="Dhruv Chavda" />
-                  </div>
+                  <Image
+                    imageSrc={dhruvImage}
+                    smallImageSrc={dhruvSmallImage}
+                    imageAlt="Dhruv Chavda"
+                    containerClassName={styles.profileImage}
+                    imageClassName=""
+                  />
                   <h3>
                     <a
                       href="https://www.linkedin.com/in/dhruv-chavda-220778238/"
@@ -183,9 +196,13 @@ function Home() {
                   </p>
                 </div>
                 <div className={styles.member}>
-                  <div className={styles.profileImage}>
-                    <img src={aniketImage} alt="Aniket Singh" />
-                  </div>
+                  <Image
+                    imageSrc={aniketImage}
+                    smallImageSrc={aniketSmallImage}
+                    imageAlt="Aniket Singh"
+                    containerClassName={styles.profileImage}
+                    imageClassName=""
+                  />
                   <h3>
                     <a
                       href="https://www.linkedin.com/in/aniketsingh144/"
@@ -203,9 +220,13 @@ function Home() {
                   </p>
                 </div>
                 <div className={styles.member}>
-                  <div className={styles.profileImage}>
-                    <img src={vinayImage} alt="Vinay Chopda" />
-                  </div>
+                  <Image
+                    imageSrc={vinayImage}
+                    smallImageSrc={vinaySmallImage}
+                    imageAlt="Vinay Chopda"
+                    containerClassName={styles.profileImage}
+                    imageClassName=""
+                  />
                   <h3>
                     <a
                       href="https://www.linkedin.com/in/vinay-chopda-31495a22a/"
