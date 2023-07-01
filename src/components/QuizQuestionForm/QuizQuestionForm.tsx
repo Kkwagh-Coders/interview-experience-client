@@ -59,7 +59,11 @@ function QuizQuestionForm() {
         {isFormOpen ? 'Close Form' : 'Open Form'}
       </button>
 
-      {isFormOpen ? (
+      <div
+        className={`${styles.formikContainer} ${
+          isFormOpen ? styles.formikContainerOpen : ''
+        }`}
+      >
         <Formik
           initialValues={initialValues}
           validationSchema={Yup.object({
@@ -325,7 +329,7 @@ function QuizQuestionForm() {
             </form>
           )}
         </Formik>
-      ) : null}
+      </div>
     </div>
   );
 }

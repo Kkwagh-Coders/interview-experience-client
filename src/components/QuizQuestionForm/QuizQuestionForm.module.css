@@ -43,6 +43,23 @@
   color: #333;
 }
 
+/* Used to show and hide form */
+.formikContainer {
+  display: grid;
+  grid-template-rows: 0fr;
+
+  transition: grid-template-rows 500ms;
+  padding-top: 1rem;
+}
+
+.formikContainer > .form {
+  overflow: hidden;
+}
+
+.formikContainerOpen {
+  grid-template-rows: 1fr;
+}
+
 .form
   :where(
     .inputField input,
