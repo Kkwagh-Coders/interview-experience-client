@@ -5,6 +5,7 @@ import QuizListPageImage from '../../assets/images/pages/home-page.png';
 import QuizQuestionForm from '../../components/QuizQuestionForm/QuizQuestionForm';
 import { useAppSelector } from '../../redux/store';
 import styles from './QuizList.module.css';
+import Image from '../../components/Image/Image';
 
 function QuizList() {
   const isAdmin = useAppSelector((state) => state.userState.user?.isAdmin);
@@ -59,10 +60,12 @@ function QuizList() {
           <div className={styles.quizTopics}>
             {quizTopics.map((quiz) => (
               <div className={styles.quizTopic} key={quiz.topic}>
-                <img
-                  src={quiz.image}
-                  alt={quiz.description}
-                  className={styles.quizImage}
+                <Image
+                  imageSrc={quiz.image}
+                  smallImageSrc={quiz.smallImage}
+                  imageAlt={quiz.description}
+                  containerClassName=""
+                  imageClassName={styles.quizImage}
                 />
 
                 <h2>{quiz.title}</h2>
