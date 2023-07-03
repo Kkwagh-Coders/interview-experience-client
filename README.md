@@ -1,7 +1,9 @@
-
 # Interview Experience
 
 A React Project for sharing Interview Experience with the whole college
+
+- Live Website: [https://official-interview-experience.netlify.app/](https://official-interview-experience.netlify.app/)
+- Server Code: [https://github.com/Kkwagh-Coders/interview-experience-server](https://github.com/Kkwagh-Coders/interview-experience-server)
 
 ## Tech Stack
 
@@ -20,7 +22,7 @@ A React Project for sharing Interview Experience with the whole college
 - Prettier
 - AirBnb Lint Configs
 
-## Suggested VsCode Pluggins
+## Suggested VsCode Plugins
 
 - Eslint
 - Prettier
