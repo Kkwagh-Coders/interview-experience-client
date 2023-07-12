@@ -21,6 +21,7 @@ A React Project for sharing Interview Experience with the whole college
 - Eslint
 - Prettier
 - AirBnb Lint Configs
+- Google Analytics and Google Search Console
 
 ## Suggested VsCode Plugins
 
