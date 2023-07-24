@@ -5,7 +5,7 @@ function GithubSection() {
     <div className={styles.GithubSection}>
       <div className="container">
         <h2 className={styles.title}>
-          <p>It is not enough for code to work. We strive for</p>
+          <p>We strive for</p>
           <span className={styles.spanGradient}>
             Clean and Maintainable Code
           </span>
