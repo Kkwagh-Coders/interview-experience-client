@@ -1,0 +1,126 @@
+.GithubSection {
+  width: 100%;
+  padding-inline: 1rem;
+  padding-block: 8rem;
+
+  background-color: #f0f4fc;
+  background-image: linear-gradient(#0c1425, #000);
+}
+
+.title {
+  color: rgb(var(--white-color));
+  text-align: center;
+  font-size: 1.75rem;
+
+  text-wrap: balance;
+}
+
+.spanGradient {
+  -webkit-text-fill-color: transparent;
+  background-image: linear-gradient(90deg, #754cff, #ff68c5);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.buttonContainer {
+  display: grid;
+  align-items: center;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin-top: 4rem;
+}
+
+.githubButton {
+  cursor: pointer;
+  text-decoration: none;
+
+  margin-bottom: 2rem;
+
+  color: rgb(var(--white-color));
+  background-color: rgb(var(--accent-color));
+
+  font-size: 1.5rem;
+  font-family: inherit;
+  font-weight: 700;
+
+  padding: 0.5em 1.25em;
+  border: 0;
+  border-radius: 0.5rem;
+}
+
+.glowEffect {
+  /* Used for the glowContainer */
+  --container-offset: 100px;
+  --animation-speed: 2000ms;
+  --glow-line-length: 18px;
+
+  position: relative;
+}
+
+.glowContainer {
+  opacity: 0;
+  position: absolute;
+  pointer-events: none;
+
+  inset: calc(-1 * var(--container-offset) / 2);
+  width: calc(100% + var(--container-offset));
+  height: calc(100% + var(--container-offset));
+}
+
+.glowBlur,
+.glowLine {
+  width: calc(100% - var(--container-offset));
+  height: calc(100% - var(--container-offset));
+
+  x: calc(var(--container-offset) / 2);
+  y: calc(var(--container-offset) / 2);
+
+  fill: transparent;
+  stroke: white;
+  stroke-width: 5px;
+  stroke-dasharray: var(--glow-line-length) calc(50px - var(--glow-line-length));
+
+  /* border radius for rect */
+  rx: 0.5rem;
+}
+
+.glowEffect:is(:hover, :focus) :is(.glowBlur, .glowLine) {
+  transition: stroke-dashoffset var(--animation-speed) ease-in;
+  stroke-dashoffset: -100px;
+}
+
+.glowLine {
+  stroke: rgb(var(--white-color));
+  stroke-width: 2px;
+}
+
+.glowBlur {
+  filter: blur(2px);
+  stroke: rgb(var(--white-color));
+  stroke-width: 2px;
+}
+
+.glowEffect:is(:hover, :focus) .glowContainer {
+  animation: glow-visibility var(--animation-speed);
+}
+
+@keyframes glow-visibility {
+  0%,
+  100% {
+    opacity: 0;
+  }
+
+  25%,
+  75% {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 700px) {
+  .title {
+    font-size: 1.25rem;
+  }
+}

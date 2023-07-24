@@ -6,14 +6,14 @@ import authenticIcon from '../../assets/images/home/facilities/authentic.png';
 import communityIcon from '../../assets/images/home/facilities/community.png';
 import doubtIcon from '../../assets/images/home/facilities/doubt.png';
 import insightIcon from '../../assets/images/home/facilities/insight.png';
-import aniketImage from '../../assets/images/home/founders/aniket.jpg';
 import aniketSmallImage from '../../assets/images/home/founders/aniket-small.jpg';
-import dhruvImage from '../../assets/images/home/founders/dhruv.jpg';
+import aniketImage from '../../assets/images/home/founders/aniket.jpg';
 import dhruvSmallImage from '../../assets/images/home/founders/dhruv-small.jpg';
-import suhaanImage from '../../assets/images/home/founders/suhaan.jpg';
+import dhruvImage from '../../assets/images/home/founders/dhruv.jpg';
 import suhaanSmallImage from '../../assets/images/home/founders/suhaan-small.jpg';
-import vinayImage from '../../assets/images/home/founders/vinay.jpg';
+import suhaanImage from '../../assets/images/home/founders/suhaan.jpg';
 import vinaySmallImage from '../../assets/images/home/founders/vinay-small.jpg';
+import vinayImage from '../../assets/images/home/founders/vinay.jpg';
 import homePageImage from '../../assets/images/pages/home-page.png';
 
 // Import Swiper styles
@@ -21,10 +21,11 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
+import GithubSection from '../../components/GithubSection/GithubSection';
+import Image from '../../components/Image/Image';
 import TopPosts from '../../components/TopPosts/TopPosts';
 import styles from './Home.module.css';
 import './slider.css';
-import Image from '../../components/Image/Image';
 
 function Home() {
   return (
@@ -247,6 +248,9 @@ function Home() {
             </div>
           </div>
         </section>
+
+        {/* Used to show the button for github */}
+        <GithubSection />
 
         <section className={styles.attribution}>
           <div className="container">
