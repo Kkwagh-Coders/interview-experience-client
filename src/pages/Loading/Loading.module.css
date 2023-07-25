@@ -22,9 +22,9 @@
   transform-origin: 50% 50%;
   margin-top: 32px;
   -webkit-transform: rotateX(60deg) rotateZ(45deg) rotateY(0deg) translateZ(0px)
-    translateY(-40vh) translateX(-35px);
+    translateY(-38vh) translateX(7px);
   transform: rotateX(60deg) rotateZ(45deg) rotateY(0deg) translateZ(0px)
-    translateY(-40vh) translateX(-35px);
+    translateY(-38vh) translateX(7px);
 }
 .boxes .box {
   width: 32px;
@@ -147,4 +147,13 @@
 
 .textBox {
   text-align: center;
+}
+
+@media (max-width: 700px) {
+  .boxes {
+    -webkit-transform: rotateX(60deg) rotateZ(45deg) rotateY(0deg)
+      translateZ(0px) translateY(-38vh) translateX(-20px);
+    transform: rotateX(60deg) rotateZ(45deg) rotateY(0deg) translateZ(0px)
+      translateY(-38vh) translateX(-20px);
+  }
 }
