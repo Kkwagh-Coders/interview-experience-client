@@ -1,4 +1,5 @@
 import { useRef } from 'react';
+import { Link } from 'react-router-dom';
 import styles from './LoginRequiredModal.module.css';
 
 interface Props {
@@ -42,7 +43,9 @@ function LoginRequiredModal({ closeModalCallback }: Props) {
             value="Close"
           />
 
-          <input className={styles.loginButton} type="submit" value="Login" />
+          <Link to="/login" className={styles.loginButton}>
+            Login
+          </Link>
         </div>
       </div>
     </div>

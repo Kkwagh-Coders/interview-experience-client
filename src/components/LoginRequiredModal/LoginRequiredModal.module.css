@@ -78,6 +78,7 @@
 .loginButton {
   cursor: pointer;
   color: white !important;
+  text-decoration: none;
   background-color: rgb(var(--accent-color));
   font-size: 17px;
   font-weight: 500;
