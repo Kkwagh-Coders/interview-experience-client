@@ -8,10 +8,12 @@
   border-radius: 5px;
   margin-bottom: 2rem;
   box-shadow: var(--box-shadow);
+  transition: box-shadow 200ms ease;
 }
 
 .interviewPost:hover {
-  transform: translateY(-2px);
+  /* Removed this as pop up shows glitch */
+  /* transform: translateY(-2px); */
   box-shadow: 0 10px 10px hsl(0deg 0% 0% / 10%);
 }
 

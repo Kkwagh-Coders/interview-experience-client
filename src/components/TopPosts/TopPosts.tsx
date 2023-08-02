@@ -2,6 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import { Link } from 'react-router-dom';
 import { getMostViewedPosts } from '../../services/post.services';
 import getFormattedDate from '../../utils/getFormattedDate';
+import LoginRequiredLink from '../LoginRequiredLink/LoginRequiredLink';
 import styles from './TopPosts.module.css';
 
 function TopPosts() {
@@ -20,7 +21,11 @@ function TopPosts() {
         <div className={styles.interviewPost} key={post._id}>
           <span className={styles.postDomain}>{post.postType}</span>
           <h3 className={styles.postTitle}>
-            <Link to={`/post/${post._id}`}>{post.title}</Link>
+            <LoginRequiredLink
+              textContent={post.title}
+              to={`/post/${post._id}`}
+              className=""
+            />
           </h3>
           <p className={styles.postDescription}>{post.content}</p>
           <p className={styles.postAuthor}>

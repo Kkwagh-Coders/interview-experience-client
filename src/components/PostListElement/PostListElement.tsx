@@ -2,11 +2,12 @@ import { Link } from 'react-router-dom';
 import { PostCard } from '../../types/post.types';
 import getFormattedDate from '../../utils/getFormattedDate';
 import DeleteButton from '../DeleteButton/DeleteButton';
+import LoginRequiredLink from '../LoginRequiredLink/LoginRequiredLink';
 import PostBookmarkButton from '../PostBookmarkButton/PostBookmarkButton';
+import PostDownVoteButton from '../PostDownVoteButton/PostDownVoteButton';
 import PostUpVoteButton from '../PostUpVoteButton/PostUpVoteButton';
 import ShareButton from '../ShareButton/ShareButton';
 import styles from './PostListElement.module.css';
-import PostDownVoteButton from '../PostDownVoteButton/PostDownVoteButton';
 
 // TODO : vote , date, share, bookmark, upVote downVote
 export type Props = {
@@ -19,7 +20,11 @@ function PostListElement({ post }: Props) {
       <div className={styles.interviewPost}>
         <span className={styles.postDomain}>{post.postType}</span>
         <h3 className={styles.postTitle}>
-          <Link to={`/post/${post._id}`}>{post.title}</Link>
+          <LoginRequiredLink
+            textContent={post.title}
+            to={`/post/${post._id}`}
+            className=""
+          />
         </h3>
         <p className={styles.postDescription}>{post.content}</p>
         <div className={styles.userActions}>
@@ -52,9 +57,11 @@ function PostListElement({ post }: Props) {
         </div>
 
         <div className={styles.buttons}>
-          <Link to={`/post/${post._id}`} className={styles.readButton}>
-            Read
-          </Link>
+          <LoginRequiredLink
+            textContent="Read"
+            to={`/post/${post._id}`}
+            className={styles.readButton}
+          />
           <ShareButton
             title={post.title}
             author={post.userId?.username || 'User Deleted'}
