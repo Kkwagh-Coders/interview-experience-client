@@ -27,6 +27,8 @@
   position: relative;
   font-size: 1.5rem;
   font-weight: 600;
+  margin: 0;
+  margin-bottom: 1rem;
 }
 
 .title::before {
@@ -44,10 +46,13 @@
   font-size: 1.1rem;
   font-weight: 400;
   color: rgb(var(--text-color-light));
+  text-align: left;
+  padding-block: 0;
+  padding-inline: 0;
 }
 
 .buttons {
-  margin-top: 2rem;
+  margin-top: 1rem;
 
   display: flex;
   justify-content: flex-end;

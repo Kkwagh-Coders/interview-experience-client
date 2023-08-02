@@ -1,11 +1,11 @@
 import { Helmet } from 'react-helmet';
-import { Link } from 'react-router-dom';
 import { quizTopics } from '../../assets/data/quiz.data';
 import QuizListPageImage from '../../assets/images/pages/home-page.png';
+import Image from '../../components/Image/Image';
+import LoginRequiredLink from '../../components/LoginRequiredLink/LoginRequiredLink';
 import QuizQuestionForm from '../../components/QuizQuestionForm/QuizQuestionForm';
 import { useAppSelector } from '../../redux/store';
 import styles from './QuizList.module.css';
-import Image from '../../components/Image/Image';
 
 function QuizList() {
   const isAdmin = useAppSelector((state) => state.userState.user?.isAdmin);
@@ -70,12 +70,12 @@ function QuizList() {
 
                 <h2>{quiz.title}</h2>
                 <p>{quiz.description}</p>
-                <Link
+
+                <LoginRequiredLink
+                  textContent="Start"
                   to={`/quiz/${quiz.topic}`}
                   className={`default-button ${styles.startButton}`}
-                >
-                  Start
-                </Link>
+                />
               </div>
             ))}
           </div>

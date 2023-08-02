@@ -23,6 +23,7 @@ import 'swiper/css/pagination';
 
 import GithubSection from '../../components/GithubSection/GithubSection';
 import Image from '../../components/Image/Image';
+import LoginRequiredLink from '../../components/LoginRequiredLink/LoginRequiredLink';
 import TopPosts from '../../components/TopPosts/TopPosts';
 import styles from './Home.module.css';
 import './slider.css';
@@ -71,12 +72,11 @@ function Home() {
               Take Control of Your Career Journey Today!
             </p>
             <div className={styles.heroActionButtons}>
-              <Link
+              <LoginRequiredLink
+                textContent="Create Post"
                 to="/post"
                 className={`default-button ${styles.exploreButton}`}
-              >
-                Create Post
-              </Link>
+              />
               <Link
                 to="/posts"
                 className={`default-button default-outline-button ${styles.aimButton}`}
