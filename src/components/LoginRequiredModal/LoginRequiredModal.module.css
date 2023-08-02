@@ -61,6 +61,7 @@
 }
 
 .backButton {
+  text-align: center;
   cursor: pointer;
   color: white;
   background-color: red;
@@ -76,6 +77,7 @@
 }
 
 .loginButton {
+  text-align: center;
   cursor: pointer;
   color: white !important;
   text-decoration: none;
