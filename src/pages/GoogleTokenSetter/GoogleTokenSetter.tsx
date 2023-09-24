@@ -2,6 +2,7 @@ import { useQueryClient } from '@tanstack/react-query';
 import { useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { setUserToken } from '../../services/user.services';
+import Loading from '../Loading/Loading';
 
 function GoogleTokenSetter() {
   const { token } = useParams();
@@ -21,7 +22,7 @@ function GoogleTokenSetter() {
     handleGoogleTokenSetter();
   }, [token, navigate, queryClient]);
 
-  return <div>Google Token Verification</div>;
+  return <Loading />;
 }
 
 export default GoogleTokenSetter;
