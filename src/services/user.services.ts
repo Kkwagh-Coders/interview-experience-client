@@ -90,3 +90,10 @@ export const searchUser = (user: string, page: number, limit: number) => {
     .get<ResponseType>(url.href, { withCredentials: true })
     .then((res) => res.data);
 };
+
+export const setUserToken = (token: string) => {
+  const url = `${BASE_API_URL}/user/token/google/${token}`;
+  return axios
+    .post<{ message: string }>(url, {}, { withCredentials: true })
+    .then((response) => response.data);
+};

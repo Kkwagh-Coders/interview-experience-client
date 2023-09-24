@@ -1,11 +1,12 @@
 import { Suspense, lazy, useEffect } from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import useUserStatus from '../hooks/useUserStatus';
-import Loading from '../pages/Loading/Loading';
-import DefaultLayout from '../pages/DefaultLayout';
 import AuthRouteLayout from '../pages/AuthRouteLayout/AuthRouteLayout';
-import NotFound from '../pages/NotFound/NotFound';
+import DefaultLayout from '../pages/DefaultLayout';
 import Error from '../pages/Error/Error';
+import GoogleTokenSetter from '../pages/GoogleTokenSetter/GoogleTokenSetter';
+import Loading from '../pages/Loading/Loading';
+import NotFound from '../pages/NotFound/NotFound';
 
 // Lazily importing pages
 const Home = lazy(() => import('../pages/Home/Home'));
@@ -48,6 +49,7 @@ function Router() {
           <Route path="/events" element={<Events />} />
           <Route path="/profile/:id" element={<ProfilePage />} />
           <Route path="/reset-password/:token" element={<ResetPassword />} />
+          <Route path="/token/google/:token" element={<GoogleTokenSetter />} />
           <Route path="/posts" element={<PostList />} />
           <Route path="/user/search" element={<UserSearch />} />
           <Route path="/quizzes" element={<QuizList />} />
