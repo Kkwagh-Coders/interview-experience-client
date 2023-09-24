@@ -1,16 +1,17 @@
-import { useState } from 'react';
 import { useMutation } from '@tanstack/react-query';
 import { useFormik } from 'formik';
+import { useState } from 'react';
 import { Helmet } from 'react-helmet';
 import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import * as Yup from 'yup';
 
-import { User } from '../../types/user.types';
-import { registerUser } from '../../services/user.services';
-import registrationPageImage from '../../assets/images/pages/registration.png';
 import { branches } from '../../assets/data/user.data';
+import registrationPageImage from '../../assets/images/pages/registration.png';
 import RegisterSuccessModal from '../../components/RegisterSuccessModal/RegisterSuccessModal';
+import SignInWithGoogle from '../../components/SignInWithGoogle/SignInWithGoogle';
+import { registerUser } from '../../services/user.services';
+import { User } from '../../types/user.types';
 import styles from './UserRegister.module.css';
 
 interface IUserRegisterFormValue extends User {
@@ -126,6 +127,8 @@ function UserRegister() {
       <div className={styles.UserRegister}>
         <div className={styles.container}>
           <header className={styles.title}>Registration Form</header>
+          <SignInWithGoogle />
+          <div className={styles.orLabel}>OR</div>
           <form onSubmit={formik.handleSubmit} className={styles.form}>
             <div
               className={`${styles.inputField} ${
@@ -393,6 +396,7 @@ function UserRegister() {
               disabled={isLoading}
             />
           </form>
+
           <div className={styles.loginSignUp}>
             <span className={styles.signUpText}>
               <span>Already have an Account ?</span>

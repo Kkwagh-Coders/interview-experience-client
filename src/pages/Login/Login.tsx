@@ -9,6 +9,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import * as Yup from 'yup';
 import loginPageImage from '../../assets/images/pages/login.png';
 import ForgetPasswordModal from '../../components/ForgetPasswordModal/ForgetPasswordModal';
+import SignInWithGoogle from '../../components/SignInWithGoogle/SignInWithGoogle';
 import { loginUser } from '../../services/user.services';
 import styles from './Login.module.css';
 
@@ -167,6 +168,13 @@ function Login() {
                 closeModalCallback={() => setModalOpen(false)}
               />
             )}
+
+            <div className={styles.orLabel}>OR</div>
+
+            <div>
+              <SignInWithGoogle />
+            </div>
+
             <div className={styles.loginSignUp}>
               <span className={styles.signUpText}>
                 Not a member?

@@ -1,4 +1,5 @@
 .Login {
+  padding-top: 3rem;
   min-height: 100vh;
   min-height: 100dvh;
 
@@ -170,4 +171,11 @@
 .form .loginSignUp {
   margin-top: 30px;
   text-align: center;
+}
+
+.orLabel {
+  text-align: center;
+  color: rgb(var(--text-color-light));
+  font-weight: 500;
+  margin-block: 1rem;
 }
