@@ -144,6 +144,7 @@
     position: relative;
     text-align: left;
     font-size: 1.2rem;
+    margin-bottom: 1.5rem;
   }
 
   .container header::before {
