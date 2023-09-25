@@ -67,8 +67,8 @@ function QuizGame() {
       <h2 className={styles.title}>{`${topic} Quiz`}</h2>
       <p className={styles.score}>
         {`
-          ${quizState.correctAnswerCount} / 
-          ${currentQuestion + (quizState.isQuestionAnswered ? 1 : 0)}
+          ${currentQuestion + (quizState.isQuestionAnswered ? 1 : 0)} / 
+          ${quizState.quizQuestions?.length}
         `}
       </p>
       <p className={styles.question}>{questionData?.question}</p>
