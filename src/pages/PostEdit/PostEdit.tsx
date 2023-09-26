@@ -1,11 +1,11 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { Formik } from 'formik';
+import { useEffect } from 'react';
 import toast from 'react-hot-toast';
 import { useNavigate, useParams } from 'react-router-dom';
 import * as Yup from 'yup';
-import { useEffect } from 'react';
 
-import { PostFormData } from '../../types/post.types';
+import { industries, postTypes } from '../../assets/data/post.data';
 import Editor from '../../components/Editor/Editor';
 import StarRating from '../../components/StarRating/StarRating';
 import {
@@ -13,9 +13,9 @@ import {
   getCompanyAndRoleList,
   getPost,
 } from '../../services/post.services';
-import styles from './PostEdit.module.css';
-import { industries, postTypes } from '../../assets/data/post.data';
+import { PostEditFormData } from '../../types/post.types';
 import getStringFromTags from '../../utils/getStringFromTags';
+import styles from './PostEdit.module.css';
 
 interface SuccessResponse {
   message: string;
@@ -52,9 +52,9 @@ function PostEdit() {
   const { mutate, isLoading } = useMutation<
   SuccessResponse,
   ErrorResponse<{ message: string }>,
-  PostFormData
+  PostEditFormData
   >({
-    mutationFn: (postData: PostFormData) => editPost(postData, id, 'published'),
+    mutationFn: (postData: PostEditFormData) => editPost(postData, id, 'published'),
     onError: (error) => {
       toast.error(error.response.data.message);
     },
@@ -65,7 +65,6 @@ function PostEdit() {
     },
   });
 
-  //
   const initialValues = {
     title: postQuery.data?.title || '',
     role: postQuery.data?.role || '',
@@ -73,6 +72,7 @@ function PostEdit() {
     domain: postQuery.data?.domain || '',
     postType: postQuery.data?.postType || '',
     content: postQuery.data?.content || '',
+    summary: postQuery.data?.summary || '',
     tags: getStringFromTags(postQuery.data?.tags || []),
     rating: postQuery.data?.rating || 0,
   };
@@ -93,6 +93,7 @@ function PostEdit() {
             postType: Yup.string().required('Post Type is required'),
             tags: Yup.string().required('Tags is required'),
             rating: Yup.number().required('Rating is required'),
+            summary: Yup.string().required('Summary is required'),
           })}
           onSubmit={(values) => mutate(values)}
         >
@@ -254,6 +255,28 @@ function PostEdit() {
                     name="tags"
                     placeholder="#interview #experience #community"
                     value={formik.values.tags}
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                  />
+                </label>
+              </div>
+
+              <div
+                className={`${styles.inputField} ${
+                  formik.touched.summary && formik.errors.summary
+                    ? styles.inputFieldError
+                    : ''
+                }`}
+              >
+                <label htmlFor="summary">
+                  {formik.touched.summary && formik.errors.summary
+                    ? formik.errors.summary
+                    : 'Summary'}
+                  <span className="required">*</span>
+                  <textarea
+                    name="summary"
+                    placeholder="Write Summary of your Post..."
+                    value={formik.values.summary}
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                   />

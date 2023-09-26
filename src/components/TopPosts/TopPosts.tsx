@@ -27,7 +27,7 @@ function TopPosts() {
               className=""
             />
           </h3>
-          <p className={styles.postDescription}>{post.content}</p>
+          <p className={styles.postDescription}>{post.summary}</p>
           <p className={styles.postAuthor}>
             {post.userId ? (
               <Link

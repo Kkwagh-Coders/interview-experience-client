@@ -9,8 +9,8 @@ import PostComments from '../../components/PostComments/PostComments';
 import ShareButton from '../../components/ShareButton/ShareButton';
 import { useAppSelector } from '../../redux/store';
 import { getPost } from '../../services/post.services';
-import styles from './PostPage.module.css';
 import generateTextFromHTML from '../../utils/generateTextFromHTML';
+import styles from './PostPage.module.css';
 
 function PostPage() {
   const { id } = useParams();
@@ -21,7 +21,7 @@ function PostPage() {
   });
 
   // useAppSelector is called here because it must be called before any return
-  const userId = useAppSelector((state) => state.userState.user?.userId);
+  const user = useAppSelector((state) => state.userState.user);
 
   // TODO: implement loading
   if (postQuery.status === 'loading') return <h3>Loading</h3>;
@@ -29,7 +29,8 @@ function PostPage() {
 
   const authorId = postQuery.data.postAuthorId;
 
-  const isEditable = userId === authorId;
+  const isEditable = user?.userId === authorId || user?.isAdmin;
+
   return (
     <>
       <Helmet>

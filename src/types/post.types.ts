@@ -1,6 +1,7 @@
 export type Post = {
   title: string;
   content: string;
+  summary: string;
   company: string;
   role: string;
   postType: string;
@@ -23,6 +24,7 @@ export type PostCard = {
   _id: string;
   title: string;
   content: string;
+  summary: string;
   userId: {
     _id: string;
     username: string;
@@ -52,6 +54,18 @@ export type PostFormData = {
   domain: string;
   postType: string;
   content: string;
+  tags: string;
+  rating: number;
+};
+
+export type PostEditFormData = {
+  title: string;
+  role: string;
+  company: string;
+  domain: string;
+  postType: string;
+  content: string;
+  summary: string;
   tags: string;
   rating: number;
 };

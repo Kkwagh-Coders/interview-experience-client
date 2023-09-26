@@ -26,7 +26,7 @@ function PostListElement({ post }: Props) {
             className=""
           />
         </h3>
-        <p className={styles.postDescription}>{post.content}</p>
+        <p className={styles.postDescription}>{post.summary}</p>
         <div className={styles.userActions}>
           <div className={styles.voteOption}>
             <PostUpVoteButton postId={post._id} isVoted={post.isUpVoted} />
