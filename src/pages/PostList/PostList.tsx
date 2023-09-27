@@ -129,6 +129,7 @@ function PostList() {
                 <input
                   type="text"
                   placeholder="Search..."
+                  value={filter.search}
                   onChange={(e) => {
                     setSearchParams({
                       // Here we are filtering all the values which are empty
