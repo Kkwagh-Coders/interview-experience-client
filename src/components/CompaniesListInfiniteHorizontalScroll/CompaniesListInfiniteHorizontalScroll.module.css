@@ -5,6 +5,8 @@
 }
 
 .tagList li {
+  width: max-content;
+
   padding: 1rem 2rem;
   border-radius: 0.5rem;
   background-color: hsl(215, 25%, 27%);
