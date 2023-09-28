@@ -21,6 +21,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
+import CompaniesListInfiniteHorizontalScroll from '../../components/CompaniesListInfiniteHorizontalScroll/CompaniesListInfiniteHorizontalScroll';
 import GithubSection from '../../components/GithubSection/GithubSection';
 import Image from '../../components/Image/Image';
 import LoginRequiredLink from '../../components/LoginRequiredLink/LoginRequiredLink';
@@ -140,6 +141,13 @@ function Home() {
               </span>
             </h2>
             <TopPosts />
+          </div>
+        </section>
+
+        <section className={styles.companies} id="recentPosts">
+          <div className="container">
+            <h2>Students Posted about</h2>
+            <CompaniesListInfiniteHorizontalScroll />
           </div>
         </section>
 

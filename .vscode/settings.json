@@ -5,5 +5,5 @@
     "source.organizeImports": true
   },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "cSpell.words": ["noninteractive"]
+  "cSpell.words": ["noninteractive", "scroller", "tanstack"]
 }

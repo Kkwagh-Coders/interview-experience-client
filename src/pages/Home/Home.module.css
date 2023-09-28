@@ -171,6 +171,32 @@
   }
 }
 
+/* companies section */
+.companies {
+  scroll-margin-top: 3rem;
+  margin-inline: auto;
+  padding-block: 4rem 6rem;
+  background-color: hsl(217, 33%, 17%);
+}
+
+.companies h2 {
+  font-size: 1.3rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: white;
+}
+
+.companies a {
+  text-decoration: none;
+}
+
+@media (min-width: 600px) {
+  .companies h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+}
+
 /* Team */
 .team {
   padding-block: 1rem;
