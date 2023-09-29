@@ -10,7 +10,7 @@ import {
   getCompanyAndRoleList,
   getPostsPaginated,
 } from '../../services/post.services';
-import { PostCardList } from '../../types/post.types';
+import { PostPaginated } from '../../types/post.types';
 import styles from './PostList.module.css';
 
 function PostList() {
@@ -41,11 +41,7 @@ function PostList() {
     isFetchingNextPage,
   } = useInfiniteQuery({
     queryKey: ['posts', filter],
-    getNextPageParam: (prevData: {
-      message: string;
-      data: PostCardList;
-      page: { nextPage: number; previousPage: number };
-    }) => prevData.page.nextPage,
+    getNextPageParam: (prevData: PostPaginated) => prevData.page?.nextPage,
     queryFn: ({ pageParam = 1 }) => getPostsPaginated(pageParam, 10, filter),
   });
 

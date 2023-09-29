@@ -1,11 +1,11 @@
-import { useEffect } from 'react';
 import { useInfiniteQuery } from '@tanstack/react-query';
+import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { getUserPostPaginated } from '../../services/post.services';
-import { PostCardList } from '../../types/post.types';
+import { PostPaginated } from '../../types/post.types';
 import PostListElement from '../PostListElement/PostListElement';
-import styles from './UserPost.module.css';
 import PostSkeleton from '../PostSkeleton/PostSkeleton';
+import styles from './UserPost.module.css';
 
 function UserPost() {
   const { id } = useParams();
@@ -19,11 +19,7 @@ function UserPost() {
     isFetchingNextPage,
   } = useInfiniteQuery({
     queryKey: ['user-post', id],
-    getNextPageParam: (prevData: {
-      message: string;
-      data: PostCardList;
-      page: { nextPage: number; previousPage: number };
-    }) => prevData.page.nextPage,
+    getNextPageParam: (prevData: PostPaginated) => prevData.page.nextPage,
     queryFn: ({ pageParam = 1 }) => getUserPostPaginated(id, pageParam, 10),
   });
 

@@ -73,5 +73,5 @@ export type PostEditFormData = {
 export type PostPaginated = {
   message: string;
   data: PostCardList;
-  page: { nextPage: number; previousPage: number };
+  page: { nextPage?: number; previousPage?: number };
 };

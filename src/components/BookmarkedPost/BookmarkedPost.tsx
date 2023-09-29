@@ -1,11 +1,11 @@
-import { useEffect } from 'react';
 import { useInfiniteQuery } from '@tanstack/react-query';
+import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { getBookmarkedPostsPaginated } from '../../services/post.services';
-import { PostCardList } from '../../types/post.types';
+import { PostPaginated } from '../../types/post.types';
 import PostListElement from '../PostListElement/PostListElement';
-import styles from './BookmarkedPost.module.css';
 import PostSkeleton from '../PostSkeleton/PostSkeleton';
+import styles from './BookmarkedPost.module.css';
 
 function BookmarkedPost() {
   const { id } = useParams();
@@ -18,11 +18,7 @@ function BookmarkedPost() {
     isFetchingNextPage,
   } = useInfiniteQuery({
     queryKey: ['bookmarked-post', id],
-    getNextPageParam: (prevData: {
-      message: string;
-      data: PostCardList;
-      page: { nextPage: number; previousPage: number };
-    }) => prevData.page.nextPage,
+    getNextPageParam: (prevData: PostPaginated) => prevData.page.nextPage,
     queryFn: ({ pageParam = 1 }) => getBookmarkedPostsPaginated(id, pageParam, 5),
   });
 

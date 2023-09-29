@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { Post, PostFormData, PostPaginated } from '../types/post.types';
-import { BASE_API_URL } from './serverConfig';
 import getTagsFromString from '../utils/getTagsFromString';
+import { BASE_API_URL } from './serverConfig';
 
 export const getPost = (id: string | undefined) => {
   const url = `${BASE_API_URL}/posts/${id}`;
@@ -66,7 +66,14 @@ export const getPostsPaginated = (
 
   return axios
     .get<PostPaginated>(url.href, { withCredentials: true })
-    .then((res) => res.data);
+    .then((res) => res.data)
+    .then((data) => {
+      const postQueryData = structuredClone(data);
+      if (postQueryData.data.length < limit) {
+        postQueryData.page.nextPage = undefined;
+      }
+      return postQueryData;
+    });
 };
 
 export const createPost = (postData: PostFormData, status: string) => {
@@ -92,7 +99,14 @@ export const getBookmarkedPostsPaginated = (
 
   return axios
     .get<PostPaginated>(url.href, { withCredentials: true })
-    .then((res) => res.data);
+    .then((res) => res.data)
+    .then((data) => {
+      const postQueryData = structuredClone(data);
+      if (postQueryData.data.length < limit) {
+        postQueryData.page.nextPage = undefined;
+      }
+      return postQueryData;
+    });
 };
 
 export const getUserPostPaginated = (
@@ -106,7 +120,14 @@ export const getUserPostPaginated = (
 
   return axios
     .get<PostPaginated>(url.href, { withCredentials: true })
-    .then((res) => res.data);
+    .then((res) => res.data)
+    .then((data) => {
+      const postQueryData = structuredClone(data);
+      if (postQueryData.data.length < limit) {
+        postQueryData.page.nextPage = undefined;
+      }
+      return postQueryData;
+    });
 };
 
 export const deletePost = (postId: string) => {
