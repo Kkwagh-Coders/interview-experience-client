@@ -1,11 +1,12 @@
 import { useQuery } from '@tanstack/react-query';
 import { Helmet } from 'react-helmet';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import postImage from '../../assets/images/pages/home-page.png';
 import DeleteButton from '../../components/DeleteButton/DeleteButton';
 import DisplayQuill from '../../components/DisplayQuill/DisplayQuill';
 import PostBookmarkButton from '../../components/PostBookmarkButton/PostBookmarkButton';
 import PostComments from '../../components/PostComments/PostComments';
+import RelatedPosts from '../../components/RelatedPosts/RelatedPosts';
 import ShareButton from '../../components/ShareButton/ShareButton';
 import { useAppSelector } from '../../redux/store';
 import { getPost } from '../../services/post.services';
@@ -14,6 +15,8 @@ import styles from './PostPage.module.css';
 
 function PostPage() {
   const { id } = useParams();
+  const navigate = useNavigate();
+
   const postQuery = useQuery({
     queryKey: ['post', id],
     queryFn: () => getPost(id),
@@ -30,6 +33,11 @@ function PostPage() {
   const authorId = postQuery.data.postAuthorId;
 
   const isEditable = user?.userId === authorId || user?.isAdmin;
+
+  if (!id) {
+    navigate('/');
+    return <h1>Post Id not found!!</h1>;
+  }
 
   return (
     <>
@@ -158,9 +166,7 @@ function PostPage() {
 
             <div className={styles.related}>
               <p>Related Posts</p>
-              <ul>
-                <li>Feature in Progress...</li>
-              </ul>
+              <RelatedPosts postId={id} />
             </div>
           </div>
         </div>

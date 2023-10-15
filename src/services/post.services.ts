@@ -1,5 +1,10 @@
 import axios from 'axios';
-import { Post, PostFormData, PostPaginated } from '../types/post.types';
+import {
+  Post,
+  PostFormData,
+  PostPaginated,
+  RelatedPost,
+} from '../types/post.types';
 import getTagsFromString from '../utils/getTagsFromString';
 import { BASE_API_URL } from './serverConfig';
 
@@ -107,6 +112,21 @@ export const getBookmarkedPostsPaginated = (
       }
       return postQueryData;
     });
+};
+
+export const getRelatedPosts = (postId: string, limit: number) => {
+  const url = new URL(`${BASE_API_URL}/posts/related/${postId}`);
+  url.searchParams.set('limit', limit.toString());
+
+  type ResponseType = {
+    message: string;
+    relatedPosts: RelatedPost[];
+  };
+
+  return axios
+    .get<ResponseType>(url.href, { withCredentials: true })
+    .then((res) => res.data)
+    .then((data) => data.relatedPosts);
 };
 
 export const getUserPostPaginated = (

@@ -1,0 +1,21 @@
+.RelatedPosts {
+  width: 20ch;
+}
+
+.RelatedPosts li {
+  margin-bottom: 0.25rem;
+}
+
+.RelatedPosts a {
+  text-decoration: none;
+  color: rgb(var(--text-color-dark));
+}
+
+.RelatedPosts a:hover,
+.RelatedPosts a:focus {
+  text-decoration: underline;
+}
+
+.RelatedPosts a:visited {
+  color: grey;
+}

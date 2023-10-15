@@ -75,3 +75,8 @@ export type PostPaginated = {
   data: PostCardList;
   page: { nextPage?: number; previousPage?: number };
 };
+
+export type RelatedPost = {
+  _id: string;
+  title: string;
+};
