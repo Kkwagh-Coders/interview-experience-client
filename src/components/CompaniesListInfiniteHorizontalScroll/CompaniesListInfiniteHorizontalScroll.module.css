@@ -22,7 +22,10 @@
 }
 
 .scroller[data-animated='true'] {
+  --duration: 30s;
   overflow: hidden;
+  transform: translateX(0);
+  transition: 0.25s ease-out;
 
   -webkit-mask: linear-gradient(
     90deg,
@@ -45,7 +48,18 @@
 .scroller[data-animated='true'] .scrollerInner {
   width: fit-content;
   flex-wrap: nowrap;
-  animation: scroll 30s linear infinite;
+  animation: scroll var(--duration) linear infinite;
+}
+
+.scroller[data-animated='true']:hover {
+  transform: translateX(-3px);
+}
+
+.scroller[data-animated='true'] .scrollerInner:hover {
+  -webkit-animation-play-state: paused;
+  -moz-animation-play-state: paused;
+  -o-animation-play-state: paused;
+  animation-play-state: paused;
 }
 
 @keyframes scroll {
