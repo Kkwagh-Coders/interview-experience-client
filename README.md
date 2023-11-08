@@ -60,6 +60,13 @@ Change to Project Directory
   cd interview-experience-ui
 ```
 
+Add .env to the root directory of the project
+
+```.env
+REACT_APP_BASE_API_URL="http://localhost:8080"
+REACT_APP_BASE_CLIENT_URL="http://localhost:3000"
+```
+
 Install Dependencies
 
 ```bash
