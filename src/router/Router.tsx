@@ -10,7 +10,6 @@ import NotFound from '../pages/NotFound/NotFound';
 
 // Lazily importing pages
 const Home = lazy(() => import('../pages/Home/Home'));
-const Events = lazy(() => import('../pages/Events/Events'));
 const PostEdit = lazy(() => import('../pages/PostEdit/PostEdit'));
 const PostForm = lazy(() => import('../pages/PostForm/PostForm'));
 const PostList = lazy(() => import('../pages/PostList/PostList'));
@@ -46,7 +45,6 @@ function Router() {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<UserRegister />} />
-          <Route path="/events" element={<Events />} />
           <Route path="/profile/:id" element={<ProfilePage />} />
           <Route path="/reset-password/:token" element={<ResetPassword />} />
           <Route path="/token/google/:token" element={<GoogleTokenSetter />} />

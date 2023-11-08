@@ -2,7 +2,6 @@ https://official-interview-experience.netlify.app
 https://official-interview-experience.netlify.app/
 https://official-interview-experience.netlify.app/login
 https://official-interview-experience.netlify.app/register
-https://official-interview-experience.netlify.app/events
 https://official-interview-experience.netlify.app/quizzes
 https://official-interview-experience.netlify.app/quiz/aptitude
 https://official-interview-experience.netlify.app/quiz/cns

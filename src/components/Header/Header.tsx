@@ -2,12 +2,12 @@ import { useRef, useState } from 'react';
 import { MdOutlineClose } from 'react-icons/md';
 import { RxHamburgerMenu } from 'react-icons/rx';
 import { Link } from 'react-router-dom';
+import useOutsideAlerter from '../../hooks/useOutsideAlerter';
 import { useAppSelector } from '../../redux/store';
+import CustomNavLink from '../CustomNavLink/CustomNavLink';
 import DropDown from '../DropDown/DropDown';
 import LogoutButton from '../LogoutButton/LogoutButton';
-import useOutsideAlerter from '../../hooks/useOutsideAlerter';
 import styles from './Header.module.css';
-import CustomNavLink from '../CustomNavLink/CustomNavLink';
 
 function Header() {
   const isLoggedIn = useAppSelector((state) => state.userState.isLoggedIn);
@@ -82,14 +82,6 @@ function Header() {
               activeClassName={styles.navItemActive}
             >
               Quizzes
-            </CustomNavLink>
-            <CustomNavLink
-              path="/events"
-              onClickCallback={handleCloseNavbar}
-              className={styles.navItem}
-              activeClassName={styles.navItemActive}
-            >
-              Events
             </CustomNavLink>
 
             {isLoggedIn ? (
