@@ -2,12 +2,13 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { toast } from 'react-hot-toast';
 import { BiUpArrow } from 'react-icons/bi';
 import { upVotePost } from '../../services/post.services';
-import styles from './PostUpVoteButton.module.css';
 import { Post } from '../../types/post.types';
+import styles from './PostUpVoteButton.module.css';
 
 type Props = {
   postId: string;
-  isVoted: boolean;
+  isUpVoted: boolean;
+  isDownVoted: boolean;
 };
 
 interface SuccessResponse {
@@ -22,7 +23,7 @@ interface IPostUpVote {
   postId: string;
 }
 
-function PostUpVoteButton({ postId, isVoted }: Props) {
+function PostUpVoteButton({ postId, isUpVoted, isDownVoted }: Props) {
   const queryClient = useQueryClient();
 
   // prettier-ignore
@@ -39,14 +40,18 @@ function PostUpVoteButton({ postId, isVoted }: Props) {
       // Manually changing the Post
       const postData = queryClient.getQueryData<Post>(['post', postId]);
       if (postData) {
-        postData.isDownVoted = false;
-        postData.isUpVoted = !isVoted;
-        postData.isDownVoted = isVoted;
+        let updatedVoteCount = postData.voteCount;
 
-        if (isVoted) postData.voteCount -= 1;
-        else postData.voteCount += 1;
+        if (!isUpVoted && !isDownVoted) updatedVoteCount += 1;
+        else if (isUpVoted) updatedVoteCount -= 1;
+        else if (isDownVoted) updatedVoteCount += 2;
 
-        queryClient.setQueryData(['post', postId], postData);
+        queryClient.setQueryData(['post', postId], {
+          ...postData,
+          isUpVoted: !isUpVoted,
+          isDownVoted: false,
+          voteCount: updatedVoteCount,
+        });
       }
 
       queryClient.refetchQueries(['posts']);
@@ -63,7 +68,7 @@ function PostUpVoteButton({ postId, isVoted }: Props) {
   return (
     <BiUpArrow
       className={`${styles.voteArrow} ${styles.upVote} ${
-        isVoted ? styles.upVoteActive : ''
+        isUpVoted ? styles.upVoteActive : ''
       }`}
       onClick={handleUpVote}
     />

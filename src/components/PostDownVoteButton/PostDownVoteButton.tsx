@@ -7,7 +7,8 @@ import styles from './PostDownVoteButton.module.css';
 
 type Props = {
   postId: string;
-  isVoted: boolean;
+  isUpVoted: boolean;
+  isDownVoted: boolean;
 };
 
 interface SuccessResponse {
@@ -22,7 +23,7 @@ interface IPostDownVote {
   postId: string;
 }
 
-function PostDownVoteButton({ postId, isVoted }: Props) {
+function PostDownVoteButton({ postId, isUpVoted, isDownVoted }: Props) {
   const queryClient = useQueryClient();
 
   // prettier-ignore
@@ -39,16 +40,19 @@ function PostDownVoteButton({ postId, isVoted }: Props) {
       // Manually changing the Post
       const postData = queryClient.getQueryData<Post>(['post', postId]);
       if (postData) {
-        postData.isDownVoted = false;
+        let updatedVoteCount = postData.voteCount;
 
-        // isVoted is old values
-        postData.isDownVoted = !isVoted;
-        postData.isUpVoted = isVoted;
+        // old values
+        if (!isUpVoted && !isDownVoted) updatedVoteCount -= 1;
+        else if (isUpVoted) updatedVoteCount -= 2;
+        else if (isDownVoted) updatedVoteCount += 1;
 
-        if (isVoted) postData.voteCount += 1;
-        else postData.voteCount -= 1;
-
-        queryClient.setQueryData(['post', postId], postData);
+        queryClient.setQueryData(['post', postId], {
+          ...postData,
+          isDownVoted: !isDownVoted,
+          isUpVoted: false,
+          voteCount: updatedVoteCount,
+        });
       }
 
       queryClient.refetchQueries(['posts']);
@@ -65,7 +69,7 @@ function PostDownVoteButton({ postId, isVoted }: Props) {
   return (
     <BiDownArrow
       className={`${styles.voteArrow} ${styles.downVote} ${
-        isVoted ? styles.downVoteActive : ''
+        isDownVoted ? styles.downVoteActive : ''
       }`}
       onClick={handleDownVote}
     />

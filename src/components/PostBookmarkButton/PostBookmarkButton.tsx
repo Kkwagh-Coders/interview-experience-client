@@ -3,8 +3,8 @@ import { useState } from 'react';
 import { toast } from 'react-hot-toast';
 import { BsBookmarkDashFill } from 'react-icons/bs';
 import { toggleBookmark } from '../../services/post.services';
-import styles from './PostBookmarkButton.module.css';
 import { Post } from '../../types/post.types';
+import styles from './PostBookmarkButton.module.css';
 
 type Props = {
   postId: string;
@@ -44,8 +44,11 @@ function PostBookmarkButton({ postId, isBookmarked }: Props) {
       // Manually changing the Post
       const postData = queryClient.getQueryData<Post>(['post', postId]);
       if (postData) {
-        postData.isBookmarked = !postData.isBookmarked;
-        queryClient.setQueryData(['post', postId], postData);
+        // Creating a new copy of postData
+        queryClient.setQueryData(['post', postId], {
+          ...postData,
+          isBookmarked: !postData.isBookmarked,
+        });
       }
 
       queryClient.refetchQueries(['posts']);
