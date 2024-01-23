@@ -69,7 +69,12 @@ export const updateUser = (user: UserUpdate) => {
     .then((response) => response.data);
 };
 
-export const searchUser = (user: string, page: number, limit: number) => {
+export const searchUser = (
+  user: string,
+  page: number,
+  limit: number,
+  signal: AbortSignal | undefined,
+) => {
   const url = new URL(`${BASE_API_URL}/user/search`);
   url.searchParams.set('searchparam', user);
   url.searchParams.set('page', page.toString());
@@ -87,7 +92,7 @@ export const searchUser = (user: string, page: number, limit: number) => {
     page: { previousPage: number; nextPage: number };
   };
   return axios
-    .get<ResponseType>(url.href, { withCredentials: true })
+    .get<ResponseType>(url.href, { withCredentials: true, signal })
     .then((res) => res.data);
 };
 

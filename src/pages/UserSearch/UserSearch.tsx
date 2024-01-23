@@ -30,7 +30,7 @@ function UserSearch() {
       data: ResponseType;
       page: { nextPage: number; previousPage: number };
     }) => prevData.page.nextPage,
-    queryFn: ({ pageParam = 1 }) => searchUser(search, pageParam, 15),
+    queryFn: ({ pageParam = 1, signal }) => searchUser(search, pageParam, 15, signal),
   });
 
   let scrollFooterElement = <p>Nothing More to Load</p>;
