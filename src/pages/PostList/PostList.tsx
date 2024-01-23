@@ -42,7 +42,7 @@ function PostList() {
   } = useInfiniteQuery({
     queryKey: ['posts', filter],
     getNextPageParam: (prevData: PostPaginated) => prevData.page?.nextPage,
-    queryFn: ({ pageParam = 1 }) => getPostsPaginated(pageParam, 10, filter),
+    queryFn: ({ pageParam = 1, signal }) => getPostsPaginated(pageParam, 10, filter, signal),
   });
 
   let scrollFooterElement = <p>Nothing More to Load</p>;

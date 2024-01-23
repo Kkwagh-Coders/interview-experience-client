@@ -39,6 +39,7 @@ export const getPostsPaginated = (
     company: string;
     rating: string;
   },
+  signal: AbortSignal | undefined,
 ) => {
   const url = new URL(`${BASE_API_URL}/posts`);
 
@@ -70,7 +71,7 @@ export const getPostsPaginated = (
   }
 
   return axios
-    .get<PostPaginated>(url.href, { withCredentials: true })
+    .get<PostPaginated>(url.href, { withCredentials: true, signal })
     .then((res) => res.data)
     .then((data) => {
       const postQueryData = structuredClone(data);
