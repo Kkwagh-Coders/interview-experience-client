@@ -5,8 +5,6 @@ function Error() {
     <div className={styles.Error}>
       <div className={styles.container}>
         <div className={styles.mainGraphic}>
-          <h1 className={styles.errorCode}>500</h1>
-
           <svg
             className={styles.cog}
             xmlns="http://www.w3.org/2000/svg"
@@ -16,11 +14,11 @@ function Error() {
           </svg>
         </div>
 
-        <h1 className={styles.mainTitle}>An error has occurred</h1>
+        <h1 className={styles.mainTitle}>Oops! Something went wrong</h1>
         <p className={styles.mainDescription}>
-          Server is currently under high load - please hit
-          <span className="bold-text"> Reload </span>
-          on your browser in a minute to try again
+          Server encountered an
+          <span className="bold-text"> unexpected error. </span>
+          Please try again later.
         </p>
       </div>
     </div>

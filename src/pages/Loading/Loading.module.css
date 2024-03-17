@@ -22,9 +22,9 @@
   transform-origin: 50% 50%;
   margin-top: 32px;
   -webkit-transform: rotateX(60deg) rotateZ(45deg) rotateY(0deg) translateZ(0px)
-    translateY(-38vh) translateX(7px);
+    translateY(-32vh) translateX(1px);
   transform: rotateX(60deg) rotateZ(45deg) rotateY(0deg) translateZ(0px)
-    translateY(-38vh) translateX(7px);
+    translateY(-32vh) translateX(1px);
 }
 .boxes .box {
   width: 32px;
