@@ -11,10 +11,12 @@ import loginPageImage from '../../assets/images/pages/login.png';
 import ForgetPasswordModal from '../../components/ForgetPasswordModal/ForgetPasswordModal';
 import SignInWithGoogle from '../../components/SignInWithGoogle/SignInWithGoogle';
 import { loginUser } from '../../services/user.services';
+import { setLocalStorage } from '../../utils/localStorage';
 import styles from './Login.module.css';
 
 interface SuccessResponse {
   message: string;
+  token: string;
 }
 
 interface ErrorResponse<T> {
@@ -43,7 +45,8 @@ function Login() {
     onError: (error) => {
       toast.error(error.response.data.message);
     },
-    onSuccess: () => {
+    onSuccess: (data) => {
+      setLocalStorage('token', data.token);
       queryClient.refetchQueries(['user-status']);
       navigate('/');
     },

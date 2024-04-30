@@ -5,13 +5,17 @@ import {
   PostPaginated,
   RelatedPost,
 } from '../types/post.types';
+import getAuthToken from '../utils/getAuthToken';
 import getTagsFromString from '../utils/getTagsFromString';
 import { BASE_API_URL } from './serverConfig';
 
 export const getPost = (id: string | undefined) => {
   const url = `${BASE_API_URL}/posts/${id}`;
+  const options = {
+    headers: { token: getAuthToken() },
+  };
   return axios
-    .get<{ message: string; post: Post }>(url, { withCredentials: true })
+    .get<{ message: string; post: Post }>(url, options)
     .then((res) => res.data.post);
 };
 
@@ -24,7 +28,7 @@ export const getMostViewedPosts = (limit: number) => {
   url.searchParams.set('sortBy', 'views');
 
   return axios
-    .get<PostPaginated>(url.href, { withCredentials: true })
+    .get<PostPaginated>(url.href, { headers: { token: getAuthToken() } })
     .then((res) => res.data);
 };
 
@@ -70,8 +74,13 @@ export const getPostsPaginated = (
     url.searchParams.set('rating', filter.rating);
   }
 
+  const options = {
+    headers: { token: getAuthToken() },
+    signal,
+  };
+
   return axios
-    .get<PostPaginated>(url.href, { withCredentials: true, signal })
+    .get<PostPaginated>(url.href, options)
     .then((res) => res.data)
     .then((data) => {
       const postQueryData = structuredClone(data);
@@ -90,7 +99,7 @@ export const createPost = (postData: PostFormData, status: string) => {
   type CreatePost = { message: string; postId: string };
 
   return axios
-    .post<CreatePost>(url, body, { withCredentials: true })
+    .post<CreatePost>(url, body, { headers: { token: getAuthToken() } })
     .then((response) => response.data);
 };
 
@@ -104,7 +113,7 @@ export const getBookmarkedPostsPaginated = (
   url.searchParams.set('limit', limit.toString());
 
   return axios
-    .get<PostPaginated>(url.href, { withCredentials: true })
+    .get<PostPaginated>(url.href, { headers: { token: getAuthToken() } })
     .then((res) => res.data)
     .then((data) => {
       const postQueryData = structuredClone(data);
@@ -125,7 +134,7 @@ export const getRelatedPosts = (postId: string, limit: number) => {
   };
 
   return axios
-    .get<ResponseType>(url.href, { withCredentials: true })
+    .get<ResponseType>(url.href, { headers: { token: getAuthToken() } })
     .then((res) => res.data)
     .then((data) => data.relatedPosts);
 };
@@ -140,7 +149,7 @@ export const getUserPostPaginated = (
   url.searchParams.set('limit', limit.toString());
 
   return axios
-    .get<PostPaginated>(url.href, { withCredentials: true })
+    .get<PostPaginated>(url.href, { headers: { token: getAuthToken() } })
     .then((res) => res.data)
     .then((data) => {
       const postQueryData = structuredClone(data);
@@ -155,7 +164,7 @@ export const deletePost = (postId: string) => {
   const url = `${BASE_API_URL}/posts/${postId}`;
 
   return axios
-    .delete<{ message: string }>(url, { withCredentials: true })
+    .delete<{ message: string }>(url, { headers: { token: getAuthToken() } })
     .then((response) => response.data);
 };
 
@@ -165,13 +174,13 @@ export const toggleBookmark = (postId: string, isBookmarked: boolean) => {
   // Remove the bookmark if already bookmarked
   if (isBookmarked) {
     return axios
-      .delete<{ message: string }>(url, { withCredentials: true })
+      .delete<{ message: string }>(url, { headers: { token: getAuthToken() } })
       .then((response) => response.data);
   }
 
   // If not bookmarked then bookmark the post
   return axios
-    .post<{ message: string }>(url, {}, { withCredentials: true })
+    .post<{ message: string }>(url, {}, { headers: { token: getAuthToken() } })
     .then((response) => response.data);
 };
 
@@ -205,7 +214,7 @@ export const editPost = (
   type EditPostResponse = { message: string };
 
   return axios
-    .put<EditPostResponse>(url, body, { withCredentials: true })
+    .put<EditPostResponse>(url, body, { headers: { token: getAuthToken() } })
     .then((response) => response.data);
 };
 
@@ -213,7 +222,7 @@ export const upVotePost = (postId: string) => {
   const url = `${BASE_API_URL}/posts/upvote/${postId}`;
 
   return axios
-    .post<{ message: string }>(url, {}, { withCredentials: true })
+    .post<{ message: string }>(url, {}, { headers: { token: getAuthToken() } })
     .then((response) => response.data);
 };
 
@@ -221,6 +230,6 @@ export const downVotePost = (postId: string) => {
   const url = `${BASE_API_URL}/posts/downvote/${postId}`;
 
   return axios
-    .post<{ message: string }>(url, {}, { withCredentials: true })
+    .post<{ message: string }>(url, {}, { headers: { token: getAuthToken() } })
     .then((response) => response.data);
 };

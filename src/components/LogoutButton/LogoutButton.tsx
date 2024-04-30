@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { userAction } from '../../redux/user/userState';
 import { logoutUser } from '../../services/user.services';
+import { resetLocalStorageData } from '../../utils/localStorage';
 
 type Props = {
   className: string;
@@ -22,6 +23,8 @@ function LogoutButton({ className, children, onClickCallback }: Props) {
       toast.error('Internal Server Error');
     },
     onSuccess: () => {
+      resetLocalStorageData('token');
+
       queryClient.refetchQueries(['user-status']);
       dispatch(userAction.logout());
       onClickCallback();

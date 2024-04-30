@@ -1,7 +1,7 @@
 import { useQueryClient } from '@tanstack/react-query';
 import { useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { setUserToken } from '../../services/user.services';
+import { setLocalStorage } from '../../utils/localStorage';
 import Loading from '../Loading/Loading';
 
 function GoogleTokenSetter() {
@@ -14,7 +14,8 @@ function GoogleTokenSetter() {
     if (!token) return;
 
     const handleGoogleTokenSetter = async () => {
-      await setUserToken(token);
+      setLocalStorage('token', token);
+
       queryClient.refetchQueries(['user-status']);
       navigate('/');
     };

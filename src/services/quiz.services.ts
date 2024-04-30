@@ -1,11 +1,15 @@
 import axios from 'axios';
 import { QuizFormData, QuizGetData, QuizSubmitData } from '../types/quiz.types';
+import getAuthToken from '../utils/getAuthToken';
 import { BASE_API_URL } from './serverConfig';
 
 export const createQuizQuestion = (data: QuizFormData) => {
   const url = `${BASE_API_URL}/quiz`;
+  const options = {
+    headers: { token: getAuthToken() },
+  };
   return axios
-    .post<{ message: string }>(url, data, { withCredentials: true })
+    .post<{ message: string }>(url, data, options)
     .then((response) => response.data);
 };
 
@@ -16,7 +20,8 @@ export const getQuizQuestions = async (topic: string, count: number) => {
       topic,
       count,
     },
-    withCredentials: true,
+
+    headers: { token: getAuthToken() },
   };
   return axios
     .get<{ message: string; data: QuizGetData[] }>(url, options)
@@ -42,8 +47,12 @@ export const getQuizQuestions = async (topic: string, count: number) => {
 
 export const submitQuizResult = (data: QuizSubmitData) => {
   const url = `${BASE_API_URL}/quiz/submit`;
+  const options = {
+    headers: { token: getAuthToken() },
+  };
+
   return axios
-    .post<{ message: string }>(url, data, { withCredentials: true })
+    .post<{ message: string }>(url, data, options)
     .then((response) => response.data);
 };
 

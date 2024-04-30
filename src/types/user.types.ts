@@ -12,6 +12,8 @@ export type User = {
   linkedin: string | null;
 };
 
+export type UserToken = string;
+
 export type UserStateData = {
   userId: string;
   username: string;

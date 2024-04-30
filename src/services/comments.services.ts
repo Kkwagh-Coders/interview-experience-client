@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { BASE_API_URL } from './serverConfig';
 import { CommentList, ReplyList } from '../types/comment.types';
+import getAuthToken from '../utils/getAuthToken';
 
 export const getCommentsPaginated = (
   postId: string,
@@ -19,7 +20,7 @@ export const getCommentsPaginated = (
   };
 
   return axios
-    .get<PostPaginated>(url.href, { withCredentials: true })
+    .get<PostPaginated>(url.href, { headers: { token: getAuthToken() } })
     .then((res) => res.data);
 };
 
@@ -30,7 +31,7 @@ export const createComment = (postId: string, content: string) => {
   type CreateComment = { message: string; commentId: string };
 
   return axios
-    .post<CreateComment>(url, body, { withCredentials: true })
+    .post<CreateComment>(url, body, { headers: { token: getAuthToken() } })
     .then((response) => response.data);
 };
 
@@ -45,7 +46,7 @@ export const createReplyComment = (
   type CreateComment = { message: string; commentId: string };
 
   return axios
-    .post<CreateComment>(url, body, { withCredentials: true })
+    .post<CreateComment>(url, body, { headers: { token: getAuthToken() } })
     .then((response) => response.data);
 };
 
@@ -69,7 +70,7 @@ export const getCommentRepliesPaginated = (
   };
 
   return axios
-    .get<PostPaginated>(url.href, { withCredentials: true })
+    .get<PostPaginated>(url.href, { headers: { token: getAuthToken() } })
     .then((res) => res.data);
 };
 
@@ -77,7 +78,7 @@ export const deleteComment = (postId: string, commentId: string) => {
   const url = `${BASE_API_URL}/comments/${postId}/${commentId}`;
 
   return axios
-    .delete<{ message: string }>(url, { withCredentials: true })
+    .delete<{ message: string }>(url, { headers: { token: getAuthToken() } })
     .then((response) => response.data);
 };
 
@@ -89,6 +90,6 @@ export const deleteCommentReply = (
   const url = `${BASE_API_URL}/comments/replies/${postId}/${commentId}/${relpyId}`;
 
   return axios
-    .delete<{ message: string }>(url, { withCredentials: true })
+    .delete<{ message: string }>(url, { headers: { token: getAuthToken() } })
     .then((response) => response.data);
 };

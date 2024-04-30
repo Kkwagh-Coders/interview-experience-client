@@ -5,40 +5,54 @@ import {
   UserReduxState,
   UserUpdate,
 } from '../types/user.types';
+import getAuthToken from '../utils/getAuthToken';
 import { BASE_API_URL } from './serverConfig';
 
 export const getUserStatus = () => {
   const url = `${BASE_API_URL}/user/status`;
   return axios
-    .get<UserReduxState>(url, { withCredentials: true })
+    .get<UserReduxState>(url, { headers: { token: getAuthToken() } })
     .then((response) => response.data);
 };
 
 export const registerUser = (user: User) => {
   const url = `${BASE_API_URL}/user/register`;
+  const options = {
+    headers: { token: getAuthToken() },
+  };
+
   return axios
-    .post<{ message: string }>(url, user, { withCredentials: true })
+    .post<{ message: string }>(url, user, options)
     .then((response) => response.data);
 };
 
 export const loginUser = (email: string, password: string) => {
   const url = `${BASE_API_URL}/user/login`;
   const user = { email, password };
+
+  type LoginResponse = { message: string; token: string };
   return axios
-    .post<{ message: string }>(url, user, { withCredentials: true })
+    .post<LoginResponse>(url, user, { headers: { token: getAuthToken() } })
     .then((response) => response.data);
 };
 
 export const logoutUser = () => {
   const url = `${BASE_API_URL}/user/logout`;
-  return axios.post<{ message: string }>(url, {}, { withCredentials: true });
+  return axios.post<{ message: string }>(
+    url,
+    {},
+    { headers: { token: getAuthToken() } },
+  );
 };
 
 export const sendForgotPasswordMail = (email: string) => {
   const url = `${BASE_API_URL}/user/forgot-password`;
   const body = { email };
+  const options = {
+    headers: { token: getAuthToken() },
+  };
   return axios
-    .post<{ message: string }>(url, body, { withCredentials: true })
+    .post<{ message: string }>(url, body, options)
     .then((response) => response.data);
 };
 
@@ -58,14 +72,14 @@ export const getUserProfileStats = (userId: string | undefined) => {
   const url = `${BASE_API_URL}/user/profile/${userId}`;
   type ResponseType = { message: string; data: [ProfileStats] };
   return axios
-    .get<ResponseType>(url, { withCredentials: true })
+    .get<ResponseType>(url, { headers: { token: getAuthToken() } })
     .then((response) => response.data.data[0]);
 };
 
 export const updateUser = (user: UserUpdate) => {
   const url = `${BASE_API_URL}/user/profile`;
   return axios
-    .put<{ message: string }>(url, user, { withCredentials: true })
+    .put<{ message: string }>(url, user, { headers: { token: getAuthToken() } })
     .then((response) => response.data);
 };
 
@@ -92,13 +106,6 @@ export const searchUser = (
     page: { previousPage: number; nextPage: number };
   };
   return axios
-    .get<ResponseType>(url.href, { withCredentials: true, signal })
+    .get<ResponseType>(url.href, { headers: { token: getAuthToken() }, signal })
     .then((res) => res.data);
-};
-
-export const setUserToken = (token: string) => {
-  const url = `${BASE_API_URL}/user/token/google/${token}`;
-  return axios
-    .post<{ message: string }>(url, {}, { withCredentials: true })
-    .then((response) => response.data);
 };
