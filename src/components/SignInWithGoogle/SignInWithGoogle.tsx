@@ -1,9 +1,15 @@
 import { BASE_API_URL } from '../../services/serverConfig';
+import { setLocalStorage } from '../../utils/localStorage';
 import styles from './SignInWithGoogle.module.css';
 
-function SignInWithGoogle() {
+type Props = {
+  redirectURLOnLogin: string;
+};
+
+function SignInWithGoogle({ redirectURLOnLogin }: Props) {
   // This handles the control of google auth to backend
   const handleGoogleSignIn = () => {
+    setLocalStorage('google-login-redirect', redirectURLOnLogin);
     const googleAuthUrl = `${BASE_API_URL}/user/auth/google/callback`;
     window.open(googleAuthUrl, '_self');
   };

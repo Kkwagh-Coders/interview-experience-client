@@ -176,7 +176,9 @@ function Login() {
             <div className={styles.orLabel}>OR</div>
 
             <div>
-              <SignInWithGoogle />
+              <SignInWithGoogle
+                redirectURLOnLogin={searchParams.get('redirect') || '/'}
+              />
             </div>
 
             <div className={styles.loginSignUp}>

@@ -127,7 +127,7 @@ function UserRegister() {
       <div className={styles.UserRegister}>
         <div className={styles.container}>
           <header className={styles.title}>Registration Form</header>
-          <SignInWithGoogle />
+          <SignInWithGoogle redirectURLOnLogin="/" />
           <div className={styles.orLabel}>OR</div>
           <form onSubmit={formik.handleSubmit} className={styles.form}>
             <div

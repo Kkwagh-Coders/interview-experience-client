@@ -1,7 +1,7 @@
 import { useQueryClient } from '@tanstack/react-query';
 import { useEffect } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
-import { setLocalStorage } from '../../utils/localStorage';
+import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
+import { getLocalStorageData, setLocalStorage } from '../../utils/localStorage';
 import Loading from '../Loading/Loading';
 
 function GoogleTokenSetter() {
@@ -9,6 +9,7 @@ function GoogleTokenSetter() {
 
   const navigate = useNavigate();
   const queryClient = useQueryClient();
+  const [searchParams] = useSearchParams();
 
   useEffect(() => {
     if (!token) return;
@@ -17,11 +18,14 @@ function GoogleTokenSetter() {
       setLocalStorage('token', token);
 
       queryClient.refetchQueries(['user-status']);
-      navigate('/');
+
+      // Reading google login redirect url and clearing it from local storage
+      const redirectUrl = getLocalStorageData<string>('google-login-redirect');
+      navigate(redirectUrl || '/');
     };
 
     handleGoogleTokenSetter();
-  }, [token, navigate, queryClient]);
+  }, [token, navigate, queryClient, searchParams]);
 
   return <Loading />;
 }
