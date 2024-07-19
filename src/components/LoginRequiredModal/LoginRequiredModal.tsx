@@ -3,10 +3,11 @@ import { Link } from 'react-router-dom';
 import styles from './LoginRequiredModal.module.css';
 
 interface Props {
+  redirecUrl: string;
   closeModalCallback: () => void;
 }
 
-function LoginRequiredModal({ closeModalCallback }: Props) {
+function LoginRequiredModal({ redirecUrl, closeModalCallback }: Props) {
   const backdropRef = useRef(null);
 
   const handleModalClick = (
@@ -43,7 +44,10 @@ function LoginRequiredModal({ closeModalCallback }: Props) {
             value="Close"
           />
 
-          <Link to="/login" className={styles.loginButton}>
+          <Link
+            to={`/login?redirect=${redirecUrl}`}
+            className={styles.loginButton}
+          >
             Login
           </Link>
         </div>

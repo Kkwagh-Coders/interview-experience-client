@@ -1,10 +1,11 @@
-import { Link, Outlet } from 'react-router-dom';
+import { Link, Outlet, useLocation } from 'react-router-dom';
 import { useAppSelector } from '../../redux/store';
 import styles from './AuthRouteLayout.module.css';
 
 // The component is used to check if the user is logged in or not
 function AuthRouteLayout() {
   const isLoggedIn = useAppSelector((state) => state.userState.isLoggedIn);
+  const location = useLocation();
 
   if (isLoggedIn) return <Outlet />;
 
@@ -19,7 +20,10 @@ function AuthRouteLayout() {
             website!
           </p>
 
-          <Link to="/login" className={styles.loginButton}>
+          <Link
+            to={`/login?redirect=${location.pathname}`}
+            className={styles.loginButton}
+          >
             Login
           </Link>
         </div>

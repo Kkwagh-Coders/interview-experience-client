@@ -33,7 +33,7 @@ function LoginRequiredLink({ textContent, to, className }: Props) {
   return (
     <>
       {isModalOpen ? (
-        <LoginRequiredModal closeModalCallback={closeModal} />
+        <LoginRequiredModal redirecUrl={to} closeModalCallback={closeModal} />
       ) : null}
 
       <Link to={to} className={className} onClick={handleNonLoggedInUserClick}>

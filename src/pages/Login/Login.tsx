@@ -5,7 +5,7 @@ import { Helmet } from 'react-helmet';
 import { toast } from 'react-hot-toast';
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
 import { BiEnvelope, BiLockAlt } from 'react-icons/bi';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import * as Yup from 'yup';
 import loginPageImage from '../../assets/images/pages/login.png';
 import ForgetPasswordModal from '../../components/ForgetPasswordModal/ForgetPasswordModal';
@@ -31,6 +31,7 @@ interface IUserLoginForm {
 function Login() {
   const queryClient = useQueryClient();
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
 
   const [showPassword, setShowPassword] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
@@ -48,7 +49,7 @@ function Login() {
     onSuccess: (data) => {
       setLocalStorage('token', data.token);
       queryClient.refetchQueries(['user-status']);
-      navigate('/');
+      navigate(searchParams.get('redirect') || '/');
     },
   });
 
