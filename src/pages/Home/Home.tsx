@@ -1,7 +1,5 @@
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
-import { Navigation, Pagination } from 'swiper';
-import { Swiper, SwiperSlide } from 'swiper/react';
 import authenticIcon from '../../assets/images/home/facilities/authentic.png';
 import communityIcon from '../../assets/images/home/facilities/community.png';
 import doubtIcon from '../../assets/images/home/facilities/doubt.png';
@@ -28,6 +26,7 @@ import LoginRequiredLink from '../../components/LoginRequiredLink/LoginRequiredL
 import TopPosts from '../../components/TopPosts/TopPosts';
 import styles from './Home.module.css';
 import './slider.css';
+import Attributions from '../../components/Attributions/Attributions';
 
 function Home() {
   return (
@@ -260,44 +259,7 @@ function Home() {
         {/* Used to show the button for github */}
         <GithubSection />
 
-        <section className={styles.attribution}>
-          <div className="container">
-            <div>
-              <h2>
-                <span className={styles.underlineSpan}>User Reviews</span>
-              </h2>
-              <div className={`attributionSlides ${styles.attributionSlides}`}>
-                <Swiper
-                  slidesPerView={1}
-                  spaceBetween={30}
-                  pagination={{
-                    clickable: true,
-                  }}
-                  navigation
-                  modules={[Pagination, Navigation]}
-                  className="mySwiper"
-                >
-                  <SwiperSlide>
-                    <div className={styles.attributionSlide}>
-                      <p className={styles.attributionText}>
-                        In the future, this website may be useful to future
-                        engineers from KKWagh to prepare for their interviews as
-                        well as to familiarize themselves with companies and
-                        their processes.
-                      </p>
-                      <div className={styles.attributerDetail}>
-                        <p className={styles.attributerName}>Beta Tester</p>
-                        <p className={styles.attributerDesignation}>
-                          Computer Student
-                        </p>
-                      </div>
-                    </div>
-                  </SwiperSlide>
-                </Swiper>
-              </div>
-            </div>
-          </div>
-        </section>
+        <Attributions />
 
         <section className={styles.footer}>
           <div className="container">

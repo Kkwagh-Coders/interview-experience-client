@@ -281,61 +281,6 @@
   }
 }
 
-/* Attribution */
-.attribution {
-  background-color: rgb(var(--bg-light));
-}
-
-.attribution > div {
-  padding-inline: 0;
-}
-
-.attribution h2 {
-  text-align: center;
-  padding-top: 2rem;
-}
-
-.attributionSlide {
-  border-radius: 5px;
-  background-color: rgb(var(--bg-white));
-  margin: 3rem;
-  margin-top: 2rem;
-  padding: 2rem 1rem;
-}
-
-.attributionText {
-  margin-bottom: 1rem;
-}
-
-.attributionText,
-.attributerDetail {
-  text-align: left;
-}
-
-.attributerName {
-  font-size: 1.2rem;
-  font-weight: 500;
-}
-
-.attributerDesignation {
-  font-size: 1rem;
-  color: rgb(var(--text-color-light));
-}
-
-@media (min-width: 760px) {
-  .attributionSlide {
-    border-radius: 5px;
-    background-color: rgb(var(--bg-white));
-    margin: 3rem 5rem;
-    margin-top: 2rem;
-    padding: 2rem 1rem;
-  }
-
-  .attribution > div {
-    padding-inline: 2rem;
-  }
-}
-
 /* Footer */
 .footerContainer {
   padding-block: 2rem;
