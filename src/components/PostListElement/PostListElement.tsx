@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { PostCard } from '../../types/post.types';
+import generateSlug from '../../utils/generateSlug';
 import getFormattedDate from '../../utils/getFormattedDate';
 import DeleteButton from '../DeleteButton/DeleteButton';
 import LoginRequiredLink from '../LoginRequiredLink/LoginRequiredLink';
@@ -22,7 +23,7 @@ function PostListElement({ post }: Props) {
         <h3 className={styles.postTitle}>
           <LoginRequiredLink
             textContent={post.title}
-            to={`/post/${post._id}`}
+            to={`/post/${post._id}/${generateSlug(post.title)}`}
             className=""
           />
         </h3>
@@ -67,7 +68,7 @@ function PostListElement({ post }: Props) {
         <div className={styles.buttons}>
           <LoginRequiredLink
             textContent="Read"
-            to={`/post/${post._id}`}
+            to={`/post/${post._id}/${generateSlug(post.title)}`}
             className={styles.readButton}
           />
           <ShareButton

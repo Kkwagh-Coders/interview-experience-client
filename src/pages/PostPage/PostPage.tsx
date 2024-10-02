@@ -10,6 +10,7 @@ import RelatedPosts from '../../components/RelatedPosts/RelatedPosts';
 import ShareButton from '../../components/ShareButton/ShareButton';
 import { useAppSelector } from '../../redux/store';
 import { getPost } from '../../services/post.services';
+import generateSlug from '../../utils/generateSlug';
 import generateTextFromHTML from '../../utils/generateTextFromHTML';
 import styles from './PostPage.module.css';
 
@@ -81,7 +82,9 @@ function PostPage() {
         <meta property="og:image" content={postImage} />
         <meta
           property="og:url"
-          content={`${process.env.REACT_APP_BASE_CLIENT_URL}/post/${id}`}
+          content={`${
+            process.env.REACT_APP_BASE_CLIENT_URL
+          }/post/${id}/${generateSlug(postQuery.data.title)}`}
         />
         <meta property="og:type" content="article" />
       </Helmet>

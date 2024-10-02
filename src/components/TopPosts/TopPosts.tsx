@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import { Link } from 'react-router-dom';
 import { getMostViewedPosts } from '../../services/post.services';
+import generateSlug from '../../utils/generateSlug';
 import getFormattedDate from '../../utils/getFormattedDate';
 import LoginRequiredLink from '../LoginRequiredLink/LoginRequiredLink';
 import styles from './TopPosts.module.css';
@@ -23,7 +24,7 @@ function TopPosts() {
           <h3 className={styles.postTitle}>
             <LoginRequiredLink
               textContent={post.title}
-              to={`/post/${post._id}`}
+              to={`/post/${post._id}/${generateSlug(post.title)}`}
               className=""
             />
           </h3>

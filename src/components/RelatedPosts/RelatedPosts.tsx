@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import { Link } from 'react-router-dom';
 import { getRelatedPosts } from '../../services/post.services';
+import generateSlug from '../../utils/generateSlug';
 import styles from './RelatedPosts.module.css';
 
 type Props = {
@@ -22,7 +23,7 @@ function RelatedPosts({ postId }: Props) {
     <ul className={styles.RelatedPosts}>
       {relatedPostQuery.data?.map((relatedPost) => (
         <li key={relatedPost._id}>
-          <Link to={`/post/${relatedPost._id}`}>{relatedPost.title}</Link>
+          <Link to={`/post/${relatedPost._id}/${generateSlug(relatedPost.title)}`}>{relatedPost.title}</Link>
         </li>
       ))}
     </ul>

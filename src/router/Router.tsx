@@ -53,9 +53,10 @@ function Router() {
           <Route path="/quizzes" element={<QuizList />} />
           <Route element={<AuthRouteLayout />}>
             <Route path="/post" element={<PostForm />} />
-            <Route path="/post/:id" element={<PostPage />} />
             <Route path="/profile/edit" element={<ProfileEdit />} />
             <Route path="/post/edit/:id" element={<PostEdit />} />
+            <Route path="/post/:id" element={<PostPage />} />
+            <Route path="/post/:id/:slug" element={<PostPage />} />
             <Route path="/quiz/:topic" element={<Quiz />} />
           </Route>
         </Route>

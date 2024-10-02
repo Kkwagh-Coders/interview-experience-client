@@ -1,4 +1,5 @@
 import { toast } from 'react-hot-toast';
+import generateSlug from '../../utils/generateSlug';
 import styles from './ShareButton.module.css';
 
 type Props = {
@@ -9,7 +10,7 @@ type Props = {
 
 function ShareButton({ title, author, postId }: Props) {
   const handlePostShare = () => {
-    const url = `${process.env.REACT_APP_BASE_CLIENT_URL}/post/${postId}`;
+    const url = `${process.env.REACT_APP_BASE_CLIENT_URL}/post/${postId}/${generateSlug(title)}`;
 
     // Here we have to use @ts-ignore as typescript assumes that share is always available
     // but it may not be for some devices
