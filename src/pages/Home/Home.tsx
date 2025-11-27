@@ -4,14 +4,6 @@ import authenticIcon from '../../assets/images/home/facilities/authentic.png';
 import communityIcon from '../../assets/images/home/facilities/community.png';
 import doubtIcon from '../../assets/images/home/facilities/doubt.png';
 import insightIcon from '../../assets/images/home/facilities/insight.png';
-import aniketSmallImage from '../../assets/images/home/founders/aniket-small.jpg';
-import aniketImage from '../../assets/images/home/founders/aniket.jpg';
-import dhruvSmallImage from '../../assets/images/home/founders/dhruv-small.jpg';
-import dhruvImage from '../../assets/images/home/founders/dhruv.jpg';
-import suhaanSmallImage from '../../assets/images/home/founders/suhaan-small.jpg';
-import suhaanImage from '../../assets/images/home/founders/suhaan.jpg';
-import vinaySmallImage from '../../assets/images/home/founders/vinay-small.jpg';
-import vinayImage from '../../assets/images/home/founders/vinay.jpg';
 import homePageImage from '../../assets/images/pages/home-page.png';
 
 // Import Swiper styles
@@ -20,8 +12,6 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
 import CompaniesListInfiniteHorizontalScroll from '../../components/CompaniesListInfiniteHorizontalScroll/CompaniesListInfiniteHorizontalScroll';
-import GithubSection from '../../components/GithubSection/GithubSection';
-import Image from '../../components/Image/Image';
 import LoginRequiredLink from '../../components/LoginRequiredLink/LoginRequiredLink';
 import TopPosts from '../../components/TopPosts/TopPosts';
 import styles from './Home.module.css';
@@ -149,115 +139,6 @@ function Home() {
             <CompaniesListInfiniteHorizontalScroll />
           </div>
         </section>
-
-        <section className={styles.team}>
-          <div className="container">
-            <div className={styles.teamContainer}>
-              <h2>
-                <span className={styles.underlineSpan}>Our Team</span>
-              </h2>
-              <div className={styles.memberContainer}>
-                <div className={styles.member}>
-                  <Image
-                    imageSrc={suhaanImage}
-                    smallImageSrc={suhaanSmallImage}
-                    imageAlt="Suhaan Bhandary"
-                    containerClassName={styles.profileImage}
-                    imageClassName=""
-                  />
-                  <h3>
-                    <a
-                      href="https://www.linkedin.com/in/suhaan-bhandary/"
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      Suhaan Bhandary
-                    </a>
-                  </h3>
-                  <p>
-                    Skilled Full Stack Developer proficient in React, Node, and
-                    Django with expertise in DSA problem-solving, recognized as
-                    Knight on Leetcode with 700+ Problems and 60+ Contests.
-                  </p>
-                </div>
-                <div className={styles.member}>
-                  <Image
-                    imageSrc={dhruvImage}
-                    smallImageSrc={dhruvSmallImage}
-                    imageAlt="Dhruv Chavda"
-                    containerClassName={styles.profileImage}
-                    imageClassName=""
-                  />
-                  <h3>
-                    <a
-                      href="https://www.linkedin.com/in/dhruv-chavda-220778238/"
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      Dhruv Chavda
-                    </a>
-                  </h3>
-                  <p>
-                    All time learner and a skilled web developer having good
-                    hands on React and Node also having keen interest in problem
-                    solving with dsa
-                  </p>
-                </div>
-                <div className={styles.member}>
-                  <Image
-                    imageSrc={aniketImage}
-                    smallImageSrc={aniketSmallImage}
-                    imageAlt="Aniket Singh"
-                    containerClassName={styles.profileImage}
-                    imageClassName=""
-                  />
-                  <h3>
-                    <a
-                      href="https://www.linkedin.com/in/aniketsingh144/"
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      Aniket Singh
-                    </a>
-                  </h3>
-                  <p>
-                    Experienced with MERN Stack, showcased coding skills on
-                    Leetcode, Codechef, and Gfg. Past roles include Quality
-                    Assurance and Doubt Solver Internships at InterviewHelp.io
-                    and Codechef respectively
-                  </p>
-                </div>
-                <div className={styles.member}>
-                  <Image
-                    imageSrc={vinayImage}
-                    smallImageSrc={vinaySmallImage}
-                    imageAlt="Vinay Chopda"
-                    containerClassName={styles.profileImage}
-                    imageClassName=""
-                  />
-                  <h3>
-                    <a
-                      href="https://www.linkedin.com/in/vinay-chopda-31495a22a/"
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      Vinay Chopda
-                    </a>
-                  </h3>
-                  <p>
-                    MERN developer also well versed with ionic and react-native
-                    framework. Intern at SrchOut Software. 3⭐ on CodeChef, 200+
-                    Problems on Leetcode and always up for Problem Solving in
-                    DSA
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Used to show the button for github */}
-        <GithubSection />
 
         <Attributions />
 
